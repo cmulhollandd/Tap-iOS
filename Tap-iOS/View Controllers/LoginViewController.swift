@@ -12,12 +12,16 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - @IBOutlets
+    @IBOutlet var titleImage: UIImageView!
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleImage.image = titleImage.image?.withRenderingMode(.alwaysTemplate)
+        titleImage.tintColor = UIColor.systemBackground
     }
     
     // MARK: - @IBActions
