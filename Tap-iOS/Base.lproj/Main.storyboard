@@ -22,9 +22,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC2-5D-yny">
-                                        <rect key="frame" x="8" y="51" width="116" height="41"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="8.0000000000000071" y="55" width="112.66666666666669" height="37"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="13"/>
+            <point key="canvasLocation" x="1203.8167938931297" y="31.690140845070424"/>
         </scene>
         <!--Tap-->
         <scene sceneID="QiT-JS-8aM">
@@ -105,7 +105,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqk-H4-k0x">
-                                <rect key="frame" x="154.66666666666666" y="494" width="84" height="35"/>
+                                <rect key="frame" x="154.66666666666666" y="467" width="84" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Sign Up">
                                     <color key="baseForegroundColor" name="SecondaryTapBlue"/>
@@ -115,13 +115,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dont have an account yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQZ-lB-WBg">
-                                <rect key="frame" x="95.666666666666686" y="465" width="202" height="21"/>
+                                <rect key="frame" x="95.666666666666686" y="438" width="202" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="SecondaryTapBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-Hd-yD7">
-                                <rect key="frame" x="142.66666666666666" y="345" width="108" height="26"/>
+                                <rect key="frame" x="142.66666666666666" y="318" width="108" height="26"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="forgot password?">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
@@ -131,14 +131,8 @@
                                     <segue destination="JCz-ft-Ddo" kind="presentation" id="1RJ-jp-Xqf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I1-aq-B5h">
-                                <rect key="frame" x="148" y="121" width="97" height="77"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
-                                <color key="textColor" name="PrimaryTapBlue"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cZ-bx-fRb">
-                                <rect key="frame" x="163.66666666666666" y="379" width="66" height="35"/>
+                                <rect key="frame" x="163.66666666666666" y="352" width="66" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <color key="baseBackgroundColor" name="PrimaryTapBlue"/>
@@ -148,15 +142,22 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haY-ON-jh8">
-                                <rect key="frame" x="74.666666666666686" y="253" width="244" height="34"/>
+                                <rect key="frame" x="74.666666666666686" y="226" width="244" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjh-8Q-bfM">
-                                <rect key="frame" x="74.666666666666686" y="303" width="244" height="34"/>
+                                <rect key="frame" x="74.666666666666686" y="276" width="244" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TapTitleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XAe-3m-ovZ">
+                                <rect key="frame" x="90.666666666666686" y="77" width="212" height="119"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="SBm-6M-QLg"/>
+                                    <constraint firstAttribute="height" constant="119" id="V5q-7A-csz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0qp-UG-2PZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -164,20 +165,20 @@
                         <constraints>
                             <constraint firstItem="haY-ON-jh8" firstAttribute="width" secondItem="Igm-2G-uhW" secondAttribute="width" multiplier="0.620865" id="0l1-8H-vsz"/>
                             <constraint firstItem="2cZ-bx-fRb" firstAttribute="top" secondItem="q6M-Hd-yD7" secondAttribute="bottom" constant="8" symbolic="YES" id="9Fl-Bm-xgi"/>
-                            <constraint firstItem="9I1-aq-B5h" firstAttribute="centerX" secondItem="0qp-UG-2PZ" secondAttribute="centerX" id="JL4-5D-W9M"/>
                             <constraint firstItem="q6M-Hd-yD7" firstAttribute="top" secondItem="sjh-8Q-bfM" secondAttribute="bottom" constant="8" symbolic="YES" id="MAt-mL-xaR"/>
+                            <constraint firstItem="haY-ON-jh8" firstAttribute="top" secondItem="XAe-3m-ovZ" secondAttribute="bottom" constant="30" id="O73-ly-Dda"/>
                             <constraint firstItem="2cZ-bx-fRb" firstAttribute="centerX" secondItem="0qp-UG-2PZ" secondAttribute="centerX" id="Rfq-62-2yP"/>
                             <constraint firstItem="sjh-8Q-bfM" firstAttribute="top" secondItem="haY-ON-jh8" secondAttribute="bottom" constant="16" id="TPy-KE-dXj"/>
                             <constraint firstItem="qQZ-lB-WBg" firstAttribute="top" secondItem="2cZ-bx-fRb" secondAttribute="bottom" constant="51" id="XXi-Ti-n13"/>
                             <constraint firstItem="sjh-8Q-bfM" firstAttribute="centerX" secondItem="0qp-UG-2PZ" secondAttribute="centerX" id="aHr-qs-Hi0"/>
-                            <constraint firstItem="haY-ON-jh8" firstAttribute="top" secondItem="9I1-aq-B5h" secondAttribute="bottom" constant="55" id="acO-1O-ciS"/>
                             <constraint firstItem="oqk-H4-k0x" firstAttribute="top" secondItem="qQZ-lB-WBg" secondAttribute="bottom" constant="8" symbolic="YES" id="chY-HG-svf"/>
                             <constraint firstItem="q6M-Hd-yD7" firstAttribute="centerX" secondItem="0qp-UG-2PZ" secondAttribute="centerX" id="hMA-fr-eN3"/>
                             <constraint firstItem="qQZ-lB-WBg" firstAttribute="centerX" secondItem="0qp-UG-2PZ" secondAttribute="centerX" id="nyK-N2-fJ2"/>
+                            <constraint firstItem="XAe-3m-ovZ" firstAttribute="top" secondItem="0qp-UG-2PZ" secondAttribute="top" constant="18" id="oZp-3l-fav"/>
                             <constraint firstItem="oqk-H4-k0x" firstAttribute="centerX" secondItem="0qp-UG-2PZ" secondAttribute="centerX" id="vJ9-6S-KGb"/>
-                            <constraint firstItem="9I1-aq-B5h" firstAttribute="top" secondItem="0qp-UG-2PZ" secondAttribute="top" constant="62" id="vV5-zv-QNY"/>
                             <constraint firstItem="sjh-8Q-bfM" firstAttribute="width" secondItem="Igm-2G-uhW" secondAttribute="width" multiplier="0.620865" id="voI-Ce-oS6"/>
                             <constraint firstItem="haY-ON-jh8" firstAttribute="centerX" secondItem="0qp-UG-2PZ" secondAttribute="centerX" id="w74-h3-NrQ"/>
+                            <constraint firstItem="XAe-3m-ovZ" firstAttribute="centerX" secondItem="0qp-UG-2PZ" secondAttribute="centerX" id="zub-iK-eVH"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="dqE-t2-ivE" appends="YES" id="R0z-EB-78x"/>
@@ -191,7 +192,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="190" y="545"/>
+            <point key="canvasLocation" x="188.54961832061068" y="544.36619718309862"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="ddK-LP-wIl">
@@ -205,10 +206,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forgot Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J31-rl-zEy">
-                                        <rect key="frame" x="8" y="51" width="243" height="41"/>
+                                        <rect key="frame" x="8" y="51" width="243" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                        <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -309,16 +310,20 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TapTitleLogo" width="1024" height="1024"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <namedColor name="PrimaryTapBlue">
-            <color red="0.52156862745098043" green="0.72156862745098038" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryTapBlue">
-            <color red="0.15686274509803921" green="0.39215686274509803" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

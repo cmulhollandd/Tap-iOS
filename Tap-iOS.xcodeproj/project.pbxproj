@@ -18,6 +18,7 @@
 		088653A32B606FD000355D6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653A22B606FD000355D6D /* SignUpViewController.swift */; };
 		088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653A42B606FDA00355D6D /* LoginViewController.swift */; };
 		088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */; };
+		08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E02B631E5F0033ED63 /* LoginAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		088653A22B606FD000355D6D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		088653A42B606FDA00355D6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		08F779E02B631E5F0033ED63 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +108,11 @@
 				088653722B602D4800355D6D /* AppDelegate.swift */,
 				088653742B602D4800355D6D /* SceneDelegate.swift */,
 				088653782B602D4800355D6D /* Main.storyboard */,
+				08F779E02B631E5F0033ED63 /* LoginAPI.swift */,
 				0886537B2B602D4B00355D6D /* Assets.xcassets */,
 				0886537D2B602D4B00355D6D /* LaunchScreen.storyboard */,
 				088653802B602D4B00355D6D /* Info.plist */,
-				088653A22B606FD000355D6D /* SignUpViewController.swift */,
-				088653A42B606FDA00355D6D /* LoginViewController.swift */,
-				088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */,
+				08F779DF2B631E2F0033ED63 /* View Controllers */,
 			);
 			path = "Tap-iOS";
 			sourceTree = "<group>";
@@ -131,6 +132,16 @@
 				088653952B602D4B00355D6D /* Tap_iOSUITestsLaunchTests.swift */,
 			);
 			path = "Tap-iOSUITests";
+			sourceTree = "<group>";
+		};
+		08F779DF2B631E2F0033ED63 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				088653A22B606FD000355D6D /* SignUpViewController.swift */,
+				088653A42B606FDA00355D6D /* LoginViewController.swift */,
+				088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				088653A32B606FD000355D6D /* SignUpViewController.swift in Sources */,
 				088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */,
 				088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */,
+				08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
