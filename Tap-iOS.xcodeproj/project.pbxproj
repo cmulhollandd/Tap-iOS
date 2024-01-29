@@ -19,6 +19,11 @@
 		088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653A42B606FDA00355D6D /* LoginViewController.swift */; };
 		088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */; };
 		08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E02B631E5F0033ED63 /* LoginAPI.swift */; };
+		08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E22B6838970033ED63 /* FeedTableViewCell.swift */; };
+		08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E42B6839740033ED63 /* TapFeedPost.swift */; };
+		08F779E72B6839CA0033ED63 /* TapUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E62B6839CA0033ED63 /* TapUser.swift */; };
+		08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */; };
+		08F779EB2B6844BF0033ED63 /* TapFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EA2B6844BF0033ED63 /* TapFeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		088653A42B606FDA00355D6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		08F779E02B631E5F0033ED63 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		08F779E22B6838970033ED63 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		08F779E42B6839740033ED63 /* TapFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapFeedPost.swift; sourceTree = "<group>"; };
+		08F779E62B6839CA0033ED63 /* TapUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapUser.swift; sourceTree = "<group>"; };
+		08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCellWithImage.swift; sourceTree = "<group>"; };
+		08F779EA2B6844BF0033ED63 /* TapFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapFeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,8 @@
 				088653742B602D4800355D6D /* SceneDelegate.swift */,
 				088653782B602D4800355D6D /* Main.storyboard */,
 				08F779E02B631E5F0033ED63 /* LoginAPI.swift */,
+				08F779E42B6839740033ED63 /* TapFeedPost.swift */,
+				08F779E62B6839CA0033ED63 /* TapUser.swift */,
 				0886537B2B602D4B00355D6D /* Assets.xcassets */,
 				0886537D2B602D4B00355D6D /* LaunchScreen.storyboard */,
 				088653802B602D4B00355D6D /* Info.plist */,
@@ -140,6 +152,9 @@
 				088653A22B606FD000355D6D /* SignUpViewController.swift */,
 				088653A42B606FDA00355D6D /* LoginViewController.swift */,
 				088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */,
+				08F779E22B6838970033ED63 /* FeedTableViewCell.swift */,
+				08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */,
+				08F779EA2B6844BF0033ED63 /* TapFeedViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -275,12 +290,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08F779E72B6839CA0033ED63 /* TapUser.swift in Sources */,
 				088653732B602D4800355D6D /* AppDelegate.swift in Sources */,
+				08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */,
 				088653A32B606FD000355D6D /* SignUpViewController.swift in Sources */,
+				08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */,
+				08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */,
 				088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */,
 				088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
+				08F779EB2B6844BF0033ED63 /* TapFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

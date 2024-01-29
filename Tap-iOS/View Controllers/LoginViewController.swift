@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         titleImage.image = titleImage.image?.withRenderingMode(.alwaysTemplate)
-        titleImage.tintColor = UIColor.systemBackground
+        titleImage.tintColor = UIColor(named: "PrimaryTapBlue")
     }
     
     // MARK: - @IBActions

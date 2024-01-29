@@ -24,11 +24,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC2-5D-yny">
                                         <rect key="frame" x="8.0000000000000071" y="55" width="112.66666666666669" height="37"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="PrimaryTapBlue"/>
+                                <color key="backgroundColor" name="TapBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Dzf-ff-eEY"/>
                                     <constraint firstAttribute="bottom" secondItem="CC2-5D-yny" secondAttribute="bottom" constant="8" id="Qyt-MW-aqA"/>
@@ -57,15 +57,127 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="OkI-fe-e91">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="PrimaryTapBlue"/>
+                        <color key="backgroundColor" name="TapBackground"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SiL-ow-50H">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FeedTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="SiL-ow-50H" customClass="FeedTableViewCell" customModule="Tap_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SiL-ow-50H" id="ftw-Ip-htc">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="76"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fu7-hs-reh">
+                                            <rect key="frame" x="13" y="5" width="48" height="46.666666666666671"/>
+                                            <color key="tintColor" name="PrimaryTapBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="h5Y-6F-3ds"/>
+                                                <constraint firstAttribute="width" secondItem="fu7-hs-reh" secondAttribute="height" multiplier="1:1" id="uzF-Hx-sJO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cmulholland44" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlI-Xh-vvq">
+                                            <rect key="frame" x="69" y="4" width="114" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="PrimaryTapBlue"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 minutes ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sn3-pA-Hnj">
+                                            <rect key="frame" x="287" y="7" width="86" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" name="PrimaryTapBlue"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filled Their Bucket!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dL4-er-SB0">
+                                            <rect key="frame" x="69" y="33" width="304" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" name="TapBackground"/>
+                                    <constraints>
+                                        <constraint firstItem="sn3-pA-Hnj" firstAttribute="top" secondItem="ftw-Ip-htc" secondAttribute="top" constant="7" id="63V-XI-7Jc"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fu7-hs-reh" secondAttribute="bottom" priority="900" constant="4" id="6Ci-d9-cBY"/>
+                                        <constraint firstAttribute="trailing" secondItem="dL4-er-SB0" secondAttribute="trailing" constant="20" symbolic="YES" id="CrH-jl-f7z"/>
+                                        <constraint firstItem="AlI-Xh-vvq" firstAttribute="top" secondItem="ftw-Ip-htc" secondAttribute="top" constant="4" id="EKm-YO-Exd"/>
+                                        <constraint firstItem="dL4-er-SB0" firstAttribute="top" secondItem="AlI-Xh-vvq" secondAttribute="bottom" constant="8" symbolic="YES" id="HyO-qp-Jiu"/>
+                                        <constraint firstItem="AlI-Xh-vvq" firstAttribute="leading" secondItem="fu7-hs-reh" secondAttribute="trailing" constant="8" symbolic="YES" id="UeL-fr-dkl"/>
+                                        <constraint firstItem="dL4-er-SB0" firstAttribute="leading" secondItem="fu7-hs-reh" secondAttribute="trailing" constant="8" symbolic="YES" id="ZsH-qr-0Lt"/>
+                                        <constraint firstItem="fu7-hs-reh" firstAttribute="top" secondItem="ftw-Ip-htc" secondAttribute="top" constant="4" id="cxy-Fb-s9h"/>
+                                        <constraint firstAttribute="trailing" secondItem="sn3-pA-Hnj" secondAttribute="trailing" constant="20" symbolic="YES" id="djH-PL-fEW"/>
+                                        <constraint firstItem="fu7-hs-reh" firstAttribute="leading" secondItem="ftw-Ip-htc" secondAttribute="leading" constant="13" id="mS1-JK-svj"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="dL4-er-SB0" id="avv-0l-0K4"/>
+                                    <outlet property="profileImageView" destination="fu7-hs-reh" id="NEN-lu-aQL"/>
+                                    <outlet property="timeSincePostLabel" destination="sn3-pA-Hnj" id="8dy-oC-G0Q"/>
+                                    <outlet property="usernameLabel" destination="AlI-Xh-vvq" id="wAM-VW-g38"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FeedTableViewCellWithImage" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="246" id="qQV-MR-SHE" customClass="FeedTableViewCellWithImage" customModule="Tap_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="126" width="393" height="246"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qQV-MR-SHE" id="Z5r-vS-2C1">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="246"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D9m-8c-ELv">
+                                            <rect key="frame" x="13" y="5" width="48" height="46.666666666666671"/>
+                                            <color key="tintColor" name="PrimaryTapBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="D9m-8c-ELv" secondAttribute="height" multiplier="1:1" id="H4q-Pd-dhR"/>
+                                                <constraint firstAttribute="height" constant="48" id="hS3-67-sKa"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kcarson46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ceq-4M-Jx1">
+                                            <rect key="frame" x="69" y="4" width="81" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="PrimaryTapBlue"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 minutes ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-6C-yQI">
+                                            <rect key="frame" x="287" y="7" width="86" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look at all that water!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ta1-df-44a">
+                                            <rect key="frame" x="69" y="33" width="304" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kCb-wl-EVC">
+                                            <rect key="frame" x="69" y="68.333333333333314" width="304" height="156"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="156" id="zqV-ip-5wp"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="TapBackground"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="kCb-wl-EVC" secondAttribute="bottom" constant="21.666666666666686" id="8wB-nW-I4s"/>
+                                        <constraint firstItem="kCb-wl-EVC" firstAttribute="top" secondItem="Ta1-df-44a" secondAttribute="bottom" constant="15" id="AT1-K7-YQ7"/>
+                                        <constraint firstItem="Ceq-4M-Jx1" firstAttribute="leading" secondItem="D9m-8c-ELv" secondAttribute="trailing" constant="8" symbolic="YES" id="At0-0Q-6kU"/>
+                                        <constraint firstAttribute="trailing" secondItem="m3D-6C-yQI" secondAttribute="trailing" constant="20" symbolic="YES" id="Bch-zF-Q23"/>
+                                        <constraint firstItem="Ta1-df-44a" firstAttribute="top" secondItem="Ceq-4M-Jx1" secondAttribute="bottom" constant="8" symbolic="YES" id="Cml-OS-dKh"/>
+                                        <constraint firstItem="kCb-wl-EVC" firstAttribute="leading" secondItem="Z5r-vS-2C1" secondAttribute="leading" constant="69" id="Cts-1G-BXA"/>
+                                        <constraint firstItem="D9m-8c-ELv" firstAttribute="top" secondItem="Z5r-vS-2C1" secondAttribute="top" constant="4" id="FJY-dF-1aR"/>
+                                        <constraint firstAttribute="trailing" secondItem="kCb-wl-EVC" secondAttribute="trailing" constant="20" symbolic="YES" id="QWf-HV-gv7"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ta1-df-44a" secondAttribute="trailing" constant="20" symbolic="YES" id="eO8-Uc-WSb"/>
+                                        <constraint firstItem="m3D-6C-yQI" firstAttribute="top" secondItem="Z5r-vS-2C1" secondAttribute="top" constant="7" id="eV7-da-IGo"/>
+                                        <constraint firstItem="Ta1-df-44a" firstAttribute="leading" secondItem="D9m-8c-ELv" secondAttribute="trailing" constant="8" symbolic="YES" id="t2U-qN-MAb"/>
+                                        <constraint firstItem="D9m-8c-ELv" firstAttribute="leading" secondItem="Z5r-vS-2C1" secondAttribute="leading" constant="13" id="xfc-vJ-Arr"/>
+                                        <constraint firstItem="Ceq-4M-Jx1" firstAttribute="top" secondItem="Z5r-vS-2C1" secondAttribute="top" constant="4" id="yoH-NB-q3N"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentImageView" destination="kCb-wl-EVC" id="5s0-1B-5mx"/>
+                                    <outlet property="contentLabel" destination="Ta1-df-44a" id="1s5-pz-3fK"/>
+                                    <outlet property="profileImageView" destination="D9m-8c-ELv" id="lil-a3-55i"/>
+                                    <outlet property="timeSincePostLabel" destination="m3D-6C-yQI" id="2Gp-uI-9mt"/>
+                                    <outlet property="usernameLabel" destination="Ceq-4M-Jx1" id="Yl4-wa-EZl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -77,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVG-3L-yAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2886" y="32"/>
+            <point key="canvasLocation" x="2884.7328244274809" y="31.690140845070424"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sgz-5S-MRO">
@@ -87,12 +199,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="tMN-6V-97Z">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="PrimaryTapBlue"/>
+                        <color key="backgroundColor" name="TapBackground"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -113,9 +225,11 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqk-H4-k0x">
                                 <rect key="frame" x="154.66666666666666" y="460" width="84" height="35"/>
+                                <color key="backgroundColor" name="PrimaryTapBlue"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Sign Up">
-                                    <color key="baseForegroundColor" name="SecondaryTapBlue"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign Up">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" name="PrimaryTapBlue"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="jLe-5m-6Ws"/>
@@ -142,7 +256,7 @@
                                 <rect key="frame" x="163.66666666666666" y="345" width="66" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
-                                    <color key="baseBackgroundColor" name="SecondaryTapBlue"/>
+                                    <color key="baseBackgroundColor" name="PrimaryTapBlue"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="GUU-fc-a3O" eventType="touchUpInside" id="YGc-CM-GLw"/>
@@ -150,13 +264,13 @@
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haY-ON-jh8">
                                 <rect key="frame" x="74.666666666666686" y="219" width="244" height="34"/>
-                                <color key="tintColor" name="PrimaryTapBlue"/>
+                                <color key="backgroundColor" name="TapBackground"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjh-8Q-bfM">
                                 <rect key="frame" x="74.666666666666686" y="269" width="244" height="34"/>
-                                <color key="tintColor" name="PrimaryTapBlue"/>
+                                <color key="backgroundColor" name="TapBackground"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -170,7 +284,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0qp-UG-2PZ"/>
-                        <color key="backgroundColor" name="PrimaryTapBlue"/>
+                        <color key="backgroundColor" name="TapBackground"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="haY-ON-jh8" firstAttribute="width" secondItem="Igm-2G-uhW" secondAttribute="width" multiplier="0.620865" id="0l1-8H-vsz"/>
@@ -224,11 +338,11 @@
                                         <rect key="frame" x="8" y="51" width="243" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                        <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="PrimaryTapBlue"/>
+                                <color key="backgroundColor" name="TapBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="MBL-J9-fzB"/>
                                 </constraints>
@@ -310,9 +424,12 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9mD-Y4-Qwf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="PrimaryTapBlue"/>
-                        <color key="tintColor" name="SecondaryTapBlue"/>
-                        <color key="selectedImageTintColor" name="SecondaryTapBlue"/>
+                        <color key="backgroundColor" name="TapBackground"/>
+                        <color key="tintColor" name="PrimaryTapBlue"/>
+                        <color key="selectedImageTintColor" name="PrimaryTapBlue"/>
+                        <tabBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" name="TapBackground"/>
+                        </tabBarAppearance>
                     </tabBar>
                     <connections>
                         <segue destination="5OJ-Q2-W6P" kind="relationship" relationship="viewControllers" id="KsD-GL-wlt"/>
@@ -330,17 +447,18 @@
         <image name="TapTitleLogo" width="1024" height="1024"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <namedColor name="PrimaryTapBlue">
-            <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryTapBlue">
             <color red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="TapBackground">
+            <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
