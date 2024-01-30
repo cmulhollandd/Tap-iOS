@@ -19,21 +19,22 @@ struct LoginAPI {
     
     
     /*
-     Trys to login a user using the supplied username and password
+     Trys to login a user using the supplied username and password, requests an authentication token from the server
      */
     static func loginUser(username: String, password: String, completion: @escaping(String) -> Void) {
         
     }
     
     /*
-     Requests a password reset token from the server
+     Requests a password reset token from the server.
      */
     static func requestPasswordReset(username: String, completion: @escaping(String) -> Void) {
         
     }
     
     /*
-     Resets the password using the username and reset token
+     Resets the password using the username and reset token. If this is successful, we need to login again
+     to get a new auth token
      */
     static func resetPassword(username: String, resetToken: String, newPassword: String, completion: @escaping(String) -> Void) {
         

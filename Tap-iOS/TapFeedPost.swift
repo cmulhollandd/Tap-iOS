@@ -10,7 +10,8 @@ import CoreGraphics
 
 class TapFeedPost {
     
-    let postingUser: TapUser
+    let postingUserUsername: String
+    let postingUserProfileImage: CGImage?
     let hasImage: Bool
     let textContent: String
     let imageContent: CGImage?
@@ -18,15 +19,17 @@ class TapFeedPost {
     
     
     init() {
-        self.postingUser = TapUser()
+        self.postingUserUsername = ""
+        self.postingUserProfileImage = nil
         self.hasImage = false
         self.textContent = ""
         self.imageContent = nil
         self.postDate = Date()
     }
     
-    init(postingUser: TapUser, hasImage: Bool, textContent: String, imageContent: CGImage, postDate: Date) {
-        self.postingUser = postingUser
+    init(postingUserUsername: String, postingUserProfileImage: CGImage?, hasImage: Bool, textContent: String, imageContent: CGImage?, postDate: Date) {
+        self.postingUserUsername = postingUserUsername
+        self.postingUserProfileImage = postingUserProfileImage
         self.hasImage = hasImage
         self.textContent = textContent
         self.imageContent = imageContent

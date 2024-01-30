@@ -13,7 +13,7 @@ class TapUser {
     var lastName: String
     var username: String
     var email: String
-    var loginToken: String
+    var authToken: String
     
     
     init() {
@@ -21,7 +21,7 @@ class TapUser {
         self.lastName = ""
         self.username = ""
         self.email = ""
-        self.loginToken = ""
+        self.authToken = ""
     }
     
     init(first: String, last: String, username: String, email: String, loginToken: String) {
@@ -29,6 +29,6 @@ class TapUser {
         self.lastName = last
         self.username = username
         self.email = email
-        self.loginToken = loginToken
+        self.authToken = loginToken
     }
 }

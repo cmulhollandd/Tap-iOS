@@ -9,8 +9,10 @@ import Foundation
 import UIKit
 
 class FeedTableViewCell: UITableViewCell {
+    
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var timeSincePostLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
+    
 }
