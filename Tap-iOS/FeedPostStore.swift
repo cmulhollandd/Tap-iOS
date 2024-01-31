@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FeedPostStore: NSObject, UITableViewDataSource {
+class FeedPostStore: NSObject {
     
     var posts: [TapFeedPost]!
     var user: TapUser!
@@ -18,15 +18,24 @@ class FeedPostStore: NSObject, UITableViewDataSource {
         
         let post1 = TapFeedPost(postingUserUsername: "cmulholland", postingUserProfileImage: nil, hasImage: false, textContent: "Filled their bucket!", imageContent: nil, postDate: Date())
         
-        self.posts = [post1]
+        let post2 = TapFeedPost(postingUserUsername: "kcarson45", postingUserProfileImage: nil, hasImage: false, textContent: "Look at all that water!", imageContent: nil, postDate: Date())
+        
+        self.posts = [post1, post2]
     }
-    
+
+    /// Updates posts stored in this FeedPostStore
+    func refreshData() {
+        // Interact with API
+    }
+}
+
+
+extension FeedPostStore: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(posts.count)
         return posts.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("Creating post for index \(indexPath.row)")
@@ -67,11 +76,4 @@ class FeedPostStore: NSObject, UITableViewDataSource {
         }
     
     }
-    
-    
-    func refreshData() {
-        
-    }
-    
-        
 }

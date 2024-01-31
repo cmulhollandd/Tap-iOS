@@ -11,8 +11,10 @@ import UIKit
 
 class ResetPasswordViewController: UIViewController {
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private enum mode {
+        case requestingReset
+        case verifyingReset
+        case changingPassword
     }
+    
 }
