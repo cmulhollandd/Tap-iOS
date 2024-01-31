@@ -96,6 +96,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		087ECE372B6AB06400F27DB7 /* OnboardingVCs */ = {
+			isa = PBXGroup;
+			children = (
+				088653A22B606FD000355D6D /* SignUpViewController.swift */,
+				088653A42B606FDA00355D6D /* LoginViewController.swift */,
+				088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */,
+				081E681E2B699D3E00A66CCE /* ForgotPasswordViewController.swift */,
+			);
+			path = OnboardingVCs;
+			sourceTree = "<group>";
+		};
 		088653662B602D4800355D6D = {
 			isa = PBXGroup;
 			children = (
@@ -154,13 +165,10 @@
 		08F779DF2B631E2F0033ED63 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				088653A22B606FD000355D6D /* SignUpViewController.swift */,
-				088653A42B606FDA00355D6D /* LoginViewController.swift */,
-				088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */,
+				087ECE372B6AB06400F27DB7 /* OnboardingVCs */,
 				08F779E22B6838970033ED63 /* FeedTableViewCell.swift */,
 				08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */,
 				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
-				081E681E2B699D3E00A66CCE /* ForgotPasswordViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
