@@ -29,9 +29,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: - @IBActions
-    
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         
+    }
+    
+    @IBAction func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     /// Validates the supplied password matches all criteria

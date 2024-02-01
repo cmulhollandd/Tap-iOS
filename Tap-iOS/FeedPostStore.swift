@@ -13,14 +13,24 @@ class FeedPostStore: NSObject {
     var posts: [TapFeedPost]!
     var user: TapUser!
     
+    private var nf: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.maximumFractionDigits = 0
+        return nf
+    }()
+    
     override init() {
         super.init()
         
-        let post1 = TapFeedPost(postingUserUsername: "cmulholland", postingUserProfileImage: nil, hasImage: false, textContent: "Filled their bucket!", imageContent: nil, postDate: Date())
+        let post1 = TapFeedPost(postingUserUsername: "cmulholland14", postingUserProfileImage: nil, hasImage: false, textContent: "Filled their bucket for the day!", imageContent: nil, postDate: Date(timeInterval: 45, since: Date()))
         
-        let post2 = TapFeedPost(postingUserUsername: "kcarson45", postingUserProfileImage: nil, hasImage: false, textContent: "Look at all that water!", imageContent: nil, postDate: Date())
+        let post2 = TapFeedPost(postingUserUsername: "kcarson45", postingUserProfileImage: nil, hasImage: false, textContent: "Look at all that water!", imageContent: nil, postDate: Date(timeInterval: 120, since: Date()))
         
-        self.posts = [post1, post2]
+        let post3 = TapFeedPost(postingUserUsername: "dorgil21", postingUserProfileImage: nil, hasImage: false, textContent: "I could really go for a nice water right now", imageContent: nil, postDate: Date(timeInterval: 500, since: Date()))
+        
+        let post4 = TapFeedPost(postingUserUsername: "jbeuerlein38", postingUserProfileImage: nil, hasImage: false, textContent: "Have you guys tried sparkling water?", imageContent: nil, postDate: Date(timeInterval: 1200, since: Date()))
+        
+        self.posts = [post1, post2, post3, post4]
     }
 
     /// Updates posts stored in this FeedPostStore
@@ -43,12 +53,15 @@ extension FeedPostStore: UITableViewDataSource {
         
         let hours = post.postDate.timeIntervalSinceNow / 3600
         let minutes = post.postDate.timeIntervalSinceNow / 60
+        let seconds = post.postDate.timeIntervalSinceNow
         
         var timeString = ""
         if hours >= 1 {
-            timeString = "\(hours.rounded(.down)) hours ago"
+            timeString = "\(nf.string(from: hours as NSNumber) ?? "na") hours ago"
+        } else if minutes >= 1{
+            timeString = "\(nf.string(from: minutes as NSNumber) ?? "na") minutes ago"
         } else {
-            timeString = "\(minutes.rounded(.down)) minutes ago"
+            timeString = "\(nf.string(from: seconds as NSNumber) ?? "na") seconds ago"
         }
         
         switch post.hasImage {

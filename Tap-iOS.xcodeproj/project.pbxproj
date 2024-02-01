@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		081E681F2B699D3E00A66CCE /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081E681E2B699D3E00A66CCE /* ForgotPasswordViewController.swift */; };
+		082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */; };
 		088653732B602D4800355D6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653722B602D4800355D6D /* AppDelegate.swift */; };
 		088653752B602D4800355D6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653742B602D4800355D6D /* SceneDelegate.swift */; };
 		0886537A2B602D4800355D6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088653782B602D4800355D6D /* Main.storyboard */; };
@@ -46,7 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		081E681E2B699D3E00A66CCE /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNavigationController.swift; sourceTree = "<group>"; };
 		0886536F2B602D4800355D6D /* Tap-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tap-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		088653722B602D4800355D6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088653742B602D4800355D6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +102,6 @@
 				088653A22B606FD000355D6D /* SignUpViewController.swift */,
 				088653A42B606FDA00355D6D /* LoginViewController.swift */,
 				088653A62B606FEA00355D6D /* ResetPasswordViewController.swift */,
-				081E681E2B699D3E00A66CCE /* ForgotPasswordViewController.swift */,
 			);
 			path = OnboardingVCs;
 			sourceTree = "<group>";
@@ -169,6 +168,7 @@
 				08F779E22B6838970033ED63 /* FeedTableViewCell.swift */,
 				08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */,
 				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
+				082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -307,6 +307,7 @@
 				08F779E72B6839CA0033ED63 /* TapUser.swift in Sources */,
 				088653732B602D4800355D6D /* AppDelegate.swift in Sources */,
 				08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */,
+				082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */,
 				088653A32B606FD000355D6D /* SignUpViewController.swift in Sources */,
 				08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */,
 				08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */,
@@ -314,7 +315,6 @@
 				088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */,
 				088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */,
-				081E681F2B699D3E00A66CCE /* ForgotPasswordViewController.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
 				08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */,
 			);

@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 
-class FeedViewController: UITableViewController {
+class FeedViewController: UIViewController {
     
     var dataSource: FeedPostStore!
+    
+    @IBOutlet var tableView: UITableView!
     
     override func loadView() {
         super.loadView()

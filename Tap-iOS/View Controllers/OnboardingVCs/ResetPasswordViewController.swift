@@ -17,4 +17,9 @@ class ResetPasswordViewController: UIViewController {
         case changingPassword
     }
     
+    @IBAction func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    
 }
