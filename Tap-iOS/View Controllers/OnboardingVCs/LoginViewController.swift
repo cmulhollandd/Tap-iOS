@@ -29,17 +29,31 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func loginButtonPressed(_ sender: UIButton) {
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        
         let username = usernameTextField.text ?? "[NIL]"
         let password = passwordTextField.text ?? "[NIL]"
         
         print("Logging in with \(username) and \(password)")
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-        
-        vc.modalPresentationStyle = .overFullScreen
-    
-        present(vc, animated: true)
+        LoginAPI.loginUser(username: username, password: password) { response in
+            if (response["error"] != nil) {
+                // Could not login, alert user
+                let alert = UIAlertController(title: "Login Failed", message: response["description"] as? String, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default)
+                alert.addAction(ok)
+                self.present(alert, animated: true)
+            } else {
+                let dict = response
+                _ = TapUser(first: "", last: "", username: username, email: "", loginToken: dict["jwt"] as! String, profilePhoto: nil)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+                
+                vc.modalPresentationStyle = .overFullScreen
+            
+                self.present(vc, animated: true)
+            }
+        }
     }
 }

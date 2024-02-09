@@ -24,13 +24,30 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad();
         
         passwordTextField.delegate = self
-        signUpButton.isUserInteractionEnabled = false
     }
     
     
     // MARK: - @IBActions
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
+        view.endEditing(true)
+        if (validateInputs()) {
+            self.presentErrorAlert(subtitle: "Please complete all required fields")
+        }
         
+        LoginAPI.createAcccount(email: emailTextField.text!, username: usernameTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastname: lastNameTextField.text!) { (dict) in
+            
+            if (dict["error"] != nil) {
+                self.presentErrorAlert(subtitle: dict["description"] as! String)
+                return
+            }
+            
+            let alert = UIAlertController(title: "Account Successfully Created", message: nil, preferredStyle: .alert)
+            let goToLogin = UIAlertAction(title: "Go to Login", style: .default) {_ in 
+                self.dismiss(animated: true)
+            }
+            alert.addAction(goToLogin)
+            self.present(alert, animated: true)
+        }
     }
     
     @IBAction func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
@@ -64,5 +81,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if (!validatePassword()) {
             // Set textField border to red
         }
+    }
+    
+    private func validateInputs() -> Bool {
+        return (firstNameTextField.text!.isEmpty ||
+            lastNameTextField.text!.isEmpty ||
+            emailTextField.text!.isEmpty ||
+            usernameTextField.text!.isEmpty ||
+            passwordTextField.text!.isEmpty)
+    }
+    
+    private func presentErrorAlert(subtitle: String) {
+        let alert = UIAlertController(title: "Unable to create account", message: subtitle, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 }

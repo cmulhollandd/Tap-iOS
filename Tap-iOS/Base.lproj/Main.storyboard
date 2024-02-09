@@ -63,6 +63,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up">
                                     <color key="baseBackgroundColor" name="PrimaryBlue"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pML-VG-Q8v"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Yp-k3-xk3">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
@@ -378,7 +381,7 @@
                                     <color key="baseBackgroundColor" name="PrimaryBlue"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="GUU-fc-a3O" eventType="touchUpInside" id="YGc-CM-GLw"/>
+                                    <action selector="loginButtonPressed:" destination="GUU-fc-a3O" eventType="touchUpInside" id="UOV-4g-6Xj"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haY-ON-jh8">
