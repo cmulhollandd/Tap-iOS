@@ -97,7 +97,7 @@ struct LoginAPI {
                 return
             }
             
-            guard let resp = processLoginJSONData(from: data) else {
+            guard let resp = convertDataToJSON(from: data) else {
                 print("error: No response data downloaded")
                 completeWithError("error: No response data downloaded")
                 return
@@ -192,7 +192,7 @@ struct LoginAPI {
                 return
             }
             
-            guard let resp = processLoginJSONData(from: data) else {
+            guard let resp = convertDataToJSON(from: data) else {
                 print("error: No response data downloaded")
                 completeWithError("error: No response data downloaded")
                 return
@@ -222,7 +222,7 @@ struct LoginAPI {
         
     }
     
-    private static func processLoginJSONData(from data: Data?) -> Dictionary<String, Any>? {
+    private static func convertDataToJSON(from data: Data?) -> Dictionary<String, Any>? {
         guard let data = data else {
             return nil
         }
@@ -233,10 +233,5 @@ struct LoginAPI {
             print(error.localizedDescription)
             return nil
         }
-    }
-    
-    private static func processSignUpJSONData(from data: Data?) -> Dictionary<String, Any>? {
-        return nil
-    }
-    
+    }    
 }
