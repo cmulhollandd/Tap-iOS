@@ -23,6 +23,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        // Assign all textField Delegates
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        usernameTextField.delegate = self
         passwordTextField.delegate = self
     }
     
@@ -33,21 +38,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if (validateInputs()) {
             self.presentErrorAlert(subtitle: "Please complete all required fields")
         }
-        
-        LoginAPI.createAcccount(email: emailTextField.text!, username: usernameTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastname: lastNameTextField.text!) { (dict) in
-            
-            if (dict["error"] != nil) {
-                self.presentErrorAlert(subtitle: dict["description"] as! String)
-                return
-            }
-            
-            let alert = UIAlertController(title: "Account Successfully Created", message: nil, preferredStyle: .alert)
-            let goToLogin = UIAlertAction(title: "Go to Login", style: .default) {_ in 
-                self.dismiss(animated: true)
-            }
-            alert.addAction(goToLogin)
-            self.present(alert, animated: true)
-        }
+        createAccount()
     }
     
     @IBAction func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
@@ -75,14 +66,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return email.contains(/\w{2,}@\w+\.\w{2,}/)
     }
     
-    
-    // MARK: - TextField Delegate Methods
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if (!validatePassword()) {
-            // Set textField border to red
-        }
-    }
-    
     private func validateInputs() -> Bool {
         return (firstNameTextField.text!.isEmpty ||
             lastNameTextField.text!.isEmpty ||
@@ -96,4 +79,55 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
     }
+    
+    private func createAccount() {
+        LoginAPI.createAcccount(email: emailTextField.text!, username: usernameTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastname: lastNameTextField.text!) { (dict) in
+            
+            if (dict["error"] != nil) {
+                self.presentErrorAlert(subtitle: dict["description"] as! String)
+                return
+            }
+            
+            let alert = UIAlertController(title: "Account Successfully Created", message: nil, preferredStyle: .alert)
+            let goToLogin = UIAlertAction(title: "Go to Login", style: .default) {_ in
+                self.dismiss(animated: true)
+            }
+            alert.addAction(goToLogin)
+            self.present(alert, animated: true)
+        }
+    }
+    
+    
+    // MARK: - TextField Delegate Methods
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (!validatePassword()) {
+            // Set textField border to red
+        }
+    }
+
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case firstNameTextField:
+            firstNameTextField.resignFirstResponder()
+            lastNameTextField.becomeFirstResponder()
+        case lastNameTextField:
+            lastNameTextField.resignFirstResponder()
+            emailTextField.becomeFirstResponder()
+        case emailTextField:
+            emailTextField.resignFirstResponder()
+            usernameTextField.becomeFirstResponder()
+        case usernameTextField:
+            usernameTextField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            passwordTextField.resignFirstResponder()
+            self.view.endEditing(true)
+            createAccount()
+        default:
+            print("Unknown textfield: \(textField.tag)")
+        }
+        return true
+    }
+    
 }
