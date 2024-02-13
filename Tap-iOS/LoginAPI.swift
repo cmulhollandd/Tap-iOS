@@ -138,6 +138,7 @@ struct LoginAPI {
         
     }
     
+    
     /// Creates a new account if an existing account with the same email does not alread exist
     ///
     ///  - Parameters:
