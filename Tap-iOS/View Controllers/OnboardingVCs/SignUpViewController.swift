@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController {
     // MARK: - @IBOutlets
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
@@ -35,9 +35,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: - @IBActions
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         view.endEditing(true)
-        if (validateInputs()) {
-            self.presentErrorAlert(subtitle: "Please complete all required fields")
-        }
         createAccount()
     }
     
@@ -51,9 +48,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     private func validatePassword() -> Bool {
         let password = passwordTextField.text ?? ""
         return password.contains("[A-Z]") &&
-                password.contains("[a-z]") &&
-                password.contains("[0-9]") &&
-                password.count >= 8
+        password.contains("[a-z]") &&
+        password.contains("[0-9]") &&
+        password.count >= 8
     }
     
     /// Validates the supplied email is in the correct format
@@ -66,21 +63,33 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return email.contains(/\w{2,}@\w+\.\w{2,}/)
     }
     
+    /// Validates all fields are completed
+    ///
+    ///  - Returns: Boolean specifying required fields are completed
     private func validateInputs() -> Bool {
         return (firstNameTextField.text!.isEmpty ||
-            lastNameTextField.text!.isEmpty ||
-            emailTextField.text!.isEmpty ||
-            usernameTextField.text!.isEmpty ||
-            passwordTextField.text!.isEmpty)
+                lastNameTextField.text!.isEmpty ||
+                emailTextField.text!.isEmpty ||
+                usernameTextField.text!.isEmpty ||
+                passwordTextField.text!.isEmpty)
     }
     
+    /// Presents a generic error alert to user
+    ///
+    /// - Parameters:
+    ///     - subtitle: String subtitle for the alert controller
     private func presentErrorAlert(subtitle: String) {
         let alert = UIAlertController(title: "Unable to create account", message: subtitle, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
     }
     
+    /// Attemps to login the user using the contents of the text fields
     private func createAccount() {
+        guard validateInputs() else {
+            self.presentErrorAlert(subtitle: "Please complete all required fields")
+            return
+        }
         LoginAPI.createAcccount(email: emailTextField.text!, username: usernameTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastname: lastNameTextField.text!) { (dict) in
             
             if (dict["error"] != nil) {
@@ -96,9 +105,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             self.present(alert, animated: true)
         }
     }
+}
+
+extension SignUpViewController: UITextFieldDelegate {
     
-    
-    // MARK: - TextField Delegate Methods
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (!validatePassword()) {
             // Set textField border to red
@@ -109,25 +119,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case firstNameTextField:
-            firstNameTextField.resignFirstResponder()
             lastNameTextField.becomeFirstResponder()
         case lastNameTextField:
-            lastNameTextField.resignFirstResponder()
             emailTextField.becomeFirstResponder()
         case emailTextField:
-            emailTextField.resignFirstResponder()
             usernameTextField.becomeFirstResponder()
         case usernameTextField:
-            usernameTextField.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
             passwordTextField.resignFirstResponder()
             self.view.endEditing(true)
             createAccount()
         default:
-            print("Unknown textfield: \(textField.tag)")
+            print("Unknown textfield from \(#file)")
         }
         return true
     }
-    
 }

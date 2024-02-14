@@ -546,10 +546,10 @@
             </objects>
             <point key="canvasLocation" x="2047" y="1439"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="uaq-i1-aEq">
             <objects>
-                <viewController id="ame-qN-c9i" sceneMemberID="viewController">
+                <viewController id="ame-qN-c9i" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="APO-dp-LgO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

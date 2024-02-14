@@ -36,6 +36,10 @@ class LoginViewController: UIViewController {
         
         print("Logging in with \(username) and \(password)")
         
+        loginUser(username: username, password: password)
+    }
+    
+    private func loginUser(username: String, password: String) {
         LoginAPI.loginUser(username: username, password: password) { response in
             if (response["error"] != nil) {
                 // Could not login, alert user
@@ -55,5 +59,25 @@ class LoginViewController: UIViewController {
                 self.present(vc, animated: true)
             }
         }
+    }
+}
+
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case usernameTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            passwordTextField.resignFirstResponder()
+            self.view.endEditing(true)
+            guard let username = usernameTextField.text, let password = passwordTextField.text else {
+                return true
+            }
+            self.loginUser(username: username, password: password)
+        default:
+            print("Unknown textField from \(#file)")
+        }
+        return true
     }
 }
