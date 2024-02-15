@@ -31,10 +31,22 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         
-        let username = usernameTextField.text ?? "[NIL]"
-        let password = passwordTextField.text ?? "[NIL]"
-        
+        guard let username = usernameTextField.text, let password = passwordTextField.text else {
+            let alert = UIAlertController(title: "Login Failed", message: "Please enter username & password", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         print("Logging in with \(username) and \(password)")
+        
+        if !(usernameTextField.hasText && passwordTextField.hasText) {
+            let alert = UIAlertController(title: "Login Failed", message: "Please enter username & password", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
         loginUser(username: username, password: password)
     }
@@ -53,9 +65,7 @@ class LoginViewController: UIViewController {
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-                
                 vc.modalPresentationStyle = .overFullScreen
-            
                 self.present(vc, animated: true)
             }
         }
@@ -71,10 +81,7 @@ extension LoginViewController: UITextFieldDelegate {
         case passwordTextField:
             passwordTextField.resignFirstResponder()
             self.view.endEditing(true)
-            guard let username = usernameTextField.text, let password = passwordTextField.text else {
-                return true
-            }
-            self.loginUser(username: username, password: password)
+            self.loginButtonPressed(textField)
         default:
             print("Unknown textField from \(#file)")
         }

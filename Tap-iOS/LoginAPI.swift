@@ -106,10 +106,7 @@ class LoginAPI: NSObject {
             // For now, we will assume the presence of a JWT in the response implies a
             // successful login.  In the future, I would like to extend this to check
             // other ways to make sure the account is not locked.
-            //
-            // We are also not passing back all user info for now, this is something that
-            // should be done in the future
-            if let _ = resp["jwt"] as? String {
+            if let jwt = resp["jwt"] as? String, jwt != "" {
                 complete(resp, completion: completion)
             } else {
                 completeWithError("Incorrect username or password, please try again", completion: completion)
