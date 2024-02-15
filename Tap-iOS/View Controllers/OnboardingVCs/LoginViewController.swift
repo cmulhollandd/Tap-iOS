@@ -51,6 +51,12 @@ class LoginViewController: UIViewController {
         loginUser(username: username, password: password)
     }
     
+    /// Attempts to login the user using the supplied credentials
+    /// Upon successful login, the main tabBarController for Tap is presented
+    ///
+    ///  - Parameters;
+    ///      - username: String username
+    ///      - password: String password
     private func loginUser(username: String, password: String) {
         LoginAPI.loginUser(username: username, password: password) { response in
             if (response["error"] != nil) {

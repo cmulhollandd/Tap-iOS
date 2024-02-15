@@ -17,12 +17,13 @@ class LoginAPI: NSObject {
     
     private static let baseAPIURL = "https://rhodestap.com/auth"
     private static let encoder = JSONEncoder()
-    
     private static let session: URLSession = {
         let session = URLSession(configuration: .default)
         return session
     }()
     
+    // Private Classes LoginData and SignUpData are identical for the time being but are unlikely to
+    // be so in the future.
     private class LoginData: Codable {
         let username: String
         let password: String
@@ -43,12 +44,23 @@ class LoginAPI: NSObject {
         }
     }
     
+    /// Calls an Escaping handler to return the result of an API call to the calling class
+    ///
+    /// - Parameters:
+    ///      - dict: <String:Any> dictionary of information to be returned to the calling class
+    ///      - completion: escaping handler to be called
     private static func complete(_ dict: Dictionary<String, Any>, completion: @escaping(Dictionary<String, Any>) -> Void) {
         OperationQueue.main.addOperation {
             completion(dict)
         }
     }
     
+    /// Calls an Escaping handler to return the result of an API call to the calling class upon error
+    /// Adds an "error" and "description" entries to a dict to alert the calling class of the error
+    ///
+    /// - Parameters:
+    ///      - description: String description of the error that occured
+    ///      - completion: escaping handler to be called
     private static func completeWithError(_ description: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
         let dict = ["error" : true, "description" : description] as [String: Any]
         OperationQueue.main.addOperation {
@@ -205,6 +217,10 @@ class LoginAPI: NSObject {
         
     }
     
+    /// Converts a Data object to <String:Any>?, assuming a json format
+    ///
+    ///  - Parameters:
+    ///      - data: Data? object to be converted into Dictionary
     private static func convertDataToJSON(from data: Data?) -> Dictionary<String, Any>? {
         guard let data = data else {
             return nil
