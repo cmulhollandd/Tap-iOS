@@ -85,6 +85,7 @@ class SignUpViewController: UIViewController {
     }
     
     /// Attemps to login the user using the contents of the text fields
+    /// Upon successful account creation the user is prompted to return to the login screen
     private func createAccount() {
         guard validateInputs() else {
             self.presentErrorAlert(subtitle: "Please complete all required fields")
