@@ -67,10 +67,10 @@ class SignUpViewController: UIViewController {
     ///
     ///  - Returns: Boolean specifying required fields are completed
     private func validateInputs() -> Bool {
-        return (firstNameTextField.text!.isEmpty ||
-                lastNameTextField.text!.isEmpty ||
-                emailTextField.text!.isEmpty ||
-                usernameTextField.text!.isEmpty ||
+        return !(firstNameTextField.text!.isEmpty &&
+                lastNameTextField.text!.isEmpty &&
+                emailTextField.text!.isEmpty &&
+                usernameTextField.text!.isEmpty &&
                 passwordTextField.text!.isEmpty)
     }
     
