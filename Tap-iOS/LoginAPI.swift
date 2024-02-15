@@ -13,11 +13,15 @@ enum AccountAction {
     case resetPassword
 }
 
-struct LoginAPI {
+class LoginAPI: NSObject {
     
-    private static let baseAPIURL = "https://ec2-3-145-175-92.us-east-2.compute.amazonaws.com/auth"
-    
+    private static let baseAPIURL = "https://rhodestap.com/auth"
     private static let encoder = JSONEncoder()
+    
+    private static let session: URLSession = {
+        let session = URLSession(configuration: .default)
+        return session
+    }()
     
     private class LoginData: Codable {
         let username: String
@@ -39,11 +43,19 @@ struct LoginAPI {
         }
     }
     
+    private static func complete(_ dict: Dictionary<String, Any>, completion: @escaping(Dictionary<String, Any>) -> Void) {
+        OperationQueue.main.addOperation {
+            completion(dict)
+        }
+    }
     
-    static let session: URLSession = {
-        let sess = URLSession(configuration: .default)
-        return sess
-    }()
+    private static func completeWithError(_ description: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
+        let dict = ["error" : true, "description" : description] as [String: Any]
+        OperationQueue.main.addOperation {
+            completion(dict)
+        }
+    }
+    
     
     
     /// Tries to login user with supplied username and password
@@ -54,30 +66,17 @@ struct LoginAPI {
     ///     - completion: Escaping closure
     static func loginUser(username: String, password: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
         
-        func complete(_ dict: Dictionary<String, Any>) {
-            OperationQueue.main.addOperation {
-                completion(dict)
-            }
-        }
-        
-        func completeWithError(_ description: String) {
-            let dict = ["error" : true, "description" : description] as [String: Any]
-            OperationQueue.main.addOperation {
-                completion(dict)
-            }
-        }
-        
         let components = URLComponents(string: "\(baseAPIURL)/login")!
         
         let credentials = LoginData(username, password)
-        
+                
         var data: Data
         
         do {
             data = try encoder.encode(credentials)
         } catch {
             print("Failed to encode login credentials")
-            completeWithError("Failed to encode login credentials")
+            completeWithError("Failed to encode login credentials", completion: completion)
             return
         }
         
@@ -85,34 +84,32 @@ struct LoginAPI {
             var req = URLRequest(url: components.url!)
             req.httpMethod = "POST"
             req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
             return req
         }()
         
         let task = session.dataTask(with: request) {
-            (data, response, error) -> Void in
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
             
             if let error = error {
                 print(error)
-                completeWithError(error.localizedDescription)
+                completeWithError(error.localizedDescription, completion: completion)
                 return
             }
             
             guard let resp = convertDataToJSON(from: data) else {
                 print("error: No response data downloaded")
-                completeWithError("error: No response data downloaded")
+                completeWithError("error: No response data downloaded", completion: completion)
                 return
             }
             
             // For now, we will assume the presence of a JWT in the response implies a
             // successful login.  In the future, I would like to extend this to check
             // other ways to make sure the account is not locked.
-            //
-            // We are also not passing back all user info for now, this is something that
-            // should be done in the future
-            if let _ = resp["jwt"] as? String {
-                complete(resp)
+            if let jwt = resp["jwt"] as? String, jwt != "" {
+                complete(resp, completion: completion)
             } else {
-                completeWithError("Incorrect username or password, please try again")
+                completeWithError("Incorrect username or password, please try again", completion: completion)
             }
         }
         task.resume()
@@ -149,31 +146,15 @@ struct LoginAPI {
     ///     - completion: escaping closure with response from server
     static func createAcccount(email: String, username: String, password: String, firstName: String, lastname: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
         
-        func completeWithError(_ description: String) {
-            let dict: [String: Any] = ["error": true, "description": description]
-            
-            OperationQueue.main.addOperation {
-                completion(dict)
-            }
-        }
-        
-        func complete(_ dict: Dictionary<String, Any>) {
-            OperationQueue.main.addOperation {
-                completion(dict)
-            }
-        }
-        
         let components = URLComponents(string: "\(baseAPIURL)/register")!
-        
         let credentials = SignUpData(username, password)
-        
         var data: Data
         
         do {
             data = try encoder.encode(credentials)
         } catch {
             print("Failed to encode credentials")
-            completeWithError("Failed to encode credentials")
+            completeWithError("Failed to encode credentials", completion: completion)
             return
         }
         
@@ -181,21 +162,22 @@ struct LoginAPI {
             var req = URLRequest(url: components.url!)
             req.httpMethod = "POST"
             req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
             return req
         }()
         
         let task = session.dataTask(with: request) {
-            (data, response, error) -> Void in
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
             
             if let error = error {
                 print(error)
-                completeWithError(error.localizedDescription)
+                completeWithError(error.localizedDescription, completion: completion)
                 return
             }
             
             guard let resp = convertDataToJSON(from: data) else {
                 print("error: No response data downloaded")
-                completeWithError("error: No response data downloaded")
+                completeWithError("error: No response data downloaded", completion: completion)
                 return
             }
             
@@ -203,9 +185,9 @@ struct LoginAPI {
             // a successful signup. In the future there may need to be more methods to
             // account for username scarcity and duplicate accounts, but for now this should be fine
             if let _ = resp["userId"] {
-                complete(resp)
+                complete(resp, completion: completion)
             } else {
-                completeWithError("Unable to create account, please try again")
+                completeWithError("Unable to create account, please try again", completion: completion)
             }
         }
         task.resume()
@@ -234,5 +216,6 @@ struct LoginAPI {
             print(error.localizedDescription)
             return nil
         }
-    }    
+    }
+    
 }

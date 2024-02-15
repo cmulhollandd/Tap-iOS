@@ -137,11 +137,11 @@
             <objects>
                 <viewController id="nlb-Su-Qzf" customClass="FeedViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XBa-HC-7vO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-DF-WUx">
-                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ImageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="246" id="onc-fG-OSr" customClass="FeedTableViewCellWithImage" customModule="Tap_iOS" customModuleProvider="target">
@@ -291,7 +291,7 @@
                 <navigationController id="FSs-FM-dnO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="plus.app.fill" catalog="system" id="rrY-DP-vv5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Gcy-yk-eQ1">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="PrimaryBlue"/>
                         <textAttributes key="titleTextAttributes">
@@ -314,7 +314,7 @@
             <objects>
                 <viewController id="SAM-DC-UwR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hgv-tO-Bri">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="8SL-CT-w4K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -331,7 +331,7 @@
                 <navigationController toolbarHidden="NO" id="5OJ-Q2-W6P" customClass="TapNavigationController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="WNQ-xH-Udl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="tMN-6V-97Z">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="PrimaryBlue"/>
                         <color key="barTintColor" name="PrimaryBlue"/>
@@ -383,7 +383,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="GUU-fc-a3O" eventType="touchUpInside" id="UOV-4g-6Xj"/>
-                                    <segue destination="FiL-BY-2oy" kind="show" id="Q5b-8y-51u"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haY-ON-jh8">
@@ -537,7 +536,7 @@
             <objects>
                 <viewController id="IUM-rS-1qH" userLabel="Account Settings" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lUZ-LD-04a">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="GJx-N8-afo">
@@ -677,7 +676,7 @@
             <objects>
                 <viewController id="ame-qN-c9i" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="APO-dp-LgO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bT-AS-0dm">
@@ -693,7 +692,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7a-aT-ohq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047" y="2168"/>
+            <point key="canvasLocation" x="2046.564885496183" y="2167.605633802817"/>
         </scene>
         <!--Your Activity-->
         <scene sceneID="hCw-a8-lXK">
