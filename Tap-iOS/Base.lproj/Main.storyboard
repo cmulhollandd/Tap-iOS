@@ -136,11 +136,11 @@
             <objects>
                 <viewController id="nlb-Su-Qzf" customClass="FeedViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XBa-HC-7vO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-DF-WUx">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ImageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="246" id="onc-fG-OSr" customClass="FeedTableViewCellWithImage" customModule="Tap_iOS" customModuleProvider="target">
@@ -290,7 +290,7 @@
                 <navigationController id="FSs-FM-dnO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="plus.app.fill" catalog="system" id="rrY-DP-vv5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Gcy-yk-eQ1">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="PrimaryBlue"/>
                         <textAttributes key="titleTextAttributes">
@@ -313,7 +313,7 @@
             <objects>
                 <viewController id="SAM-DC-UwR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hgv-tO-Bri">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="8SL-CT-w4K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -330,7 +330,7 @@
                 <navigationController toolbarHidden="NO" id="5OJ-Q2-W6P" customClass="TapNavigationController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="WNQ-xH-Udl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="tMN-6V-97Z">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="PrimaryBlue"/>
                         <color key="barTintColor" name="PrimaryBlue"/>
@@ -382,6 +382,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="GUU-fc-a3O" eventType="touchUpInside" id="UOV-4g-6Xj"/>
+                                    <segue destination="FiL-BY-2oy" kind="show" id="Q5b-8y-51u"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haY-ON-jh8">
@@ -535,7 +536,7 @@
             <objects>
                 <viewController id="IUM-rS-1qH" userLabel="Account Settings" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lUZ-LD-04a">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="GJx-N8-afo">
@@ -564,6 +565,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Settings &amp; Privacy">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="PfE-qx-8Qu" kind="presentation" id="vOz-fJ-U0X"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-Hx-Fg1">
                                 <rect key="frame" x="54" y="235" width="284" height="60"/>
@@ -572,6 +576,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Your Activity">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="fet-PF-Xgd" kind="presentation" id="z0U-Le-4u3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmM-CL-eXY">
                                 <rect key="frame" x="54" y="303" width="284" height="60"/>
@@ -580,6 +587,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Notifications">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Fhq-qk-tGu" kind="presentation" id="mw4-37-pKg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xct-jV-cJ4"/>
@@ -596,7 +606,7 @@
             <objects>
                 <viewController id="PfE-qx-8Qu" userLabel="Settings &amp; Privacy" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1p0-99-qSh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X6k-q6-e4N">
@@ -637,6 +647,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Username &amp; Password">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="qGb-ao-zvd" kind="presentation" id="23j-IW-6tF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJE-bw-7WZ">
                                 <rect key="frame" x="54" y="312" width="284" height="60"/>
@@ -645,6 +658,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Blocked Accounts">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="2me-TB-VfT" kind="presentation" id="mPL-4N-n2t"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b5d-Vh-yHQ"/>
@@ -660,7 +676,7 @@
             <objects>
                 <viewController id="ame-qN-c9i" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="APO-dp-LgO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bT-AS-0dm">
@@ -683,7 +699,7 @@
             <objects>
                 <viewController id="fet-PF-Xgd" userLabel="Your Activity" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vxY-Tb-KhH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZA-aS-DrG">
@@ -693,6 +709,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Likes">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="p2p-ni-q3i" kind="presentation" id="TU4-7S-jnU"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="m5h-YZ-rwx">
                                 <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -713,6 +732,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Comments">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="swo-UG-TNa" kind="presentation" id="A2W-Pr-m3F"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z66-qA-hU9">
                                 <rect key="frame" x="87" y="85" width="218" height="45"/>
@@ -735,7 +757,7 @@
             <objects>
                 <viewController id="p2p-ni-q3i" userLabel="Likes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jgf-no-cQh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="uVL-fu-lIg">
@@ -771,7 +793,7 @@
             <objects>
                 <viewController id="swo-UG-TNa" userLabel="Comments" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CtM-nk-hbi">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="nXi-Gt-vmo">
@@ -807,7 +829,7 @@
             <objects>
                 <viewController id="Fhq-qk-tGu" userLabel="Notifications" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZV7-VS-LDZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="PfS-Ze-mYz">
@@ -879,7 +901,7 @@
             <objects>
                 <viewController id="2me-TB-VfT" userLabel="Blocked" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zgb-UU-SO0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="XeR-o8-EfR">
@@ -915,7 +937,7 @@
             <objects>
                 <viewController id="qGb-ao-zvd" userLabel="Username &amp; Password" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="syS-zz-LY0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="Vep-Nr-QOq">
@@ -944,6 +966,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Change Username">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="VxQ-uA-OPd" kind="presentation" id="sW7-k1-8jr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkz-QW-Pmh">
                                 <rect key="frame" x="54" y="239" width="284" height="60"/>
@@ -952,6 +977,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Change Password">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="PXx-0W-Z4g" kind="presentation" id="KDz-wb-qZL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDL-MG-W4L">
                                 <rect key="frame" x="54" y="307" width="284" height="60"/>
@@ -960,6 +988,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Change Email">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="qNH-Yp-VvT" kind="presentation" id="tPa-1L-9jI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTZ-SF-YUt">
                                 <rect key="frame" x="54" y="375" width="284" height="60"/>
@@ -968,6 +999,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Delete Account">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Y0O-q2-y5U" kind="presentation" id="aek-rR-8xZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3fg-Yx-nra"/>
@@ -983,7 +1017,7 @@
             <objects>
                 <viewController id="VxQ-uA-OPd" userLabel="Change Username" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nei-Eg-HXn">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="VPc-NR-OmL">
@@ -1046,7 +1080,7 @@
             <objects>
                 <viewController id="PXx-0W-Z4g" userLabel="Change Password" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNQ-Bk-vLh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="ENI-IE-jGg">
@@ -1103,7 +1137,7 @@
             <objects>
                 <viewController id="qNH-Yp-VvT" userLabel="Change Email" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUE-Tb-22N">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="uaj-Ue-SbF">
@@ -1154,6 +1188,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBo-lA-oei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6592" y="2867"/>
+        </scene>
+        <!--Delete Account-->
+        <scene sceneID="3ox-bA-VLI">
+            <objects>
+                <viewController id="Y0O-q2-y5U" userLabel="Delete Account" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9uw-Xj-hlX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" id="leB-TG-s1I">
+                                <rect key="frame" x="0.0" y="57" width="393" height="96"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
+                                <color key="barTintColor" name="PrimaryBlue"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                </textAttributes>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pb-8v-Sdc">
+                                <rect key="frame" x="64" y="83" width="264" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <color key="textColor" systemColor="tableBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpZ-ZY-NfH">
+                                <rect key="frame" x="16" y="179" width="361" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="cF5-UB-dWj"/>
+                                </constraints>
+                                <string key="text">Are you sure you want to delete your account? By pressing "Delete Account" you will not be able to retrieve any information or revive this account ever.</string>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYh-Ec-nMv">
+                                <rect key="frame" x="126" y="257" width="141" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Delete Account">
+                                    <color key="baseBackgroundColor" name="PrimaryBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JVp-4f-sIw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KTm-jS-SRh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oYh-Ec-nMv" firstAttribute="top" secondItem="FpZ-ZY-NfH" secondAttribute="bottom" constant="8" symbolic="YES" id="VkP-Qa-tAL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUC-aW-cnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7317" y="2848"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HOG-mD-hcF">
