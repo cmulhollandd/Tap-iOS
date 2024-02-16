@@ -389,7 +389,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rle-Lq-L5p">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" showsUserTrackingButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rle-Lq-L5p">
                                 <rect key="frame" x="16" y="171" width="361" height="196"/>
                                 <gestureRecognizers/>
                                 <standardMapConfiguration key="preferredConfiguration" elevationStyle="realistic"/>
@@ -397,16 +397,16 @@
                                     <outletCollection property="gestureRecognizers" destination="3bv-fF-TYe" appends="YES" id="wRT-9U-erO"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwu-cl-KMU">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="147"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwu-cl-KMU">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="154"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-wa-mJz">
-                                <rect key="frame" x="26" y="181" width="25" height="15"/>
+                                <rect key="frame" x="23.999999999999996" y="179" width="42.666666666666657" height="28"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button" image="arrow.up.left.and.arrow.down.right" catalog="system"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.up.left.and.arrow.down.right" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.up.left.and.arrow.down.right" catalog="system" buttonSize="mini"/>
                                 <connections>
                                     <action selector="fullscreenButtonPressed:" destination="SAM-DC-UwR" eventType="touchUpInside" id="lHw-vG-6Sk"/>
                                 </connections>
@@ -431,11 +431,11 @@
                             <constraint firstItem="BeS-Rp-ZgU" firstAttribute="top" secondItem="rle-Lq-L5p" secondAttribute="bottom" constant="7" id="OH7-VZ-FMi"/>
                             <constraint firstItem="GuX-dn-zbj" firstAttribute="leading" secondItem="SfH-dx-gRH" secondAttribute="leading" id="Ohm-oA-g2d"/>
                             <constraint firstItem="Pmn-1I-cgB" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="16" id="Q41-nF-J14"/>
-                            <constraint firstItem="QXB-wa-mJz" firstAttribute="leading" secondItem="rle-Lq-L5p" secondAttribute="leading" constant="10" id="TGQ-U7-t3U"/>
+                            <constraint firstItem="QXB-wa-mJz" firstAttribute="leading" secondItem="rle-Lq-L5p" secondAttribute="leading" constant="8" id="TGQ-U7-t3U"/>
                             <constraint firstItem="dL4-TT-HIh" firstAttribute="leading" secondItem="Pmn-1I-cgB" secondAttribute="trailing" constant="24" id="U0I-na-SUa"/>
                             <constraint firstItem="8SL-CT-w4K" firstAttribute="trailing" secondItem="RWP-9v-ieI" secondAttribute="trailing" constant="16" id="VF5-sd-AyW"/>
                             <constraint firstItem="Uyb-hF-YHB" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="16" id="Wak-wk-23a"/>
-                            <constraint firstItem="QXB-wa-mJz" firstAttribute="top" secondItem="rle-Lq-L5p" secondAttribute="top" constant="10" id="XWz-yG-o98"/>
+                            <constraint firstItem="QXB-wa-mJz" firstAttribute="top" secondItem="rle-Lq-L5p" secondAttribute="top" constant="8" id="XWz-yG-o98"/>
                             <constraint firstItem="8SL-CT-w4K" firstAttribute="trailing" secondItem="Uyb-hF-YHB" secondAttribute="trailing" constant="16" id="Xye-Oj-Skd"/>
                             <constraint firstItem="GuX-dn-zbj" firstAttribute="top" secondItem="ixA-RK-XGc" secondAttribute="bottom" constant="20" id="aAA-Oo-PjE"/>
                             <constraint firstItem="RWP-9v-ieI" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="15" id="cG3-MH-FXY"/>
@@ -449,6 +449,7 @@
                             <constraint firstItem="Rp2-fV-NzY" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="16" id="qyB-Ue-CRm"/>
                             <constraint firstItem="8SL-CT-w4K" firstAttribute="trailing" secondItem="dL4-TT-HIh" secondAttribute="trailing" constant="16" id="tG8-0d-7Xb"/>
                             <constraint firstItem="Uyb-hF-YHB" firstAttribute="firstBaseline" secondItem="SfH-dx-gRH" secondAttribute="baseline" constant="10.666666666666666" symbolType="layoutAnchor" id="tKY-aZ-LWc"/>
+                            <constraint firstItem="8SL-CT-w4K" firstAttribute="bottom" secondItem="fwu-cl-KMU" secondAttribute="bottom" constant="615" id="tX0-cA-mrw"/>
                             <constraint firstItem="e7v-g3-HVB" firstAttribute="leading" secondItem="Rp2-fV-NzY" secondAttribute="leading" id="thX-NF-B4J"/>
                             <constraint firstItem="8SL-CT-w4K" firstAttribute="trailing" secondItem="rle-Lq-L5p" secondAttribute="trailing" constant="16" id="uP1-fa-rgm"/>
                             <constraint firstItem="ixA-RK-XGc" firstAttribute="firstBaseline" secondItem="Rp2-fV-NzY" secondAttribute="baseline" constant="10.666666666666666" symbolType="layoutAnchor" id="yZA-uC-WUE"/>
@@ -831,7 +832,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bT-AS-0dm">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsUserLocation="YES" showsScale="YES" showsUserTrackingButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bT-AS-0dm">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <standardMapConfiguration key="preferredConfiguration" elevationStyle="realistic"/>

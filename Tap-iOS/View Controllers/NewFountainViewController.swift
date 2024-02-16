@@ -30,6 +30,7 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     private var fountainLocation: CLLocationCoordinate2D?
     private var fountainPin: MKAnnotation?
     private var mapIsFullScreen = false
+    private var locationManager: CLLocationManager!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -44,6 +45,10 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         blur.clipsToBounds = true
         blur.isUserInteractionEnabled = false
         fullScreenButton.insertSubview(blur, at: 0)
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        setupLocationServices()
     }
     
     
@@ -92,7 +97,7 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         if mapIsFullScreen {
             // Collapse map back
             fullScreenButton.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
-            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2) {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.2) {
                 self.mapViewLeadingConstraint.constant = 16
                 self.mapViewTrailingConstraint.constant = 16
                 self.mapViewBottomConstraint.constant = 7
@@ -102,7 +107,7 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         } else {
             // Make map full screen
             fullScreenButton.setImage(UIImage(systemName: "arrow.down.right.and.arrow.up.left"), for: .normal)
-            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2) {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.2) {
                 self.mapViewLeadingConstraint.constant = 8
                 self.mapViewTrailingConstraint.constant = 8
                 self.mapViewBottomConstraint.constant = -300
@@ -113,14 +118,47 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     }
     
     
+    // MARK: - Instance Methods
+    private func setupLocationServices() {
+        switch locationManager.authorizationStatus {
+        case .denied:
+            print("Location Services unavailable, fix in settings app")
+        case .restricted:
+            print("Location services unavailable due to parental controls, etc.")
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            print("Location services enabled")
+        }
+    }
+    
+    
     // MARK: - MKMapViewDelegate Methods
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            return MKUserLocationView(annotation: annotation, reuseIdentifier: nil)
+        }
+        
         let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
         if (annotation.title == "New Fountain") {
             marker.markerTintColor = UIColor.red
+            marker.glyphImage = UIImage(systemName: "waterbottle")
         } else {
             marker.markerTintColor = UIColor(named: "PrimaryBlue")
         }
         return marker
+    }
+    
+    // MARK: - CLLocationManagerDelegate Methods
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse:
+            print("Starting Location Services")
+        case .authorizedAlways:
+            print("Starting Location Services")
+        default:
+            print("Location Services denied")
+        }
     }
 }

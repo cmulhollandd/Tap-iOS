@@ -11,7 +11,7 @@ import CoreLocation
 import CoreLocationUI
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mapView: MKMapView!
     
@@ -26,18 +26,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         // Configure Location Manager
         locationManager = CLLocationManager()
-        locationManager.distanceFilter = 5
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
-        locationManager.startUpdatingLocation()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        locationManager.requestWhenInUseAuthorization()
+    
+    // MARK: - CLLocationManagerDelegate methods
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse:
+            print("Got location Services")
+        default:
+            print("Location services denied")
+        }
     }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
 }
