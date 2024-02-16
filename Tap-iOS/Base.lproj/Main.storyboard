@@ -141,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-DF-WUx">
-                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ImageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="246" id="onc-fG-OSr" customClass="FeedTableViewCellWithImage" customModule="Tap_iOS" customModuleProvider="target">
@@ -383,6 +383,12 @@
                                 <color key="textColor" name="PrimaryBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long-Press on map to mark location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeS-Rp-ZgU">
+                                <rect key="frame" x="101.66666666666669" y="374" width="190" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rle-Lq-L5p">
                                 <rect key="frame" x="16" y="171" width="361" height="196"/>
                                 <gestureRecognizers/>
@@ -391,16 +397,20 @@
                                     <outletCollection property="gestureRecognizers" destination="3bv-fF-TYe" appends="YES" id="wRT-9U-erO"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Long-Press on map to mark location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeS-Rp-ZgU">
-                                <rect key="frame" x="100" y="374" width="190" height="14"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwu-cl-KMU">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwu-cl-KMU">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="147"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-wa-mJz">
+                                <rect key="frame" x="26" y="181" width="25" height="15"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="arrow.up.left.and.arrow.down.right" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.up.left.and.arrow.down.right" catalog="system"/>
+                                <connections>
+                                    <action selector="fullscreenButtonPressed:" destination="SAM-DC-UwR" eventType="touchUpInside" id="lHw-vG-6Sk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8SL-CT-w4K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -416,15 +426,16 @@
                             <constraint firstItem="e7v-g3-HVB" firstAttribute="top" secondItem="BeS-Rp-ZgU" secondAttribute="bottom" constant="9" id="IPS-eS-KCv"/>
                             <constraint firstItem="ixA-RK-XGc" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="16" id="J5G-Qv-fo0"/>
                             <constraint firstItem="RWP-9v-ieI" firstAttribute="top" secondItem="e7v-g3-HVB" secondAttribute="bottom" constant="12" id="MBZ-uT-Cba"/>
-                            <constraint firstItem="8SL-CT-w4K" firstAttribute="bottom" secondItem="fwu-cl-KMU" secondAttribute="bottom" constant="622" id="MFm-gb-4vO"/>
                             <constraint firstItem="8SL-CT-w4K" firstAttribute="top" secondItem="fwu-cl-KMU" secondAttribute="top" constant="155" id="NJ9-s5-RVl"/>
                             <constraint firstItem="dL4-TT-HIh" firstAttribute="top" secondItem="Uyb-hF-YHB" secondAttribute="bottom" constant="24" id="Nxm-eA-c87"/>
                             <constraint firstItem="BeS-Rp-ZgU" firstAttribute="top" secondItem="rle-Lq-L5p" secondAttribute="bottom" constant="7" id="OH7-VZ-FMi"/>
                             <constraint firstItem="GuX-dn-zbj" firstAttribute="leading" secondItem="SfH-dx-gRH" secondAttribute="leading" id="Ohm-oA-g2d"/>
                             <constraint firstItem="Pmn-1I-cgB" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="16" id="Q41-nF-J14"/>
+                            <constraint firstItem="QXB-wa-mJz" firstAttribute="leading" secondItem="rle-Lq-L5p" secondAttribute="leading" constant="10" id="TGQ-U7-t3U"/>
                             <constraint firstItem="dL4-TT-HIh" firstAttribute="leading" secondItem="Pmn-1I-cgB" secondAttribute="trailing" constant="24" id="U0I-na-SUa"/>
                             <constraint firstItem="8SL-CT-w4K" firstAttribute="trailing" secondItem="RWP-9v-ieI" secondAttribute="trailing" constant="16" id="VF5-sd-AyW"/>
                             <constraint firstItem="Uyb-hF-YHB" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="16" id="Wak-wk-23a"/>
+                            <constraint firstItem="QXB-wa-mJz" firstAttribute="top" secondItem="rle-Lq-L5p" secondAttribute="top" constant="10" id="XWz-yG-o98"/>
                             <constraint firstItem="8SL-CT-w4K" firstAttribute="trailing" secondItem="Uyb-hF-YHB" secondAttribute="trailing" constant="16" id="Xye-Oj-Skd"/>
                             <constraint firstItem="GuX-dn-zbj" firstAttribute="top" secondItem="ixA-RK-XGc" secondAttribute="bottom" constant="20" id="aAA-Oo-PjE"/>
                             <constraint firstItem="RWP-9v-ieI" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="15" id="cG3-MH-FXY"/>
@@ -445,7 +456,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Fountain" id="6Tj-6Z-fhJ"/>
                     <connections>
+                        <outlet property="fullScreenButton" destination="QXB-wa-mJz" id="PAh-5I-RUC"/>
                         <outlet property="mapView" destination="rle-Lq-L5p" id="wQf-hW-nFM"/>
+                        <outlet property="mapViewBottomConstraint" destination="OH7-VZ-FMi" id="CLa-zn-PCk"/>
+                        <outlet property="mapViewLeadingConstraint" destination="3OE-SX-23G" id="jio-xv-Iby"/>
+                        <outlet property="mapViewTopConstraint" destination="hd6-7R-xWD" id="X00-H7-rhb"/>
+                        <outlet property="mapViewTrailingConstraint" destination="uP1-fa-rgm" id="8qN-ib-vBR"/>
                         <outlet property="pressureSlider" destination="YQN-po-RQD" id="7Lt-oF-9A7"/>
                         <outlet property="tasteSlider" destination="Uyb-hF-YHB" id="EpV-J6-tAO"/>
                         <outlet property="tempSlider" destination="ixA-RK-XGc" id="0ij-mq-8cy"/>
@@ -1426,6 +1442,7 @@
     </scenes>
     <resources>
         <image name="TapTitleLogo" width="1024" height="1024"/>
+        <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>

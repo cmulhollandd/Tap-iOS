@@ -19,16 +19,31 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     @IBOutlet var tempSlider: UISlider!
     @IBOutlet var pressureSlider: UISlider!
     @IBOutlet var tasteSlider: UISlider!
+    @IBOutlet var fullScreenButton: UIButton!
+    
+    @IBOutlet var mapViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet var mapViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var mapViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet var mapViewTrailingConstraint: NSLayoutConstraint!
     
     // MARK: - Instance Variables
     private var fountainLocation: CLLocationCoordinate2D?
     private var fountainPin: MKAnnotation?
+    private var mapIsFullScreen = false
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
+        mapView.layer.cornerRadius = 10.0
+        
+        let blur = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+        blur.layer.cornerRadius = 10
+        blur.frame = fullScreenButton.bounds
+        blur.clipsToBounds = true
+        blur.isUserInteractionEnabled = false
+        fullScreenButton.insertSubview(blur, at: 0)
     }
     
     
@@ -71,6 +86,30 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         mapView.addAnnotation(pin)
         self.fountainPin = pin
         self.fountainLocation = coordLocation
+    }
+    
+    @IBAction func fullscreenButtonPressed(_ sender: UIButton) {
+        if mapIsFullScreen {
+            // Collapse map back
+            fullScreenButton.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
+            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2) {
+                self.mapViewLeadingConstraint.constant = 16
+                self.mapViewTrailingConstraint.constant = 16
+                self.mapViewBottomConstraint.constant = 7
+                self.view.layoutIfNeeded()
+            }
+            mapIsFullScreen = false
+        } else {
+            // Make map full screen
+            fullScreenButton.setImage(UIImage(systemName: "arrow.down.right.and.arrow.up.left"), for: .normal)
+            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2) {
+                self.mapViewLeadingConstraint.constant = 8
+                self.mapViewTrailingConstraint.constant = 8
+                self.mapViewBottomConstraint.constant = -300
+                self.view.layoutIfNeeded()
+            }
+            mapIsFullScreen = true
+        }
     }
     
     
