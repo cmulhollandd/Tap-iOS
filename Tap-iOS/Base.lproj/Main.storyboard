@@ -827,7 +827,7 @@
         <!--Map View Controller-->
         <scene sceneID="uaq-i1-aEq">
             <objects>
-                <viewController id="ame-qN-c9i" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController id="ame-qN-c9i" customClass="MapViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="APO-dp-LgO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -842,6 +842,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map.fill" catalog="system" id="zjc-Fo-Fa9"/>
+                    <connections>
+                        <outlet property="mapView" destination="5bT-AS-0dm" id="RZp-Kb-tto"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7a-aT-ohq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

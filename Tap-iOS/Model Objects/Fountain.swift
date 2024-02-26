@@ -37,4 +37,9 @@ class Fountain: Codable {
         self.taste = taste
         self.type = type
     }
+    
+    
+    func getLocation() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: self.location.latitude, longitude: self.location.longitude)
+    }
 }

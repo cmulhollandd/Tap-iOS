@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082271292B8819A4007CD0F7 /* FountainStore.swift */; };
 		082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */; };
 		088653732B602D4800355D6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653722B602D4800355D6D /* AppDelegate.swift */; };
 		088653752B602D4800355D6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653742B602D4800355D6D /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		082271292B8819A4007CD0F7 /* FountainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainStore.swift; sourceTree = "<group>"; };
 		082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNavigationController.swift; sourceTree = "<group>"; };
 		0886536F2B602D4800355D6D /* Tap-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tap-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		088653722B602D4800355D6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				08F779E02B631E5F0033ED63 /* LoginAPI.swift */,
 				089F0B7A2B7EDE0D00BFDC71 /* Model Objects */,
 				08F779EC2B6882090033ED63 /* FeedPostStore.swift */,
+				082271292B8819A4007CD0F7 /* FountainStore.swift */,
 				0886537B2B602D4B00355D6D /* Assets.xcassets */,
 				0886537D2B602D4B00355D6D /* LaunchScreen.storyboard */,
 				088653802B602D4B00355D6D /* Info.plist */,
@@ -340,6 +343,7 @@
 				08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */,
 				088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */,
 				089F0B7C2B7EDE2500BFDC71 /* Fountain.swift in Sources */,
+				0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */,
 				088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,

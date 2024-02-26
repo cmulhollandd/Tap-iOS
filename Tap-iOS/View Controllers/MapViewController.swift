@@ -15,8 +15,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBOutlet var mapView: MKMapView!
     
-    
     private var locationManager: CLLocationManager!
+    private var fountainStore: FountainStore = FountainStore()
+    private var location: CLLocation!
+    private var prevLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +26,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self
         mapView.showsUserLocation = true
         
+        fountainStore.delegate = self
+        
         // Configure Location Manager
         locationManager = CLLocationManager()
         locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "fountainPin")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fountainStore.updateFountains(around: mapView.region)
     }
     
     
@@ -37,6 +50,32 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             print("Got location Services")
         default:
             print("Location services denied")
+        }
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation.title == "My Location") {
+            return MKUserLocationView(annotation: annotation, reuseIdentifier: nil)
+        }
+        let marker = mapView.dequeueReusableAnnotationView(withIdentifier: "fountainPin", for: annotation) as! MKMarkerAnnotationView
+        marker.markerTintColor = UIColor(named: "PrimaryBlue")
+        marker.glyphImage = UIImage(systemName: "spigot")
+        return marker
+    }
+    
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        // Tell fountainStore to update
+        fountainStore.updateFountains(around: mapView.region)
+    }
+}
+
+extension MapViewController: FountainStoreDelegate {
+    func fountainStore(_ fountainStore: FountainStore, didUpdateFountains fountains: [Fountain]) {
+        for fountain in fountains {
+            let annot = MKPointAnnotation()
+            annot.coordinate = fountain.getLocation()
+            mapView.addAnnotation(annot)
         }
     }
 }
