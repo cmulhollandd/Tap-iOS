@@ -35,10 +35,16 @@ class LoginAPI: NSObject {
     }
     
     private class SignUpData: Codable {
+        let firstName: String
+        let lastName: String
+        let email: String
         let username: String
         let password: String
         
-        init(_ username: String, _ password: String) {
+        init(_ firstName: String, _ lastName: String, _ email: String, _ username: String, _ password: String) {
+            self.firstName = firstName
+            self.lastName = lastName
+            self.email = email
             self.username = username
             self.password = password
         }
@@ -156,10 +162,10 @@ class LoginAPI: NSObject {
     ///     - firstName: First name of new user
     ///     - lastName: Last name of new user
     ///     - completion: escaping closure with response from server
-    static func createAcccount(email: String, username: String, password: String, firstName: String, lastname: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
+    static func createAcccount(email: String, username: String, password: String, firstName: String, lastName: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
         
         let components = URLComponents(string: "\(baseAPIURL)/register")!
-        let credentials = SignUpData(username, password)
+        let credentials = SignUpData(firstName, lastName, email, username, password)
         var data: Data
         
         do {
