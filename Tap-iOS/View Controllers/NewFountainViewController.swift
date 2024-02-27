@@ -69,9 +69,9 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
             // display toast to user
             return
         }
-        let temp = Int(tempSlider.value.rounded())
-        let pressure = Int(pressureSlider.value.rounded())
-        let taste = Int(tasteSlider.value.rounded())
+        let temp = Double(tempSlider.value.rounded())
+        let pressure = Double(pressureSlider.value.rounded())
+        let taste = Double(tasteSlider.value.rounded())
         let type = Fountain.FountainType(rawValue: typePicker.selectedSegmentIndex)!
         
         let fountain = Fountain(location: location, coolness: temp, pressure: pressure, taste: taste, type: type)

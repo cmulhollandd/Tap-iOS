@@ -24,12 +24,12 @@ class Fountain: Codable {
     }
     
     private var location: FountainCoordinate
-    private var coolness: Int
-    private var pressure: Int
-    private var taste: Int
+    private var coolness: Double
+    private var pressure: Double
+    private var taste: Double
     private var type: FountainType
     
-    init(location: CLLocationCoordinate2D, coolness: Int, pressure: Int, taste: Int, type: FountainType) {
+    init(location: CLLocationCoordinate2D, coolness: Double, pressure: Double, taste: Double, type: FountainType) {
         let loc = FountainCoordinate(latitude: location.latitude, longitude: location.longitude)
         self.location = loc
         self.coolness = coolness
@@ -39,7 +39,23 @@ class Fountain: Codable {
     }
     
     
-    func getLocation() -> CLLocationCoordinate2D {
+    func getLocationCoordinate() -> CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: self.location.latitude, longitude: self.location.longitude)
+    }
+    
+    func getLocation() -> CLLocation {
+        return CLLocation(latitude: self.location.latitude, longitude: self.location.longitude)
+    }
+    
+    func getCoolness() -> Double {
+        return self.coolness
+    }
+    
+    func getPressure() -> Double {
+        return self.pressure
+    }
+    
+    func getTaste() -> Double {
+        return self.taste
     }
 }

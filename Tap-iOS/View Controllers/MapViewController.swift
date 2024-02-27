@@ -14,14 +14,29 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var blurView: UIVisualEffectView!
+    @IBOutlet var coolnessLabel: UILabel!
+    @IBOutlet var pressureLabel: UILabel!
+    @IBOutlet var tasteLabel: UILabel!
+    @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
+    @IBOutlet var detailTopContraint: NSLayoutConstraint!
     
     private var locationManager: CLLocationManager!
     private var fountainStore: FountainStore = FountainStore()
     private var location: CLLocation!
     private var prevLocation: CLLocation!
+    private var focusedFountain: Fountain? = nil
+    private let nf: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.maximumFractionDigits = 1
+        return nf
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        blurView.clipsToBounds = true
+        blurView.layer.cornerRadius = 20.0
         
         mapView.delegate = self
         mapView.showsUserLocation = true
@@ -68,13 +83,61 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Tell fountainStore to update
         fountainStore.updateFountains(around: mapView.region)
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let location = view.annotation?.coordinate else {
+            return
+        }
+        self.focusedFountain = fountainStore.getFountain(from: location)
+        
+        // Populate details & animate presentation
+        updateDetails()
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        self.focusedFountain = nil
+        
+        // Remove details and animate dismissal
+        updateDetails()
+    }
+    
+    private func updateDetails() {
+        
+        let offset = CGFloat((600 - 200) / 2)
+        
+        guard let fountain = self.focusedFountain else {
+            self.coolnessLabel.text = "0.0"
+            self.pressureLabel.text = "0.0"
+            self.tasteLabel.text = "0.0"
+            
+            self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
+            
+            UIView.animate(withDuration: 0.3, delay: 0.05, options: .curveEaseInOut) {
+                self.detailTopContraint.constant = 600
+                self.mapView.setVisibleMapRect(self.mapView.visibleMapRect, edgePadding: UIEdgeInsets(top: offset, left: 0.0, bottom: -offset, right: 0.0), animated: true)
+                self.view.layoutIfNeeded()
+            }
+            return
+        }
+        self.coolnessLabel.text = nf.string(from: NSNumber(value: fountain.getCoolness()))!
+        self.pressureLabel.text = nf.string(from: NSNumber(value: fountain.getPressure()))!
+        self.tasteLabel.text = nf.string(from: NSNumber(value: fountain.getTaste()))!
+        
+        self.mapView.setCenter(fountain.getLocationCoordinate(), animated: true)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.05, options: .curveEaseInOut) {
+            self.detailTopContraint.constant = 200
+            self.mapView.setVisibleMapRect(self.mapView.visibleMapRect, edgePadding: UIEdgeInsets(top: -offset, left: 0.0, bottom: offset, right: 0.0), animated: true)
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 extension MapViewController: FountainStoreDelegate {
     func fountainStore(_ fountainStore: FountainStore, didUpdateFountains fountains: [Fountain]) {
         for fountain in fountains {
             let annot = MKPointAnnotation()
-            annot.coordinate = fountain.getLocation()
+            annot.coordinate = fountain.getLocationCoordinate()
             mapView.addAnnotation(annot)
         }
     }
