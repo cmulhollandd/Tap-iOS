@@ -103,18 +103,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     private func updateDetails() {
         
-        let offset = CGFloat((600 - 200) / 2)
+        let openPosition = 400.0
+        let closedPosition = 600.0
+        
+        let offset = CGFloat((closedPosition - openPosition) / 2)
         
         guard let fountain = self.focusedFountain else {
             self.coolnessLabel.text = "0.0"
             self.pressureLabel.text = "0.0"
             self.tasteLabel.text = "0.0"
             
-            self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
+            let camera = MKMapCamera(lookingAtCenter: self.mapView.userLocation.coordinate, fromDistance: self.mapView.camera.centerCoordinateDistance, pitch: 0, heading: 0.0)
             
             UIView.animate(withDuration: 0.3, delay: 0.05, options: .curveEaseInOut) {
-                self.detailTopContraint.constant = 600
-                self.mapView.setVisibleMapRect(self.mapView.visibleMapRect, edgePadding: UIEdgeInsets(top: offset, left: 0.0, bottom: -offset, right: 0.0), animated: true)
+                self.detailTopContraint.constant = closedPosition
+                self.mapView.setCamera(camera, animated: true)
                 self.view.layoutIfNeeded()
             }
             return
@@ -123,11 +126,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.pressureLabel.text = nf.string(from: NSNumber(value: fountain.getPressure()))!
         self.tasteLabel.text = nf.string(from: NSNumber(value: fountain.getTaste()))!
         
-        self.mapView.setCenter(fountain.getLocationCoordinate(), animated: true)
+        let camera = MKMapCamera(lookingAtCenter: fountain.getLocationCoordinate(), fromDistance: self.mapView.camera.centerCoordinateDistance, pitch: 0, heading: 0.0)
         
         UIView.animate(withDuration: 0.3, delay: 0.05, options: .curveEaseInOut) {
-            self.detailTopContraint.constant = 200
-            self.mapView.setVisibleMapRect(self.mapView.visibleMapRect, edgePadding: UIEdgeInsets(top: -offset, left: 0.0, bottom: offset, right: 0.0), animated: true)
+            self.detailTopContraint.constant = openPosition
+            self.mapView.setCamera(camera, animated: true)
             self.view.layoutIfNeeded()
         }
     }
