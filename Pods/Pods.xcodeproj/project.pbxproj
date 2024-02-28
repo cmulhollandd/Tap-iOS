@@ -1,0 +1,919 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02E9AA511A2D172A8FEEB85D50D25559 /* FloatingPanel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09383DA2F8E3C62E8FCD776BC992942B /* FloatingPanel-dummy.m */; };
+		063923F61738E9F445BD7F7EB2D816A3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC7EF4EDDFF68D7E3FC4FA2072DD5D /* Configuration.swift */; };
+		12FBAD74E05A304A50A116A1319DD556 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8E1F128D5C7FFEA3BE07508B15460E /* Foundation.framework */; };
+		135B25DE3611974409292A515B511EF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8E1F128D5C7FFEA3BE07508B15460E /* Foundation.framework */; };
+		16DFA2806F452C0E49BE928381787944 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE00E24387E2D54955AF510C3D6D81D /* Accessibility.swift */; };
+		19CAF035226E30170C413BB69CAF3EB6 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4561FCD1E8A08FDAB442DE5207F12237 /* Behavior.swift */; };
+		1A3EFECC53915EF9ED4887977A502A6D /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042372DF823533D2317112C22BF3CBC /* KeychainError.swift */; };
+		22A550F3962CC7925596E171849ADD22 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87DC10939C7D56CE4C0479D9DBA0C9 /* State.swift */; };
+		315E4A8996F23377ADBF38865A416085 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4F694A481A42E50A3297C96F44D968 /* Extensions.swift */; };
+		3C0A97FC36BE7A967BB02FC1EA8C3976 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E9FCDEF644EBA21613E88BB4906FA /* Position.swift */; };
+		43F5B6300D9C1DA471723FBBC66EE9BD /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37C6358F15B03C3E72C26113E48E23 /* Keychain.swift */; };
+		4B3D0B2EC2ACC18C4FA856BBA833F58F /* Valet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D74F7AAF22A51A11F7522B19358BDB26 /* Valet-dummy.m */; };
+		500B27A611C9970D11B002516BDDFB5D /* MigratableKeyValuePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426917F737A5E4B14BD5DF08AA566AF /* MigratableKeyValuePair.swift */; };
+		55883362AB1A02167EABF7EB311CE030 /* BackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D6122B791F3E220A34E285535795A /* BackdropView.swift */; };
+		5958E168649E261EF777B4B9FE617260 /* Valet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 31CF6B0A3B8125EDDDCCC29A453B9AB8 /* Valet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60E1BF38C6DBD5F7CA2A8640A1885B1F /* LayoutAnchoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90145DAB2D8B9B2A2FCEFD80816F763B /* LayoutAnchoring.swift */; };
+		61DC2BE8E01CCA73DF7BE685786F408D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD0C551BC1CA118D4AEF889FD37294F /* Security.framework */; };
+		62F9BF81F8215A3A8806D31AEBD92394 /* SecureEnclaveValet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B353F0EFF593042C28B53976A7D4B9E /* SecureEnclaveValet.swift */; };
+		716F1AB371C1DBC5A91F85053DE427FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8E1F128D5C7FFEA3BE07508B15460E /* Foundation.framework */; };
+		738F63FD76213507BEFDEC938EAA1CB4 /* PassthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1F67BBCC4FDB1ECADB560DE9DCFE0 /* PassthroughView.swift */; };
+		83F41747CE86EB46D492651C10B9DE29 /* GrabberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13D48EFB6AAD41FB26087A29C877532 /* GrabberView.swift */; };
+		8D158FB7773B86AAE9F81A3DFF8F7275 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D247CC87CF04E9836E4D92CCD3E8536 /* UIKit.framework */; };
+		914758A1CE12C94DD09F5B18E157FFF6 /* Valet.h in Headers */ = {isa = PBXBuildFile; fileRef = 790FFD950409C528D7FDAAF736EDD98A /* Valet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		945F731504F0BDAC6AB767715D38569D /* SecureEnclave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB3AF2A3EE0EFAECE678A5169CDAEDA /* SecureEnclave.swift */; };
+		994043A4233B17CA62C28A52C78A8FC3 /* SurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE14642CE6361822DABEFFC3E73322B /* SurfaceView.swift */; };
+		A00DAD825A6422D09962A56241AA1C5B /* CloudAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6D53F51355BC541C6C1DBC288D55A /* CloudAccessibility.swift */; };
+		A9B808CA7DEC0732EB9C582098DA159D /* SharedGroupIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AAE6BD55474F37D025D88B7AC1BB30 /* SharedGroupIdentifier.swift */; };
+		AB9F4FF8D3404AE2F1F4C698B3825315 /* SecItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C885023C481E5DEAAA613793D0C2FB /* SecItem.swift */; };
+		B0271E62B45944B6283A9326C3D01112 /* Valet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6667740A2D9DF7F36A639724B0A2BD /* Valet.swift */; };
+		B523605A4BB2C109D3EE5C8B101886A7 /* Pods-Tap-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E7912CF36DA078950F082DCD607F0773 /* Pods-Tap-iOS-dummy.m */; };
+		B7A78504067E82F76480EB4982770F78 /* SecureEnclaveAccessControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66F5CF3AEB0FF3A78D2F6C7A60995D /* SecureEnclaveAccessControl.swift */; };
+		C62E5A2D5E2B7C8B9233924E8421CFF6 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5408429A66D89D245BBDECE4F90870 /* Logging.swift */; };
+		C63CC2A5AADA56C21CF8FECF820B649A /* Pods-Tap-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC7B80FBDDBDD714C48336E78187BCD /* Pods-Tap-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA652637599E58E561ACF5A5D5AA14B9 /* Transitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C60102F8B9920235E2D12A5E627AA6 /* Transitioning.swift */; };
+		CE2FD7926FE07535266AA22DEC47F434 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A17840196C5798693AC8262D201FD47 /* Core.swift */; };
+		DAEF972146A5C7C3A0C2A8D2AD774E72 /* SinglePromptSecureEnclaveValet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F545250AC24D320F07192C0018E56E22 /* SinglePromptSecureEnclaveValet.swift */; };
+		DC0EDBA61967D32C87F4A9AE587BBC30 /* FloatingPanel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E2071A5F56A0C9F685C047B099C4D5 /* FloatingPanel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3B1FF8989BFCD00C25826282893C91B /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17886B11E43C526D7340C6F52F0692 /* Identifier.swift */; };
+		EA69DDE49B07713D73B3D8D4EEC4A37B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BFC2A96D99DF6731973EF8BF2F915 /* Service.swift */; };
+		F4C3A79277E7C41B8C8D49906FCB6E5E /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18516F943EDC36080A25FD0FE371A7D5 /* Layout.swift */; };
+		FBAEF9FDA1A58C056383C040F01AB1B8 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4805248EE519BB9BB185613BED02D3DB /* Controller.swift */; };
+		FF24208E41193057579142A3984563FB /* LayoutProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6F3D73EFDF3E8BB0D29CF426FB1C2 /* LayoutProperties.swift */; };
+		FF5086B28DC2A7CA954D97B2C2BC2B4E /* MigrationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB917E747596FE8E5BABE9FC7413DBE9 /* MigrationError.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		150D0BC478E89548ED753309EB0D135C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3D29E214E770F28213292B63B7A05DA;
+			remoteInfo = Valet;
+		};
+		FB9CAC94BDCB7AE5066E6DECF8A417BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4874E7E655CEB4C01E4572AD903AEA21;
+			remoteInfo = FloatingPanel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09383DA2F8E3C62E8FCD776BC992942B /* FloatingPanel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FloatingPanel-dummy.m"; sourceTree = "<group>"; };
+		0EE00E24387E2D54955AF510C3D6D81D /* Accessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Accessibility.swift; path = Sources/Valet/Accessibility.swift; sourceTree = "<group>"; };
+		18516F943EDC36080A25FD0FE371A7D5 /* Layout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Layout.swift; path = Sources/Layout.swift; sourceTree = "<group>"; };
+		1B353F0EFF593042C28B53976A7D4B9E /* SecureEnclaveValet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureEnclaveValet.swift; path = Sources/Valet/SecureEnclaveValet.swift; sourceTree = "<group>"; };
+		1BBF45B55090A52EEC012945F89E2309 /* Valet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Valet.release.xcconfig; sourceTree = "<group>"; };
+		1F32E21DED9FD76E792615D689C7A25C /* Pods-Tap-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tap-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		2C17886B11E43C526D7340C6F52F0692 /* Identifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Identifier.swift; path = Sources/Valet/Identifier.swift; sourceTree = "<group>"; };
+		2FCC7EF4EDDFF68D7E3FC4FA2072DD5D /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Sources/Valet/Internal/Configuration.swift; sourceTree = "<group>"; };
+		31CF6B0A3B8125EDDDCCC29A453B9AB8 /* Valet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Valet-umbrella.h"; sourceTree = "<group>"; };
+		3A2E9FCDEF644EBA21613E88BB4906FA /* Position.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Position.swift; path = Sources/Position.swift; sourceTree = "<group>"; };
+		3A66F5CF3AEB0FF3A78D2F6C7A60995D /* SecureEnclaveAccessControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureEnclaveAccessControl.swift; path = Sources/Valet/SecureEnclaveAccessControl.swift; sourceTree = "<group>"; };
+		3A8E1F128D5C7FFEA3BE07508B15460E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3BE7F8095057BBA9943F9B007E20E936 /* FloatingPanel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FloatingPanel.release.xcconfig; sourceTree = "<group>"; };
+		4561FCD1E8A08FDAB442DE5207F12237 /* Behavior.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Behavior.swift; path = Sources/Behavior.swift; sourceTree = "<group>"; };
+		458254967049E1312D9BC781B1A53ECB /* Valet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Valet-prefix.pch"; sourceTree = "<group>"; };
+		47E2071A5F56A0C9F685C047B099C4D5 /* FloatingPanel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FloatingPanel-umbrella.h"; sourceTree = "<group>"; };
+		4805248EE519BB9BB185613BED02D3DB /* Controller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Controller.swift; path = Sources/Controller.swift; sourceTree = "<group>"; };
+		4A0F46FC16AF934663FD29BB1CD3F65C /* FloatingPanel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FloatingPanel-prefix.pch"; sourceTree = "<group>"; };
+		4BA1EF462EED5380B6F9C72835C669CB /* FloatingPanel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FloatingPanel.debug.xcconfig; sourceTree = "<group>"; };
+		4CD0C551BC1CA118D4AEF889FD37294F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		4D247CC87CF04E9836E4D92CCD3E8536 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		586A69DEBB06EC3D17F71D9882735972 /* Valet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Valet-Info.plist"; sourceTree = "<group>"; };
+		59E750AA763C2470870A35198F201B1B /* Pods-Tap-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tap-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		5A804DEDA156D985D7B1181AB43F936C /* Pods-Tap-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Tap-iOS"; path = Pods_Tap_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A3D6122B791F3E220A34E285535795A /* BackdropView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BackdropView.swift; path = Sources/BackdropView.swift; sourceTree = "<group>"; };
+		6BC7B80FBDDBDD714C48336E78187BCD /* Pods-Tap-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tap-iOS-umbrella.h"; sourceTree = "<group>"; };
+		6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FloatingPanel; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		722BFC2A96D99DF6731973EF8BF2F915 /* Service.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Service.swift; path = Sources/Valet/Internal/Service.swift; sourceTree = "<group>"; };
+		790FFD950409C528D7FDAAF736EDD98A /* Valet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Valet.h; path = Sources/Valet/Valet.h; sourceTree = "<group>"; };
+		79C885023C481E5DEAAA613793D0C2FB /* SecItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecItem.swift; path = Sources/Valet/Internal/SecItem.swift; sourceTree = "<group>"; };
+		7B87DC10939C7D56CE4C0479D9DBA0C9 /* State.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = State.swift; path = Sources/State.swift; sourceTree = "<group>"; };
+		7BE14642CE6361822DABEFFC3E73322B /* SurfaceView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SurfaceView.swift; path = Sources/SurfaceView.swift; sourceTree = "<group>"; };
+		81D6D53F51355BC541C6C1DBC288D55A /* CloudAccessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CloudAccessibility.swift; path = Sources/Valet/CloudAccessibility.swift; sourceTree = "<group>"; };
+		86C60102F8B9920235E2D12A5E627AA6 /* Transitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transitioning.swift; path = Sources/Transitioning.swift; sourceTree = "<group>"; };
+		8BB3AF2A3EE0EFAECE678A5169CDAEDA /* SecureEnclave.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureEnclave.swift; path = Sources/Valet/SecureEnclave.swift; sourceTree = "<group>"; };
+		8CC1F67BBCC4FDB1ECADB560DE9DCFE0 /* PassthroughView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PassthroughView.swift; path = Sources/PassthroughView.swift; sourceTree = "<group>"; };
+		90145DAB2D8B9B2A2FCEFD80816F763B /* LayoutAnchoring.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutAnchoring.swift; path = Sources/LayoutAnchoring.swift; sourceTree = "<group>"; };
+		9A17840196C5798693AC8262D201FD47 /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = Sources/Core.swift; sourceTree = "<group>"; };
+		9D6667740A2D9DF7F36A639724B0A2BD /* Valet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Valet.swift; path = Sources/Valet/Valet.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B3081E0CFC54E0C89C7B6D481B03DC95 /* Valet */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Valet; path = Valet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70A0D3ECCD1D3F295109DFB9613452E /* Valet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Valet.modulemap; sourceTree = "<group>"; };
+		BB5408429A66D89D245BBDECE4F90870 /* Logging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logging.swift; path = Sources/Logging.swift; sourceTree = "<group>"; };
+		BD472DA16C35FF864003CAF221CAB4D0 /* Pods-Tap-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Tap-iOS.modulemap"; sourceTree = "<group>"; };
+		C9C6F3D73EFDF3E8BB0D29CF426FB1C2 /* LayoutProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutProperties.swift; path = Sources/LayoutProperties.swift; sourceTree = "<group>"; };
+		D2999F3C87A0EC76D3863AC97C310EA6 /* Pods-Tap-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tap-iOS-frameworks.sh"; sourceTree = "<group>"; };
+		D34A73D46F9CAF1E41B5B4E702F518D8 /* FloatingPanel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FloatingPanel.modulemap; sourceTree = "<group>"; };
+		D74F7AAF22A51A11F7522B19358BDB26 /* Valet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Valet-dummy.m"; sourceTree = "<group>"; };
+		DB917E747596FE8E5BABE9FC7413DBE9 /* MigrationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MigrationError.swift; path = Sources/Valet/MigrationError.swift; sourceTree = "<group>"; };
+		E0AAE6BD55474F37D025D88B7AC1BB30 /* SharedGroupIdentifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SharedGroupIdentifier.swift; path = Sources/Valet/SharedGroupIdentifier.swift; sourceTree = "<group>"; };
+		E426917F737A5E4B14BD5DF08AA566AF /* MigratableKeyValuePair.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MigratableKeyValuePair.swift; path = Sources/Valet/MigratableKeyValuePair.swift; sourceTree = "<group>"; };
+		E7912CF36DA078950F082DCD607F0773 /* Pods-Tap-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tap-iOS-dummy.m"; sourceTree = "<group>"; };
+		EF37C6358F15B03C3E72C26113E48E23 /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Sources/Valet/Internal/Keychain.swift; sourceTree = "<group>"; };
+		EF4F694A481A42E50A3297C96F44D968 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Extensions.swift; sourceTree = "<group>"; };
+		F042372DF823533D2317112C22BF3CBC /* KeychainError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainError.swift; path = Sources/Valet/KeychainError.swift; sourceTree = "<group>"; };
+		F13D48EFB6AAD41FB26087A29C877532 /* GrabberView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GrabberView.swift; path = Sources/GrabberView.swift; sourceTree = "<group>"; };
+		F545250AC24D320F07192C0018E56E22 /* SinglePromptSecureEnclaveValet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SinglePromptSecureEnclaveValet.swift; path = Sources/Valet/SinglePromptSecureEnclaveValet.swift; sourceTree = "<group>"; };
+		F6BE39A16C410BC272CF9F4F845A1F95 /* Pods-Tap-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tap-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FB3977DA792F5DDE37BD025FE14B4410 /* FloatingPanel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FloatingPanel-Info.plist"; sourceTree = "<group>"; };
+		FBD3C48090AF1BA22F1DFC666DC64A52 /* Pods-Tap-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tap-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		FCC1E306CF7CA38C978CCC829A783D29 /* Valet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Valet.debug.xcconfig; sourceTree = "<group>"; };
+		FDC7003D34ACFC9B5F91B12A6F1AAA8F /* Pods-Tap-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tap-iOS-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		55AE3E06C1D9E31C71976ECC739DE9AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12FBAD74E05A304A50A116A1319DD556 /* Foundation.framework in Frameworks */,
+				61DC2BE8E01CCA73DF7BE685786F408D /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE8F91E30838171F477EFF34B74375B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135B25DE3611974409292A515B511EF0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFF472590F7E17200944CB3BE693B9D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				716F1AB371C1DBC5A91F85053DE427FD /* Foundation.framework in Frameworks */,
+				8D158FB7773B86AAE9F81A3DFF8F7275 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF8CAB723E1D60EA3C0A6721AC15A73C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		246F584B30F743F80A5CD64D10A222DE /* Valet */ = {
+			isa = PBXGroup;
+			children = (
+				0EE00E24387E2D54955AF510C3D6D81D /* Accessibility.swift */,
+				81D6D53F51355BC541C6C1DBC288D55A /* CloudAccessibility.swift */,
+				2FCC7EF4EDDFF68D7E3FC4FA2072DD5D /* Configuration.swift */,
+				2C17886B11E43C526D7340C6F52F0692 /* Identifier.swift */,
+				EF37C6358F15B03C3E72C26113E48E23 /* Keychain.swift */,
+				F042372DF823533D2317112C22BF3CBC /* KeychainError.swift */,
+				E426917F737A5E4B14BD5DF08AA566AF /* MigratableKeyValuePair.swift */,
+				DB917E747596FE8E5BABE9FC7413DBE9 /* MigrationError.swift */,
+				79C885023C481E5DEAAA613793D0C2FB /* SecItem.swift */,
+				8BB3AF2A3EE0EFAECE678A5169CDAEDA /* SecureEnclave.swift */,
+				3A66F5CF3AEB0FF3A78D2F6C7A60995D /* SecureEnclaveAccessControl.swift */,
+				1B353F0EFF593042C28B53976A7D4B9E /* SecureEnclaveValet.swift */,
+				722BFC2A96D99DF6731973EF8BF2F915 /* Service.swift */,
+				E0AAE6BD55474F37D025D88B7AC1BB30 /* SharedGroupIdentifier.swift */,
+				F545250AC24D320F07192C0018E56E22 /* SinglePromptSecureEnclaveValet.swift */,
+				790FFD950409C528D7FDAAF736EDD98A /* Valet.h */,
+				9D6667740A2D9DF7F36A639724B0A2BD /* Valet.swift */,
+				DBD1D983832551DB3DEA3AD859FE030B /* Support Files */,
+			);
+			name = Valet;
+			path = Valet;
+			sourceTree = "<group>";
+		};
+		3592D6DFE51547128A7BFA2C1E1EDEB9 /* FloatingPanel */ = {
+			isa = PBXGroup;
+			children = (
+				6A3D6122B791F3E220A34E285535795A /* BackdropView.swift */,
+				4561FCD1E8A08FDAB442DE5207F12237 /* Behavior.swift */,
+				4805248EE519BB9BB185613BED02D3DB /* Controller.swift */,
+				9A17840196C5798693AC8262D201FD47 /* Core.swift */,
+				EF4F694A481A42E50A3297C96F44D968 /* Extensions.swift */,
+				F13D48EFB6AAD41FB26087A29C877532 /* GrabberView.swift */,
+				18516F943EDC36080A25FD0FE371A7D5 /* Layout.swift */,
+				90145DAB2D8B9B2A2FCEFD80816F763B /* LayoutAnchoring.swift */,
+				C9C6F3D73EFDF3E8BB0D29CF426FB1C2 /* LayoutProperties.swift */,
+				BB5408429A66D89D245BBDECE4F90870 /* Logging.swift */,
+				8CC1F67BBCC4FDB1ECADB560DE9DCFE0 /* PassthroughView.swift */,
+				3A2E9FCDEF644EBA21613E88BB4906FA /* Position.swift */,
+				7B87DC10939C7D56CE4C0479D9DBA0C9 /* State.swift */,
+				7BE14642CE6361822DABEFFC3E73322B /* SurfaceView.swift */,
+				86C60102F8B9920235E2D12A5E627AA6 /* Transitioning.swift */,
+				DB69E68429E4EF60E74804E6FFC545AA /* Support Files */,
+			);
+			name = FloatingPanel;
+			path = FloatingPanel;
+			sourceTree = "<group>";
+		};
+		4B5AD272B32CE7D8D34F4567AAA48A2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3592D6DFE51547128A7BFA2C1E1EDEB9 /* FloatingPanel */,
+				246F584B30F743F80A5CD64D10A222DE /* Valet */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		589F71677ECABB613C6A02E6DE99C181 /* Pods-Tap-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BD472DA16C35FF864003CAF221CAB4D0 /* Pods-Tap-iOS.modulemap */,
+				F6BE39A16C410BC272CF9F4F845A1F95 /* Pods-Tap-iOS-acknowledgements.markdown */,
+				59E750AA763C2470870A35198F201B1B /* Pods-Tap-iOS-acknowledgements.plist */,
+				E7912CF36DA078950F082DCD607F0773 /* Pods-Tap-iOS-dummy.m */,
+				D2999F3C87A0EC76D3863AC97C310EA6 /* Pods-Tap-iOS-frameworks.sh */,
+				FDC7003D34ACFC9B5F91B12A6F1AAA8F /* Pods-Tap-iOS-Info.plist */,
+				6BC7B80FBDDBDD714C48336E78187BCD /* Pods-Tap-iOS-umbrella.h */,
+				1F32E21DED9FD76E792615D689C7A25C /* Pods-Tap-iOS.debug.xcconfig */,
+				FBD3C48090AF1BA22F1DFC666DC64A52 /* Pods-Tap-iOS.release.xcconfig */,
+			);
+			name = "Pods-Tap-iOS";
+			path = "Target Support Files/Pods-Tap-iOS";
+			sourceTree = "<group>";
+		};
+		A17042794F6C44AF55821B6C4C0BDA98 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				589F71677ECABB613C6A02E6DE99C181 /* Pods-Tap-iOS */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BF8CAB723E1D60EA3C0A6721AC15A73C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3A8E1F128D5C7FFEA3BE07508B15460E /* Foundation.framework */,
+				4CD0C551BC1CA118D4AEF889FD37294F /* Security.framework */,
+				4D247CC87CF04E9836E4D92CCD3E8536 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				4B5AD272B32CE7D8D34F4567AAA48A2B /* Pods */,
+				E44E27580C500CC1EE55FADD16831AA6 /* Products */,
+				A17042794F6C44AF55821B6C4C0BDA98 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DB69E68429E4EF60E74804E6FFC545AA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D34A73D46F9CAF1E41B5B4E702F518D8 /* FloatingPanel.modulemap */,
+				09383DA2F8E3C62E8FCD776BC992942B /* FloatingPanel-dummy.m */,
+				FB3977DA792F5DDE37BD025FE14B4410 /* FloatingPanel-Info.plist */,
+				4A0F46FC16AF934663FD29BB1CD3F65C /* FloatingPanel-prefix.pch */,
+				47E2071A5F56A0C9F685C047B099C4D5 /* FloatingPanel-umbrella.h */,
+				4BA1EF462EED5380B6F9C72835C669CB /* FloatingPanel.debug.xcconfig */,
+				3BE7F8095057BBA9943F9B007E20E936 /* FloatingPanel.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FloatingPanel";
+			sourceTree = "<group>";
+		};
+		DBD1D983832551DB3DEA3AD859FE030B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B70A0D3ECCD1D3F295109DFB9613452E /* Valet.modulemap */,
+				D74F7AAF22A51A11F7522B19358BDB26 /* Valet-dummy.m */,
+				586A69DEBB06EC3D17F71D9882735972 /* Valet-Info.plist */,
+				458254967049E1312D9BC781B1A53ECB /* Valet-prefix.pch */,
+				31CF6B0A3B8125EDDDCCC29A453B9AB8 /* Valet-umbrella.h */,
+				FCC1E306CF7CA38C978CCC829A783D29 /* Valet.debug.xcconfig */,
+				1BBF45B55090A52EEC012945F89E2309 /* Valet.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Valet";
+			sourceTree = "<group>";
+		};
+		E44E27580C500CC1EE55FADD16831AA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel */,
+				5A804DEDA156D985D7B1181AB43F936C /* Pods-Tap-iOS */,
+				B3081E0CFC54E0C89C7B6D481B03DC95 /* Valet */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D0217EC0D1BC36EB4348FAC27333A1B8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C63CC2A5AADA56C21CF8FECF820B649A /* Pods-Tap-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB8A0E1389371F2CAA62B43268A199A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				914758A1CE12C94DD09F5B18E157FFF6 /* Valet.h in Headers */,
+				5958E168649E261EF777B4B9FE617260 /* Valet-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0F1E1EBF83F19100B7EABB591F1D634 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC0EDBA61967D32C87F4A9AE587BBC30 /* FloatingPanel-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		036BB24FED3382AAC201C1B7E9A87E32 /* Pods-Tap-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9400C008970468FAB201B9CE6AAD8EA /* Build configuration list for PBXNativeTarget "Pods-Tap-iOS" */;
+			buildPhases = (
+				D0217EC0D1BC36EB4348FAC27333A1B8 /* Headers */,
+				0C31FCA20F620AD7D31734376B960345 /* Sources */,
+				AFE8F91E30838171F477EFF34B74375B /* Frameworks */,
+				09EC7CCFC2F03670CA6251D721FB19B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3C7978E29E4227CEDDA8E536A564D8D /* PBXTargetDependency */,
+				E20FE24D4B760202BDD15F620A5818E7 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tap-iOS";
+			productName = Pods_Tap_iOS;
+			productReference = 5A804DEDA156D985D7B1181AB43F936C /* Pods-Tap-iOS */;
+			productType = "com.apple.product-type.framework";
+		};
+		4874E7E655CEB4C01E4572AD903AEA21 /* FloatingPanel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FF3C92FABCE4BE1998FD8441567F565 /* Build configuration list for PBXNativeTarget "FloatingPanel" */;
+			buildPhases = (
+				E0F1E1EBF83F19100B7EABB591F1D634 /* Headers */,
+				D8BFA82AE5F02096466C3CB401DF26C6 /* Sources */,
+				AFF472590F7E17200944CB3BE693B9D6 /* Frameworks */,
+				6B1709DCDD61B255A2B2EF302AA6C832 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FloatingPanel;
+			productName = FloatingPanel;
+			productReference = 6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel */;
+			productType = "com.apple.product-type.framework";
+		};
+		E3D29E214E770F28213292B63B7A05DA /* Valet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8217D49C19E2D76A36E5899684D6ADCB /* Build configuration list for PBXNativeTarget "Valet" */;
+			buildPhases = (
+				DB8A0E1389371F2CAA62B43268A199A2 /* Headers */,
+				AFEC6E75DB146F5EC47BF8EA47410D10 /* Sources */,
+				55AE3E06C1D9E31C71976ECC739DE9AA /* Frameworks */,
+				F4DC729719446DDDD20E200B212266DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Valet;
+			productName = Valet;
+			productReference = B3081E0CFC54E0C89C7B6D481B03DC95 /* Valet */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = E44E27580C500CC1EE55FADD16831AA6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4874E7E655CEB4C01E4572AD903AEA21 /* FloatingPanel */,
+				036BB24FED3382AAC201C1B7E9A87E32 /* Pods-Tap-iOS */,
+				E3D29E214E770F28213292B63B7A05DA /* Valet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09EC7CCFC2F03670CA6251D721FB19B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B1709DCDD61B255A2B2EF302AA6C832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4DC729719446DDDD20E200B212266DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C31FCA20F620AD7D31734376B960345 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B523605A4BB2C109D3EE5C8B101886A7 /* Pods-Tap-iOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFEC6E75DB146F5EC47BF8EA47410D10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16DFA2806F452C0E49BE928381787944 /* Accessibility.swift in Sources */,
+				A00DAD825A6422D09962A56241AA1C5B /* CloudAccessibility.swift in Sources */,
+				063923F61738E9F445BD7F7EB2D816A3 /* Configuration.swift in Sources */,
+				E3B1FF8989BFCD00C25826282893C91B /* Identifier.swift in Sources */,
+				43F5B6300D9C1DA471723FBBC66EE9BD /* Keychain.swift in Sources */,
+				1A3EFECC53915EF9ED4887977A502A6D /* KeychainError.swift in Sources */,
+				500B27A611C9970D11B002516BDDFB5D /* MigratableKeyValuePair.swift in Sources */,
+				FF5086B28DC2A7CA954D97B2C2BC2B4E /* MigrationError.swift in Sources */,
+				AB9F4FF8D3404AE2F1F4C698B3825315 /* SecItem.swift in Sources */,
+				945F731504F0BDAC6AB767715D38569D /* SecureEnclave.swift in Sources */,
+				B7A78504067E82F76480EB4982770F78 /* SecureEnclaveAccessControl.swift in Sources */,
+				62F9BF81F8215A3A8806D31AEBD92394 /* SecureEnclaveValet.swift in Sources */,
+				EA69DDE49B07713D73B3D8D4EEC4A37B /* Service.swift in Sources */,
+				A9B808CA7DEC0732EB9C582098DA159D /* SharedGroupIdentifier.swift in Sources */,
+				DAEF972146A5C7C3A0C2A8D2AD774E72 /* SinglePromptSecureEnclaveValet.swift in Sources */,
+				B0271E62B45944B6283A9326C3D01112 /* Valet.swift in Sources */,
+				4B3D0B2EC2ACC18C4FA856BBA833F58F /* Valet-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8BFA82AE5F02096466C3CB401DF26C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55883362AB1A02167EABF7EB311CE030 /* BackdropView.swift in Sources */,
+				19CAF035226E30170C413BB69CAF3EB6 /* Behavior.swift in Sources */,
+				FBAEF9FDA1A58C056383C040F01AB1B8 /* Controller.swift in Sources */,
+				CE2FD7926FE07535266AA22DEC47F434 /* Core.swift in Sources */,
+				315E4A8996F23377ADBF38865A416085 /* Extensions.swift in Sources */,
+				02E9AA511A2D172A8FEEB85D50D25559 /* FloatingPanel-dummy.m in Sources */,
+				83F41747CE86EB46D492651C10B9DE29 /* GrabberView.swift in Sources */,
+				F4C3A79277E7C41B8C8D49906FCB6E5E /* Layout.swift in Sources */,
+				60E1BF38C6DBD5F7CA2A8640A1885B1F /* LayoutAnchoring.swift in Sources */,
+				FF24208E41193057579142A3984563FB /* LayoutProperties.swift in Sources */,
+				C62E5A2D5E2B7C8B9233924E8421CFF6 /* Logging.swift in Sources */,
+				738F63FD76213507BEFDEC938EAA1CB4 /* PassthroughView.swift in Sources */,
+				3C0A97FC36BE7A967BB02FC1EA8C3976 /* Position.swift in Sources */,
+				22A550F3962CC7925596E171849ADD22 /* State.swift in Sources */,
+				994043A4233B17CA62C28A52C78A8FC3 /* SurfaceView.swift in Sources */,
+				CA652637599E58E561ACF5A5D5AA14B9 /* Transitioning.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3C7978E29E4227CEDDA8E536A564D8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FloatingPanel;
+			target = 4874E7E655CEB4C01E4572AD903AEA21 /* FloatingPanel */;
+			targetProxy = FB9CAC94BDCB7AE5066E6DECF8A417BD /* PBXContainerItemProxy */;
+		};
+		E20FE24D4B760202BDD15F620A5818E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Valet;
+			target = E3D29E214E770F28213292B63B7A05DA /* Valet */;
+			targetProxy = 150D0BC478E89548ED753309EB0D135C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		032504F201C69275441D32C68CCD1F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		29008994A5E6872905CF6FB86099C5AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F32E21DED9FD76E792615D689C7A25C /* Pods-Tap-iOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		48F67AB1E5DBE79CCF2F86C75296AB01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4DB8DF2CBAC5CCCA4BDDDCF4E36C831A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBD3C48090AF1BA22F1DFC666DC64A52 /* Pods-Tap-iOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C487506C1E19D40CFA7EF5D541304E9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BA1EF462EED5380B6F9C72835C669CB /* FloatingPanel.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FloatingPanel/FloatingPanel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FloatingPanel/FloatingPanel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FloatingPanel/FloatingPanel.modulemap";
+				PRODUCT_MODULE_NAME = FloatingPanel;
+				PRODUCT_NAME = FloatingPanel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DDE665D691797AFFC6AD551769A71458 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCC1E306CF7CA38C978CCC829A783D29 /* Valet.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Valet/Valet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Valet/Valet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Valet/Valet.modulemap";
+				PRODUCT_MODULE_NAME = Valet;
+				PRODUCT_NAME = Valet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E5954E17E9E2FAF4242A78FFA059FE35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BE7F8095057BBA9943F9B007E20E936 /* FloatingPanel.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FloatingPanel/FloatingPanel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FloatingPanel/FloatingPanel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FloatingPanel/FloatingPanel.modulemap";
+				PRODUCT_MODULE_NAME = FloatingPanel;
+				PRODUCT_NAME = FloatingPanel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E5B925A54826331544F4BA66521C2062 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BBF45B55090A52EEC012945F89E2309 /* Valet.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Valet/Valet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Valet/Valet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Valet/Valet.modulemap";
+				PRODUCT_MODULE_NAME = Valet;
+				PRODUCT_NAME = Valet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FF3C92FABCE4BE1998FD8441567F565 /* Build configuration list for PBXNativeTarget "FloatingPanel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C487506C1E19D40CFA7EF5D541304E9E /* Debug */,
+				E5954E17E9E2FAF4242A78FFA059FE35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48F67AB1E5DBE79CCF2F86C75296AB01 /* Debug */,
+				032504F201C69275441D32C68CCD1F0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8217D49C19E2D76A36E5899684D6ADCB /* Build configuration list for PBXNativeTarget "Valet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDE665D691797AFFC6AD551769A71458 /* Debug */,
+				E5B925A54826331544F4BA66521C2062 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9400C008970468FAB201B9CE6AAD8EA /* Build configuration list for PBXNativeTarget "Pods-Tap-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29008994A5E6872905CF6FB86099C5AB /* Debug */,
+				4DB8DF2CBAC5CCCA4BDDDCF4E36C831A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

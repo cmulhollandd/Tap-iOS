@@ -30,6 +30,7 @@
 		08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */; };
 		08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EA2B6844BF0033ED63 /* FeedViewController.swift */; };
 		08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EC2B6882090033ED63 /* FeedPostStore.swift */; };
+		2214335428D8F575E1D92912 /* Pods_Tap_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,9 @@
 		08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCellWithImage.swift; sourceTree = "<group>"; };
 		08F779EA2B6844BF0033ED63 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		08F779EC2B6882090033ED63 /* FeedPostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostStore.swift; sourceTree = "<group>"; };
+		09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tap_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12DE62DFC314FED4CF2A156D /* Pods-Tap-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tap-iOS.release.xcconfig"; path = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		B696BDE726B50EFA6E4B45D4 /* Pods-Tap-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tap-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2214335428D8F575E1D92912 /* Pods_Tap_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +126,8 @@
 				088653882B602D4B00355D6D /* Tap-iOSTests */,
 				088653922B602D4B00355D6D /* Tap-iOSUITests */,
 				088653702B602D4800355D6D /* Products */,
+				A7998B4607A5B2326C7FD795 /* Pods */,
+				4ED23F5D43646BBF704C2ED8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +208,23 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		4ED23F5D43646BBF704C2ED8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7998B4607A5B2326C7FD795 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B696BDE726B50EFA6E4B45D4 /* Pods-Tap-iOS.debug.xcconfig */,
+				12DE62DFC314FED4CF2A156D /* Pods-Tap-iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,9 +232,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 088653992B602D4B00355D6D /* Build configuration list for PBXNativeTarget "Tap-iOS" */;
 			buildPhases = (
+				90B5FB27547172E11ECD1973 /* [CP] Check Pods Manifest.lock */,
 				0886536B2B602D4800355D6D /* Sources */,
 				0886536C2B602D4800355D6D /* Frameworks */,
 				0886536D2B602D4800355D6D /* Resources */,
+				20B594D6560E6CE9B59E1480 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,6 +352,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20B594D6560E6CE9B59E1480 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90B5FB27547172E11ECD1973 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tap-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0886536B2B602D4800355D6D /* Sources */ = {
@@ -525,6 +593,7 @@
 		};
 		0886539A2B602D4B00355D6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B696BDE726B50EFA6E4B45D4 /* Pods-Tap-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -533,6 +602,7 @@
 				DEVELOPMENT_TEAM = 38T4963794;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Tap-iOS/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to find and post about fountains near you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -553,6 +623,7 @@
 		};
 		0886539B2B602D4B00355D6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12DE62DFC314FED4CF2A156D /* Pods-Tap-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -561,6 +632,7 @@
 				DEVELOPMENT_TEAM = 38T4963794;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Tap-iOS/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to find and post about fountains near you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

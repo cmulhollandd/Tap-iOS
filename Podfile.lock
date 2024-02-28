@@ -1,0 +1,20 @@
+PODS:
+  - FloatingPanel (2.8.2)
+  - Valet (4.2.0)
+
+DEPENDENCIES:
+  - FloatingPanel
+  - Valet
+
+SPEC REPOS:
+  trunk:
+    - FloatingPanel
+    - Valet
+
+SPEC CHECKSUMS:
+  FloatingPanel: 99b72651e5e607a6a4e0c9831e30f02d145beeb6
+  Valet: 371e7c0b0387f0659bb23ddd255c4718ca1f0ef9
+
+PODFILE CHECKSUM: 45d50c122a9c3be2d0acd256cdea39b74186eba7
+
+COCOAPODS: 1.15.2
