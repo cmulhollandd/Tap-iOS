@@ -10,16 +10,17 @@ import UIKit
 import CoreLocation
 import CoreLocationUI
 import MapKit
+import FloatingPanel
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var coolnessLabel: UILabel!
     @IBOutlet var pressureLabel: UILabel!
     @IBOutlet var tasteLabel: UILabel!
-    @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
-    @IBOutlet var detailTopContraint: NSLayoutConstraint!
+    
+    var panelController: FloatingPanelController!
+    var supportingVC: FountainDetailViewController!
     
     private var locationManager: CLLocationManager!
     private var fountainStore: FountainStore = FountainStore()
@@ -35,8 +36,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        blurView.clipsToBounds = true
-        blurView.layer.cornerRadius = 20.0
+        panelController = FloatingPanelController(delegate: self)
+        let appearance = SurfaceAppearance()
+        appearance.cornerRadius = 20
+        appearance.backgroundColor = UIColor.clear
+        panelController.surfaceView.appearance = appearance
+        supportingVC = storyboard?.instantiateViewController(withIdentifier: "FountainDetailViewController") as? FountainDetailViewController
+        panelController.set(contentViewController: supportingVC)
+        panelController.addPanel(toParent: self)
         
         mapView.delegate = self
         mapView.showsUserLocation = true
@@ -91,48 +98,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.focusedFountain = fountainStore.getFountain(from: location)
         
         // Populate details & animate presentation
-        updateDetails()
+        self.supportingVC.setFountain(to: self.focusedFountain)
+        
+        let camera = MKMapCamera(lookingAtCenter: location, fromDistance: mapView.camera.altitude, pitch: mapView.camera.pitch, heading: mapView.camera.heading)
+        mapView.setCamera(camera, animated: true)
+        
+        self.panelController.move(to: .half, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         self.focusedFountain = nil
         
         // Remove details and animate dismissal
-        updateDetails()
-    }
-    
-    private func updateDetails() {
-        
-        let openPosition = 400.0
-        let closedPosition = 600.0
-        
-        let offset = CGFloat((closedPosition - openPosition) / 2)
-        
-        guard let fountain = self.focusedFountain else {
-            self.coolnessLabel.text = "0.0"
-            self.pressureLabel.text = "0.0"
-            self.tasteLabel.text = "0.0"
-            
-            let camera = MKMapCamera(lookingAtCenter: self.mapView.userLocation.coordinate, fromDistance: self.mapView.camera.centerCoordinateDistance, pitch: 0, heading: 0.0)
-            
-            UIView.animate(withDuration: 0.3, delay: 0.05, options: .curveEaseInOut) {
-                self.detailTopContraint.constant = closedPosition
-                self.mapView.setCamera(camera, animated: true)
-                self.view.layoutIfNeeded()
-            }
-            return
-        }
-        self.coolnessLabel.text = nf.string(from: NSNumber(value: fountain.getCoolness()))!
-        self.pressureLabel.text = nf.string(from: NSNumber(value: fountain.getPressure()))!
-        self.tasteLabel.text = nf.string(from: NSNumber(value: fountain.getTaste()))!
-        
-        let camera = MKMapCamera(lookingAtCenter: fountain.getLocationCoordinate(), fromDistance: self.mapView.camera.centerCoordinateDistance, pitch: 0, heading: 0.0)
-        
-        UIView.animate(withDuration: 0.3, delay: 0.05, options: .curveEaseInOut) {
-            self.detailTopContraint.constant = openPosition
-            self.mapView.setCamera(camera, animated: true)
-            self.view.layoutIfNeeded()
-        }
+        self.supportingVC.setFountain(to: nil)
+        self.panelController.move(to: .tip, animated: true)
     }
 }
 
@@ -144,4 +123,8 @@ extension MapViewController: FountainStoreDelegate {
             mapView.addAnnotation(annot)
         }
     }
+}
+
+extension MapViewController: FloatingPanelControllerDelegate {
+    
 }
