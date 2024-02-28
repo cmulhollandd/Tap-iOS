@@ -36,7 +36,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        panelController = FloatingPanelController(delegate: self)
+        panelController = FloatingPanelController()
+        panelController.layout = PanelLayout()
         let appearance = SurfaceAppearance()
         appearance.cornerRadius = 20
         appearance.backgroundColor = UIColor.clear
@@ -48,6 +49,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         mapView.delegate = self
         mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
         
         fountainStore.delegate = self
         
@@ -101,11 +103,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Populate details & animate presentation
         self.supportingVC.setFountain(to: self.focusedFountain)
         self.panelController.move(to: .half, animated: true)
-        
-        // Offset should be the distance between the top of the tabBarController and
-        // the top safeAreaInset minus the height of the panel divided by 2
-        
-        let offset = self.panelController.surfaceLocation.y / 4
+    
+        let offset = self.mapView.frame.maxY - self.panelController.surfaceLocation(for: .tip).y
         let locPoint = mapView.convert(location, toPointTo: self.mapView)
         let offsetPoint = CGPoint(x: locPoint.x, y: locPoint.y+offset)
         let offsetCoord = mapView.convert(offsetPoint, toCoordinateFrom: self.mapView)
@@ -133,6 +132,12 @@ extension MapViewController: FountainStoreDelegate {
     }
 }
 
-extension MapViewController: FloatingPanelControllerDelegate {
-    
+private class PanelLayout: FloatingPanelLayout {
+    let position: FloatingPanelPosition = .bottom
+    let initialState: FloatingPanelState = .tip
+    let anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] = [
+        .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
+        .half: FloatingPanelLayoutAnchor(fractionalInset: 0.25, edge: .bottom, referenceGuide: .safeArea),
+        .tip: FloatingPanelLayoutAnchor(absoluteInset: 44.0, edge: .bottom, referenceGuide: .safeArea),
+    ]
 }
