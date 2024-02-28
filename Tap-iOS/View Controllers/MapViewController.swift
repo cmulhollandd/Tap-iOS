@@ -44,6 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         supportingVC = storyboard?.instantiateViewController(withIdentifier: "FountainDetailViewController") as? FountainDetailViewController
         panelController.set(contentViewController: supportingVC)
         panelController.addPanel(toParent: self)
+        panelController.move(to: .tip, animated: false)
         
         mapView.delegate = self
         mapView.showsUserLocation = true
@@ -99,11 +100,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         // Populate details & animate presentation
         self.supportingVC.setFountain(to: self.focusedFountain)
-        
-        let camera = MKMapCamera(lookingAtCenter: location, fromDistance: mapView.camera.altitude, pitch: mapView.camera.pitch, heading: mapView.camera.heading)
-        mapView.setCamera(camera, animated: true)
-        
         self.panelController.move(to: .half, animated: true)
+        
+        // Offset should be the distance between the top of the tabBarController and
+        // the top safeAreaInset minus the height of the panel divided by 2
+        
+        let offset = self.panelController.surfaceLocation.y / 4
+        let locPoint = mapView.convert(location, toPointTo: self.mapView)
+        let offsetPoint = CGPoint(x: locPoint.x, y: locPoint.y+offset)
+        let offsetCoord = mapView.convert(offsetPoint, toCoordinateFrom: self.mapView)
+        
+        let camera = MKMapCamera(lookingAtCenter: offsetCoord, fromDistance: mapView.camera.altitude, pitch: mapView.camera.pitch, heading: mapView.camera.heading)
+        mapView.setCamera(camera, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
