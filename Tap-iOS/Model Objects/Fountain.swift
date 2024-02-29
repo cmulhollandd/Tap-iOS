@@ -58,4 +58,23 @@ class Fountain: Codable {
     func getTaste() -> Double {
         return self.taste
     }
+    
+    func getFountainType() -> String {
+        switch (self.type) {
+        case .fountainOnly:
+            return "Fountain Only"
+        case .bottleFillerOnly:
+            return "Bottle Filler Only"
+        case .comboFillerFountain:
+            return "Fountain and Bottle Filler"
+        }
+    }
+    
+    func getFountainType() -> FountainType {
+        return self.type
+    }
+    
+    func getAvgRating() -> Double {
+        return (self.coolness + self.pressure + self.taste) / 3.0
+    }
 }

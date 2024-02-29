@@ -65,8 +65,17 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         // Send request to fountain API
-        guard let location = fountainLocation else {
-            // display toast to user
+        let location: CLLocationCoordinate2D!
+        if fountainLocation != nil {
+            location = fountainLocation
+        } else if let loc = locationManager.location {
+            location = locationManager.location?.coordinate
+        } else {
+            // Alert user of error
+            let alert = UIAlertController(title: "Fountain Location Missing", message: "Specify a location on the map or enable location servies to continue", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(ok)
+            self.present(alert, animated: true)
             return
         }
         let temp = Double(tempSlider.value.rounded())
@@ -75,7 +84,16 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         let type = Fountain.FountainType(rawValue: typePicker.selectedSegmentIndex)!
         
         let fountain = Fountain(location: location, coolness: temp, pressure: pressure, taste: taste, type: type)
-        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        FountainAPI.addFountain(fountain, by: delegate.user) { dict in
+            if (dict["error"] as? Bool != false) {
+                let alert = UIAlertController(title: "Fountain Added", message: nil, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(ok)
+                self.present(alert, animated: true)
+            }
+        }
+                
         print("New Fountain: \(fountain)")
     }
     

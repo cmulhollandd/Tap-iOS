@@ -8,6 +8,10 @@
 import Foundation
 import CoreGraphics
 
+enum TapUserError: Error {
+    case JSONError(String)
+}
+
 class TapUser {
     
     var firstName: String
@@ -33,5 +37,20 @@ class TapUser {
         self.email = email
         self.authToken = loginToken
         self.profilePhoto = profilePhoto
+    }
+    
+    
+    convenience init(from dict: [String:Any]) throws {
+        guard let userDict = dict["user"] as? [String:Any] else {
+            self.init(first: "", last: "", username: "", email: "", loginToken: "", profilePhoto: nil)
+            print(dict)
+            throw TapUserError.JSONError("Invalid JSON contents")
+        }
+        self.init(first: userDict["firstName"] as? String ?? "",
+                  last: userDict["lastName"] as? String ?? "",
+                  username: userDict["username"] as? String ?? "",
+                  email: userDict["email"] as? String ?? "",
+                  loginToken: dict["jwt"] as? String ?? "",
+                  profilePhoto: nil)
     }
 }

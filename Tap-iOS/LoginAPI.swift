@@ -16,14 +16,7 @@ enum AccountAction {
 class LoginAPI: NSObject {
     
     private static let baseAPIURL = "https://rhodestap.com/auth"
-    private static let encoder = JSONEncoder()
-    private static let session: URLSession = {
-        let session = URLSession(configuration: .default)
-        return session
-    }()
     
-    // Private Classes LoginData and SignUpData are identical for the time being but are unlikely to
-    // be so in the future.
     private class LoginData: Codable {
         let username: String
         let password: String
@@ -48,33 +41,7 @@ class LoginAPI: NSObject {
             self.username = username
             self.password = password
         }
-    }
-    
-    /// Calls an Escaping handler to return the result of an API call to the calling class
-    ///
-    /// - Parameters:
-    ///      - dict: <String:Any> dictionary of information to be returned to the calling class
-    ///      - completion: escaping handler to be called
-    private static func complete(_ dict: Dictionary<String, Any>, completion: @escaping(Dictionary<String, Any>) -> Void) {
-        OperationQueue.main.addOperation {
-            completion(dict)
-        }
-    }
-    
-    /// Calls an Escaping handler to return the result of an API call to the calling class upon error
-    /// Adds an "error" and "description" entries to a dict to alert the calling class of the error
-    ///
-    /// - Parameters:
-    ///      - description: String description of the error that occured
-    ///      - completion: escaping handler to be called
-    private static func completeWithError(_ description: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
-        let dict = ["error" : true, "description" : description] as [String: Any]
-        OperationQueue.main.addOperation {
-            completion(dict)
-        }
-    }
-    
-    
+    }    
     
     /// Tries to login user with supplied username and password
     ///
@@ -91,10 +58,10 @@ class LoginAPI: NSObject {
         var data: Data
         
         do {
-            data = try encoder.encode(credentials)
+            data = try APIHelpers.encoder.encode(credentials)
         } catch {
             print("Failed to encode login credentials")
-            completeWithError("Failed to encode login credentials", completion: completion)
+            APIHelpers.completeWithError("Failed to encode login credentials", completion: completion)
             return
         }
         
@@ -106,18 +73,18 @@ class LoginAPI: NSObject {
             return req
         }()
         
-        let task = session.dataTask(with: request) {
+        let task = APIHelpers.session.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) -> Void in
             
             if let error = error {
                 print(error)
-                completeWithError(error.localizedDescription, completion: completion)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
                 return
             }
             
-            guard let resp = convertDataToJSON(from: data) else {
+            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
                 print("error: No response data downloaded")
-                completeWithError("error: No response data downloaded", completion: completion)
+                APIHelpers.completeWithError("error: No response data downloaded", completion: completion)
                 return
             }
             
@@ -125,9 +92,9 @@ class LoginAPI: NSObject {
             // successful login.  In the future, I would like to extend this to check
             // other ways to make sure the account is not locked.
             if let jwt = resp["jwt"] as? String, jwt != "" {
-                complete(resp, completion: completion)
+                APIHelpers.complete(resp, completion: completion)
             } else {
-                completeWithError("Incorrect username or password, please try again", completion: completion)
+                APIHelpers.completeWithError("Incorrect username or password, please try again", completion: completion)
             }
         }
         task.resume()
@@ -169,10 +136,10 @@ class LoginAPI: NSObject {
         var data: Data
         
         do {
-            data = try encoder.encode(credentials)
+            data = try APIHelpers.encoder.encode(credentials)
         } catch {
             print("Failed to encode credentials")
-            completeWithError("Failed to encode credentials", completion: completion)
+            APIHelpers.completeWithError("Failed to encode credentials", completion: completion)
             return
         }
         
@@ -184,18 +151,18 @@ class LoginAPI: NSObject {
             return req
         }()
         
-        let task = session.dataTask(with: request) {
+        let task = APIHelpers.session.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) -> Void in
             
             if let error = error {
                 print(error)
-                completeWithError(error.localizedDescription, completion: completion)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
                 return
             }
             
-            guard let resp = convertDataToJSON(from: data) else {
+            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
                 print("error: No response data downloaded")
-                completeWithError("error: No response data downloaded", completion: completion)
+                APIHelpers.completeWithError("error: No response data downloaded", completion: completion)
                 return
             }
             
@@ -203,9 +170,9 @@ class LoginAPI: NSObject {
             // a successful signup. In the future there may need to be more methods to
             // account for username scarcity and duplicate accounts, but for now this should be fine
             if let _ = resp["userId"] {
-                complete(resp, completion: completion)
+                APIHelpers.complete(resp, completion: completion)
             } else {
-                completeWithError("Unable to create account, please try again", completion: completion)
+                APIHelpers.completeWithError("Unable to create account, please try again", completion: completion)
             }
         }
         task.resume()
@@ -222,22 +189,4 @@ class LoginAPI: NSObject {
     static func verifyAccountAction(email: String, accountAction: AccountAction, code: String, completion: @escaping(String) -> Void) {
         
     }
-    
-    /// Converts a Data object to <String:Any>?, assuming a json format
-    ///
-    ///  - Parameters:
-    ///      - data: Data? object to be converted into Dictionary
-    private static func convertDataToJSON(from data: Data?) -> Dictionary<String, Any>? {
-        guard let data = data else {
-            return nil
-        }
-        
-        do {
-            return try JSONSerialization.jsonObject(with: data) as? Dictionary<String, Any>
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
-    }
-    
 }
