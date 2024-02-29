@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GUU-fc-a3O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GUU-fc-a3O">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -860,10 +860,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKZ-pc-kOt">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YSf-bG-7B5">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sv-AJ-gaS">
+                                            <rect key="frame" x="338" y="8" width="47" height="34.333333333333336"/>
+                                            <color key="tintColor" name="PrimaryBlue"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                            <connections>
+                                                <action selector="plusButtonPressed:" destination="RFc-af-UG3" eventType="touchUpInside" id="Bc4-36-HTC"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48N-Ia-WZr">
+                                            <rect key="frame" x="12.999999999999996" y="9" width="49.666666666666657" height="34.333333333333336"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal.decrease.circle" catalog="system"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fountain Type Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SJ-oX-rb5">
+                                            <rect key="frame" x="112.00000000000001" y="75" width="169.33333333333337" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                            <color key="textColor" name="PrimaryBlue"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="tintColor" name="PrimaryBlue"/>
+                                    <constraints>
+                                        <constraint firstItem="1SJ-oX-rb5" firstAttribute="top" secondItem="YSf-bG-7B5" secondAttribute="top" constant="75" id="8vt-To-Fi5"/>
+                                        <constraint firstItem="1SJ-oX-rb5" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="RLs-Og-fYK"/>
+                                        <constraint firstItem="48N-Ia-WZr" firstAttribute="leading" secondItem="YSf-bG-7B5" secondAttribute="leading" constant="13" id="ZUD-Fi-ewc"/>
+                                        <constraint firstItem="1sv-AJ-gaS" firstAttribute="top" secondItem="YSf-bG-7B5" secondAttribute="top" constant="8" id="k80-51-NnX"/>
+                                        <constraint firstItem="48N-Ia-WZr" firstAttribute="top" secondItem="YSf-bG-7B5" secondAttribute="top" constant="9" id="peu-D7-1ca"/>
+                                        <constraint firstAttribute="trailing" secondItem="1sv-AJ-gaS" secondAttribute="trailing" constant="8" id="xJ1-YK-KIV"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="systemThinMaterial"/>
                             </visualEffectView>
@@ -932,18 +963,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Z51-n2-bK3" firstAttribute="trailing" secondItem="EKZ-pc-kOt" secondAttribute="trailing" id="0j7-zV-m3h"/>
+                            <constraint firstItem="6cq-nE-ilJ" firstAttribute="top" secondItem="1SJ-oX-rb5" secondAttribute="bottom" constant="23.6666666666667" id="4So-ph-zS8"/>
                             <constraint firstItem="Z51-n2-bK3" firstAttribute="trailing" secondItem="6cq-nE-ilJ" secondAttribute="trailing" constant="12" id="4Uf-J2-6l6"/>
                             <constraint firstItem="Z51-n2-bK3" firstAttribute="bottom" secondItem="EKZ-pc-kOt" secondAttribute="bottom" id="AAS-PC-aZB"/>
                             <constraint firstItem="EKZ-pc-kOt" firstAttribute="leading" secondItem="Z51-n2-bK3" secondAttribute="leading" id="Mmp-Te-gH8"/>
                             <constraint firstItem="6cq-nE-ilJ" firstAttribute="leading" secondItem="Z51-n2-bK3" secondAttribute="leading" constant="12" id="dJ5-YR-XgY"/>
                             <constraint firstItem="EKZ-pc-kOt" firstAttribute="top" secondItem="R3e-BT-inC" secondAttribute="top" id="hpQ-Sl-kge"/>
-                            <constraint firstItem="6cq-nE-ilJ" firstAttribute="top" secondItem="Z51-n2-bK3" secondAttribute="top" constant="60" id="wUq-1b-YaW"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="coolnessLabel" destination="Qsf-9H-3c0" id="dWg-wJ-Fmr"/>
                         <outlet property="pressureLabel" destination="QtC-Kf-cmr" id="r92-L2-VKB"/>
+                        <outlet property="sortButton" destination="48N-Ia-WZr" id="r3H-Hr-vMm"/>
                         <outlet property="tasteLabel" destination="7hM-RQ-NUU" id="emt-6f-bg8"/>
+                        <outlet property="typeLabel" destination="1SJ-oX-rb5" id="wng-zz-ydI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKy-Um-fRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1549,9 +1584,11 @@
         <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <namedColor name="PrimaryBlue">
             <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

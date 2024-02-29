@@ -15,7 +15,7 @@ struct FountainCoordinate: Codable {
     var longitude: Double
 }
 
-class Fountain: Codable {
+class Fountain: Codable, Equatable {
     
     enum FountainType: Int, Codable {
         case fountainOnly = 0
@@ -23,13 +23,15 @@ class Fountain: Codable {
         case comboFillerFountain = 2
     }
     
+    let id: Int
     private var location: FountainCoordinate
     private var coolness: Double
     private var pressure: Double
     private var taste: Double
     private var type: FountainType
     
-    init(location: CLLocationCoordinate2D, coolness: Double, pressure: Double, taste: Double, type: FountainType) {
+    init(id: Int, location: CLLocationCoordinate2D, coolness: Double, pressure: Double, taste: Double, type: FountainType) {
+        self.id = id
         let loc = FountainCoordinate(latitude: location.latitude, longitude: location.longitude)
         self.location = loc
         self.coolness = coolness
@@ -57,5 +59,28 @@ class Fountain: Codable {
     
     func getTaste() -> Double {
         return self.taste
+    }
+    
+    func getFountainType() -> String {
+        switch (self.type) {
+        case .fountainOnly:
+            return "Drinking Fountain Only"
+        case .bottleFillerOnly:
+            return "Bottle Filler Only"
+        case .comboFillerFountain:
+            return "Fountain and Bottle Filler"
+        }
+    }
+    
+    func getFountainType() -> FountainType {
+        return self.type
+    }
+    
+    func getAvgRating() -> Double {
+        return (self.coolness + self.pressure + self.taste) / 3.0
+    }
+    
+    static func == (lhs: Fountain, rhs: Fountain) -> Bool {
+        return lhs.id == rhs.id
     }
 }

@@ -67,7 +67,14 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true)
             } else {
                 let dict = response
-                _ = TapUser(first: "", last: "", username: username, email: "", loginToken: dict["jwt"] as! String, profilePhoto: nil)
+                
+                do {
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    delegate.user = try TapUser(from: dict)
+                } catch {
+                    print(error.localizedDescription)
+                    return
+                }
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
