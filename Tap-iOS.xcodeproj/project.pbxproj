@@ -153,9 +153,7 @@
 				088653722B602D4800355D6D /* AppDelegate.swift */,
 				088653742B602D4800355D6D /* SceneDelegate.swift */,
 				088653782B602D4800355D6D /* Main.storyboard */,
-				08E7A5422B8F797200695946 /* FountainAPI.swift */,
-				08F779E02B631E5F0033ED63 /* LoginAPI.swift */,
-				08E7A5442B90F1AB00695946 /* APIHelpers.swift */,
+				08E7A54E2B91140600695946 /* API Items */,
 				089F0B7A2B7EDE0D00BFDC71 /* Model Objects */,
 				08F779EC2B6882090033ED63 /* FeedPostStore.swift */,
 				082271292B8819A4007CD0F7 /* FountainStore.swift */,
@@ -201,6 +199,16 @@
 				08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		08E7A54E2B91140600695946 /* API Items */ = {
+			isa = PBXGroup;
+			children = (
+				08E7A5422B8F797200695946 /* FountainAPI.swift */,
+				08F779E02B631E5F0033ED63 /* LoginAPI.swift */,
+				08E7A5442B90F1AB00695946 /* APIHelpers.swift */,
+			);
+			path = "API Items";
 			sourceTree = "<group>";
 		};
 		08F779DF2B631E2F0033ED63 /* View Controllers */ = {
