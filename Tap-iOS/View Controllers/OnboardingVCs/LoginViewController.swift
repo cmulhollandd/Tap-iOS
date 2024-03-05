@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Valet
 
 
 class LoginViewController: UIViewController {
@@ -22,6 +23,12 @@ class LoginViewController: UIViewController {
         
         titleImage.image = titleImage.image?.withRenderingMode(.alwaysTemplate)
         titleImage.tintColor = UIColor(named: "PrimaryBlue")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tryAutoLogin()
     }
     
     // MARK: - @IBActions
@@ -65,7 +72,9 @@ class LoginViewController: UIViewController {
                 let ok = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(ok)
                 self.present(alert, animated: true)
+                self.removeLoginInfo()
             } else {
+                // Successful login, create global user instance, save login info if needed, present homescreen
                 let dict = response
                 
                 do {
@@ -76,11 +85,72 @@ class LoginViewController: UIViewController {
                     return
                 }
                 
+                self.saveLoginInfo(username: username, password: password)
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
                 vc.modalPresentationStyle = .overFullScreen
                 self.present(vc, animated: true)
             }
+        }
+    }
+    
+    /// Attempts to save userLogin info securely in the keychain for autologins in the future
+    ///
+    ///  Parameters:
+    ///     - username: Username to be saved in the keychain
+    ///     - password: Password to be saved in the keychain
+    func saveLoginInfo(username: String, password: String) {
+        let myValet = Valet.valet(with: Identifier(nonEmpty: "Tap-iOS")!, accessibility: .whenUnlocked)
+        
+        guard let username = usernameTextField.text, let password = passwordTextField.text else {
+            return
+        }
+        
+        do {
+            let containsUsername = try myValet.containsObject(forKey: "Tap-iOS-username")
+            let containsPassword = try myValet.containsObject(forKey: "Tap-iOS-password")
+            
+            if (containsUsername && containsPassword) {
+                return
+            }
+        } catch {
+            print("Error checking if credentials already saved \(#function)")
+        }
+        
+        do {
+            try myValet.setString(username, forKey: "Tap-iOS-username")
+            try myValet.setString(password, forKey: "Tap-iOS-password")
+        } catch {
+            print("Error saving credentials to keychain: \(#function)")
+        }
+    }
+    
+    /// Attemps to retrieve saved login info from the keychain. If login credentials are available, attempts to login user.
+    func tryAutoLogin() {
+        let myValet = Valet.valet(with: Identifier(nonEmpty: "Tap-iOS")!, accessibility: .whenUnlocked)
+        
+        do {
+            let username = try myValet.string(forKey: "Tap-iOS-username")
+            let password = try myValet.string(forKey: "Tap-iOS-password")
+            
+            print("Retreived saved username: \(username) and password: \(password)")
+            
+            
+            loginUser(username: username, password: password)
+        } catch {
+            print("Error retrieving credentials from keychain: \(#function)")
+        }
+    }
+    
+    func removeLoginInfo() {
+        let myValet = Valet.valet(with: Identifier(nonEmpty: "Tap-iOS")!, accessibility: .whenUnlocked)
+        
+        do {
+            try myValet.removeObject(forKey: "Tap-iOS-username")
+            try myValet.removeObject(forKey: "Tap-iOS-password")
+        } catch {
+            print("Could not remove login items, possible they didn't exist to begin with")
         }
     }
 }
