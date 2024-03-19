@@ -684,146 +684,6 @@
             </objects>
             <point key="canvasLocation" x="-642" y="1323"/>
         </scene>
-        <!--Account Settings-->
-        <scene sceneID="OQt-Ju-BIV">
-            <objects>
-                <viewController id="IUM-rS-1qH" userLabel="Account Settings" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lUZ-LD-04a">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" id="GJx-N8-afo">
-                                <rect key="frame" x="0.0" y="59" width="393" height="96"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
-                                <color key="barTintColor" name="PrimaryBlue"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                                <textAttributes key="largeTitleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JnX-NS-Wn1">
-                                <rect key="frame" x="48" y="85" width="297" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                <color key="textColor" systemColor="tableBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS7-gC-lsI">
-                                <rect key="frame" x="54" y="167" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Settings &amp; Privacy">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="PfE-qx-8Qu" kind="presentation" id="vOz-fJ-U0X"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-Hx-Fg1">
-                                <rect key="frame" x="54" y="235" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Your Activity">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="fet-PF-Xgd" kind="presentation" id="z0U-Le-4u3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmM-CL-eXY">
-                                <rect key="frame" x="54" y="303" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Notifications">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="Fhq-qk-tGu" kind="presentation" id="mw4-37-pKg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="xct-jV-cJ4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="person.crop.circle.fill" catalog="system" id="VsF-1F-L3H"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2rF-Ka-YBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2047" y="1439"/>
-        </scene>
-        <!--Settings & Privacy-->
-        <scene sceneID="gue-PA-T2q">
-            <objects>
-                <viewController id="PfE-qx-8Qu" userLabel="Settings &amp; Privacy" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1p0-99-qSh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X6k-q6-e4N">
-                                <rect key="frame" x="302" y="191" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" id="2VY-Y8-J81">
-                                <rect key="frame" x="0.0" y="59" width="393" height="96"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
-                                <color key="barTintColor" name="PrimaryBlue"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                                <textAttributes key="largeTitleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings &amp; Privacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afp-1z-hrI">
-                                <rect key="frame" x="48" y="85" width="314" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                <color key="textColor" systemColor="tableBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpL-6g-f04">
-                                <rect key="frame" x="54" y="244" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Username &amp; Password">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="qGb-ao-zvd" kind="presentation" id="23j-IW-6tF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJE-bw-7WZ">
-                                <rect key="frame" x="54" y="312" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Blocked Accounts">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="2me-TB-VfT" kind="presentation" id="mPL-4N-n2t"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPo-ZV-jfn">
-                                <rect key="frame" x="95" y="176" width="203" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Private Account">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="b5d-Vh-yHQ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8h7-lM-3gy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2866.4122137404579" y="1443.661971830986"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="uaq-i1-aEq">
             <objects>
@@ -985,70 +845,12 @@
             </objects>
             <point key="canvasLocation" x="1241.9847328244275" y="1967.605633802817"/>
         </scene>
-        <!--Your Activity-->
-        <scene sceneID="hCw-a8-lXK">
-            <objects>
-                <viewController id="fet-PF-Xgd" userLabel="Your Activity" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vxY-Tb-KhH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZA-aS-DrG">
-                                <rect key="frame" x="54" y="167" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Likes">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="p2p-ni-q3i" kind="presentation" id="TU4-7S-jnU"/>
-                                </connections>
-                            </button>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" id="m5h-YZ-rwx">
-                                <rect key="frame" x="0.0" y="59" width="393" height="96"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
-                                <color key="barTintColor" name="PrimaryBlue"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                                <textAttributes key="largeTitleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpU-u0-HXP">
-                                <rect key="frame" x="54" y="235" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Comments">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="swo-UG-TNa" kind="presentation" id="A2W-Pr-m3F"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z66-qA-hU9">
-                                <rect key="frame" x="87" y="85" width="218" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                <color key="textColor" systemColor="tableBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="cst-nr-fQN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VQW-U3-VQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2820" y="2163"/>
-        </scene>
         <!--Likes-->
         <scene sceneID="m8a-wG-par">
             <objects>
                 <viewController storyboardIdentifier="LikesViewController" id="p2p-ni-q3i" userLabel="Likes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jgf-no-cQh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="uVL-fu-lIg">
@@ -1084,7 +886,7 @@
             <objects>
                 <viewController storyboardIdentifier="CommentsViewController" id="swo-UG-TNa" userLabel="Comments" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CtM-nk-hbi">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="nXi-Gt-vmo">
@@ -1114,78 +916,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6r-Ag-cG2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3609" y="2836"/>
-        </scene>
-        <!--Notifications-->
-        <scene sceneID="dAK-pr-Ii1">
-            <objects>
-                <viewController id="Fhq-qk-tGu" userLabel="Notifications" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZV7-VS-LDZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" id="PfS-Ze-mYz">
-                                <rect key="frame" x="0.0" y="59" width="393" height="96"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
-                                <color key="barTintColor" name="PrimaryBlue"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                                <textAttributes key="largeTitleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                            </navigationBar>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ejD-2X-BdP">
-                                <rect key="frame" x="301" y="184" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF0-PI-b4y">
-                                <rect key="frame" x="117" y="169" width="145" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Pause All">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                            </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g7t-3f-rtO">
-                                <rect key="frame" x="301" y="252" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOb-EA-w97">
-                                <rect key="frame" x="89" y="237" width="200" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Feed">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                            </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNL-J4-iOS">
-                                <rect key="frame" x="300" y="320" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozH-zO-BlG">
-                                <rect key="frame" x="79" y="85" width="221" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                <color key="textColor" systemColor="tableBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n39-E7-E3F">
-                                <rect key="frame" x="85" y="305" width="208" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Friend Requests">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="rln-js-IwC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A2B-bg-sq6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3612.9770992366412" y="2166.9014084507044"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="osn-BC-dZW">
@@ -1323,7 +1053,7 @@
             <objects>
                 <viewController storyboardIdentifier="BlockedAccountsViewController" id="2me-TB-VfT" userLabel="Blocked" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zgb-UU-SO0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="XeR-o8-EfR">
@@ -1352,94 +1082,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQR-td-rBK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4392" y="2172"/>
-        </scene>
-        <!--Username & Password-->
-        <scene sceneID="dVi-Yl-1D6">
-            <objects>
-                <viewController id="qGb-ao-zvd" userLabel="Username &amp; Password" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="syS-zz-LY0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" id="Vep-Nr-QOq">
-                                <rect key="frame" x="0.0" y="59" width="393" height="96"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
-                                <color key="barTintColor" name="PrimaryBlue"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                                <textAttributes key="largeTitleTextAttributes">
-                                    <color key="textColor" systemColor="systemBackgroundColor"/>
-                                </textAttributes>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username &amp; Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ui-lX-Pbv">
-                                <rect key="frame" x="14" y="86" width="365" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="textColor" systemColor="tableBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ci0-Eg-4ai">
-                                <rect key="frame" x="54" y="171" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Change Username">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="VxQ-uA-OPd" kind="presentation" id="sW7-k1-8jr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkz-QW-Pmh">
-                                <rect key="frame" x="54" y="239" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Change Password">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="PXx-0W-Z4g" kind="presentation" id="KDz-wb-qZL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDL-MG-W4L">
-                                <rect key="frame" x="54" y="307" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Change Email">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="qNH-Yp-VvT" kind="presentation" id="tPa-1L-9jI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTZ-SF-YUt">
-                                <rect key="frame" x="54" y="375" width="284" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Delete Account">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="Y0O-q2-y5U" kind="presentation" id="aek-rR-8xZ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="3fg-Yx-nra"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WBx-55-aGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5154" y="2177"/>
+            <point key="canvasLocation" x="4376" y="2843"/>
         </scene>
         <!--Change Username-->
         <scene sceneID="vdE-qC-kut">
             <objects>
                 <viewController storyboardIdentifier="ChangeUsernameViewController" id="VxQ-uA-OPd" userLabel="Change Username" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nei-Eg-HXn">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="VPc-NR-OmL">
@@ -1504,7 +1154,7 @@
             <objects>
                 <viewController storyboardIdentifier="ChangePasswordViewController" id="PXx-0W-Z4g" userLabel="Change Password" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNQ-Bk-vLh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="ENI-IE-jGg">
@@ -1562,7 +1212,7 @@
             <objects>
                 <viewController storyboardIdentifier="ChangeEmailViewController" id="qNH-Yp-VvT" userLabel="Change Email" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUE-Tb-22N">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="uaj-Ue-SbF">
@@ -1620,7 +1270,7 @@
             <objects>
                 <viewController storyboardIdentifier="DeleteAccountViewController" id="Y0O-q2-y5U" userLabel="Delete Account" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9uw-Xj-hlX">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" id="leB-TG-s1I">
@@ -1786,7 +1436,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3a0-ja-n39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5931" y="2177"/>
+            <point key="canvasLocation" x="6266" y="1463"/>
         </scene>
     </scenes>
     <resources>
@@ -1799,7 +1449,6 @@
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <namedColor name="PrimaryBlue">
