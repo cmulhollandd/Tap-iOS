@@ -43,12 +43,10 @@ class FeedPostStore: NSObject {
 extension FeedPostStore: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(posts.count)
         return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Creating post for index \(indexPath.row)")
         let post = posts[indexPath.row]
         
         let hours = post.postDate.timeIntervalSinceNow / 3600

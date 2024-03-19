@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sections</key>
+	<dict>
+		<key>0</key>
+		<dict>
+			<key>title</key>
+			<string></string>
+			<key>rows</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>title</key>
+					<string>Change Username</string>
+					<key>type</key>
+					<string>viewController</string>
+					<key>VCID</key>
+					<string>ChangeUsernameViewController</string>
+				</dict>
+				<key>1</key>
+				<dict>
+					<key>title</key>
+					<string>Change Password</string>
+					<key>type</key>
+					<string>viewController</string>
+					<key>VCID</key>
+					<string>ChangePasswordViewController</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>title</key>
+					<string>Change Email</string>
+					<key>type</key>
+					<string>viewController</string>
+					<key>VCID</key>
+					<string>ChangeEmailViewController</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>title</key>
+					<string>Delete Account</string>
+					<key>type</key>
+					<string>viewController</string>
+					<key>VCID</key>
+					<string>DeleteAccountViewController</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

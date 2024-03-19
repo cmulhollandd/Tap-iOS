@@ -91,7 +91,7 @@ class SignUpViewController: UIViewController {
             self.presentErrorAlert(subtitle: "Please complete all required fields")
             return
         }
-        LoginAPI.createAcccount(email: emailTextField.text!, username: usernameTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!) { (dict) in
+        AccountsAPI.createAcccount(email: emailTextField.text!, username: usernameTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!) { (dict) in
             
             if (dict["error"] != nil) {
                 self.presentErrorAlert(subtitle: dict["description"] as! String)

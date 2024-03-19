@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sections</key>
+	<dict>
+		<key>0</key>
+		<dict>
+			<key>rows</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>title</key>
+					<string>Private Account</string>
+					<key>type</key>
+					<string>toggle</string>
+					<key>prefKey</key>
+					<string>userPrivateAccount</string>
+				</dict>
+				<key>1</key>
+				<dict>
+					<key>title</key>
+					<string>Username and Password</string>
+					<key>type</key>
+					<string>viewController</string>
+					<key>VCID</key>
+					<string>ChangeUsernamePasswordViewController</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>title</key>
+					<string>Blocked Accounts</string>
+					<key>type</key>
+					<string>viewController</string>
+					<key>VCID</key>
+					<string>BlockedAccountsViewController</string>
+				</dict>
+			</dict>
+			<key>title</key>
+			<string>Settings and Privacy</string>
+		</dict>
+		<key>1</key>
+		<dict>
+			<key>title</key>
+			<string>Your Activity</string>
+			<key>rows</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>title</key>
+					<string>Likes</string>
+					<key>type</key>
+					<string>viewController</string>
+					<key>VCID</key>
+					<string>LikesViewController</string>
+				</dict>
+				<key>1</key>
+				<dict>
+					<key>title</key>
+					<string>Comments</string>
+					<key>type</key>
+					<string>viewController</string>
+					<key>VCID</key>
+					<string>CommentsViewController</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>2</key>
+		<dict>
+			<key>title</key>
+			<string>Notifications</string>
+			<key>rows</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>title</key>
+					<string>Pause All Notifications</string>
+					<key>type</key>
+					<string>toggle</string>
+					<key>prefKey</key>
+					<string>pauseAllNotifications</string>
+				</dict>
+				<key>1</key>
+				<dict>
+					<key>title</key>
+					<string>Feed Notifications</string>
+					<key>type</key>
+					<string>toggle</string>
+					<key>prefKey</key>
+					<string>userFeedNotificationsEnabled</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>title</key>
+					<string>Friend Requests</string>
+					<key>type</key>
+					<string>toggle</string>
+					<key>prefKey</key>
+					<string>userFriendRequestNotificationsEnabled</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
