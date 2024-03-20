@@ -17,6 +17,7 @@ class FountainDetailViewController: UIViewController {
     @IBOutlet var sortButton: UIButton!
     @IBOutlet var typeLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
+    @IBOutlet var reviewButton: UIButton!
     
     private var nf: NumberFormatter = {
         let nf = NumberFormatter()
@@ -29,7 +30,6 @@ class FountainDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.view.backgroundColor = UIColor.clear
         
@@ -48,15 +48,16 @@ class FountainDetailViewController: UIViewController {
         self.sortMenu = UIMenu(title: "Sort", options: .singleSelection, children: [all, fountains, fillers, combo])
         self.sortButton.menu = self.sortMenu
         self.sortButton.showsMenuAsPrimaryAction = true
-    }
-    
-    
-    // MARK: - @IBActions
-    @IBAction func plusButtonPressed(_ sender: UIButton) {
         
-        referringVC.panelController.move(to: .full, animated: true)
+        self.reviewButton.isEnabled = false
     }
     
+    
+    @IBAction func reviewButtonPressed(_ sender: UIButton) {
+        
+        self.referringVC.panelController.move(to: .full, animated: true)
+        
+    }
     
     func setFountain(to fountain: Fountain?) {
         
@@ -67,12 +68,14 @@ class FountainDetailViewController: UIViewController {
             self.tasteLabel.text = nf.string(from: NSNumber(value: fountain.getTaste()))
             let typeText: String = fountain.getFountainType()
             self.typeLabel.text = typeText
+            self.reviewButton.isEnabled = true
         } else {
             self.fountain = nil
             self.coolnessLabel.text = "N/A"
             self.pressureLabel.text = "N/A"
             self.tasteLabel.text = "N/A"
             self.typeLabel.text = "No Fountain Selected"
+            self.reviewButton.isEnabled = false
         }
     }
     

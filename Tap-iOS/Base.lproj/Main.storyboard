@@ -140,9 +140,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-DF-WUx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-DF-WUx">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ImageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="246" id="onc-fG-OSr" customClass="FeedTableViewCellWithImage" customModule="Tap_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="246"/>
@@ -726,12 +725,12 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sv-AJ-gaS">
-                                            <rect key="frame" x="333" y="8" width="52" height="34.333333333333336"/>
+                                            <rect key="frame" x="335.66666666666669" y="8" width="49.333333333333314" height="34.333333333333336"/>
                                             <color key="tintColor" name="PrimaryBlue"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="star.leadinghalf.filled" catalog="system"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
                                             <connections>
-                                                <action selector="plusButtonPressed:" destination="RFc-af-UG3" eventType="touchUpInside" id="Bc4-36-HTC"/>
+                                                <action selector="reviewButtonPressed:" destination="RFc-af-UG3" eventType="touchUpInside" id="v5K-UF-mS8"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48N-Ia-WZr">
@@ -845,6 +844,7 @@
                         <outlet property="coolnessLabel" destination="Qsf-9H-3c0" id="dWg-wJ-Fmr"/>
                         <outlet property="distanceLabel" destination="ztd-CI-uXK" id="ieH-4f-V61"/>
                         <outlet property="pressureLabel" destination="QtC-Kf-cmr" id="r92-L2-VKB"/>
+                        <outlet property="reviewButton" destination="1sv-AJ-gaS" id="bFz-hT-WXP"/>
                         <outlet property="sortButton" destination="48N-Ia-WZr" id="r3H-Hr-vMm"/>
                         <outlet property="tasteLabel" destination="7hM-RQ-NUU" id="emt-6f-bg8"/>
                         <outlet property="typeLabel" destination="1SJ-oX-rb5" id="wng-zz-ydI"/>
@@ -956,10 +956,9 @@
         <scene sceneID="q5g-ti-Cww">
             <objects>
                 <tableViewController id="GMd-Mv-05G" customClass="MainSettingsViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="NhQ-AX-VvU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="NhQ-AX-VvU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BasicSettingsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BasicSettingsCell" id="ujj-u5-HKm" customClass="BasicSettingsTableCell" customModule="Tap_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -1453,13 +1452,13 @@
         <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
         <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
-        <image name="star.leadinghalf.filled" catalog="system" width="128" height="116"/>
         <namedColor name="PrimaryBlue">
             <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
