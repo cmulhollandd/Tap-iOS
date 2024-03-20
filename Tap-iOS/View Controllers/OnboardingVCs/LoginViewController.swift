@@ -28,7 +28,9 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tryAutoLogin()
+        if (UserDefaults.standard.bool(forKey: "TapKeepUserLoggedIn")) {
+            tryAutoLogin()
+        }
     }
     
     // MARK: - @IBActions
@@ -84,8 +86,10 @@ class LoginViewController: UIViewController {
                     print(error.localizedDescription)
                     return
                 }
-                
-                self.saveLoginInfo(username: username, password: password)
+
+                if (UserDefaults.standard.bool(forKey: "TapKeepUserLoggedIn")) {
+                    self.saveLoginInfo(username: username, password: password)
+                }
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
