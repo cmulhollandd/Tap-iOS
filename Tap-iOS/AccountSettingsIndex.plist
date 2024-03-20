@@ -13,13 +13,22 @@
 				<key>0</key>
 				<dict>
 					<key>title</key>
+					<string>Stay Logged In</string>
+					<key>type</key>
+					<string>toggle</string>
+					<key>prefKey</key>
+					<string>TapKeepUserLoggedIn</string>
+				</dict>
+				<key>1</key>
+				<dict>
+					<key>title</key>
 					<string>Change Username</string>
 					<key>type</key>
 					<string>viewController</string>
 					<key>VCID</key>
 					<string>ChangeUsernameViewController</string>
 				</dict>
-				<key>1</key>
+				<key>2</key>
 				<dict>
 					<key>title</key>
 					<string>Change Password</string>
@@ -28,7 +37,7 @@
 					<key>VCID</key>
 					<string>ChangePasswordViewController</string>
 				</dict>
-				<key>2</key>
+				<key>3</key>
 				<dict>
 					<key>title</key>
 					<string>Change Email</string>
@@ -37,7 +46,7 @@
 					<key>VCID</key>
 					<string>ChangeEmailViewController</string>
 				</dict>
-				<key>3</key>
+				<key>4</key>
 				<dict>
 					<key>title</key>
 					<string>Delete Account</string>
