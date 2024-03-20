@@ -16,6 +16,7 @@ class FountainDetailViewController: UIViewController {
     @IBOutlet var tasteLabel: UILabel!
     @IBOutlet var sortButton: UIButton!
     @IBOutlet var typeLabel: UILabel!
+    @IBOutlet var distanceLabel: UILabel!
     
     private var nf: NumberFormatter = {
         let nf = NumberFormatter()
@@ -53,7 +54,7 @@ class FountainDetailViewController: UIViewController {
     // MARK: - @IBActions
     @IBAction func plusButtonPressed(_ sender: UIButton) {
         
-        referringVC.panelController.move(to: .tip, animated: true)
+        referringVC.panelController.move(to: .full, animated: true)
     }
     
     
@@ -68,9 +69,10 @@ class FountainDetailViewController: UIViewController {
             self.typeLabel.text = typeText
         } else {
             self.fountain = nil
-            self.coolnessLabel.text = "0.0"
-            self.pressureLabel.text = "0.0"
-            self.tasteLabel.text = "0.0"
+            self.coolnessLabel.text = "N/A"
+            self.pressureLabel.text = "N/A"
+            self.tasteLabel.text = "N/A"
+            self.typeLabel.text = "No Fountain Selected"
         }
     }
     

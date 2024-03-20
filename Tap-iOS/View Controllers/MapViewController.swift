@@ -64,6 +64,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         fountainStore.updateFountains(around: mapView.region)
     }
     
+    func setFountainDistance() {
+        guard let fountain = self.focusedFountain else {
+            self.supportingVC.distanceLabel.text = ""
+            return
+        }
+        
+        if let location = locationManager.location {
+            var dist = location.distance(from: fountain.getLocation()) * 3.28084
+            if dist > 528 {
+                dist /= 5280 // Convert to miles if far enough
+                self.supportingVC.distanceLabel.text = "\(nf.string(from: dist as NSNumber)!) mi away"
+            } else {
+                let nf = NumberFormatter()
+                nf.maximumFractionDigits = 0
+                self.supportingVC.distanceLabel.text = "\(nf.string(from: dist as NSNumber)!) feet away"
+            }
+        }
+    }
+    
     
     // MARK: - CLLocationManagerDelegate methods
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -99,6 +118,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         // Populate details & animate presentation
         self.supportingVC.setFountain(to: self.focusedFountain)
+        self.setFountainDistance()
         self.panelController.move(to: .half, animated: true)
     
         let offset = self.mapView.frame.maxY - self.panelController.surfaceLocation(for: .tip).y
@@ -115,6 +135,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         // Remove details and animate dismissal
         self.supportingVC.setFountain(to: nil)
+        self.setFountainDistance()
         self.panelController.move(to: .tip, animated: true)
     }
 }
