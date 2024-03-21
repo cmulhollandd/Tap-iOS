@@ -18,6 +18,11 @@ class FountainDetailViewController: UIViewController {
     @IBOutlet var typeLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var reviewButton: UIButton!
+    @IBOutlet var coolnessSlider: UISlider!
+    @IBOutlet var pressureSlider: UISlider!
+    @IBOutlet var tasteSlider: UISlider!
+    @IBOutlet var fountainWorkingSwitch: UISegmentedControl!
+    
     
     private var nf: NumberFormatter = {
         let nf = NumberFormatter()
@@ -52,11 +57,15 @@ class FountainDetailViewController: UIViewController {
         self.reviewButton.isEnabled = false
     }
     
-    
-    @IBAction func reviewButtonPressed(_ sender: UIButton) {
-        
+    @IBAction func leaveReviewButtonPressed(_ sender: UIButton) {
         self.referringVC.panelController.move(to: .full, animated: true)
+    }
+    
+    @IBAction func submitReviewButtonPressed(_ sender: UIButton) {
+        // Submit review to API
         
+        // Move back down to half
+        self.referringVC.panelController.move(to: .half, animated: true)
     }
     
     func setFountain(to fountain: Fountain?) {

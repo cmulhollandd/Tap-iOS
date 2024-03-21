@@ -724,15 +724,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sv-AJ-gaS">
-                                            <rect key="frame" x="335.66666666666669" y="8" width="49.333333333333314" height="34.333333333333336"/>
-                                            <color key="tintColor" name="PrimaryBlue"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
-                                            <connections>
-                                                <action selector="reviewButtonPressed:" destination="RFc-af-UG3" eventType="touchUpInside" id="v5K-UF-mS8"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48N-Ia-WZr">
                                             <rect key="frame" x="12.999999999999996" y="9" width="49.666666666666657" height="34.333333333333336"/>
                                             <state key="normal" title="Button"/>
@@ -750,17 +741,98 @@
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have feedback on this fountain?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xB8-eT-eoz">
+                                            <rect key="frame" x="74.666666666666671" y="197" width="243.66666666666663" height="20.333333333333343"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvS-tU-c7c">
+                                            <rect key="frame" x="101.33333333333333" y="225.33333333333334" width="190.33333333333337" height="34.333333333333343"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Leave a Review Here">
+                                                <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="leaveReviewButtonPressed:" destination="RFc-af-UG3" eventType="touchUpInside" id="owv-sy-NIp"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GGI-Y5-42M">
+                                            <rect key="frame" x="24" y="271.66666666666669" width="345" height="230"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coolness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP3-90-zfs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" name="PrimaryBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QgJ-68-UOC">
+                                                    <rect key="frame" x="-2" y="28.333333333333314" width="349" height="31"/>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGH-zK-XeX">
+                                                    <rect key="frame" x="0.0" y="66.333333333333314" width="345" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" name="PrimaryBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jvb-XC-t84">
+                                                    <rect key="frame" x="-2" y="94.666666666666629" width="349" height="31"/>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJn-Bj-eqg">
+                                                    <rect key="frame" x="0.0" y="132.66666666666663" width="345" height="20.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" name="PrimaryBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2jf-xY-L1H">
+                                                    <rect key="frame" x="-2" y="161" width="349" height="31"/>
+                                                </slider>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Z6y-wD-xVu">
+                                                    <rect key="frame" x="0.0" y="199" width="345" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fountain Working?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVn-PA-o8H">
+                                                            <rect key="frame" x="0.0" y="0.0" width="148.33333333333334" height="31"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <color key="textColor" name="PrimaryBlue"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="78x-hE-Glc">
+                                                            <rect key="frame" x="188.33333333333337" y="0.0" width="156.66666666666663" height="32"/>
+                                                            <segments>
+                                                                <segment title="Yes"/>
+                                                                <segment title="No"/>
+                                                            </segments>
+                                                            <color key="selectedSegmentTintColor" name="PrimaryBlue"/>
+                                                        </segmentedControl>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMb-lx-8tS">
+                                            <rect key="frame" x="128.33333333333331" y="526.66666666666663" width="136.33333333333331" height="34.333333333333371"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Submit Review"/>
+                                            <connections>
+                                                <action selector="submitReviewButtonPressed:" destination="RFc-af-UG3" eventType="touchUpInside" id="JzL-qt-vF1"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="tintColor" name="PrimaryBlue"/>
                                     <constraints>
                                         <constraint firstItem="ztd-CI-uXK" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="13K-pm-UmH"/>
+                                        <constraint firstItem="VvS-tU-c7c" firstAttribute="top" secondItem="xB8-eT-eoz" secondAttribute="bottom" constant="8" symbolic="YES" id="7dE-4p-QO7"/>
                                         <constraint firstItem="1SJ-oX-rb5" firstAttribute="top" secondItem="YSf-bG-7B5" secondAttribute="top" constant="60" id="8vt-To-Fi5"/>
+                                        <constraint firstItem="QMb-lx-8tS" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="BeD-gU-cZm"/>
+                                        <constraint firstAttribute="trailing" secondItem="GGI-Y5-42M" secondAttribute="trailing" constant="24" id="FJ4-Jl-Ssl"/>
+                                        <constraint firstItem="GGI-Y5-42M" firstAttribute="leading" secondItem="YSf-bG-7B5" secondAttribute="leading" constant="24" id="KlA-xh-uJS"/>
+                                        <constraint firstItem="xB8-eT-eoz" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="Orn-1g-tlC"/>
                                         <constraint firstItem="1SJ-oX-rb5" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="RLs-Og-fYK"/>
+                                        <constraint firstItem="QMb-lx-8tS" firstAttribute="top" secondItem="GGI-Y5-42M" secondAttribute="bottom" constant="25" id="RNS-gv-acr"/>
                                         <constraint firstItem="48N-Ia-WZr" firstAttribute="leading" secondItem="YSf-bG-7B5" secondAttribute="leading" constant="13" id="ZUD-Fi-ewc"/>
-                                        <constraint firstItem="1sv-AJ-gaS" firstAttribute="top" secondItem="YSf-bG-7B5" secondAttribute="top" constant="8" id="k80-51-NnX"/>
                                         <constraint firstItem="ztd-CI-uXK" firstAttribute="top" secondItem="1SJ-oX-rb5" secondAttribute="bottom" constant="7.6666666666666572" id="mXa-C8-tbR"/>
                                         <constraint firstItem="48N-Ia-WZr" firstAttribute="top" secondItem="YSf-bG-7B5" secondAttribute="top" constant="9" id="peu-D7-1ca"/>
-                                        <constraint firstAttribute="trailing" secondItem="1sv-AJ-gaS" secondAttribute="trailing" constant="8" id="xJ1-YK-KIV"/>
+                                        <constraint firstItem="VvS-tU-c7c" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="sym-av-6y8"/>
+                                        <constraint firstItem="GGI-Y5-42M" firstAttribute="top" secondItem="VvS-tU-c7c" secondAttribute="bottom" constant="12" id="xWa-bB-V0z"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="systemThinMaterial"/>
@@ -831,6 +903,7 @@
                         <constraints>
                             <constraint firstItem="Z51-n2-bK3" firstAttribute="trailing" secondItem="EKZ-pc-kOt" secondAttribute="trailing" id="0j7-zV-m3h"/>
                             <constraint firstItem="Z51-n2-bK3" firstAttribute="trailing" secondItem="6cq-nE-ilJ" secondAttribute="trailing" constant="12" id="4Uf-J2-6l6"/>
+                            <constraint firstItem="xB8-eT-eoz" firstAttribute="top" secondItem="6cq-nE-ilJ" secondAttribute="bottom" constant="20.333333333333343" id="8Km-fB-VhH"/>
                             <constraint firstItem="Z51-n2-bK3" firstAttribute="bottom" secondItem="EKZ-pc-kOt" secondAttribute="bottom" id="AAS-PC-aZB"/>
                             <constraint firstItem="EKZ-pc-kOt" firstAttribute="leading" secondItem="Z51-n2-bK3" secondAttribute="leading" id="Mmp-Te-gH8"/>
                             <constraint firstItem="6cq-nE-ilJ" firstAttribute="leading" secondItem="Z51-n2-bK3" secondAttribute="leading" constant="12" id="dJ5-YR-XgY"/>
@@ -842,11 +915,15 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="coolnessLabel" destination="Qsf-9H-3c0" id="dWg-wJ-Fmr"/>
+                        <outlet property="coolnessSlider" destination="QgJ-68-UOC" id="CXB-RB-Kqb"/>
                         <outlet property="distanceLabel" destination="ztd-CI-uXK" id="ieH-4f-V61"/>
+                        <outlet property="fountainWorkingSwitch" destination="78x-hE-Glc" id="ge6-iv-42f"/>
                         <outlet property="pressureLabel" destination="QtC-Kf-cmr" id="r92-L2-VKB"/>
-                        <outlet property="reviewButton" destination="1sv-AJ-gaS" id="bFz-hT-WXP"/>
+                        <outlet property="pressureSlider" destination="Jvb-XC-t84" id="4dX-s5-F2T"/>
+                        <outlet property="reviewButton" destination="VvS-tU-c7c" id="miw-Eo-aMF"/>
                         <outlet property="sortButton" destination="48N-Ia-WZr" id="r3H-Hr-vMm"/>
                         <outlet property="tasteLabel" destination="7hM-RQ-NUU" id="emt-6f-bg8"/>
+                        <outlet property="tasteSlider" destination="2jf-xY-L1H" id="c2I-9k-pBx"/>
                         <outlet property="typeLabel" destination="1SJ-oX-rb5" id="wng-zz-ydI"/>
                     </connections>
                 </viewController>
@@ -1452,7 +1529,6 @@
         <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
         <image name="gear" catalog="system" width="128" height="122"/>
-        <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
