@@ -15,18 +15,14 @@ import FloatingPanel
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var coolnessLabel: UILabel!
-    @IBOutlet var pressureLabel: UILabel!
-    @IBOutlet var tasteLabel: UILabel!
     
     var panelController: FloatingPanelController!
     var supportingVC: FountainDetailViewController!
     
     private var locationManager: CLLocationManager!
-    private var fountainStore: FountainStore = FountainStore()
-    private var location: CLLocation!
-    private var prevLocation: CLLocation!
+    var fountainStore: FountainStore = FountainStore()
     private var focusedFountain: Fountain? = nil
+    private var myAnnotations =  [MKPointAnnotation]()
     private let nf: NumberFormatter = {
         let nf = NumberFormatter()
         nf.maximumFractionDigits = 1
@@ -43,6 +39,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         appearance.backgroundColor = UIColor.clear
         panelController.surfaceView.appearance = appearance
         supportingVC = storyboard?.instantiateViewController(withIdentifier: "FountainDetailViewController") as? FountainDetailViewController
+        supportingVC.referringVC = self
         panelController.set(contentViewController: supportingVC)
         panelController.addPanel(toParent: self)
         panelController.move(to: .tip, animated: false)
@@ -65,6 +62,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidAppear(animated)
         
         fountainStore.updateFountains(around: mapView.region)
+    }
+    
+    func setFountainDistance() {
+        guard let fountain = self.focusedFountain else {
+            self.supportingVC.distanceLabel.text = ""
+            return
+        }
+        
+        if let location = locationManager.location {
+            var dist = location.distance(from: fountain.getLocation()) * 3.28084
+            if dist > 528 {
+                dist /= 5280 // Convert to miles if far enough
+                self.supportingVC.distanceLabel.text = "\(nf.string(from: dist as NSNumber)!) mi away"
+            } else {
+                let nf = NumberFormatter()
+                nf.maximumFractionDigits = 0
+                self.supportingVC.distanceLabel.text = "\(nf.string(from: dist as NSNumber)!) feet away"
+            }
+        }
     }
     
     
@@ -102,6 +118,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         // Populate details & animate presentation
         self.supportingVC.setFountain(to: self.focusedFountain)
+        self.setFountainDistance()
         self.panelController.move(to: .half, animated: true)
     
         let offset = self.mapView.frame.maxY - self.panelController.surfaceLocation(for: .tip).y
@@ -118,17 +135,69 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         // Remove details and animate dismissal
         self.supportingVC.setFountain(to: nil)
+        self.setFountainDistance()
         self.panelController.move(to: .tip, animated: true)
     }
 }
 
 extension MapViewController: FountainStoreDelegate {
     func fountainStore(_ fountainStore: FountainStore, didUpdateFountains fountains: [Fountain]) {
-        for fountain in fountains {
-            let annot = MKPointAnnotation()
-            annot.coordinate = fountain.getLocationCoordinate()
-            mapView.addAnnotation(annot)
+        if (myAnnotations.count == 0) {
+            for fountain in fountains {
+                let annot = MKPointAnnotation()
+                annot.coordinate = fountain.getLocationCoordinate()
+                myAnnotations.append(annot)
+                mapView.addAnnotation(annot)
+            }
+            return
         }
+        
+        
+        var newAnnotations = [MKPointAnnotation]()
+        var updatedAnnotations = myAnnotations
+        for fountain in fountains {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = fountain.getLocationCoordinate()
+            newAnnotations.append(annotation)
+        }
+        // Find new annotations that should be added
+        var adding = [MKPointAnnotation]()
+        for newAnnot in newAnnotations {
+            var contained = false
+            for existing in myAnnotations {
+                if (newAnnot.coordinate.latitude == existing.coordinate.latitude && newAnnot.coordinate.longitude == existing.coordinate.longitude) {
+                    contained = true
+                    break
+                }
+            }
+            if contained {
+                continue;
+            } else {
+                adding.append(newAnnot)
+                updatedAnnotations.append(newAnnot)
+            }
+        }
+        // Find old annotations that should be removed
+        var removing = [MKPointAnnotation]()
+        for existing in myAnnotations {
+            var contained = false
+            for newAnnot in newAnnotations {
+                if (newAnnot.coordinate.latitude == existing.coordinate.latitude && newAnnot.coordinate.longitude == existing.coordinate.longitude) {
+                    contained = true
+                    break
+                }
+            }
+            if contained {
+                continue;
+            } else {
+                removing.append(existing)
+                updatedAnnotations.remove(at: updatedAnnotations.firstIndex(of: existing)!)
+            }
+        }
+        
+        self.mapView.addAnnotations(adding)
+        self.mapView.removeAnnotations(removing)
+        self.myAnnotations = updatedAnnotations
     }
 }
 
@@ -136,8 +205,8 @@ private class PanelLayout: FloatingPanelLayout {
     let position: FloatingPanelPosition = .bottom
     let initialState: FloatingPanelState = .tip
     let anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] = [
-        .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
-        .half: FloatingPanelLayoutAnchor(fractionalInset: 0.25, edge: .bottom, referenceGuide: .safeArea),
+        .full: FloatingPanelLayoutAnchor(absoluteInset: 100.0, edge: .top, referenceGuide: .safeArea),
+        .half: FloatingPanelLayoutAnchor(absoluteInset: 260.0, edge: .bottom, referenceGuide: .safeArea),
         .tip: FloatingPanelLayoutAnchor(absoluteInset: 44.0, edge: .bottom, referenceGuide: .safeArea),
     ]
 }

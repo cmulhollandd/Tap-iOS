@@ -13,9 +13,9 @@ enum AccountAction {
     case resetPassword
 }
 
-class LoginAPI: NSObject {
+class AccountsAPI: NSObject {
     
-    private static let baseAPIURL = "https://rhodestap.com/auth"
+    private static let baseAPIURL = "https://rhodestap.com"
     
     private class LoginData: Codable {
         let username: String
@@ -51,7 +51,7 @@ class LoginAPI: NSObject {
     ///     - completion: Escaping closure
     static func loginUser(username: String, password: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
         
-        let components = URLComponents(string: "\(baseAPIURL)/login")!
+        let components = URLComponents(string: "\(baseAPIURL)/auth/login")!
         
         let credentials = LoginData(username, password)
                 
@@ -131,7 +131,7 @@ class LoginAPI: NSObject {
     ///     - completion: escaping closure with response from server
     static func createAcccount(email: String, username: String, password: String, firstName: String, lastName: String, completion: @escaping(Dictionary<String, Any>) -> Void) {
         
-        let components = URLComponents(string: "\(baseAPIURL)/register")!
+        let components = URLComponents(string: "\(baseAPIURL)/auth/register")!
         let credentials = SignUpData(firstName, lastName, email, username, password)
         var data: Data
         
@@ -188,5 +188,59 @@ class LoginAPI: NSObject {
     ///     - completion: Escaping closure with response from server
     static func verifyAccountAction(email: String, accountAction: AccountAction, code: String, completion: @escaping(String) -> Void) {
         
+    }
+    
+    
+    /// Sends a request to the server to change the username of the user from old to new
+    ///
+    ///   NOTE: This method is not complete. to be completed it requires a the server to send a response code using
+    ///         HTTP codes.
+    ///
+    /// - Parameters:
+    ///   - old: Current username of the user to be changed
+    ///   - new: New username of the user to be changed
+    ///   - completion: Escaping closure with respone from server
+    static func changeUsername(from old: String, to new: String, completion: @escaping([String: Any]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/change-username")!
+        let payload: [String: String] = ["oldUsername": old, "newUsername": new]
+        var data: Data
+        
+        do {
+            try data = APIHelpers.encoder.encode(payload)
+        } catch {
+            print("Failed to encode \(#function) parameters")
+            APIHelpers.completeWithError("Failed to encode \(#function) parameters", completion: completion)
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "POST"
+            req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            return req
+        }()
+        
+        let dataTask = APIHelpers.session.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            if let error = error {
+                print(error)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
+                print("error: No response data downloaded")
+                APIHelpers.completeWithError("error: No response data downloaded", completion: completion)
+                return
+            }
+            
+            // No machine readble way to confirm change right now.
+            // API services need to be modified to use HTTP response codes when the
+            // response itself does not return any useful data
+        }
+        
+        dataTask.resume()
     }
 }

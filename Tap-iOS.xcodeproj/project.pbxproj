@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0803AEB32BA9E70D0014D4F8 /* TapSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AEB22BA9E70D0014D4F8 /* TapSettingsViewController.swift */; };
+		0803AEB52BA9F3570014D4F8 /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */; };
+		0803AEB72BA9F3D40014D4F8 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */; };
+		0803AEB92BA9F48A0014D4F8 /* AccountSettingsIndex.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */; };
 		0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082271292B8819A4007CD0F7 /* FountainStore.swift */; };
 		082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */; };
 		0846809B2B8EBBAD00FF9EBE /* FountainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */; };
+		0851EA7F2B9CE1D40055CAED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851EA7E2B9CE1D40055CAED /* ProfileViewController.swift */; };
+		0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851EA802B9CE6740055CAED /* BasicSettingsTableCell.swift */; };
+		0851EA832B9CE7CA0055CAED /* ToggleSettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851EA822B9CE7CA0055CAED /* ToggleSettingsTableCell.swift */; };
+		0851EA852B9CE95B0055CAED /* MainSettingsIndex.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0851EA842B9CE95B0055CAED /* MainSettingsIndex.plist */; };
+		0851EA872B9CF0180055CAED /* SettingsTableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851EA862B9CF0180055CAED /* SettingsTableStore.swift */; };
 		088653732B602D4800355D6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653722B602D4800355D6D /* AppDelegate.swift */; };
 		088653752B602D4800355D6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088653742B602D4800355D6D /* SceneDelegate.swift */; };
 		0886537A2B602D4800355D6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088653782B602D4800355D6D /* Main.storyboard */; };
@@ -26,7 +35,7 @@
 		08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D2194C2B7C0DD300CBC733 /* MapViewController.swift */; };
 		08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5422B8F797200695946 /* FountainAPI.swift */; };
 		08E7A5452B90F1AB00695946 /* APIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5442B90F1AB00695946 /* APIHelpers.swift */; };
-		08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E02B631E5F0033ED63 /* LoginAPI.swift */; };
+		08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E02B631E5F0033ED63 /* AccountsAPI.swift */; };
 		08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E22B6838970033ED63 /* FeedTableViewCell.swift */; };
 		08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E42B6839740033ED63 /* TapFeedPost.swift */; };
 		08F779E72B6839CA0033ED63 /* TapUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E62B6839CA0033ED63 /* TapUser.swift */; };
@@ -54,9 +63,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0803AEB22BA9E70D0014D4F8 /* TapSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapSettingsViewController.swift; sourceTree = "<group>"; };
+		0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsViewController.swift; sourceTree = "<group>"; };
+		0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AccountSettingsIndex.plist; sourceTree = "<group>"; };
 		082271292B8819A4007CD0F7 /* FountainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainStore.swift; sourceTree = "<group>"; };
 		082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNavigationController.swift; sourceTree = "<group>"; };
 		0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailViewController.swift; sourceTree = "<group>"; };
+		0851EA7E2B9CE1D40055CAED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0851EA802B9CE6740055CAED /* BasicSettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSettingsTableCell.swift; sourceTree = "<group>"; };
+		0851EA822B9CE7CA0055CAED /* ToggleSettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSettingsTableCell.swift; sourceTree = "<group>"; };
+		0851EA842B9CE95B0055CAED /* MainSettingsIndex.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MainSettingsIndex.plist; sourceTree = "<group>"; };
+		0851EA862B9CF0180055CAED /* SettingsTableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableStore.swift; sourceTree = "<group>"; };
 		0886536F2B602D4800355D6D /* Tap-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tap-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		088653722B602D4800355D6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088653742B602D4800355D6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,7 +95,7 @@
 		08D2194C2B7C0DD300CBC733 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		08E7A5422B8F797200695946 /* FountainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainAPI.swift; sourceTree = "<group>"; };
 		08E7A5442B90F1AB00695946 /* APIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelpers.swift; sourceTree = "<group>"; };
-		08F779E02B631E5F0033ED63 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		08F779E02B631E5F0033ED63 /* AccountsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsAPI.swift; sourceTree = "<group>"; };
 		08F779E22B6838970033ED63 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		08F779E42B6839740033ED63 /* TapFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapFeedPost.swift; sourceTree = "<group>"; };
 		08F779E62B6839CA0033ED63 /* TapUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapUser.swift; sourceTree = "<group>"; };
@@ -115,6 +133,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		081CEDB22BACC5BA00564FF1 /* API Objects */ = {
+			isa = PBXGroup;
+			children = (
+				08E7A5422B8F797200695946 /* FountainAPI.swift */,
+				08F779E02B631E5F0033ED63 /* AccountsAPI.swift */,
+				08E7A5442B90F1AB00695946 /* APIHelpers.swift */,
+			);
+			path = "API Objects";
+			sourceTree = "<group>";
+		};
 		087ECE372B6AB06400F27DB7 /* OnboardingVCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,13 +181,16 @@
 				088653722B602D4800355D6D /* AppDelegate.swift */,
 				088653742B602D4800355D6D /* SceneDelegate.swift */,
 				088653782B602D4800355D6D /* Main.storyboard */,
-				08E7A54E2B91140600695946 /* API Items */,
+				081CEDB22BACC5BA00564FF1 /* API Objects */,
 				089F0B7A2B7EDE0D00BFDC71 /* Model Objects */,
 				08F779EC2B6882090033ED63 /* FeedPostStore.swift */,
 				082271292B8819A4007CD0F7 /* FountainStore.swift */,
+				0851EA862B9CF0180055CAED /* SettingsTableStore.swift */,
 				0886537B2B602D4B00355D6D /* Assets.xcassets */,
 				0886537D2B602D4B00355D6D /* LaunchScreen.storyboard */,
 				088653802B602D4B00355D6D /* Info.plist */,
+				0851EA842B9CE95B0055CAED /* MainSettingsIndex.plist */,
+				0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */,
 				08F779DF2B631E2F0033ED63 /* View Controllers */,
 			);
 			path = "Tap-iOS";
@@ -197,6 +228,8 @@
 			children = (
 				08F779E22B6838970033ED63 /* FeedTableViewCell.swift */,
 				08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */,
+				0851EA802B9CE6740055CAED /* BasicSettingsTableCell.swift */,
+				0851EA822B9CE7CA0055CAED /* ToggleSettingsTableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -221,6 +254,10 @@
 				08D2194C2B7C0DD300CBC733 /* MapViewController.swift */,
 				089F0B7D2B7EE06100BFDC71 /* NewFountainViewController.swift */,
 				0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */,
+				0851EA7E2B9CE1D40055CAED /* ProfileViewController.swift */,
+				0803AEB22BA9E70D0014D4F8 /* TapSettingsViewController.swift */,
+				0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */,
+				0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -348,8 +385,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0803AEB92BA9F48A0014D4F8 /* AccountSettingsIndex.plist in Resources */,
 				0886537F2B602D4B00355D6D /* LaunchScreen.storyboard in Resources */,
 				0886537C2B602D4B00355D6D /* Assets.xcassets in Resources */,
+				0851EA852B9CE95B0055CAED /* MainSettingsIndex.plist in Resources */,
 				0886537A2B602D4800355D6D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,16 +465,23 @@
 				08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */,
 				08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */,
 				08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */,
+				0851EA872B9CF0180055CAED /* SettingsTableStore.swift in Sources */,
 				089F0B7E2B7EE06100BFDC71 /* NewFountainViewController.swift in Sources */,
+				0803AEB72BA9F3D40014D4F8 /* AccountSettingsViewController.swift in Sources */,
 				08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */,
 				088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */,
+				0803AEB32BA9E70D0014D4F8 /* TapSettingsViewController.swift in Sources */,
 				089F0B7C2B7EDE2500BFDC71 /* Fountain.swift in Sources */,
 				0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */,
 				088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */,
+				0851EA832B9CE7CA0055CAED /* ToggleSettingsTableCell.swift in Sources */,
 				0846809B2B8EBBAD00FF9EBE /* FountainDetailViewController.swift in Sources */,
-				08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */,
+				0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */,
+				08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
+				0851EA7F2B9CE1D40055CAED /* ProfileViewController.swift in Sources */,
 				08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */,
+				0803AEB52BA9F3570014D4F8 /* MainSettingsViewController.swift in Sources */,
 				08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,6 +675,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -660,6 +707,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
