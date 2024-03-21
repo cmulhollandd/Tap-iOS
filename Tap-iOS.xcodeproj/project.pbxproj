@@ -133,6 +133,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		081CEDB22BACC5BA00564FF1 /* API Objects */ = {
+			isa = PBXGroup;
+			children = (
+				08E7A5422B8F797200695946 /* FountainAPI.swift */,
+				08F779E02B631E5F0033ED63 /* AccountsAPI.swift */,
+				08E7A5442B90F1AB00695946 /* APIHelpers.swift */,
+			);
+			path = "API Objects";
+			sourceTree = "<group>";
+		};
 		087ECE372B6AB06400F27DB7 /* OnboardingVCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,9 +181,7 @@
 				088653722B602D4800355D6D /* AppDelegate.swift */,
 				088653742B602D4800355D6D /* SceneDelegate.swift */,
 				088653782B602D4800355D6D /* Main.storyboard */,
-				08E7A5422B8F797200695946 /* FountainAPI.swift */,
-				08F779E02B631E5F0033ED63 /* AccountsAPI.swift */,
-				08E7A5442B90F1AB00695946 /* APIHelpers.swift */,
+				081CEDB22BACC5BA00564FF1 /* API Objects */,
 				089F0B7A2B7EDE0D00BFDC71 /* Model Objects */,
 				08F779EC2B6882090033ED63 /* FeedPostStore.swift */,
 				082271292B8819A4007CD0F7 /* FountainStore.swift */,
