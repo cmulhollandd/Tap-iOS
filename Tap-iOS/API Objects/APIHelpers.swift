@@ -50,7 +50,7 @@ struct APIHelpers {
     ///      - description: String description of the error that occured
     ///      - completion: escaping handler to be called
     static func completeWithError(_ description: String, completion: @escaping([String:Any]) -> Void) {
-        let dict = ["error" : true, "description": description] as [String:Any]
+        let dict = ["error" : true, "message": description] as [String:Any]
         OperationQueue.main.addOperation {
             completion(dict)
         }

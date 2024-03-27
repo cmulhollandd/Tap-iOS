@@ -70,7 +70,7 @@ class LoginViewController: UIViewController {
         AccountsAPI.loginUser(username: username, password: password) { response in
             if (response["error"] != nil) {
                 // Could not login, alert user
-                let alert = UIAlertController(title: "Login Failed", message: response["description"] as? String, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Login Failed", message: response["message"] as? String, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(ok)
                 self.present(alert, animated: true)

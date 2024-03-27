@@ -284,10 +284,10 @@
             </objects>
             <point key="canvasLocation" x="2884.7328244274809" y="31.690140845070424"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tap Navigation Controller-->
         <scene sceneID="F5r-Ac-p5K">
             <objects>
-                <navigationController id="FSs-FM-dnO" sceneMemberID="viewController">
+                <navigationController id="FSs-FM-dnO" customClass="TapNavigationController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="plus.app.fill" catalog="system" id="rrY-DP-vv5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Gcy-yk-eQ1">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -1003,10 +1003,10 @@
             </objects>
             <point key="canvasLocation" x="3609" y="2836"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tap Navigation Controller-->
         <scene sceneID="osn-BC-dZW">
             <objects>
-                <navigationController id="APM-Gb-ZeV" sceneMemberID="viewController">
+                <navigationController id="APM-Gb-ZeV" customClass="TapNavigationController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="person.crop.circle" catalog="system" id="txw-mv-0Pr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="zvE-7p-77s">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
