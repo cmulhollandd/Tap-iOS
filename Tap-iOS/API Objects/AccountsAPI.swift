@@ -305,4 +305,48 @@ class AccountsAPI: NSObject {
         
         dataTask.resume()
     }
+    
+    static func changePassword(for username: String, to newPassword: String, completion: @escaping([String: Any]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/change-email")!
+        let payload: [String: String] = ["username": username, "newPassword": newPassword]
+        var data: Data
+        
+        do {
+            try data = APIHelpers.encoder.encode(payload)
+        } catch {
+            print("Failed to encode \(#function) parameters")
+            APIHelpers.completeWithError("Failed to encode \(#function) parameters", completion: completion)
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "POST"
+            req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            return req
+        }()
+        
+        let dataTask = APIHelpers.session.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            if let error = error {
+                print(error)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            if let resp = response as? HTTPURLResponse {
+                if resp.statusCode != 200 {
+                    APIHelpers.completeWithError("An unexpected error occurred, please try again", completion: completion)
+                } else {
+                    APIHelpers.complete(["message": "password successfully changed"], completion: completion)
+                }
+            } else {
+                fatalError()
+            }
+        }
+        
+        dataTask.resume()
+    }
 }
