@@ -11,6 +11,9 @@
 		0803AEB52BA9F3570014D4F8 /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */; };
 		0803AEB72BA9F3D40014D4F8 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */; };
 		0803AEB92BA9F48A0014D4F8 /* AccountSettingsIndex.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */; };
+		081CEDB62BBA3C1A00564FF1 /* ChangeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CEDB52BBA3C1A00564FF1 /* ChangeUsernameViewController.swift */; };
+		081CEDB82BBA3E7200564FF1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CEDB72BBA3E7200564FF1 /* ChangePasswordViewController.swift */; };
+		081CEDBA2BBA42C600564FF1 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */; };
 		0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082271292B8819A4007CD0F7 /* FountainStore.swift */; };
 		082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */; };
 		0846809B2B8EBBAD00FF9EBE /* FountainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */; };
@@ -67,6 +70,9 @@
 		0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsViewController.swift; sourceTree = "<group>"; };
 		0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AccountSettingsIndex.plist; sourceTree = "<group>"; };
+		081CEDB52BBA3C1A00564FF1 /* ChangeUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameViewController.swift; sourceTree = "<group>"; };
+		081CEDB72BBA3E7200564FF1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		082271292B8819A4007CD0F7 /* FountainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainStore.swift; sourceTree = "<group>"; };
 		082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNavigationController.swift; sourceTree = "<group>"; };
 		0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 		08F779DF2B631E2F0033ED63 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */,
 				087ECE372B6AB06400F27DB7 /* OnboardingVCs */,
 				08D2194B2B7C0DA500CBC733 /* Cells */,
 				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
@@ -248,6 +255,8 @@
 				0803AEB22BA9E70D0014D4F8 /* TapSettingsViewController.swift */,
 				0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */,
 				0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */,
+				081CEDB52BBA3C1A00564FF1 /* ChangeUsernameViewController.swift */,
+				081CEDB72BBA3E7200564FF1 /* ChangePasswordViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 				088653732B602D4800355D6D /* AppDelegate.swift in Sources */,
 				08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */,
 				082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */,
+				081CEDBA2BBA42C600564FF1 /* ChangeEmailViewController.swift in Sources */,
 				088653A32B606FD000355D6D /* SignUpViewController.swift in Sources */,
 				08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */,
 				08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */,
@@ -458,8 +468,10 @@
 				0851EA872B9CF0180055CAED /* SettingsTableStore.swift in Sources */,
 				089F0B7E2B7EE06100BFDC71 /* NewFountainViewController.swift in Sources */,
 				0803AEB72BA9F3D40014D4F8 /* AccountSettingsViewController.swift in Sources */,
+				081CEDB82BBA3E7200564FF1 /* ChangePasswordViewController.swift in Sources */,
 				08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */,
 				088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */,
+				081CEDB62BBA3C1A00564FF1 /* ChangeUsernameViewController.swift in Sources */,
 				0803AEB32BA9E70D0014D4F8 /* TapSettingsViewController.swift in Sources */,
 				089F0B7C2B7EDE2500BFDC71 /* Fountain.swift in Sources */,
 				0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */,

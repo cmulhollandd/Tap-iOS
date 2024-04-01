@@ -1172,31 +1172,36 @@
         <!--Change Username-->
         <scene sceneID="vdE-qC-kut">
             <objects>
-                <viewController storyboardIdentifier="ChangeUsernameViewController" id="VxQ-uA-OPd" userLabel="Change Username" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeUsernameViewController" id="VxQ-uA-OPd" userLabel="Change Username" customClass="ChangeUsernameViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nei-Eg-HXn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="old username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcP-4p-hbG">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcP-4p-hbG">
                                 <rect key="frame" x="40" y="89" width="313" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqn-Px-eYM">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqn-Px-eYM">
                                 <rect key="frame" x="40" y="143" width="313" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhj-On-H9U">
                                 <rect key="frame" x="157.66666666666666" y="201" width="78" height="35"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <color key="baseBackgroundColor" name="PrimaryBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="VxQ-uA-OPd" eventType="touchUpInside" id="dff-mg-scC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tbO-MI-G9x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="zqn-Px-eYM" firstAttribute="top" secondItem="QcP-4p-hbG" secondAttribute="bottom" constant="20" id="21m-jp-oYP"/>
                             <constraint firstItem="QcP-4p-hbG" firstAttribute="leading" secondItem="tbO-MI-G9x" secondAttribute="leading" constant="40" id="i6j-ET-NeH"/>
@@ -1207,84 +1212,135 @@
                             <constraint firstItem="zqn-Px-eYM" firstAttribute="leading" secondItem="tbO-MI-G9x" secondAttribute="leading" constant="40" id="zMo-FQ-BeO"/>
                             <constraint firstItem="xhj-On-H9U" firstAttribute="top" secondItem="zqn-Px-eYM" secondAttribute="bottom" constant="24" id="zcB-Bd-C2d"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VXa-Bx-OU5" appends="YES" id="uQr-wW-TPY"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="newUsernameTextField" destination="zqn-Px-eYM" id="HDm-aZ-gwv"/>
+                        <outlet property="oldUsernameTextField" destination="QcP-4p-hbG" id="g2F-XR-dDy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPc-cd-Fi2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VXa-Bx-OU5">
+                    <connections>
+                        <action selector="backgroundTapRecognized:" destination="VxQ-uA-OPd" id="b5B-so-WN9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5154.9618320610689" y="2846.4788732394368"/>
         </scene>
         <!--Change Password-->
         <scene sceneID="bbZ-hf-ZR4">
             <objects>
-                <viewController storyboardIdentifier="ChangePasswordViewController" id="PXx-0W-Z4g" userLabel="Change Password" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangePasswordViewController" id="PXx-0W-Z4g" userLabel="Change Password" customClass="ChangePasswordViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNQ-Bk-vLh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoV-aH-7nv">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoV-aH-7nv">
                                 <rect key="frame" x="40" y="89" width="313" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-CJ-bwY">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-CJ-bwY">
                                 <rect key="frame" x="40" y="143" width="313" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN1-ov-MGh">
-                                <rect key="frame" x="157.66666666666666" y="201" width="78" height="35"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
+                                <rect key="frame" x="157.66666666666666" y="285" width="78" height="35"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <color key="baseBackgroundColor" name="PrimaryBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="PXx-0W-Z4g" eventType="touchUpInside" id="GdG-mi-3UK"/>
+                                </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="X1v-Pe-3c7">
+                                <rect key="frame" x="40" y="185" width="313" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ct9-zI-UbB"/>
+                                </constraints>
+                                <string key="text">New password must be 8 characters or more and contain:
+ - An uppercase letter
+ - A lowercase letter
+ - A number</string>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HIG-Bn-EvK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="jN1-ov-MGh" firstAttribute="top" secondItem="r4Z-CJ-bwY" secondAttribute="bottom" constant="24" id="33E-Cx-YZz"/>
                             <constraint firstItem="r4Z-CJ-bwY" firstAttribute="top" secondItem="aoV-aH-7nv" secondAttribute="bottom" constant="20" id="5nX-FJ-4YI"/>
+                            <constraint firstItem="HIG-Bn-EvK" firstAttribute="trailing" secondItem="X1v-Pe-3c7" secondAttribute="trailing" constant="40" id="JJB-LN-Toz"/>
                             <constraint firstItem="aoV-aH-7nv" firstAttribute="leading" secondItem="HIG-Bn-EvK" secondAttribute="leading" constant="40" id="Mgl-by-VaI"/>
+                            <constraint firstItem="X1v-Pe-3c7" firstAttribute="top" secondItem="r4Z-CJ-bwY" secondAttribute="bottom" constant="8" symbolic="YES" id="NTV-x8-lRr"/>
                             <constraint firstItem="r4Z-CJ-bwY" firstAttribute="leading" secondItem="HIG-Bn-EvK" secondAttribute="leading" constant="40" id="Rcx-tJ-QPE"/>
+                            <constraint firstItem="jN1-ov-MGh" firstAttribute="top" secondItem="X1v-Pe-3c7" secondAttribute="bottom" constant="20" id="cLe-2i-Ikz"/>
                             <constraint firstItem="HIG-Bn-EvK" firstAttribute="trailing" secondItem="aoV-aH-7nv" secondAttribute="trailing" constant="40" id="lxl-N2-apG"/>
                             <constraint firstItem="HIG-Bn-EvK" firstAttribute="trailing" secondItem="r4Z-CJ-bwY" secondAttribute="trailing" constant="40" id="maU-la-xCi"/>
                             <constraint firstItem="jN1-ov-MGh" firstAttribute="centerX" secondItem="iNQ-Bk-vLh" secondAttribute="centerX" id="mge-Gq-aK3"/>
+                            <constraint firstItem="X1v-Pe-3c7" firstAttribute="leading" secondItem="HIG-Bn-EvK" secondAttribute="leading" constant="40" id="nUe-HW-oZ0"/>
                             <constraint firstItem="aoV-aH-7nv" firstAttribute="top" secondItem="HIG-Bn-EvK" secondAttribute="top" constant="30" id="oxr-zd-vbg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="SYV-Ok-LB9" appends="YES" id="rf0-J8-N18"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="newPasswordTextField" destination="r4Z-CJ-bwY" id="dJP-bH-M1w"/>
+                        <outlet property="oldPasswordTextField" destination="aoV-aH-7nv" id="Mt4-q3-3Dz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiR-NZ-6CB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="SYV-Ok-LB9">
+                    <connections>
+                        <action selector="backgroundTapRecognized:" destination="PXx-0W-Z4g" id="2ZZ-qS-GMg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5850" y="2848"/>
+            <point key="canvasLocation" x="5849.6183206106871" y="2847.8873239436621"/>
         </scene>
         <!--Change Email-->
         <scene sceneID="FRz-Qa-I9P">
             <objects>
-                <viewController storyboardIdentifier="ChangeEmailViewController" id="qNH-Yp-VvT" userLabel="Change Email" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeEmailViewController" id="qNH-Yp-VvT" userLabel="Change Email" customClass="ChangeEmailViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUE-Tb-22N">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="afA-rh-AVU">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="afA-rh-AVU">
                                 <rect key="frame" x="40" y="89" width="313" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1r-LR-71h">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1r-LR-71h">
                                 <rect key="frame" x="40" y="143" width="313" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fa-dc-OSt">
-                                <rect key="frame" x="159" y="201" width="75" height="35"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
+                                <rect key="frame" x="157.66666666666666" y="201" width="78" height="35"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <color key="baseBackgroundColor" name="PrimaryBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="qNH-Yp-VvT" eventType="touchUpInside" id="44O-b4-aNA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="srJ-AW-jpV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="t1r-LR-71h" firstAttribute="leading" secondItem="srJ-AW-jpV" secondAttribute="leading" constant="40" id="3Dc-Hb-qvF"/>
                             <constraint firstItem="t1r-LR-71h" firstAttribute="top" secondItem="afA-rh-AVU" secondAttribute="bottom" constant="20" id="Bxe-ub-tHf"/>
@@ -1295,9 +1351,21 @@
                             <constraint firstItem="srJ-AW-jpV" firstAttribute="trailing" secondItem="t1r-LR-71h" secondAttribute="trailing" constant="40" id="bkq-aC-MPz"/>
                             <constraint firstItem="srJ-AW-jpV" firstAttribute="trailing" secondItem="afA-rh-AVU" secondAttribute="trailing" constant="40" id="sYA-Au-zAW"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="xpm-4L-iC4" appends="YES" id="djf-AH-UEF"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="newEmailTextField" destination="t1r-LR-71h" id="ZB1-yK-90H"/>
+                        <outlet property="oldEmailTextField" destination="afA-rh-AVU" id="MD0-9K-BWJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBo-lA-oei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xpm-4L-iC4">
+                    <connections>
+                        <action selector="backgroundTapRecognized:" destination="qNH-Yp-VvT" id="x4T-48-5Ky"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="6590" y="2848"/>
         </scene>
