@@ -34,10 +34,7 @@
 		08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EA2B6844BF0033ED63 /* FeedViewController.swift */; };
 		08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EC2B6882090033ED63 /* FeedPostStore.swift */; };
 		2214335428D8F575E1D92912 /* Pods_Tap_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */; };
-		DBAC75782BACC75C00165E98 /* TapLauncher.gif in Resources */ = {isa = PBXBuildFile; fileRef = DBAC75772BACC75C00165E98 /* TapLauncher.gif */; };
-		DBAC757A2BACC7F000165E98 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAC75792BACC7F000165E98 /* UIView+Constraints.swift */; };
 		DBB54B2D2BACADBC00720487 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB54B2C2BACADBC00720487 /* LaunchScreenViewController.swift */; };
-		DBB54B342BACC33700720487 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB54B332BACC33700720487 /* LaunchScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,10 +88,7 @@
 		09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tap_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12DE62DFC314FED4CF2A156D /* Pods-Tap-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tap-iOS.release.xcconfig"; path = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B696BDE726B50EFA6E4B45D4 /* Pods-Tap-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tap-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		DBAC75772BACC75C00165E98 /* TapLauncher.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TapLauncher.gif; sourceTree = "<group>"; };
-		DBAC75792BACC7F000165E98 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		DBB54B2C2BACADBC00720487 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
-		DBB54B332BACC33700720487 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +153,6 @@
 		088653712B602D4800355D6D /* Tap-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				DBB54B302BACC22E00720487 /* Launch Screen View */,
 				088653722B602D4800355D6D /* AppDelegate.swift */,
 				088653742B602D4800355D6D /* SceneDelegate.swift */,
 				088653782B602D4800355D6D /* Main.storyboard */,
@@ -250,16 +243,6 @@
 				12DE62DFC314FED4CF2A156D /* Pods-Tap-iOS.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		DBB54B302BACC22E00720487 /* Launch Screen View */ = {
-			isa = PBXGroup;
-			children = (
-				DBB54B332BACC33700720487 /* LaunchScreenView.swift */,
-				DBAC75772BACC75C00165E98 /* TapLauncher.gif */,
-				DBAC75792BACC7F000165E98 /* UIView+Constraints.swift */,
-			);
-			path = "Launch Screen View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0886537F2B602D4B00355D6D /* LaunchScreen.storyboard in Resources */,
-				DBAC75782BACC75C00165E98 /* TapLauncher.gif in Resources */,
 				0886537C2B602D4B00355D6D /* Assets.xcassets in Resources */,
 				0886537A2B602D4800355D6D /* Main.storyboard in Resources */,
 			);
@@ -457,8 +439,6 @@
 				0846809B2B8EBBAD00FF9EBE /* FountainDetailViewController.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* LoginAPI.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
-				DBAC757A2BACC7F000165E98 /* UIView+Constraints.swift in Sources */,
-				DBB54B342BACC33700720487 /* LaunchScreenView.swift in Sources */,
 				08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */,
 				08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */,
 			);
