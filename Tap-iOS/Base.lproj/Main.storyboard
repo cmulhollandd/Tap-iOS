@@ -1107,10 +1107,10 @@
             </objects>
             <point key="canvasLocation" x="5415" y="1463"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Personal Profile View Controller-->
         <scene sceneID="2AS-hT-D7C">
             <objects>
-                <viewController id="Bgx-gL-1ae" customClass="ProfileViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Bgx-gL-1ae" customClass="PersonalProfileViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZaJ-2O-1fp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -17,7 +17,7 @@
 		0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082271292B8819A4007CD0F7 /* FountainStore.swift */; };
 		082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */; };
 		0846809B2B8EBBAD00FF9EBE /* FountainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */; };
-		0851EA7F2B9CE1D40055CAED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851EA7E2B9CE1D40055CAED /* ProfileViewController.swift */; };
+		0851EA7F2B9CE1D40055CAED /* PersonalProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */; };
 		0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851EA802B9CE6740055CAED /* BasicSettingsTableCell.swift */; };
 		0851EA832B9CE7CA0055CAED /* ToggleSettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851EA822B9CE7CA0055CAED /* ToggleSettingsTableCell.swift */; };
 		0851EA852B9CE95B0055CAED /* MainSettingsIndex.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0851EA842B9CE95B0055CAED /* MainSettingsIndex.plist */; };
@@ -76,7 +76,7 @@
 		082271292B8819A4007CD0F7 /* FountainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainStore.swift; sourceTree = "<group>"; };
 		082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNavigationController.swift; sourceTree = "<group>"; };
 		0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailViewController.swift; sourceTree = "<group>"; };
-		0851EA7E2B9CE1D40055CAED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProfileViewController.swift; sourceTree = "<group>"; };
 		0851EA802B9CE6740055CAED /* BasicSettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSettingsTableCell.swift; sourceTree = "<group>"; };
 		0851EA822B9CE7CA0055CAED /* ToggleSettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSettingsTableCell.swift; sourceTree = "<group>"; };
 		0851EA842B9CE95B0055CAED /* MainSettingsIndex.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MainSettingsIndex.plist; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 				08D2194C2B7C0DD300CBC733 /* MapViewController.swift */,
 				089F0B7D2B7EE06100BFDC71 /* NewFountainViewController.swift */,
 				0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */,
-				0851EA7E2B9CE1D40055CAED /* ProfileViewController.swift */,
+				0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */,
 				0803AEB22BA9E70D0014D4F8 /* TapSettingsViewController.swift */,
 				0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */,
 				0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */,
@@ -481,7 +481,7 @@
 				0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
-				0851EA7F2B9CE1D40055CAED /* ProfileViewController.swift in Sources */,
+				0851EA7F2B9CE1D40055CAED /* PersonalProfileViewController.swift in Sources */,
 				08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */,
 				0803AEB52BA9F3570014D4F8 /* MainSettingsViewController.swift in Sources */,
 				08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */,
