@@ -8,19 +8,29 @@
 import Foundation
 import UIKit
 
-class ProfileViewController: UIViewController {
+
+// Overrides Parent UserProfileViewController just to provide naviagation controller functionality
+// to enter settings
+class PersonalProfileViewController: UserProfileViewController {
     
     @IBOutlet var settingsButton: UIBarButtonItem!
     
     
+    override func loadView() {
+        super.loadView()
+        
+        if let user = (UIApplication.shared.delegate as! AppDelegate).user {
+            self.user = user
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        let username = delegate.user.username
+        let user = delegate.user!
         
-        self.navigationItem.title = "\(username)"
+        self.navigationItem.title = "\(user.username)"
         
         settingsButton.tintColor = UIColor(named: "systemBackgroundColor")
     }
