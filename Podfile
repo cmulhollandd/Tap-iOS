@@ -9,5 +9,6 @@ target 'Tap-iOS' do
   pod "FloatingPanel"
   pod "Valet"
   pod "lottie-ios"
+  pod "SwiftyGif"
 
 end

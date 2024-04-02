@@ -177,11 +177,13 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Valet/Valet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Valet/Valet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
 fi
