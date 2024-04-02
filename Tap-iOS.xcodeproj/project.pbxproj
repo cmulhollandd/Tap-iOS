@@ -191,9 +191,7 @@
 				088653782B602D4800355D6D /* Main.storyboard */,
 				081CEDB22BACC5BA00564FF1 /* API Objects */,
 				089F0B7A2B7EDE0D00BFDC71 /* Model Objects */,
-				08F779EC2B6882090033ED63 /* FeedPostStore.swift */,
-				082271292B8819A4007CD0F7 /* FountainStore.swift */,
-				0851EA862B9CF0180055CAED /* SettingsTableStore.swift */,
+				089F90552BBC880A0057CDDA /* Data Stores */,
 				0886537B2B602D4B00355D6D /* Assets.xcassets */,
 				0886537D2B602D4B00355D6D /* LaunchScreen.storyboard */,
 				088653802B602D4B00355D6D /* Info.plist */,
@@ -231,6 +229,29 @@
 			path = "Model Objects";
 			sourceTree = "<group>";
 		};
+		089F90542BBC87660057CDDA /* SettingsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */,
+				0803AEB22BA9E70D0014D4F8 /* TapSettingsViewController.swift */,
+				0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */,
+				0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */,
+				081CEDB52BBA3C1A00564FF1 /* ChangeUsernameViewController.swift */,
+				081CEDB72BBA3E7200564FF1 /* ChangePasswordViewController.swift */,
+			);
+			path = SettingsViewControllers;
+			sourceTree = "<group>";
+		};
+		089F90552BBC880A0057CDDA /* Data Stores */ = {
+			isa = PBXGroup;
+			children = (
+				08F779EC2B6882090033ED63 /* FeedPostStore.swift */,
+				082271292B8819A4007CD0F7 /* FountainStore.swift */,
+				0851EA862B9CF0180055CAED /* SettingsTableStore.swift */,
+			);
+			path = "Data Stores";
+			sourceTree = "<group>";
+		};
 		08D2194B2B7C0DA500CBC733 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +266,7 @@
 		08F779DF2B631E2F0033ED63 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */,
+				089F90542BBC87660057CDDA /* SettingsViewControllers */,
 				087ECE372B6AB06400F27DB7 /* OnboardingVCs */,
 				08D2194B2B7C0DA500CBC733 /* Cells */,
 				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
@@ -255,11 +276,6 @@
 				0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */,
 				0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */,
 				089F90522BBC7F790057CDDA /* UserProfileViewController.swift */,
-				0803AEB22BA9E70D0014D4F8 /* TapSettingsViewController.swift */,
-				0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */,
-				0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */,
-				081CEDB52BBA3C1A00564FF1 /* ChangeUsernameViewController.swift */,
-				081CEDB72BBA3E7200564FF1 /* ChangePasswordViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
