@@ -1,20 +1,24 @@
 PODS:
   - FloatingPanel (2.8.2)
+  - lottie-ios (4.4.1)
   - Valet (4.2.0)
 
 DEPENDENCIES:
   - FloatingPanel
+  - lottie-ios
   - Valet
 
 SPEC REPOS:
   trunk:
     - FloatingPanel
+    - lottie-ios
     - Valet
 
 SPEC CHECKSUMS:
   FloatingPanel: 99b72651e5e607a6a4e0c9831e30f02d145beeb6
+  lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
   Valet: 371e7c0b0387f0659bb23ddd255c4718ca1f0ef9
 
-PODFILE CHECKSUM: 45d50c122a9c3be2d0acd256cdea39b74186eba7
+PODFILE CHECKSUM: ac91deb3ed8c35af0b175ac1e11c301f5c082b1d
 
 COCOAPODS: 1.15.2

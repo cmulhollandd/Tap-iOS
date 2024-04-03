@@ -8,5 +8,6 @@ target 'Tap-iOS' do
   # Pods for Tap-iOS
   pod "FloatingPanel"
   pod "Valet"
+  pod "lottie-ios"
 
 end
