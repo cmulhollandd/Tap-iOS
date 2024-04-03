@@ -26,5 +26,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>to share photos with your friends on Tap</string>
+	<key>NSCameraUsageDescription</key>
+	<string>to take and share photos with your friends on Tap</string>
 </dict>
 </plist>

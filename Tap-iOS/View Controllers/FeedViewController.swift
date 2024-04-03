@@ -13,6 +13,7 @@ class FeedViewController: UIViewController {
     var dataSource: FeedPostStore!
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var newPostButton: UIBarButtonItem!
     
     override func loadView() {
         super.loadView()
@@ -25,6 +26,11 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         
         self.tableView.reloadData()
+    }
+    
+    @IBAction func newPostButtonPressed(_ sender: UIBarButtonItem) {
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPostViewController")
+//        self.navigationController!.pushViewController(vc, animated: true)
     }
     
 }
