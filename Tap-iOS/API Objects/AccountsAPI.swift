@@ -218,9 +218,9 @@ class AccountsAPI: NSObject {
     ///   - old: Current username of the user to be changed
     ///   - new: New username of the user to be changed
     ///   - completion: Escaping closure with respone from server
-    static func changeUsername(from old: String, to new: String, completion: @escaping([String: Any]) -> Void) {
+    static func changeUsername(for user: TapUser, to new: String, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/change-username")!
-        let payload: [String: String] = ["oldUsername": old, "newUsername": new]
+        let payload: [String: String] = ["oldUsername": user.username, "newUsername": new]
         var data: Data
         
         do {
@@ -236,6 +236,7 @@ class AccountsAPI: NSObject {
             req.httpMethod = "POST"
             req.httpBody = data
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer \(user.authToken)", forHTTPHeaderField: "Authorization")
             return req
         }()
         
@@ -251,6 +252,8 @@ class AccountsAPI: NSObject {
             if let resp = response as? HTTPURLResponse {
                 if resp.statusCode != 200 {
                     APIHelpers.completeWithError("An unexpected error occurred, please try again", completion: completion)
+                    print(resp.description)
+                    print(resp.debugDescription)
                 } else {
                     APIHelpers.complete(["message": "Username successfully changed!"], completion: completion)
                 }
@@ -262,9 +265,9 @@ class AccountsAPI: NSObject {
         dataTask.resume()
     }
     
-    static func changeEmail(for username: String, to newEmail: String, completion: @escaping([String: Any]) -> Void) {
+    static func changeEmail(for user: TapUser, to newEmail: String, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/change-email")!
-        let payload: [String: String] = ["username": username, "newEmail": newEmail]
+        let payload: [String: String] = ["username": user.username, "newEmail": newEmail]
         var data: Data
         
         do {
@@ -280,6 +283,7 @@ class AccountsAPI: NSObject {
             req.httpMethod = "POST"
             req.httpBody = data
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer \(user.authToken)", forHTTPHeaderField: "Authorization")
             return req
         }()
         
@@ -306,9 +310,9 @@ class AccountsAPI: NSObject {
         dataTask.resume()
     }
     
-    static func changePassword(for username: String, to newPassword: String, completion: @escaping([String: Any]) -> Void) {
+    static func changePassword(for user: TapUser, to newPassword: String, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/change-email")!
-        let payload: [String: String] = ["username": username, "newPassword": newPassword]
+        let payload: [String: String] = ["username": user.username, "newPassword": newPassword]
         var data: Data
         
         do {
@@ -324,6 +328,7 @@ class AccountsAPI: NSObject {
             req.httpMethod = "POST"
             req.httpBody = data
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer \(user.authToken)", forHTTPHeaderField: "Authorization")
             return req
         }()
         
@@ -341,6 +346,51 @@ class AccountsAPI: NSObject {
                     APIHelpers.completeWithError("An unexpected error occurred, please try again", completion: completion)
                 } else {
                     APIHelpers.complete(["message": "password successfully changed"], completion: completion)
+                }
+            } else {
+                fatalError()
+            }
+        }
+        
+        dataTask.resume()
+    }
+    
+    static func deleteAccount(for user: TapUser, completion: @escaping([String:Any]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/delete-account")!
+        let payload: [String: String] = ["username": user.username]
+        var data: Data
+        
+        do {
+            try data = APIHelpers.encoder.encode(payload)
+        } catch {
+            print("Failed to encode \(#function) parameters")
+            APIHelpers.completeWithError("Failed to encode \(#function) parameters", completion: completion)
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "DELETE"
+            req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer \(user.authToken)", forHTTPHeaderField: "Authorization")
+            return req
+        }()
+        
+        let dataTask = APIHelpers.session.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            if let error = error {
+                print(error)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            if let resp = response as? HTTPURLResponse {
+                if resp.statusCode != 200 {
+                    APIHelpers.completeWithError("An unexpected error occurred, please try again", completion: completion)
+                } else {
+                    APIHelpers.complete(["message": "account deleted"], completion: completion)
                 }
             } else {
                 fatalError()

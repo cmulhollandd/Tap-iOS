@@ -38,6 +38,7 @@
 		089F90532BBC7F790057CDDA /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089F90522BBC7F790057CDDA /* UserProfileViewController.swift */; };
 		089F90572BBC91A20057CDDA /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089F90562BBC91A20057CDDA /* NewPostViewController.swift */; };
 		08B967AF2BBE23B400560E11 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B967AE2BBE23B400560E11 /* LaunchScreenViewController.swift */; };
+		08B967B32BBEFD5D00560E11 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */; };
 		08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D2194C2B7C0DD300CBC733 /* MapViewController.swift */; };
 		08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5422B8F797200695946 /* FountainAPI.swift */; };
 		08E7A5452B90F1AB00695946 /* APIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5442B90F1AB00695946 /* APIHelpers.swift */; };
@@ -104,6 +105,7 @@
 		089F90522BBC7F790057CDDA /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		089F90562BBC91A20057CDDA /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		08B967AE2BBE23B400560E11 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		08D2194C2B7C0DD300CBC733 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		08E7A5422B8F797200695946 /* FountainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainAPI.swift; sourceTree = "<group>"; };
 		08E7A5442B90F1AB00695946 /* APIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelpers.swift; sourceTree = "<group>"; };
@@ -282,6 +284,12 @@
 				0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */,
 				089F90522BBC7F790057CDDA /* UserProfileViewController.swift */,
 				089F90562BBC91A20057CDDA /* NewPostViewController.swift */,
+				0803AEB22BA9E70D0014D4F8 /* TapSettingsViewController.swift */,
+				0803AEB42BA9F3570014D4F8 /* MainSettingsViewController.swift */,
+				0803AEB62BA9F3D40014D4F8 /* AccountSettingsViewController.swift */,
+				081CEDB52BBA3C1A00564FF1 /* ChangeUsernameViewController.swift */,
+				081CEDB72BBA3E7200564FF1 /* ChangePasswordViewController.swift */,
+				08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -484,6 +492,7 @@
 				08F779E72B6839CA0033ED63 /* TapUser.swift in Sources */,
 				088653732B602D4800355D6D /* AppDelegate.swift in Sources */,
 				08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */,
+				08B967B32BBEFD5D00560E11 /* DeleteAccountViewController.swift in Sources */,
 				082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */,
 				089F90572BBC91A20057CDDA /* NewPostViewController.swift in Sources */,
 				081CEDBA2BBA42C600564FF1 /* ChangeEmailViewController.swift in Sources */,
