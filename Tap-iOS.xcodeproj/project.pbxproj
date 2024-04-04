@@ -42,6 +42,7 @@
 		08EB419D2BBF1A8500876EA1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */; };
 		08EB419E2BBF1A8500876EA1 /* TapSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41992BBF1A8500876EA1 /* TapSettingsViewController.swift */; };
 		08EB419F2BBF1A8500876EA1 /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB419A2BBF1A8500876EA1 /* MainSettingsViewController.swift */; };
+		08EB41A12BBF1B7400876EA1 /* SocialAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41A02BBF1B7400876EA1 /* SocialAPI.swift */; };
 		08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E02B631E5F0033ED63 /* AccountsAPI.swift */; };
 		08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E22B6838970033ED63 /* FeedTableViewCell.swift */; };
 		08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E42B6839740033ED63 /* TapFeedPost.swift */; };
@@ -109,6 +110,7 @@
 		08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		08EB41992BBF1A8500876EA1 /* TapSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapSettingsViewController.swift; sourceTree = "<group>"; };
 		08EB419A2BBF1A8500876EA1 /* MainSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSettingsViewController.swift; sourceTree = "<group>"; };
+		08EB41A02BBF1B7400876EA1 /* SocialAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAPI.swift; sourceTree = "<group>"; };
 		08F779E02B631E5F0033ED63 /* AccountsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsAPI.swift; sourceTree = "<group>"; };
 		08F779E22B6838970033ED63 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		08F779E42B6839740033ED63 /* TapFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapFeedPost.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				08E7A5422B8F797200695946 /* FountainAPI.swift */,
 				08F779E02B631E5F0033ED63 /* AccountsAPI.swift */,
 				08E7A5442B90F1AB00695946 /* APIHelpers.swift */,
+				08EB41A02BBF1B7400876EA1 /* SocialAPI.swift */,
 			);
 			path = "API Objects";
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				0851EA832B9CE7CA0055CAED /* ToggleSettingsTableCell.swift in Sources */,
 				089F90532BBC7F790057CDDA /* UserProfileViewController.swift in Sources */,
 				0846809B2B8EBBAD00FF9EBE /* FountainDetailViewController.swift in Sources */,
+				08EB41A12BBF1B7400876EA1 /* SocialAPI.swift in Sources */,
 				0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
