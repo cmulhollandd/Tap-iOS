@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1070,6 +1071,17 @@
                                                 <action selector="submitReviewButtonPressed:" destination="RFc-af-UG3" eventType="touchUpInside" id="JzL-qt-vF1"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRf-Y7-ff8">
+                                            <rect key="frame" x="140" y="573" width="113" height="28.333333333333371"/>
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="gray" title="Delete Fountain">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="deleteFountainButtonPressed:" destination="RFc-af-UG3" eventType="touchUpInside" id="f3x-ZC-4RS"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="tintColor" name="PrimaryBlue"/>
                                     <constraints>
@@ -1079,7 +1091,9 @@
                                         <constraint firstItem="QMb-lx-8tS" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="BeD-gU-cZm"/>
                                         <constraint firstAttribute="trailing" secondItem="GGI-Y5-42M" secondAttribute="trailing" constant="24" id="FJ4-Jl-Ssl"/>
                                         <constraint firstItem="GGI-Y5-42M" firstAttribute="leading" secondItem="YSf-bG-7B5" secondAttribute="leading" constant="24" id="KlA-xh-uJS"/>
+                                        <constraint firstItem="qRf-Y7-ff8" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="NdH-IS-nsq"/>
                                         <constraint firstItem="xB8-eT-eoz" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="Orn-1g-tlC"/>
+                                        <constraint firstItem="qRf-Y7-ff8" firstAttribute="top" secondItem="QMb-lx-8tS" secondAttribute="bottom" constant="12" id="Pw8-4J-5bu"/>
                                         <constraint firstItem="1SJ-oX-rb5" firstAttribute="centerX" secondItem="YSf-bG-7B5" secondAttribute="centerX" id="RLs-Og-fYK"/>
                                         <constraint firstItem="QMb-lx-8tS" firstAttribute="top" secondItem="GGI-Y5-42M" secondAttribute="bottom" constant="25" id="RNS-gv-acr"/>
                                         <constraint firstItem="48N-Ia-WZr" firstAttribute="leading" secondItem="YSf-bG-7B5" secondAttribute="leading" constant="13" id="ZUD-Fi-ewc"/>
@@ -1170,6 +1184,7 @@
                     <connections>
                         <outlet property="coolnessLabel" destination="Qsf-9H-3c0" id="dWg-wJ-Fmr"/>
                         <outlet property="coolnessSlider" destination="QgJ-68-UOC" id="CXB-RB-Kqb"/>
+                        <outlet property="deleteFountainButton" destination="qRf-Y7-ff8" id="0o2-1t-NBO"/>
                         <outlet property="distanceLabel" destination="ztd-CI-uXK" id="ieH-4f-V61"/>
                         <outlet property="fountainWorkingSwitch" destination="78x-hE-Glc" id="ge6-iv-42f"/>
                         <outlet property="pressureLabel" destination="QtC-Kf-cmr" id="r92-L2-VKB"/>

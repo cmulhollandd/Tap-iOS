@@ -31,11 +31,13 @@ class FountainStore: NSObject {
         // Dummy Data until API call is available
         var fountains = [Fountain]()
         
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        
         for i in 0 ... 9 {
             let lon = Double.random(in: -89.99113 ... -89.98687)
             let lat = Double.random(in: 35.15170 ... 35.15968)
             let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            fountains.append(Fountain(id: i, location: coord, coolness: Double.random(in: 0...10), pressure: Double.random(in: 0...10), taste: Double.random(in: 0...10), type: Fountain.FountainType(rawValue: Int.random(in: 0...2))!))
+            fountains.append(Fountain(id: i, author: user, location: coord, coolness: Double.random(in: 0...10), pressure: Double.random(in: 0...10), taste: Double.random(in: 0...10), type: Fountain.FountainType(rawValue: Int.random(in: 0...2))!))
         }
         self.addNewFountains(fountains)
     }

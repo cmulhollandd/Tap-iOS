@@ -24,14 +24,16 @@ class Fountain: Codable, Equatable {
     }
     
     let id: Int
+    let authorUsername: String
     private var location: FountainCoordinate
     private var coolness: Double
     private var pressure: Double
     private var taste: Double
     private var type: FountainType
     
-    init(id: Int, location: CLLocationCoordinate2D, coolness: Double, pressure: Double, taste: Double, type: FountainType) {
+    init(id: Int, author: TapUser, location: CLLocationCoordinate2D, coolness: Double, pressure: Double, taste: Double, type: FountainType) {
         self.id = id
+        self.authorUsername = author.username
         let loc = FountainCoordinate(latitude: location.latitude, longitude: location.longitude)
         self.location = loc
         self.coolness = coolness
