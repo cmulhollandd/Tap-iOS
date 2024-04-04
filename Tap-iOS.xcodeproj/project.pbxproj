@@ -101,7 +101,7 @@
 		089F0B7B2B7EDE2500BFDC71 /* Fountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fountain.swift; sourceTree = "<group>"; };
 		089F0B7D2B7EE06100BFDC71 /* NewFountainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFountainViewController.swift; sourceTree = "<group>"; };
 		089F90522BBC7F790057CDDA /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		08B967AE2BBE23B400560E11 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchScreenViewController.swift; path = "/Users/charliemulholland/Documents/Rhodes/Spring2024/COMP486/Tap-iOS/Tap-iOS/View Controllers/OnboardingVCs/LaunchScreenViewController.swift"; sourceTree = "<absolute>"; };
+		08B967AE2BBE23B400560E11 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		08D2194C2B7C0DD300CBC733 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		08E7A5422B8F797200695946 /* FountainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainAPI.swift; sourceTree = "<group>"; };
 		08E7A5442B90F1AB00695946 /* APIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelpers.swift; sourceTree = "<group>"; };
@@ -687,7 +687,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B696BDE726B50EFA6E4B45D4 /* Pods-Tap-iOS.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon v2";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -719,7 +719,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 12DE62DFC314FED4CF2A156D /* Pods-Tap-iOS.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon v2";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
