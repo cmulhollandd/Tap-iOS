@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Valet
 
 class ChangePasswordViewController: UIViewController {
     @IBOutlet var oldPasswordTextField: UITextField!
@@ -39,15 +40,33 @@ class ChangePasswordViewController: UIViewController {
             alert.addAction(ok)
             present(alert, animated: true)
         }
-        AccountsAPI.changePassword(for: user.username, to: newPasswordTextField.text!) { resp in
+        AccountsAPI.changePassword(for: user, to: newPasswordTextField.text!) { resp in
             let alert = UIAlertController(title: resp["message"] as? String, message: nil, preferredStyle: .alert)
             let ok = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(ok)
             self.present(alert, animated: true)
+            
+            if let _ = resp["error"] {
+                return
+            }
+            
+            self.updateUserDetails(for: self.newPasswordTextField.text!)
         }
     }
     
     private func checkPassword(_ pw: String) -> Bool {
         return pw.contains(/[0-9]/) && pw.contains(/[a-z]/) && pw.contains(/[A-Z]/) && pw.count >= 8
+    }
+    
+    private func updateUserDetails(for newPassword: String) {
+        guard UserDefaults.standard.bool(forKey: "TapKeepUserLoggedIn") else {
+            return
+        }
+        let myValet = Valet.valet(with: Identifier(nonEmpty: "Tap-iOS")!, accessibility: .whenUnlocked)
+        do {
+            try myValet.setString(newPassword, forKey: "Tap-iOS-password")
+        } catch {
+            print(error)
+        }
     }
 }

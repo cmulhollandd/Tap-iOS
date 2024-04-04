@@ -16,13 +16,14 @@ class PersonalProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        settingsButton.tintColor = UIColor(named: "systemBackgroundColor")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let username = delegate.user.username
         
         self.navigationItem.title = "\(username)"
-        
-        settingsButton.tintColor = UIColor(named: "systemBackgroundColor")
     }
     
     

@@ -38,7 +38,7 @@ class ChangeEmailViewController: UIViewController {
                 alert.addAction(ok)
                 present(alert, animated: true)
             }
-            AccountsAPI.changeEmail(for: user.email, to: newEmailTextField.text!) { resp in
+            AccountsAPI.changeEmail(for: user, to: newEmailTextField.text!) { resp in
                 let alert = UIAlertController(title: resp["message"] as? String, message: nil, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(ok)

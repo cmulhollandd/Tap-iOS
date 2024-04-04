@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Valet
 
 class ChangeUsernameViewController: UIViewController {
     @IBOutlet var oldUsernameTextField: UITextField!
@@ -38,12 +39,33 @@ class ChangeUsernameViewController: UIViewController {
                 alert.addAction(ok)
                 present(alert, animated: true)
             }
-            AccountsAPI.changeUsername(from: user.username, to: newUsernameTextField.text!) { resp in
+            AccountsAPI.changeUsername(for: user, to: newUsernameTextField.text!) { resp in
                 let alert = UIAlertController(title: resp["message"] as? String, message: nil, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(ok)
                 self.present(alert, animated: true)
+                
+                if let _ = resp["error"] {
+                    return
+                }
+                
+                self.updateUserDetails(for: self.newUsernameTextField.text!)
             }
         }
+    }
+    
+    private func updateUserDetails(for newUsername: String) {
+        guard UserDefaults.standard.bool(forKey: "TapKeepUserLoggedIn") else {
+            return
+        }
+        let myValet = Valet.valet(with: Identifier(nonEmpty: "Tap-iOS")!, accessibility: .whenUnlocked)
+        do {
+            try myValet.setString(newUsername, forKey: "Tap-iOS-username")
+        } catch {
+            print(error)
+        }
+        
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        user.username = newUsername
     }
 }
