@@ -22,6 +22,7 @@ class FountainDetailViewController: UIViewController {
     @IBOutlet var pressureSlider: UISlider!
     @IBOutlet var tasteSlider: UISlider!
     @IBOutlet var fountainWorkingSwitch: UISegmentedControl!
+    @IBOutlet var deleteFountainButton: UIButton!
     
     
     private var nf: NumberFormatter = {
@@ -35,6 +36,7 @@ class FountainDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         self.view.backgroundColor = UIColor.clear
         
@@ -68,6 +70,33 @@ class FountainDetailViewController: UIViewController {
         self.referringVC.panelController.move(to: .half, animated: true)
     }
     
+    @IBAction func deleteFountainButtonPressed(_ sender: UIButton) {
+        
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        
+        let alert = UIAlertController(title: "Delete Fountain", message: "Deleting this fountain will remove it from the map for everybody", preferredStyle: .actionSheet)
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { action in
+            // Delete fountain
+            FountainAPI.deleteFountain(self.fountain!, by: user) { resp in
+                if let error = resp["error"] {
+                    let alert = UIAlertController(title: "Error", message: resp["description"] as? String, preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "Ok", style: .default)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true)
+                    return
+                }
+                
+                self.referringVC.panelController.move(to: .tip, animated: true)
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(delete)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true)
+        
+    }
+    
     func setFountain(to fountain: Fountain?) {
         
         if let fountain = fountain {
@@ -78,6 +107,12 @@ class FountainDetailViewController: UIViewController {
             let typeText: String = fountain.getFountainType()
             self.typeLabel.text = typeText
             self.reviewButton.isEnabled = true
+            let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
+            if (localUser.username == fountain.authorUsername) {
+                deleteFountainButton.isEnabled = true
+            } else {
+                deleteFountainButton.isEnabled = false
+            }
         } else {
             self.fountain = nil
             self.coolnessLabel.text = "N/A"
@@ -85,6 +120,7 @@ class FountainDetailViewController: UIViewController {
             self.tasteLabel.text = "N/A"
             self.typeLabel.text = "No Fountain Selected"
             self.reviewButton.isEnabled = false
+            deleteFountainButton.isEnabled = false
         }
     }
     

@@ -94,7 +94,7 @@ class SignUpViewController: UIViewController {
         AccountsAPI.createAcccount(email: emailTextField.text!, username: usernameTextField.text!, password: passwordTextField.text!, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!) { (dict) in
             
             if (dict["error"] != nil) {
-                self.presentErrorAlert(subtitle: dict["description"] as! String)
+                self.presentErrorAlert(subtitle: dict["message"] as! String)
                 return
             }
             

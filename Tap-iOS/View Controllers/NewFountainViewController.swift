@@ -83,7 +83,9 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         let taste = Double(tasteSlider.value.rounded())
         let type = Fountain.FountainType(rawValue: typePicker.selectedSegmentIndex)!
         
-        let fountain = Fountain(id: -1, location: location, coolness: temp, pressure: pressure, taste: taste, type: type)
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        
+        let fountain = Fountain(id: -1, author: user, location: location, coolness: temp, pressure: pressure, taste: taste, type: type)
         let delegate = UIApplication.shared.delegate as! AppDelegate
         FountainAPI.addFountain(fountain, by: delegate.user) { dict in
             if (dict["error"] as? Bool != false) {
