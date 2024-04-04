@@ -34,6 +34,8 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
 
         if let user = user {
+            self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
+            self.navigationItem.title = user.username
             nameLabel.text = "\(user.firstName) \(user.lastName)"
             let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
             if (localUser.username == user.username) {

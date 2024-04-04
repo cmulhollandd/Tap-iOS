@@ -11,7 +11,6 @@ import UIKit
 class FeedPostStore: NSObject {
     
     var posts: [TapFeedPost]!
-    var user: TapUser!
     
     private var nf: NumberFormatter = {
         let nf = NumberFormatter()
@@ -36,6 +35,10 @@ class FeedPostStore: NSObject {
     /// Updates posts stored in this FeedPostStore
     func refreshData() {
         // Interact with API
+    }
+    
+    func getUsername(for indexPath: IndexPath) -> String {
+        return posts[indexPath.row].postingUserUsername
     }
 }
 

@@ -18,7 +18,7 @@ class TapUser {
     var lastName: String
     var username: String
     var email: String
-    var authToken: String
+    var authToken: String?
     var profilePhoto: CGImage?
     
     
@@ -30,7 +30,7 @@ class TapUser {
         self.authToken = ""
     }
     
-    init(first: String, last: String, username: String, email: String, loginToken: String, profilePhoto: CGImage?) {
+    init(first: String, last: String, username: String, email: String, loginToken: String?, profilePhoto: CGImage?) {
         self.firstName = first
         self.lastName = last
         self.username = username
@@ -50,7 +50,7 @@ class TapUser {
                   last: userDict["lastName"] as? String ?? "",
                   username: userDict["username"] as? String ?? "",
                   email: userDict["email"] as? String ?? "",
-                  loginToken: dict["jwt"] as? String ?? "",
+                  loginToken: dict["jwt"] as? String,
                   profilePhoto: nil)
     }
 }
