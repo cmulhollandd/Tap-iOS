@@ -15,6 +15,7 @@ class NewPostViewController: UIViewController {
     @IBOutlet var imageViewHelper: UILabel!
     
     private var image: UIImage?
+    var feedStore: FeedPostStore!
     
     private let textPrompts = [
         "Share your most embarrassing moment... if you dare!",
@@ -95,7 +96,19 @@ class NewPostViewController: UIViewController {
     }
     
     @IBAction func postButtonPressed(_ sender: UIButton) {
-        // send API request
+     
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        
+        let text = textView.text!
+        
+        var hasImage = false
+        if let _ = image {
+            hasImage = true
+        }
+        
+        let newPost = TapFeedPost(postingUserUsername: user.username, postingUserProfileImage: user.profilePhoto, hasImage: hasImage, textContent: text, imageContent: image, postDate: Date())
+        
+        feedStore.newPost(newPost)
         
         self.dismiss(animated: true)
     }

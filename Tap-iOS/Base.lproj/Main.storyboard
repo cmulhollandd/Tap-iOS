@@ -236,8 +236,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filled Their Bucket!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTw-Rr-9He">
-                                                    <rect key="frame" x="69" y="33" width="304" height="21.666666666666671"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <rect key="frame" x="69" y="33" width="304" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="SecondayTapBlueChanging"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -248,6 +248,7 @@
                                                 <constraint firstItem="JOd-1Q-gfJ" firstAttribute="top" secondItem="0jl-e0-uDm" secondAttribute="top" constant="7" id="8kz-kE-4fz"/>
                                                 <constraint firstAttribute="trailing" secondItem="oTw-Rr-9He" secondAttribute="trailing" constant="20" symbolic="YES" id="9ct-lo-Lpt"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tOa-Rc-DHS" secondAttribute="bottom" priority="900" constant="4" id="BlP-Ak-Plc"/>
+                                                <constraint firstAttribute="bottom" secondItem="oTw-Rr-9He" secondAttribute="bottom" constant="22.666666666666671" id="DyA-OF-X2W"/>
                                                 <constraint firstItem="3Q2-Sz-syt" firstAttribute="top" secondItem="0jl-e0-uDm" secondAttribute="top" constant="4" id="IcF-Uf-ar0"/>
                                                 <constraint firstItem="oTw-Rr-9He" firstAttribute="leading" secondItem="tOa-Rc-DHS" secondAttribute="trailing" constant="8" symbolic="YES" id="K6X-Ka-ut8"/>
                                                 <constraint firstItem="tOa-Rc-DHS" firstAttribute="top" secondItem="0jl-e0-uDm" secondAttribute="top" constant="4" id="ZR2-VK-6xk"/>
@@ -271,16 +272,15 @@
                         <constraints>
                             <constraint firstItem="m3N-DF-WUx" firstAttribute="leading" secondItem="4pV-1F-Ua7" secondAttribute="leading" id="2MD-Gn-Qjm"/>
                             <constraint firstItem="4pV-1F-Ua7" firstAttribute="trailing" secondItem="m3N-DF-WUx" secondAttribute="trailing" id="BRm-nj-Hah"/>
+                            <constraint firstAttribute="bottom" secondItem="m3N-DF-WUx" secondAttribute="bottom" id="UDh-sJ-rym"/>
                             <constraint firstItem="m3N-DF-WUx" firstAttribute="top" secondItem="4pV-1F-Ua7" secondAttribute="top" id="bpG-yd-GRJ"/>
-                            <constraint firstAttribute="bottom" secondItem="m3N-DF-WUx" secondAttribute="bottom" id="oYw-wn-zqM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="TrU-bg-QBp">
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="WFM-Dv-6Oh">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="newPostButtonPressed:" destination="nlb-Su-Qzf" id="u52-hg-2BW"/>
-                                <segue destination="4YL-yf-UZG" kind="showDetail" id="vE4-GS-fVu"/>
+                                <action selector="newPostButtonPressed:" destination="nlb-Su-Qzf" id="zMy-ZO-HK6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -440,13 +440,13 @@
         <!--New Post View Controller-->
         <scene sceneID="Tqq-h3-UD9">
             <objects>
-                <viewController id="4YL-yf-UZG" customClass="NewPostViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewPostViewController" id="4YL-yf-UZG" customClass="NewPostViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j5d-60-6gc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0B-3j-BHp">
-                                <rect key="frame" x="315" y="20" width="58" height="35"/>
+                                <rect key="frame" x="315" y="79" width="58" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Post">
                                     <color key="baseBackgroundColor" name="PrimaryBlue"/>
@@ -456,7 +456,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ZV-fo-Ppu">
-                                <rect key="frame" x="20" y="20.000000000000004" width="76.666666666666671" height="34.333333333333343"/>
+                                <rect key="frame" x="20" y="79" width="76.666666666666671" height="34.333333333333343"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" name="PrimaryBlue"/>
@@ -469,7 +469,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Placeholder text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Nv-2L-3s2">
-                                <rect key="frame" x="24" y="75" width="345" height="200"/>
+                                <rect key="frame" x="24" y="134" width="345" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="cwk-kX-pIE"/>
@@ -479,7 +479,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iRa-b4-5D3">
-                                <rect key="frame" x="24" y="296.33333333333331" width="102" height="96"/>
+                                <rect key="frame" x="24" y="355.33333333333331" width="102" height="96"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -492,7 +492,7 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap photo icon to add an image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmB-M5-CLz">
-                                <rect key="frame" x="136" y="335" width="191" height="16"/>
+                                <rect key="frame" x="136" y="394" width="191" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
