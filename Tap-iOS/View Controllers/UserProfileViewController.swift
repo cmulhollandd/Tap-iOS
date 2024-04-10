@@ -36,7 +36,12 @@ class UserProfileViewController: UIViewController {
         if let user = user {
             self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
             self.navigationItem.title = user.username
+            
             nameLabel.text = "\(user.firstName) \(user.lastName)"
+            followersButton.titleLabel?.text = "\(user.followers.count)"
+            followingButton.titleLabel?.text = "\(user.following.count)"
+            postsButton.titleLabel?.text = "\(posts.count)"
+
             let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
             if (localUser.username == user.username) {
                 userActionButton.setTitle("Settings", for: .normal)

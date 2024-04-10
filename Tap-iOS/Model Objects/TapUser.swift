@@ -20,6 +20,8 @@ class TapUser {
     var email: String
     var authToken: String?
     var profilePhoto: UIImage?
+    var followers: [TapUser]
+    var following: [TapUser]
     
     
     init() {
@@ -28,6 +30,8 @@ class TapUser {
         self.username = ""
         self.email = ""
         self.authToken = ""
+        self.followers = [TapUser]()
+        self.following = [TapUser]()
     }
     
     init(first: String, last: String, username: String, email: String, loginToken: String?, profilePhoto: UIImage?) {
@@ -37,6 +41,8 @@ class TapUser {
         self.email = email
         self.authToken = loginToken
         self.profilePhoto = profilePhoto
+        self.followers = [TapUser]()
+        self.following = [TapUser]()
     }
     
     
