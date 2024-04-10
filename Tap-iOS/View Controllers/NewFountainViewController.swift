@@ -31,10 +31,15 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     private var fountainPin: MKAnnotation?
     private var mapIsFullScreen = false
     private var locationManager: CLLocationManager!
+    private var store: FountainStore!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let delegate = (UIApplication.shared.delegate as! AppDelegate)
+        
+        self.store = delegate.fountainStore
         
         mapView.delegate = self
         mapView.layer.cornerRadius = 10.0
@@ -82,21 +87,24 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         let pressure = Double(pressureSlider.value.rounded())
         let taste = Double(tasteSlider.value.rounded())
         let type = Fountain.FountainType(rawValue: typePicker.selectedSegmentIndex)!
-        
-        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let user = delegate.user!
         
         let fountain = Fountain(id: -1, author: user, location: location, coolness: temp, pressure: pressure, taste: taste, type: type)
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        FountainAPI.addFountain(fountain, by: delegate.user) { dict in
-            if (dict["error"] as? Bool != false) {
+        
+        store.postNewFountain(fountain: fountain) { (error, description) -> Void in
+            if error {
+                let alert = UIAlertController(title: "Error", message: description!, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(ok)
+                self.present(alert, animated: true)
+            } else {
                 let alert = UIAlertController(title: "Fountain Added", message: nil, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(ok)
                 self.present(alert, animated: true)
             }
         }
-                
-        print("New Fountain: \(fountain)")
     }
     
     @IBAction func longPressRecognized(_ sender: UILongPressGestureRecognizer) {

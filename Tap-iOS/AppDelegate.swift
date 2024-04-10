@@ -11,6 +11,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var user: TapUser!
+    
+    private var store: FountainStore?
+    var fountainStore: FountainStore {
+        get {
+            if let store = store {
+                return store
+            } else {
+                self.store = FountainStore()
+                return self.store!
+            }
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

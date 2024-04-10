@@ -20,7 +20,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var supportingVC: FountainDetailViewController!
     
     private var locationManager: CLLocationManager!
-    var fountainStore: FountainStore = FountainStore()
+    var fountainStore: FountainStore = (UIApplication.shared.delegate as! AppDelegate).fountainStore
     private var focusedFountain: Fountain? = nil
     private var myAnnotations =  [MKPointAnnotation]()
     private let nf: NumberFormatter = {

@@ -69,6 +69,29 @@ class FountainStore: NSObject {
         filterFountains(by: currentFilter)
     }
     
+    func addNewFountain(_ fountain: Fountain) {
+        allFountains.append(fountain)
+        filterFountains(by: currentFilter)
+    }
+    
+    func postNewFountain(fountain: Fountain, completion: @escaping(Bool, String?) -> Void)  {
+        let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
+        
+        FountainAPI.addFountain(fountain, by: localUser) { (resp) in
+            
+            if let _ = resp["error"] {
+                completion(true, resp["message"] as? String)
+            }
+            
+            if let id = resp["fountainId"] as? Int {
+                fountain.setFountainID(id)
+                self.addNewFountain(fountain)
+                completion(false, nil)
+            }
+            
+        }
+    }
+    
     
     func filterFountains(by criteria: FilterCriteria) {
         currentFilter = criteria

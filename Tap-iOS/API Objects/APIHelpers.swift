@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct APIHelpers {
     
@@ -14,6 +15,16 @@ struct APIHelpers {
         let session = URLSession(configuration: .default)
         return session
     }()
+    
+    static var authToken: String {
+        get {
+            let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
+            guard let token = localUser.authToken else {
+                fatalError()
+            }
+            return token
+        }
+    }
     
     /// Converts a Data object to <String:Any>?, assuming a json format
     ///

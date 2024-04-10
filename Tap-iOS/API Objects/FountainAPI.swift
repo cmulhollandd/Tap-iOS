@@ -58,7 +58,7 @@ struct FountainAPI {
             (data: Data?, response: URLResponse?, error: Error?) -> Void in
             
             if let error = error {
-                print(error.localizedDescription)
+                print("\(#file) \(#line) \(error.localizedDescription)")
                 APIHelpers.completeWithError(error.localizedDescription, completion: completion)
                 return
             }
@@ -76,9 +76,8 @@ struct FountainAPI {
                 return
             }
             
-            print(resp)
+            print(#file, #line, resp)
             APIHelpers.complete(resp, completion: completion)
-                        
         }
         task.resume()
     }

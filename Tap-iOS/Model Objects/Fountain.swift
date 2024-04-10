@@ -23,7 +23,7 @@ class Fountain: Codable, Equatable {
         case comboFillerFountain = 2
     }
     
-    let id: Int
+    var id: Int
     let authorUsername: String
     private var location: FountainCoordinate
     private var coolness: Double
@@ -42,6 +42,9 @@ class Fountain: Codable, Equatable {
         self.type = type
     }
     
+    func setFountainID(_ id: Int) {
+        self.id = id
+    }
     
     func getLocationCoordinate() -> CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: self.location.latitude, longitude: self.location.longitude)
