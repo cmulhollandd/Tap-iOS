@@ -6,15 +6,15 @@
 //
 
 import Foundation
-import CoreGraphics
+import UIKit
 
 class TapFeedPost {
     
     let postingUserUsername: String
-    let postingUserProfileImage: CGImage?
+    let postingUserProfileImage: UIImage?
     let hasImage: Bool
     let textContent: String
-    let imageContent: CGImage?
+    let imageContent: UIImage?
     let postDate: Date
     
     
@@ -27,7 +27,7 @@ class TapFeedPost {
         self.postDate = Date()
     }
     
-    init(postingUserUsername: String, postingUserProfileImage: CGImage?, hasImage: Bool, textContent: String, imageContent: CGImage?, postDate: Date) {
+    init(postingUserUsername: String, postingUserProfileImage: UIImage?, hasImage: Bool, textContent: String, imageContent: UIImage?, postDate: Date) {
         self.postingUserUsername = postingUserUsername
         self.postingUserProfileImage = postingUserProfileImage
         self.hasImage = hasImage

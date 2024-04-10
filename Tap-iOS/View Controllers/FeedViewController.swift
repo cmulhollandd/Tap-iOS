@@ -11,6 +11,7 @@ import UIKit
 class FeedViewController: UIViewController {
     
     var dataSource: FeedPostStore!
+    private var refreshControl = UIRefreshControl()
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var newPostButton: UIBarButtonItem!
@@ -18,15 +19,42 @@ class FeedViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        self.dataSource = FeedPostStore()
-        self.tableView.dataSource = self.dataSource
-        self.tableView.delegate = self
+//        self.dataSource = FeedPostStore()
+//        self.tableView.dataSource = self.dataSource
+//        self.tableView.delegate = self
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+//        self.tableView.refreshControl = refreshControl
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.dataSource = FeedPostStore()
+        self.tableView.dataSource = self.dataSource
+        self.tableView.delegate = self
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+        
         self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.tableView.reloadData()
+    }
+    
+    @objc func refreshData() {
+        self.tableView.reloadData()
+        
+        self.refreshControl.endRefreshing()
+    }
+    
+    @IBAction func newPostButtonPressed(_ sender: UIBarButtonItem) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPostViewController") as! NewPostViewController
+        vc.feedStore = self.dataSource
+        present(vc, animated: true)
     }
 }
 

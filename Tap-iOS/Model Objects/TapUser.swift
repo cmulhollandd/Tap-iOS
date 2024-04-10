@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CoreGraphics
+import UIKit
 
 enum TapUserError: Error {
     case JSONError(String)
@@ -19,7 +19,7 @@ class TapUser {
     var username: String
     var email: String
     var authToken: String?
-    var profilePhoto: CGImage?
+    var profilePhoto: UIImage?
     
     
     init() {
@@ -30,7 +30,7 @@ class TapUser {
         self.authToken = ""
     }
     
-    init(first: String, last: String, username: String, email: String, loginToken: String?, profilePhoto: CGImage?) {
+    init(first: String, last: String, username: String, email: String, loginToken: String?, profilePhoto: UIImage?) {
         self.firstName = first
         self.lastName = last
         self.username = username
