@@ -141,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-DF-WUx">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="661"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ImageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="246" id="onc-fG-OSr" customClass="FeedTableViewCellWithImage" customModule="Tap_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="246"/>
@@ -272,7 +272,7 @@
                         <constraints>
                             <constraint firstItem="m3N-DF-WUx" firstAttribute="leading" secondItem="4pV-1F-Ua7" secondAttribute="leading" id="2MD-Gn-Qjm"/>
                             <constraint firstItem="4pV-1F-Ua7" firstAttribute="trailing" secondItem="m3N-DF-WUx" secondAttribute="trailing" id="BRm-nj-Hah"/>
-                            <constraint firstAttribute="bottom" secondItem="m3N-DF-WUx" secondAttribute="bottom" id="UDh-sJ-rym"/>
+                            <constraint firstItem="m3N-DF-WUx" firstAttribute="bottom" secondItem="4pV-1F-Ua7" secondAttribute="bottom" constant="44" id="UCf-6o-5JM"/>
                             <constraint firstItem="m3N-DF-WUx" firstAttribute="top" secondItem="4pV-1F-Ua7" secondAttribute="top" id="bpG-yd-GRJ"/>
                         </constraints>
                     </view>
