@@ -278,7 +278,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="TrU-bg-QBp">
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="WFM-Dv-6Oh">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <connections>
                                 <action selector="newPostButtonPressed:" destination="nlb-Su-Qzf" id="zMy-ZO-HK6"/>
                             </connections>
@@ -437,16 +437,16 @@
             </objects>
             <point key="canvasLocation" x="4524" y="82"/>
         </scene>
-        <!--View Controller-->
+        <!--Log Decision View Controller-->
         <scene sceneID="9Dx-ES-aAR">
             <objects>
-                <viewController id="G7a-5x-8Ng" sceneMemberID="viewController">
+                <viewController title="Log Decision View Controller" id="G7a-5x-8Ng" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qzh-1h-Bie">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwC-qs-Fz4">
-                                <rect key="frame" x="96" y="203" width="200" height="200"/>
+                                <rect key="frame" x="109" y="245" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                                 <color key="tintColor" systemColor="groupTableViewBackgroundColor"/>
@@ -458,13 +458,16 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="100"/>
+                                        <real key="value" value="87.25"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="wRc-DO-0Pd" kind="show" id="Lcl-HA-cZM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D40-4I-EZK">
-                                <rect key="frame" x="96" y="450" width="200" height="200"/>
+                                <rect key="frame" x="109" y="481" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                                 <color key="tintColor" systemColor="groupTableViewBackgroundColor"/>
@@ -472,34 +475,51 @@
                                 <state key="normal" title=""/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="100"/>
+                                        <real key="value" value="87.25"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="SAM-DC-UwR" kind="show" id="zYv-Fu-220"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DrinkingFountainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lec-dG-k61">
-                                <rect key="frame" x="96" y="486" width="200" height="128"/>
+                                <rect key="frame" x="95" y="510" width="202" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log a Drink" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMc-Bo-H73">
-                                <rect key="frame" x="124" y="160" width="145" height="35"/>
+                                <rect key="frame" x="124" y="428" width="145" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <color key="textColor" name="PrimaryBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log a Fountain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bt6-VN-aoC">
-                                <rect key="frame" x="110" y="658" width="172" height="35"/>
+                                <rect key="frame" x="110" y="664" width="172" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" name="PrimaryBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjp-ar-Fhf">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What would you like to do?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5g9-2i-Qct">
+                                <rect key="frame" x="52" y="184" width="289" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <color key="textColor" name="PrimaryBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="JBy-Mn-dXq"/>
+                        <viewLayoutGuide key="safeArea" id="1Ry-4u-nu2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add" id="RwR-iy-fay"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2LO-1S-Xmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -616,15 +636,17 @@
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="PrimaryBlue"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                        <color key="barTintColor" name="PrimaryBlue"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" systemColor="systemBackgroundColor"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" systemColor="systemBackgroundColor"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="SAM-DC-UwR" kind="relationship" relationship="rootViewController" id="hkj-tW-dcr"/>
+                        <segue destination="G7a-5x-8Ng" kind="relationship" relationship="rootViewController" id="hHU-1o-Uz6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TrC-6z-UKb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -719,10 +741,6 @@
                                     <outletCollection property="gestureRecognizers" destination="3bv-fF-TYe" appends="YES" id="wRT-9U-erO"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwu-cl-KMU">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="154"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-wa-mJz">
                                 <rect key="frame" x="23.999999999999996" y="179" width="42.666666666666657" height="28"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
@@ -733,9 +751,14 @@
                                     <action selector="fullscreenButtonPressed:" destination="SAM-DC-UwR" eventType="touchUpInside" id="lHw-vG-6Sk"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwu-cl-KMU">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="155"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8SL-CT-w4K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pmn-1I-cgB" firstAttribute="width" secondItem="dL4-TT-HIh" secondAttribute="width" multiplier="0.994012" id="0Fp-xF-EAX"/>
                             <constraint firstItem="rle-Lq-L5p" firstAttribute="leading" secondItem="8SL-CT-w4K" secondAttribute="leading" constant="16" id="3OE-SX-23G"/>
@@ -777,7 +800,9 @@
                             <constraint firstItem="ixA-RK-XGc" firstAttribute="firstBaseline" secondItem="Rp2-fV-NzY" secondAttribute="baseline" constant="10.666666666666666" symbolType="layoutAnchor" id="yZA-uC-WUE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Fountain" id="6Tj-6Z-fhJ"/>
+                    <navigationItem key="navigationItem" title="New Fountain" id="6Tj-6Z-fhJ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="oui-Px-jLu"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="fullScreenButton" destination="QXB-wa-mJz" id="PAh-5I-RUC"/>
                         <outlet property="mapView" destination="rle-Lq-L5p" id="wQf-hW-nFM"/>
@@ -798,7 +823,54 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3752" y="750"/>
+            <point key="canvasLocation" x="3708" y="1077"/>
+        </scene>
+        <!--Log a Drink-->
+        <scene sceneID="PAD-6O-erT">
+            <objects>
+                <viewController id="wRc-DO-0Pd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="98A-Gj-6Xe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5nX-7H-fMg">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpZ-Nc-TkY">
+                                <rect key="frame" x="27" y="734" width="340" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                    <color key="baseForegroundColor" name="SecondaryBlue"/>
+                                    <color key="baseBackgroundColor" name="PrimaryBlue"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How much water did you drink?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kea-JR-5Br">
+                                <rect key="frame" x="27" y="388" width="340" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" name="PrimaryBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yc-ZT-0Qs">
+                                <rect key="frame" x="149" y="431" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DEs-Fj-rXS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Log a Drink" id="ENB-gN-ipd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="73t-rW-7fN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3707.6335877862593" y="420.42253521126764"/>
         </scene>
         <!--Tap Navigation Controller-->
         <scene sceneID="sgz-5S-MRO">
@@ -828,7 +900,7 @@
         <!--Login View Controller-->
         <scene sceneID="ETY-Cj-dCe">
             <objects>
-                <viewController id="GUU-fc-a3O" customClass="LoginViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GUU-fc-a3O" customClass="LoginViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Igm-2G-uhW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -919,6 +991,7 @@
                             <outletCollection property="gestureRecognizers" destination="dqE-t2-ivE" appends="YES" id="R0z-EB-78x"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="kUc-9Q-7PP"/>
                     <connections>
                         <outlet property="passwordTextField" destination="sjh-8Q-bfM" id="68R-0D-VPw"/>
                         <outlet property="titleImage" destination="XAe-3m-ovZ" id="Mcb-Io-gg1"/>
@@ -1364,7 +1437,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWq-nQ-tSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3753" y="1464"/>
+            <point key="canvasLocation" x="2885" y="1811"/>
         </scene>
         <!--Settings-->
         <scene sceneID="q5g-ti-Cww">
@@ -1373,6 +1446,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="NhQ-AX-VvU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="sectionIndexBackgroundColor" name="PrimaryBlue"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BasicSettingsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BasicSettingsCell" id="ujj-u5-HKm" customClass="BasicSettingsTableCell" customModule="Tap_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -1442,7 +1516,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjb-GD-617" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5415" y="1463"/>
+            <point key="canvasLocation" x="4547" y="1811"/>
         </scene>
         <!--Personal Profile View Controller-->
         <scene sceneID="2AS-hT-D7C">
@@ -1556,6 +1630,11 @@
                                 <rect key="frame" x="0.0" y="347.66666666666674" width="393" height="421.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iph-jd-fGF">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MrW-e4-ooe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1578,6 +1657,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jod-WU-Dc9">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" id="ItK-Mp-xbu">
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <connections>
                                 <action selector="settingsButtonPressed:" destination="Bgx-gL-1ae" id="NRz-1V-qqA"/>
                                 <segue destination="GMd-Mv-05G" kind="show" id="BSd-ce-dYa"/>
@@ -1597,7 +1677,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyY-ih-XxR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4574.8091603053435" y="1462.6760563380283"/>
+            <point key="canvasLocation" x="3708" y="1811"/>
         </scene>
         <!--Blocked-->
         <scene sceneID="zDn-YY-nSD">
@@ -1883,12 +1963,17 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9mD-Y4-Qwf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="TapBackground"/>
+                        <color key="backgroundColor" name="PrimaryBlue"/>
                         <color key="tintColor" name="SecondaryBlue"/>
-                        <color key="selectedImageTintColor" name="SecondaryBlue"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <tabBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" name="PrimaryBlue"/>
                         </tabBarAppearance>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="SecondaryBlue"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="5OJ-Q2-W6P" kind="relationship" relationship="viewControllers" id="KsD-GL-wlt"/>
@@ -1978,7 +2063,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3a0-ja-n39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6266" y="1463"/>
+            <point key="canvasLocation" x="5398" y="1811"/>
         </scene>
     </scenes>
     <resources>
@@ -2003,9 +2088,6 @@
         </namedColor>
         <namedColor name="SecondayTapBlueChanging">
             <color red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TapBackground">
-            <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
