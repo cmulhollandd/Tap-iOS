@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GUU-fc-a3O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="50a-JE-YPH">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -625,7 +625,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3648" y="-434"/>
+            <point key="canvasLocation" x="3708" y="-299"/>
         </scene>
         <!--Tap Navigation Controller-->
         <scene sceneID="F5r-Ac-p5K">
@@ -839,7 +839,7 @@
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpZ-Nc-TkY">
-                                <rect key="frame" x="27" y="734" width="340" height="35"/>
+                                <rect key="frame" x="27" y="719" width="340" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
@@ -897,6 +897,35 @@
             </objects>
             <point key="canvasLocation" x="2047" y="32"/>
         </scene>
+        <!--Launch Screen-->
+        <scene sceneID="Do2-8t-2NI">
+            <objects>
+                <viewController title="Launch Screen" id="50a-JE-YPH" customClass="LaunchScreenViewController" customModule="Tap_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5fs-a9-NtI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2Q-ck-HDl" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="NEW_taplauncher_lottie_v2"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EjV-rU-EGZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="v2Q-ck-HDl" id="rvX-Lt-GNQ"/>
+                        <segue destination="GUU-fc-a3O" kind="presentation" identifier="LoginViewController" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="wNI-0P-pFg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwZ-N2-Gd0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1209.9236641221373" y="543.66197183098598"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="ETY-Cj-dCe">
             <objects>
@@ -906,13 +935,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dont have an account yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQZ-lB-WBg">
-                                <rect key="frame" x="91.666666666666686" y="431" width="210" height="21"/>
+                                <rect key="frame" x="91.666666666666686" y="372" width="210" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" name="PrimaryBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-Hd-yD7">
-                                <rect key="frame" x="140.66666666666666" y="311" width="112" height="26"/>
+                                <rect key="frame" x="140.66666666666666" y="252" width="112" height="26"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="forgot password?">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="10"/>
@@ -923,7 +952,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cZ-bx-fRb">
-                                <rect key="frame" x="163.66666666666666" y="345" width="66" height="35"/>
+                                <rect key="frame" x="163.66666666666666" y="286" width="66" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <color key="baseBackgroundColor" name="PrimaryBlue"/>
@@ -933,19 +962,19 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haY-ON-jh8">
-                                <rect key="frame" x="50" y="219" width="293" height="34"/>
+                                <rect key="frame" x="50" y="160" width="293" height="34"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjh-8Q-bfM">
-                                <rect key="frame" x="50" y="269" width="293" height="34"/>
+                                <rect key="frame" x="50" y="210" width="293" height="34"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TapTitleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XAe-3m-ovZ">
-                                <rect key="frame" x="121.66666666666669" y="95" width="150" height="100"/>
+                                <rect key="frame" x="121.66666666666669" y="36" width="150" height="100"/>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="SBm-6M-QLg"/>
@@ -953,7 +982,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkk-b2-GZF">
-                                <rect key="frame" x="154.66666666666666" y="460" width="84" height="35"/>
+                                <rect key="frame" x="154.66666666666666" y="401" width="84" height="35"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Sign Up"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up">

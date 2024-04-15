@@ -5,6 +5,7 @@
 //  Created by John Beuerlein on 3/21/24.
 //
 
+import Foundation
 import UIKit
 import Lottie
 
@@ -20,10 +21,10 @@ class LaunchScreenViewController: UIViewController {
         animationView!.contentMode = .scaleAspectFill
         view.addSubview(animationView!)
         
-        let destinationViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
-        destinationViewController?.modalPresentationStyle = .fullScreen
-        destinationViewController?.modalTransitionStyle = .crossDissolve
-        present(destinationViewController!, animated: true, completion: nil)
+        // let destinationViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+        // destinationViewController?.modalPresentationStyle = .fullScreen
+        // destinationViewController?.modalTransitionStyle = .crossDissolve
+        // present(destinationViewController!, animated: true, completion: nil)
         
         let seconds = 2.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
