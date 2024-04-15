@@ -105,6 +105,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return marker
     }
     
+    func mapView(_ mapView: MKMapView, clusterAnnotationForMemberAnnotations memberAnnotations: [any MKAnnotation]) -> MKClusterAnnotation {
+        let cluster = MKClusterAnnotation(memberAnnotations: memberAnnotations)
+        return cluster
+    }
+    
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         // Tell fountainStore to update
         fountainStore.updateFountains(around: mapView.region)

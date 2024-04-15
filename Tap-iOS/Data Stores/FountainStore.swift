@@ -33,9 +33,12 @@ class FountainStore: NSObject {
         
         let user = (UIApplication.shared.delegate as! AppDelegate).user!
         
-        for i in 0 ... 9 {
-            let lon = Double.random(in: -89.99113 ... -89.98687)
-            let lat = Double.random(in: 35.15170 ... 35.15968)
+        for i in 0 ... 40 {
+//            let lon = Double.random(in: -89.99113 ... -89.98687)
+//            let lat = Double.random(in: 35.15170 ... 35.15968)
+            
+            let lon = Double.random(in: -90.0 ... -89.97)
+            let lat = Double.random(in: 35.14 ... 35.17)
             let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
             fountains.append(Fountain(id: i, author: user, location: coord, coolness: Double.random(in: 0...10), pressure: Double.random(in: 0...10), taste: Double.random(in: 0...10), type: Fountain.FountainType(rawValue: Int.random(in: 0...2))!))
         }

@@ -22,6 +22,7 @@ class FountainDetailViewController: UIViewController {
     @IBOutlet var pressureSlider: UISlider!
     @IBOutlet var tasteSlider: UISlider!
     @IBOutlet var fountainWorkingSwitch: UISegmentedControl!
+    @IBOutlet var submitReviewButton: UIButton!
     @IBOutlet var deleteFountainButton: UIButton!
     
     
@@ -37,6 +38,7 @@ class FountainDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setFountain(to: nil)
         
         self.view.backgroundColor = UIColor.clear
         
@@ -101,12 +103,22 @@ class FountainDetailViewController: UIViewController {
         
         if let fountain = fountain {
             self.fountain = fountain
+            self.coolnessLabel.isEnabled = true
+            self.pressureLabel.isEnabled = true
+            self.tasteLabel.isEnabled = true
+            self.typeLabel.isEnabled = true
+            self.reviewButton.isEnabled = true
+            self.tasteSlider.isEnabled = true
+            self.coolnessSlider.isEnabled = true
+            self.pressureSlider.isEnabled = true
+            self.submitReviewButton.isEnabled = true
+            self.fountainWorkingSwitch.isEnabled = true
+            
+            
             self.coolnessLabel.text = nf.string(from: NSNumber(value: fountain.getCoolness()))
             self.pressureLabel.text = nf.string(from: NSNumber(value: fountain.getPressure()))
             self.tasteLabel.text = nf.string(from: NSNumber(value: fountain.getTaste()))
-            let typeText: String = fountain.getFountainType()
-            self.typeLabel.text = typeText
-            self.reviewButton.isEnabled = true
+            self.typeLabel.text = fountain.getFountainType()
             let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
             if (localUser.username == fountain.authorUsername) {
                 deleteFountainButton.isEnabled = true
@@ -119,8 +131,18 @@ class FountainDetailViewController: UIViewController {
             self.pressureLabel.text = "N/A"
             self.tasteLabel.text = "N/A"
             self.typeLabel.text = "No Fountain Selected"
+            
             self.reviewButton.isEnabled = false
-            deleteFountainButton.isEnabled = false
+            self.deleteFountainButton.isEnabled = false
+            self.coolnessLabel.isEnabled = false
+            self.pressureLabel.isEnabled = false
+            self.tasteLabel.isEnabled = false
+            self.typeLabel.isEnabled = false
+            self.tasteSlider.isEnabled = false
+            self.coolnessSlider.isEnabled = false
+            self.pressureSlider.isEnabled = false
+            self.submitReviewButton.isEnabled = false
+            self.fountainWorkingSwitch.isEnabled = false
         }
     }
     

@@ -1362,6 +1362,7 @@
                         <outlet property="pressureSlider" destination="Jvb-XC-t84" id="4dX-s5-F2T"/>
                         <outlet property="reviewButton" destination="VvS-tU-c7c" id="miw-Eo-aMF"/>
                         <outlet property="sortButton" destination="48N-Ia-WZr" id="r3H-Hr-vMm"/>
+                        <outlet property="submitReviewButton" destination="QMb-lx-8tS" id="4Xc-Fa-hnV"/>
                         <outlet property="tasteLabel" destination="7hM-RQ-NUU" id="emt-6f-bg8"/>
                         <outlet property="tasteSlider" destination="2jf-xY-L1H" id="c2I-9k-pBx"/>
                         <outlet property="typeLabel" destination="1SJ-oX-rb5" id="wng-zz-ydI"/>
