@@ -63,11 +63,9 @@ class UserProfileViewController: UIViewController {
     @IBAction func userActionButtonPressed(_ sender: UIButton) {
         switch userAction {
         case .follow:
-            userActionButton.setTitle("Unfollow", for: .normal)
-            userAction = .unfollow
+            followUser()
         case .unfollow:
-            userActionButton.setTitle("Follow", for: .normal)
-            userAction = .follow
+            unfollowUser()
         case .showSettings:
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainSettingsViewController")
             self.navigationController?.pushViewController(vc, animated: true)
@@ -80,6 +78,38 @@ class UserProfileViewController: UIViewController {
     func reloadPosts() {
         // Call to API to download posts
         self.postsTable.reloadData()
+    }
+    
+    private func followUser() {
+        let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
+        if let user = user {
+            SocialAPI.followUser(followee: selfUser.username, follower: user.username) { resp in
+                if let _ = resp["error"] as? Bool {
+                    var alert = UIAlertController(title: "Unable to follow \(user.username)", message: "Please try again later", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                    self.present(alert, animated: true)
+                } else {
+                    self.userActionButton.setTitle("Unfollow", for: .normal)
+                    self.userAction = .unfollow
+                }
+            }
+        }
+    }
+    
+    private func unfollowUser() {
+        let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
+        if let user = user {
+            SocialAPI.unFollowUser(user.username) { resp in
+                if let _ = resp["error"] as? Bool {
+                    var alert = UIAlertController(title: "Unable to unfollow \(user.username)", message: "Please try again later", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                    self.present(alert, animated: true)
+                } else {
+                    self.userActionButton.setTitle("Follow", for: .normal)
+                    self.userAction = .follow
+                }
+            }
+        }
     }
 }
 
