@@ -735,6 +735,7 @@
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" showsUserTrackingButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rle-Lq-L5p">
                                 <rect key="frame" x="16" y="171" width="361" height="196"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
                                 <gestureRecognizers/>
                                 <standardMapConfiguration key="preferredConfiguration" elevationStyle="realistic"/>
                                 <connections>
@@ -2095,6 +2096,9 @@
             <point key="canvasLocation" x="5398" y="1811"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="v2Q-ck-HDl"/>
+    </designables>
     <resources>
         <image name="DrinkingFountainIcon" width="808.6099853515625" height="808.6099853515625"/>
         <image name="TapTitleLogo" width="1024" height="1024"/>
