@@ -32,15 +32,40 @@ class Fountain: Codable, Equatable {
     private var type: FountainType
     private var reviews = [FountainReview]()
     
-    init(id: Int, author: TapUser, location: CLLocationCoordinate2D, coolness: Double, pressure: Double, taste: Double, type: FountainType) {
+    convenience init(id: Int, author: TapUser, location: CLLocationCoordinate2D, coolness: Double, pressure: Double, taste: Double, type: FountainType) {
+        let avgRating = (coolness + pressure + taste) / 3.0
+        
+        var typeString = ""
+        
+        switch (type) {
+        case .fountainOnly:
+            typeString = "Drinking Fountain Only"
+        case .bottleFillerOnly:
+            typeString = "Bottle Filler Only"
+        case .comboFillerFountain:
+            typeString = "Fountain and Bottle Filler"
+        }
+        
+        self.init(id: id, author: author.username, latitude: location.latitude, longitude: location.longitude, rating: avgRating, type: typeString)
+    }
+    
+    init(id: Int, author: String, latitude: Double, longitude: Double, rating: Double, type: String) {
         self.id = id
-        self.authorUsername = author.username
-        let loc = FountainCoordinate(latitude: location.latitude, longitude: location.longitude)
-        self.location = loc
-        self.coolness = coolness
-        self.pressure = pressure
-        self.taste = taste
-        self.type = type
+        self.authorUsername = author
+        self.coolness = rating
+        self.pressure = rating
+        self.taste = rating
+        self.location = FountainCoordinate(latitude: latitude, longitude: longitude)
+        switch (type) {
+        case "Drinking Fountain Only":
+            self.type = .fountainOnly
+        case "Bottle Filler Only":
+            self.type = .bottleFillerOnly
+        case "Fountain and Bottle Filler":
+            self.type = .comboFillerFountain
+        default: // This should never hit, but just in case
+            self.type = .comboFillerFountain
+        }
     }
     
     func setFountainID(_ id: Int) {
@@ -92,5 +117,18 @@ class Fountain: Codable, Equatable {
     
     func addReview(review: FountainReview) {
         self.reviews.append(review)
+    }
+    
+    static func fountainType(from _string: String) -> FountainType {
+        switch (_string) {
+        case "Drinking Fountain Only":
+            return .fountainOnly
+        case "Bottle Filler Only":
+            return .bottleFillerOnly
+        case "Fountain and Bottle Filler":
+            return .comboFillerFountain
+        default:
+            return .comboFillerFountain
+        }
     }
 }

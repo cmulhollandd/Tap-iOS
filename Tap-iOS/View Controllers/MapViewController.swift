@@ -15,9 +15,17 @@ import FloatingPanel
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var toastView: UIVisualEffectView!
+    @IBOutlet var toastLabel: UILabel!
     
     var panelController: FloatingPanelController!
     var supportingVC: FountainDetailViewController!
+    
+    // These track the overall area we have already fetched fountains for
+    var minLat: Double = 1000.0
+    var maxLat: Double = -1000.0
+    var minLon: Double = 1000.0
+    var maxLon: Double = -1000.0
     
     private var locationManager: CLLocationManager!
     var fountainStore: FountainStore = (UIApplication.shared.delegate as! AppDelegate).fountainStore
@@ -31,6 +39,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup toast View
+        self.toastView.layer.cornerRadius = 15.0
+        self.toastView.clipsToBounds = true
+        self.toastView.layer.opacity = 0
         
         panelController = FloatingPanelController()
         panelController.layout = PanelLayout()
@@ -62,7 +75,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fountainStore.updateFountains(around: mapView.region)
+        fountainStore.updateFountains(around: mapView.region) {
+            (error: Bool, message: String?) -> Void in
+            
+            if (error) {
+                self.presentToast(saying: "Failed to load new fountains")
+                return
+            }
+            // nothing
+        }
     }
     
     func setFountainDistance() {
@@ -81,6 +102,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 nf.maximumFractionDigits = 0
                 self.supportingVC.distanceLabel.text = "\(nf.string(from: dist as NSNumber)!) feet away"
             }
+        }
+    }
+    
+    func presentToast(saying phrase: String) {
+        self.toastLabel.text = phrase
+        
+        UIView.animate(withDuration: 0.2) {
+            self.toastView.layer.opacity = 100.0
+        } completion: { done in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: DispatchWorkItem(block: {
+                UIView.animate(withDuration: 0.2) {
+                    self.toastView.layer.opacity = 0.0
+                }
+            }))
         }
     }
     
@@ -112,8 +147,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        // Tell fountainStore to update
-        fountainStore.updateFountains(around: mapView.region)
+        
+        let region = mapView.region
+        
+        let currentMinLon = region.center.longitude - (region.span.longitudeDelta / 2.0)
+        let currentMinLat = region.center.latitude + (region.span.latitudeDelta / 2.0)
+        let currentMaxLon = region.center.longitude - (region.span.longitudeDelta / 2.0)
+        let currentMaxLat = region.center.latitude + (region.span.latitudeDelta / 2.0)
+        
+        if (currentMinLon < minLon || currentMinLat < minLat || currentMaxLon > maxLon || currentMaxLat > maxLat) {
+            // new data needed
+            fountainStore.updateFountains(around: mapView.region) {
+                (error: Bool, message: String?) -> Void in
+                
+                if (error) {
+                    self.presentToast(saying: "Failed to load new fountains")
+                }
+            }
+        }
+        
+        minLon = min(minLon, currentMinLon)
+        minLat = min(minLat, currentMinLat)
+        maxLon = max(maxLon, currentMaxLon)
+        maxLat = max(maxLat, currentMaxLat)
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -144,6 +200,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.setFountainDistance()
         self.panelController.move(to: .tip, animated: true)
     }
+    
 }
 
 extension MapViewController: FountainStoreDelegate {

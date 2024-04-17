@@ -1122,19 +1122,47 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <standardMapConfiguration key="preferredConfiguration" elevationStyle="realistic"/>
                             </mapView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOB-Gf-ga8">
+                                <rect key="frame" x="69" y="59" width="253" height="45"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uL1-em-gRF">
+                                    <rect key="frame" x="0.0" y="0.0" width="253" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Failed to Fetch New Fountains" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeI-Mu-yH5">
+                                            <rect key="frame" x="12" y="12" width="229" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="PrimaryBlue"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="DeI-Mu-yH5" secondAttribute="trailing" constant="12" id="BMn-mq-CBy"/>
+                                        <constraint firstAttribute="bottom" secondItem="DeI-Mu-yH5" secondAttribute="bottom" constant="12" id="Kac-i7-w0t"/>
+                                        <constraint firstItem="DeI-Mu-yH5" firstAttribute="leading" secondItem="uL1-em-gRF" secondAttribute="leading" constant="12" id="tOW-JO-xXf"/>
+                                        <constraint firstItem="DeI-Mu-yH5" firstAttribute="top" secondItem="uL1-em-gRF" secondAttribute="top" constant="12" id="wdE-pd-9f9"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="systemThinMaterial"/>
+                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cGN-dE-0FC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cOB-Gf-ga8" firstAttribute="centerX" secondItem="APO-dp-LgO" secondAttribute="centerX" constant="-1" id="PLd-de-nhe"/>
+                            <constraint firstItem="cGN-dE-0FC" firstAttribute="top" secondItem="cOB-Gf-ga8" secondAttribute="top" id="bUK-IE-FFi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map.fill" catalog="system" id="zjc-Fo-Fa9"/>
                     <connections>
                         <outlet property="mapView" destination="5bT-AS-0dm" id="RZp-Kb-tto"/>
+                        <outlet property="toastLabel" destination="DeI-Mu-yH5" id="r4G-wX-exx"/>
+                        <outlet property="toastView" destination="cOB-Gf-ga8" id="FUU-ag-ENZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7a-aT-ohq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Jzg-Bs-2Wt"/>
             </objects>
-            <point key="canvasLocation" x="459" y="1969"/>
+            <point key="canvasLocation" x="458.77862595419845" y="1968.3098591549297"/>
         </scene>
         <!--Fountain Detail View Controller-->
         <scene sceneID="pm1-yB-557">

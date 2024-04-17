@@ -49,10 +49,56 @@ class FountainStore: NSObject {
     ///
     /// - Parameters:
     ///      - region: Coordinate Region in which fountain data should be requested
-    func updateFountains(around region: MKCoordinateRegion) {
+    func updateFountains(around region: MKCoordinateRegion, completion: @escaping(Bool, String?) -> Void) {
         // Call API to get new fountains around region
         
-        filterFountains(by: currentFilter)
+        let divisor = 1.7 // Can be adjusted to load more fountains outside of immediate map area, for efficiency
+        let minLat = region.center.latitude - (region.span.latitudeDelta / divisor)
+        let minLon = region.center.longitude - (region.span.longitudeDelta / divisor)
+        let maxLat = region.center.latitude + (region.span.latitudeDelta / divisor)
+        let maxLon = region.center.longitude + (region.span.longitudeDelta / divisor)
+        FountainAPI.getFountains(in: FountainAPI.Region(minLat: minLat, minLon: minLon, maxLat: maxLat, maxLon: maxLon)) { resp in
+            
+            if let _ = resp["error"] as? Bool {
+                completion(true, resp["message"] as? String)
+                return
+            }
+            
+            // Create new fountains and add to all fountains if they are not already present
+            guard let fountainsDict = (resp["fountains"] as? [Dictionary<String, Any>]) else {
+                completion(true, "Fountains not present in response")
+                return
+            }
+            
+            var newFountains = [Fountain]()
+            for _fountain in fountainsDict {
+                guard let id = _fountain["ID"] as? Int else {
+                    completion(true, "Invalid fountainID found in response")
+                    return
+                }
+                if self.fountainStoreContainsFountain(with: id) {
+                    continue
+                }
+                
+                guard
+                    let id = _fountain["ID"] as? Int,
+                    let author = _fountain["author"] as? String,
+                    let latitude = _fountain["x_coord"] as? Double,
+                    let longitude = _fountain["x_coord"] as? Double,
+                    let rating = _fountain["rating"] as? Double,
+                    let type = _fountain["description"] as? String
+                else {
+                    completion(true, "Failed to create fountain objects from response in \(#function)")
+                    return
+                }
+                
+                let fountain = Fountain(id: id, author: author, latitude: latitude, longitude: longitude, rating: rating, type: type)
+                newFountains.append(fountain)
+            }
+            
+            self.addNewFountains(newFountains)
+            completion(false, nil)
+        }
     }
     
     func getFountain(from location: CLLocationCoordinate2D) -> Fountain? {
@@ -95,7 +141,6 @@ class FountainStore: NSObject {
         }
     }
     
-    
     func filterFountains(by criteria: FilterCriteria) {
         currentFilter = criteria
         switch (criteria) {
@@ -123,6 +168,15 @@ class FountainStore: NSObject {
                 completion(false, nil)
             }
         }
+    }
+    
+    func fountainStoreContainsFountain(with id: Int) -> Bool {
+        for fountain in allFountains {
+            if fountain.id == id {
+                return true
+            }
+        }
+        return false
     }
     
 }

@@ -27,6 +27,29 @@ struct FountainAPI {
         }
     }
     
+    class Region {
+        let minLat: Double
+        let minLon: Double
+        let maxLat: Double
+        let maxLon: Double
+        
+        init(minLat: Double, minLon: Double, maxLat: Double, maxLon: Double) {
+            self.minLat = minLat
+            self.minLon = minLon
+            self.maxLat = maxLat
+            self.maxLon = maxLon
+        }
+        
+        func getDict() -> [String: Double] {
+            return [
+                "minLat": minLat,
+                "minLon": minLon,
+                "maxLat": maxLat,
+                "maxLon": maxLon
+            ]
+        }
+    }
+    
     public static func addFountain(_ fountain: Fountain, by author: TapUser, completion: @escaping([String:Any]) -> Void) {
         
         let components = URLComponents(string: "\(baseAPIURL)/add")!
@@ -50,7 +73,7 @@ struct FountainAPI {
             req.httpMethod = "POST"
             req.httpBody = data
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            req.setValue("Bearer \(author.authToken!)", forHTTPHeaderField: "Authorization")
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
             return req
         }()
         
@@ -101,7 +124,7 @@ struct FountainAPI {
             req.httpMethod = "DELETE"
             req.httpBody = data
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            req.setValue("Bearer \(author.authToken!)", forHTTPHeaderField: "Authorization")
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
             return req
         }()
         
@@ -160,7 +183,7 @@ struct FountainAPI {
             req.httpMethod = "POST"
             req.httpBody = data
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            req.setValue("Bearer \(user.authToken!)", forHTTPHeaderField: "Authorization")
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
             return req
         }()
         
@@ -191,5 +214,58 @@ struct FountainAPI {
         }
         task.resume()
     }
+    
+    
+    public static func getFountains(in region: Region, completion: @escaping([String: Any]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/get-in-area")!
+        
+        var data: Data
+        
+        do {
+            try data = JSONSerialization.data(withJSONObject: region.getDict())
+        } catch {
+            print("Failed to encode JSON Data")
+            APIHelpers.completeWithError("Failed to encode request payload in \(#function)", completion: completion)
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "GET"
+            req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
+            return req
+        }()
+        
+        let task = APIHelpers.session.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            if let error = error {
+                print(error.localizedDescription, #line)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    print(response.description, #line)
+                    APIHelpers.completeWithError(response.description, completion: completion)
+                }
+            }
+            
+            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
+                print("error: NO response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+            
+            print(resp)
+            let ret: [String: Any] = ["fountains": resp]
+            APIHelpers.complete(ret, completion: completion)
+        }
+        task.resume()
+    }
+    
     
 }
