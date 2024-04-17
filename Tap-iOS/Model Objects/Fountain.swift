@@ -30,6 +30,7 @@ class Fountain: Codable, Equatable {
     private var pressure: Double
     private var taste: Double
     private var type: FountainType
+    private var reviews = [FountainReview]()
     
     init(id: Int, author: TapUser, location: CLLocationCoordinate2D, coolness: Double, pressure: Double, taste: Double, type: FountainType) {
         self.id = id
@@ -87,5 +88,9 @@ class Fountain: Codable, Equatable {
     
     static func == (lhs: Fountain, rhs: Fountain) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    func addReview(review: FountainReview) {
+        self.reviews.append(review)
     }
 }

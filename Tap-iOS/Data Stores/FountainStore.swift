@@ -33,7 +33,7 @@ class FountainStore: NSObject {
         
         let user = (UIApplication.shared.delegate as! AppDelegate).user!
         
-        for i in 0 ... 40 {
+        for i in 0 ... 1 {
 //            let lon = Double.random(in: -89.99113 ... -89.98687)
 //            let lat = Double.random(in: 35.15170 ... 35.15968)
             
@@ -110,6 +110,19 @@ class FountainStore: NSObject {
             }
         }
         delegate?.fountainStore(self, didUpdateFountains: visibleFountains)
+    }
+    
+    func submitReview(review: FountainReview, for fountain: Fountain, completion: @escaping(Bool, String?) -> Void) {
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        FountainAPI.addReview(review, for: fountain, by: user) { resp in
+            
+            if let _ = resp["error"] as? Bool {
+                completion(true, resp["message"] as? String)
+            } else {
+                fountain.addReview(review: review)
+                completion(false, nil)
+            }
+        }
     }
     
 }

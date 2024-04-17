@@ -40,6 +40,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         panelController.surfaceView.appearance = appearance
         supportingVC = storyboard?.instantiateViewController(withIdentifier: "FountainDetailViewController") as? FountainDetailViewController
         supportingVC.referringVC = self
+        supportingVC.fountainStore = self.fountainStore
         panelController.set(contentViewController: supportingVC)
         panelController.addPanel(toParent: self)
         panelController.move(to: .tip, animated: false)
@@ -211,7 +212,7 @@ private class PanelLayout: FloatingPanelLayout {
     let initialState: FloatingPanelState = .tip
     let anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] = [
         .full: FloatingPanelLayoutAnchor(absoluteInset: 100.0, edge: .top, referenceGuide: .safeArea),
-        .half: FloatingPanelLayoutAnchor(absoluteInset: 260.0, edge: .bottom, referenceGuide: .safeArea),
+        .half: FloatingPanelLayoutAnchor(absoluteInset: 200.0, edge: .bottom, referenceGuide: .safeArea),
         .tip: FloatingPanelLayoutAnchor(absoluteInset: 44.0, edge: .bottom, referenceGuide: .safeArea),
     ]
 }
