@@ -55,6 +55,10 @@
 		08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EA2B6844BF0033ED63 /* FeedViewController.swift */; };
 		08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EC2B6882090033ED63 /* FeedPostStore.swift */; };
 		2214335428D8F575E1D92912 /* Pods_Tap_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */; };
+		DB2CF7042BD18FF4004135D6 /* LeaderboardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7032BD18FF4004135D6 /* LeaderboardEntry.swift */; };
+		DB2CF7062BD1900F004135D6 /* LeaderboardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */; };
+		DB2CF7082BD193A2004135D6 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */; };
+		DB2CF70A2BD195FA004135D6 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +133,10 @@
 		09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tap_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12DE62DFC314FED4CF2A156D /* Pods-Tap-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tap-iOS.release.xcconfig"; path = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B696BDE726B50EFA6E4B45D4 /* Pods-Tap-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tap-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2CF7032BD18FF4004135D6 /* LeaderboardEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardEntry.swift; sourceTree = "<group>"; };
+		DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardStore.swift; sourceTree = "<group>"; };
+		DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
+		DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +252,7 @@
 				08F779E62B6839CA0033ED63 /* TapUser.swift */,
 				089F0B7B2B7EDE2500BFDC71 /* Fountain.swift */,
 				08CC11292BCF09DD00BFD82B /* FountainReview.swift */,
+				DB2CF7032BD18FF4004135D6 /* LeaderboardEntry.swift */,
 			);
 			path = "Model Objects";
 			sourceTree = "<group>";
@@ -267,6 +276,7 @@
 				08F779EC2B6882090033ED63 /* FeedPostStore.swift */,
 				082271292B8819A4007CD0F7 /* FountainStore.swift */,
 				0851EA862B9CF0180055CAED /* SettingsTableStore.swift */,
+				DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */,
 			);
 			path = "Data Stores";
 			sourceTree = "<group>";
@@ -279,6 +289,7 @@
 				0851EA802B9CE6740055CAED /* BasicSettingsTableCell.swift */,
 				0851EA822B9CE7CA0055CAED /* ToggleSettingsTableCell.swift */,
 				08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */,
+				DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -290,6 +301,7 @@
 				087ECE372B6AB06400F27DB7 /* OnboardingVCs */,
 				08D2194B2B7C0DA500CBC733 /* Cells */,
 				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
+				DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */,
 				082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */,
 				08D2194C2B7C0DD300CBC733 /* MapViewController.swift */,
 				089F0B7D2B7EE06100BFDC71 /* NewFountainViewController.swift */,
@@ -501,6 +513,7 @@
 				08E7A5452B90F1AB00695946 /* APIHelpers.swift in Sources */,
 				08F779E72B6839CA0033ED63 /* TapUser.swift in Sources */,
 				088653732B602D4800355D6D /* AppDelegate.swift in Sources */,
+				DB2CF70A2BD195FA004135D6 /* LeaderboardViewController.swift in Sources */,
 				08EB419E2BBF1A8500876EA1 /* TapSettingsViewController.swift in Sources */,
 				08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */,
 				08B967B32BBEFD5D00560E11 /* DeleteAccountViewController.swift in Sources */,
@@ -514,6 +527,7 @@
 				08EB419C2BBF1A8500876EA1 /* ChangeUsernameViewController.swift in Sources */,
 				08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */,
 				08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */,
+				DB2CF7042BD18FF4004135D6 /* LeaderboardEntry.swift in Sources */,
 				08E9C8542BD0B6D500F36AD5 /* SpinnerViewController.swift in Sources */,
 				08B967AF2BBE23B400560E11 /* LaunchScreenViewController.swift in Sources */,
 				0851EA872B9CF0180055CAED /* SettingsTableStore.swift in Sources */,
@@ -524,6 +538,7 @@
 				08E9C8522BD0A76100F36AD5 /* SingleLabelCell.swift in Sources */,
 				089F0B7C2B7EDE2500BFDC71 /* Fountain.swift in Sources */,
 				0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */,
+				DB2CF7082BD193A2004135D6 /* LeaderboardTableViewCell.swift in Sources */,
 				088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */,
 				0851EA832B9CE7CA0055CAED /* ToggleSettingsTableCell.swift in Sources */,
 				089F90532BBC7F790057CDDA /* UserProfileViewController.swift in Sources */,
@@ -532,6 +547,7 @@
 				08CC112A2BCF09DD00BFD82B /* FountainReview.swift in Sources */,
 				0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */,
+				DB2CF7062BD1900F004135D6 /* LeaderboardStore.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
 				08E9C8502BD0A65E00F36AD5 /* TapListViewController.swift in Sources */,
 				0851EA7F2B9CE1D40055CAED /* PersonalProfileViewController.swift in Sources */,
