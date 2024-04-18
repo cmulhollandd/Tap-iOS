@@ -82,6 +82,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.presentToast(saying: "Failed to load new fountains")
             }
         }
+        fountainStore.filterFountains(by: .all)
     }
     
     /// Finds the distance between the selected fountain and user if available

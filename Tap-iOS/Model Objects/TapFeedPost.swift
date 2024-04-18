@@ -16,7 +16,17 @@ class TapFeedPost {
     let textContent: String
     let imageContent: UIImage?
     let postDate: Date
+    var comments: [TapComment]
     
+    class TapComment {
+        let author: String
+        let content: String
+        
+        init(author: String, content: String) {
+            self.author = author
+            self.content = content
+        }
+    }
     
     init() {
         self.postingUserUsername = ""
@@ -25,6 +35,7 @@ class TapFeedPost {
         self.textContent = ""
         self.imageContent = nil
         self.postDate = Date()
+        self.comments = [TapComment]()
     }
     
     init(postingUserUsername: String, postingUserProfileImage: UIImage?, hasImage: Bool, textContent: String, imageContent: UIImage?, postDate: Date) {
@@ -34,5 +45,6 @@ class TapFeedPost {
         self.textContent = textContent
         self.imageContent = imageContent
         self.postDate = postDate
-    }    
+        self.comments = [TapComment]()
+    }
 }

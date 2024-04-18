@@ -16,24 +16,15 @@ class FeedViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var newPostButton: UIBarButtonItem!
     
-    override func loadView() {
-        super.loadView()
-        
-//        self.dataSource = FeedPostStore()
-//        self.tableView.dataSource = self.dataSource
-//        self.tableView.delegate = self
-//        let refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-//        self.tableView.refreshControl = refreshControl
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.dataSource = FeedPostStore()
+        self.dataSource.presentingVC = self
         self.tableView.dataSource = self.dataSource
         self.tableView.delegate = self
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.tintColor = .systemBackground
         self.tableView.refreshControl = refreshControl
         
         self.tableView.reloadData()
@@ -61,12 +52,26 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let username = dataSource.getUsername(for: indexPath)
+        
+        let spinner = SpinnerViewController()
+        self.addChild(spinner)
+        spinner.view.frame = self.view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
+        
+        let post = dataSource.getPost(for: indexPath)
+        let username = post.postingUserUsername
         
         // Call API to get details of the user
         let user = TapUser(first: username, last: username, username: username, email: username, loginToken: nil, profilePhoto: nil)
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostDetailViewController") as! PostDetailViewController
         vc.user = user
+        vc.post = post
+        
+        spinner.willMove(toParent: nil)
+        spinner.view.removeFromSuperview()
+        spinner.removeFromParent()
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -11,5 +11,4 @@ import UIKit
 class FeedTableViewCellWithImage: FeedTableViewCell {
     
     @IBOutlet var contentImageView: UIImageView!
-    
 }
