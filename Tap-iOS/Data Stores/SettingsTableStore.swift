@@ -78,6 +78,8 @@ class SettingsTableStore: NSObject, UITableViewDataSource {
     }
     
     
+    /// Indexes a property list for the settings view controller
+    /// - Parameter fname: filename of the property list
     func indexPlist(from fname: String) {
         guard let path = Bundle.main.path(forResource: fname, ofType: "plist") else {
             fatalError("Failed to find settings plist")
@@ -102,6 +104,10 @@ class SettingsTableStore: NSObject, UITableViewDataSource {
         }
     }
     
+    /// Parses the sections of a property list,
+    /// *Section refers to a section in a table view*
+    /// - Parameter sections: sections dictionary to be parsed
+    /// - Returns: Array of TableSection
     private func parseSections(_ sections: [String:Any]) -> [TableSection] {
         print(#function)
         var ret = [TableSection]()
@@ -119,6 +125,9 @@ class SettingsTableStore: NSObject, UITableViewDataSource {
         return ret
     }
     
+    /// Parses the rows of a section
+    /// - Parameter rows: Rows dictionary to be parsed
+    /// - Returns: Array of TableRow
     private func parseRows(_ rows: [String: Any]) -> [TableRow] {
         print(#function)
         var ret = [TableRow]()

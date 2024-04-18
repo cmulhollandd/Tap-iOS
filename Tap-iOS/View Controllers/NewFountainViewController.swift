@@ -147,6 +147,7 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     
     
     // MARK: - Instance Methods
+    /// Attempts to setup the location services for Tap
     private func setupLocationServices() {
         switch locationManager.authorizationStatus {
         case .denied:

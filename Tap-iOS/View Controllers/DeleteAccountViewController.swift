@@ -21,6 +21,7 @@ class DeleteAccountViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    /// Sends a request to the API to delete the logged in account
     private func deleteAccount() {
         let user = (UIApplication.shared.delegate as! AppDelegate).user!
         AccountsAPI.deleteAccount(for: user) { resp in

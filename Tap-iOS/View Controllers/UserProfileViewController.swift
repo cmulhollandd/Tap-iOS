@@ -75,12 +75,14 @@ class UserProfileViewController: UIViewController {
             print("Nothing to do")
         }
     }
-
+    
+    /// Reloads teh posts in the postsTable
     func reloadPosts() {
         // Call to API to download posts
         self.postsTable.reloadData()
     }
     
+    /// Asks the API for the following and follower lists for this user and updates the interface to show their counts
     func loadFollowersAndFollowing() {
         guard let user = user else {
             return
@@ -107,6 +109,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
+    /// Sends a request to the API to follow this new user
     private func followUser() {
         let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
         if let user = user {
@@ -123,6 +126,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
+    /// Sends a request to the API to unfollow this user
     private func unfollowUser() {
         let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
         if let user = user {

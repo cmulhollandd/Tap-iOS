@@ -84,6 +84,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    /// Finds the distance between the selected fountain and user if available
+    /// Rounds this distance to reasonable units and sets the value to the label distanceLabel
     func setFountainDistance() {
         guard let fountain = self.focusedFountain else {
             self.supportingVC.distanceLabel.text = ""
@@ -103,6 +105,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    /// Presents a toast message to the user displaying the string phrase
+    /// - Parameter phrase: string to be put on the toast
     func presentToast(saying phrase: String) {
         self.toastLabel.text = phrase
         

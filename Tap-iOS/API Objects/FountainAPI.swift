@@ -11,6 +11,7 @@ struct FountainAPI {
     
     private static let baseAPIURL = "https://rhodestap.com/fountain"
     
+    /// Data payload object for the method addFountain(...)
     private class AddFountainPayload: Codable {
         let xCoord: Double
         let yCoord: Double
@@ -27,6 +28,7 @@ struct FountainAPI {
         }
     }
     
+    /// Object specifying a region on a map represented by a minimum and maximum latitude and longitude
     class Region {
         let minLat: Double
         let minLon: Double
@@ -50,6 +52,12 @@ struct FountainAPI {
         }
     }
     
+    
+    /// Calls Backend to post a newly created fountain to Tap
+    /// - Parameters:
+    ///   - fountain: Newly created fountain to be added
+    ///   - author: TapUser who created the new fountain (*should* always be the user loggd into the app
+    ///   - completion: completion handler
     public static func addFountain(_ fountain: Fountain, by author: TapUser, completion: @escaping([String:Any]) -> Void) {
         
         let components = URLComponents(string: "\(baseAPIURL)/add")!
@@ -106,6 +114,11 @@ struct FountainAPI {
     }
     
     
+    /// Calls the backend to delete and existing fountain from Tap
+    /// - Parameters:
+    ///   - fountain: Fountain to be deleted
+    ///   - author: Author who created and is now deleting the fountain (*should* always be the user logged into the app
+    ///   - completion: completion handler
     public static func deleteFountain(_ fountain: Fountain, by author: TapUser, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/delete")!
         let payload = ["fountainID": fountain.id]
@@ -158,6 +171,12 @@ struct FountainAPI {
     }
     
     
+    /// Calls the backend server to post a new fountain review to a fountain on Tap
+    /// - Parameters:
+    ///   - review: New review to be added to fountain
+    ///   - fountain: Fountain the review relates to
+    ///   - user: author of the new review
+    ///   - completion: completion handler
     public static func addReview(_ review: FountainReview, for fountain: Fountain, by user: TapUser, completion: @escaping([String: Any]) -> Void) {
         
         let components = URLComponents(string: "\(baseAPIURL)/add-review")!
@@ -216,6 +235,10 @@ struct FountainAPI {
     }
     
     
+    /// Calls the backend server to return all the fountains contained in region
+    /// - Parameters:
+    ///   - region: Region object specifiying the search space for the fountains
+    ///   - completion: completion handler
     public static func getFountains(in region: Region, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/get-in-area")!
         

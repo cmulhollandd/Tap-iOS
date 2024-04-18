@@ -135,6 +135,8 @@ class FountainDetailViewController: UIViewController {
 //        self.reviewTextView.endEditing(true)
     }
     
+    /// Updates the ViewController's views to show information about the selected fountain
+    /// - Parameter fountain: the newly selected Fountain
     func setFountain(to fountain: Fountain?) {
         if let fountain = fountain {
             self.fountain = fountain

@@ -37,10 +37,16 @@ class FeedPostStore: NSObject {
         // Interact with API
     }
     
+    /// Gets the username at indexPath
+    /// - Parameter indexPath: indexPath into the array posts
+    /// - Returns: username of the user who made the post specified by indexPath
     func getUsername(for indexPath: IndexPath) -> String {
         return posts[indexPath.row].postingUserUsername
     }
     
+    /// Adds a new post to this FeedPostStore, subsequently calling SocialAPI.newPost(...)
+    /// **NOTE**: The post is not added to this local version of the store if the API fails to except the new post for any reason
+    /// - Parameter post: TapFeedPost to be added
     func newPost(_ post: TapFeedPost) {
         self.posts.append(post)
         self.posts = posts.sorted { p1, p2 in

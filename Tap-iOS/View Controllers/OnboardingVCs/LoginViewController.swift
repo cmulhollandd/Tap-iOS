@@ -158,6 +158,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    /// Removes the saved login info from the keychain
     func removeLoginInfo() {
         let myValet = Valet.valet(with: Identifier(nonEmpty: "Tap-iOS")!, accessibility: .whenUnlocked)
         

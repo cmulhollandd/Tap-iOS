@@ -47,6 +47,10 @@ class ChangeEmailViewController: UIViewController {
         }
     }
     
+    /// Checks if the proposed email string matches the format for an email address
+    /// *This may not be entirely foolproof, but it is better than nothing*
+    /// - Parameter email: proposed new email string
+    /// - Returns: true if email appears to be an email, false otherwise
     private func checkEmail(_ email: String) -> Bool {
         return email.contains(/^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/)
     }

@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 
 
+/// Filter enum for fountains
 enum FilterCriteria: Int {
     case all = -1
     case fountainOnly = 0
@@ -101,6 +102,9 @@ class FountainStore: NSObject {
         }
     }
     
+    /// Returns a fountain, if one exists, which is located at location
+    /// - Parameter location: Location of the fountain
+    /// - Returns: Fountain or nil is no fountain is found
     func getFountain(from location: CLLocationCoordinate2D) -> Fountain? {
         let loc = CLLocation(latitude: location.latitude, longitude: location.longitude)
         for fountain in allFountains {
@@ -111,6 +115,8 @@ class FountainStore: NSObject {
         return nil
     }
     
+    /// Adds new fountains to this FountainStore, does **NOT** post them to the backend
+    /// - Parameter fountains: Array of fountain objects to be added
     func addNewFountains(_ fountains: [Fountain]) {
         for fountain in fountains {
             allFountains.append(fountain)
@@ -118,11 +124,20 @@ class FountainStore: NSObject {
         filterFountains(by: currentFilter)
     }
     
+    /// Adds a single new fountain to this FountainStore, does **NOT** post them to the backend
+    /// - Parameter fountain: Fountain to be added
     func addNewFountain(_ fountain: Fountain) {
         allFountains.append(fountain)
         filterFountains(by: currentFilter)
     }
     
+    /// Posts a new fountain to the backend by calling the appropriate method in FountainAPI.
+    ///
+    /// If the response from the API is not an error, the id of the fountain object passed in is updated
+    /// and it is added to this FountainStore
+    /// - Parameters:
+    ///   - fountain: Fountain object to be added
+    ///   - completion: completion handler
     func postNewFountain(fountain: Fountain, completion: @escaping(Bool, String?) -> Void)  {
         let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
         
@@ -141,6 +156,8 @@ class FountainStore: NSObject {
         }
     }
     
+    /// Filters the visible fountains on the map by the specified criteria
+    /// - Parameter criteria: FilterCriteria specifiying which fountains should be visible on the map
     func filterFountains(by criteria: FilterCriteria) {
         currentFilter = criteria
         switch (criteria) {
@@ -157,6 +174,11 @@ class FountainStore: NSObject {
         delegate?.fountainStore(self, didUpdateFountains: visibleFountains)
     }
     
+    /// Submits a new review for a fountain
+    /// - Parameters:
+    ///   - review: New FountainReview to be posted
+    ///   - fountain: Fountain relating to this FountainReview
+    ///   - completion: completion handler
     func submitReview(review: FountainReview, for fountain: Fountain, completion: @escaping(Bool, String?) -> Void) {
         let user = (UIApplication.shared.delegate as! AppDelegate).user!
         FountainAPI.addReview(review, for: fountain, by: user) { resp in
@@ -170,6 +192,9 @@ class FountainStore: NSObject {
         }
     }
     
+    /// Checks if a fountain with a specified id is contained in this FountainStore
+    /// - Parameter id: Integer id to be searched for
+    /// - Returns: true if a matching fountain is present, false otherwise
     func fountainStoreContainsFountain(with id: Int) -> Bool {
         for fountain in allFountains {
             if fountain.id == id {
@@ -181,8 +206,13 @@ class FountainStore: NSObject {
     
 }
 
+/// Delegate protocols for FountainStore
 protocol FountainStoreDelegate {
     
+    /// Alerts the delegate that the FountainStore has updated the visible fountains
+    /// - Parameters:
+    ///   - fountainStore: This FountainStore
+    ///   - didUpdateFountains: Array of new Fountain objects
     func fountainStore(_ fountainStore: FountainStore, didUpdateFountains: [Fountain])
     
 }

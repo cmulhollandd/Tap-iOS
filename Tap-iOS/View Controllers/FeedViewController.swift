@@ -45,6 +45,7 @@ class FeedViewController: UIViewController {
         self.tableView.reloadData()
     }
     
+    /// Refreshes the posts in the table view
     @objc func refreshData() {
         self.tableView.reloadData()
         
