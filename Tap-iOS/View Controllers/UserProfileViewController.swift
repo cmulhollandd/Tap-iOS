@@ -110,7 +110,7 @@ class UserProfileViewController: UIViewController {
     private func followUser() {
         let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
         if let user = user {
-            SocialAPI.followUser(followee: selfUser.username, follower: user.username) { resp in
+            SocialAPI.followUser(followee: user.username, follower: selfUser.username) { resp in
                 if let _ = resp["error"] as? Bool {
                     let alert = UIAlertController(title: "Unable to follow \(user.username)", message: "Please try again later", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default))
@@ -124,9 +124,9 @@ class UserProfileViewController: UIViewController {
     }
     
     private func unfollowUser() {
-//        let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
+        let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
         if let user = user {
-            SocialAPI.unFollowUser(user.username) { resp in
+            SocialAPI.unFollowUser(followee: user.username, follower: selfUser.username) { resp in
                 if let _ = resp["error"] as? Bool {
                     let alert = UIAlertController(title: "Unable to unfollow \(user.username)", message: "Please try again later", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default))

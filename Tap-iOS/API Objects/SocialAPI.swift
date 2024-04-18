@@ -71,8 +71,55 @@ class SocialAPI: NSObject {
     /// - Parameters:
     ///   - username: username of user to unfollow
     ///   - completion: completion handler
-    public static func unFollowUser(_ username: String, completion: @escaping([String: Any]) -> Void) {
+    public static func unFollowUser(followee: String, follower: String, completion: @escaping([String: Any]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/unfollow-user")!
+        let payload = ["follower" : follower, "followee" : followee]
+        var data: Data
         
+        do {
+            data = try JSONSerialization.data(withJSONObject: payload)
+        } catch {
+            print("failed to encode request data in \(#function) in \(#file)")
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "POST"
+            req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
+            return req
+        }()
+        
+        let task = APIHelpers.session.dataTask(with: request) {
+        (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    APIHelpers.completeWithError(response.description, completion: completion)
+                    return
+                }
+                
+            }
+            
+            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+            
+            print(resp)
+            APIHelpers.complete(resp, completion: completion)
+        }
+        
+        task.resume()
     }
     
     /// Get followers of user
