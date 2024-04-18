@@ -11,6 +11,7 @@ import UIKit
 class FeedPostStore: NSObject {
     
     var posts: [TapFeedPost]!
+    var presentingVC: UIViewController!
     
     private var nf: NumberFormatter = {
         let nf = NumberFormatter()
@@ -30,6 +31,8 @@ class FeedPostStore: NSObject {
         let post4 = TapFeedPost(postingUserUsername: "jbeuerlein38", postingUserProfileImage: nil, hasImage: false, textContent: "Have you guys tried sparkling water?", imageContent: nil, postDate: Date(timeInterval: -1200, since: Date()))
         
         self.posts = [post1, post2, post3, post4]
+        
+        post1.comments.append(TapFeedPost.TapComment(author: "kcarson45", content: "Nice!"))
     }
 
     /// Updates posts stored in this FeedPostStore
@@ -42,6 +45,13 @@ class FeedPostStore: NSObject {
     /// - Returns: username of the user who made the post specified by indexPath
     func getUsername(for indexPath: IndexPath) -> String {
         return posts[indexPath.row].postingUserUsername
+    }
+    
+    /// Gets the username at indexPath
+    /// - Parameter indexPath: indexPath into the array posts
+    /// - Returns: post at index path
+    func getPost(for indexPath: IndexPath) -> TapFeedPost {
+        return posts[indexPath.row]
     }
     
     /// Adds a new post to this FeedPostStore, subsequently calling SocialAPI.newPost(...)
@@ -83,6 +93,8 @@ extension FeedPostStore: UITableViewDataSource {
         switch post.hasImage {
         case true:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! FeedTableViewCellWithImage
+            cell.post = post
+            cell.presentingVC = self.presentingVC
             cell.contentImageView.image = post.imageContent!
             cell.usernameLabel.text = post.postingUserUsername
             cell.timeSincePostLabel.text = timeString
@@ -94,6 +106,8 @@ extension FeedPostStore: UITableViewDataSource {
             return cell
         case false:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NonImageCell", for: indexPath) as! FeedTableViewCell
+            cell.post = post
+            cell.presentingVC = self.presentingVC
             cell.usernameLabel.text = post.postingUserUsername
             cell.timeSincePostLabel.text = timeString
             cell.contentLabel.text = post.textContent

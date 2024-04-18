@@ -14,6 +14,8 @@ class TapNavigationController: UINavigationController, UINavigationBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationBar.tintColor = .systemBackground
+        self.navigationBar.prefersLargeTitles = true        
     }
     
     func position(for bar: UIBarPositioning) -> UIBarPosition {
