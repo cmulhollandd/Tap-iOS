@@ -66,4 +66,17 @@ struct APIHelpers {
             completion(dict)
         }
     }
+    
+    static func complete(_ resp: [[String: Any]], completion: @escaping([[String: Any]]) -> Void) {
+        OperationQueue.main.addOperation {
+            completion(resp)
+        }
+    }
+    
+    static func completeWithError(_ description: String, completion: @escaping([[String: Any]]) -> Void) {
+        let resp = [["error" : true, "message": description]]
+        OperationQueue.main.addOperation {
+            completion(resp)
+        }
+    }
 }

@@ -86,7 +86,7 @@ class UserProfileViewController: UIViewController {
             return
         }
         SocialAPI.getFollowers(of: user) { resp in
-            if let _ = resp["error"] as? Bool {
+            if let _ = resp[0]["error"] as? Bool {
                 // present error to user
                 self.followersButton.titleLabel?.text = "?"
                 return
@@ -96,7 +96,7 @@ class UserProfileViewController: UIViewController {
             self.followersButton.titleLabel?.text = "\(numFollowers)"
         }
         SocialAPI.getFollowing(of: user) { resp in
-            if let _ = resp["error"] as? Bool {
+            if let _ = resp[0]["error"] as? Bool {
                 // present error to user
                 self.followingButton.titleLabel?.text = "?"
                 return
@@ -124,7 +124,7 @@ class UserProfileViewController: UIViewController {
     }
     
     private func unfollowUser() {
-        let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
+//        let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
         if let user = user {
             SocialAPI.unFollowUser(user.username) { resp in
                 if let _ = resp["error"] as? Bool {
@@ -136,6 +136,36 @@ class UserProfileViewController: UIViewController {
                     self.userAction = .follow
                 }
             }
+        }
+    }
+    
+    @IBAction func followersButtonPressed(_ sender: UIButton) {
+        guard let user = user else {
+            return
+        }
+        SocialAPI.getFollowers(of: user) { resp in
+            if let _ = resp[0]["error"] as? Bool {
+                return
+            }
+            
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+    }
+    
+    @IBAction func followingButtonPressed(_ sender: UIButton) {
+        guard let user = user else {
+            return
+        }
+        SocialAPI.getFollowing(of: user) { resp in
+            if let _ = resp[0]["error"] as? Bool {
+                return
+            }
+            
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
 }

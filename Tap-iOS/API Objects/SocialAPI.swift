@@ -79,7 +79,7 @@ class SocialAPI: NSObject {
     /// - Parameters:
     ///   - user: user to get followers of
     ///   - completion: completion handler
-    public static func getFollowers(of user: TapUser, completion: @escaping([String: Any]) -> Void) {
+    public static func getFollowers(of user: TapUser, completion: @escaping([[String: Any]]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/view-followers")!
         let payload = ["username": user.username]
         var data: Data
@@ -117,14 +117,26 @@ class SocialAPI: NSObject {
                 
             }
             
-            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
+            guard let data = data else {
                 print("No response data downloaded")
                 APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
                 return
             }
             
-            print(resp)
-            APIHelpers.complete(resp, completion: completion)
+            do {
+                var resp = try JSONSerialization.jsonObject(with: data) as? [[String: Any]]
+                if let resp = resp {
+                    APIHelpers.complete(resp, completion: completion)
+                } else {
+                    print("No response data downloaded")
+                    APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                    return
+                }
+            } catch {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
         }
         
         task.resume()
@@ -134,7 +146,7 @@ class SocialAPI: NSObject {
     /// - Parameters:
     ///   - user: user to get followees of
     ///   - completion: completion handler
-    public static func getFollowing(of user: TapUser, completion: @escaping([String: Any]) -> Void) {
+    public static func getFollowing(of user: TapUser, completion: @escaping([[String: Any]]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/view-following")!
         let payload = ["username": user.username]
         var data: Data
@@ -172,14 +184,25 @@ class SocialAPI: NSObject {
                 
             }
             
-            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
+            guard let data = data else {
                 print("No response data downloaded")
                 APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
                 return
             }
             
-            print(resp)
-            APIHelpers.complete(resp, completion: completion)
+            do {
+                if let resp = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
+                    APIHelpers.complete(resp, completion: completion)
+                } else {
+                    print("No response data downloaded")
+                    APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                    return
+                }
+            } catch {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
         }
         
         task.resume()

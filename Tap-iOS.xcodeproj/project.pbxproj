@@ -38,6 +38,8 @@
 		08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D2194C2B7C0DD300CBC733 /* MapViewController.swift */; };
 		08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5422B8F797200695946 /* FountainAPI.swift */; };
 		08E7A5452B90F1AB00695946 /* APIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5442B90F1AB00695946 /* APIHelpers.swift */; };
+		08E9C8502BD0A65E00F36AD5 /* TapListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */; };
+		08E9C8522BD0A76100F36AD5 /* SingleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */; };
 		08EB419B2BBF1A8500876EA1 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41962BBF1A8500876EA1 /* AccountSettingsViewController.swift */; };
 		08EB419C2BBF1A8500876EA1 /* ChangeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41972BBF1A8500876EA1 /* ChangeUsernameViewController.swift */; };
 		08EB419D2BBF1A8500876EA1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */; };
@@ -107,6 +109,8 @@
 		08D2194C2B7C0DD300CBC733 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		08E7A5422B8F797200695946 /* FountainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainAPI.swift; sourceTree = "<group>"; };
 		08E7A5442B90F1AB00695946 /* APIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelpers.swift; sourceTree = "<group>"; };
+		08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapListViewController.swift; sourceTree = "<group>"; };
+		08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelCell.swift; sourceTree = "<group>"; };
 		08EB41962BBF1A8500876EA1 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		08EB41972BBF1A8500876EA1 /* ChangeUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUsernameViewController.swift; sourceTree = "<group>"; };
 		08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */,
 				0851EA802B9CE6740055CAED /* BasicSettingsTableCell.swift */,
 				0851EA822B9CE7CA0055CAED /* ToggleSettingsTableCell.swift */,
+				08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				089F90522BBC7F790057CDDA /* UserProfileViewController.swift */,
 				089F90562BBC91A20057CDDA /* NewPostViewController.swift */,
 				08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */,
+				08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -511,6 +517,7 @@
 				08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */,
 				088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */,
 				08EB419B2BBF1A8500876EA1 /* AccountSettingsViewController.swift in Sources */,
+				08E9C8522BD0A76100F36AD5 /* SingleLabelCell.swift in Sources */,
 				089F0B7C2B7EDE2500BFDC71 /* Fountain.swift in Sources */,
 				0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */,
 				088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */,
@@ -522,6 +529,7 @@
 				0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
+				08E9C8502BD0A65E00F36AD5 /* TapListViewController.swift in Sources */,
 				0851EA7F2B9CE1D40055CAED /* PersonalProfileViewController.swift in Sources */,
 				08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */,
 				08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */,
