@@ -204,12 +204,12 @@
 				081CEDB22BACC5BA00564FF1 /* API Objects */,
 				089F0B7A2B7EDE0D00BFDC71 /* Model Objects */,
 				089F90552BBC880A0057CDDA /* Data Stores */,
+				08F779DF2B631E2F0033ED63 /* View Controllers */,
 				0886537B2B602D4B00355D6D /* Assets.xcassets */,
 				0886537D2B602D4B00355D6D /* LaunchScreen.storyboard */,
 				088653802B602D4B00355D6D /* Info.plist */,
 				0851EA842B9CE95B0055CAED /* MainSettingsIndex.plist */,
 				0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */,
-				08F779DF2B631E2F0033ED63 /* View Controllers */,
 			);
 			path = "Tap-iOS";
 			sourceTree = "<group>";

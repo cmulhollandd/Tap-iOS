@@ -80,9 +80,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             if (error) {
                 self.presentToast(saying: "Failed to load new fountains")
-                return
             }
-            // nothing
         }
     }
     
@@ -215,7 +213,6 @@ extension MapViewController: FountainStoreDelegate {
             return
         }
         
-        
         var newAnnotations = [MKPointAnnotation]()
         var updatedAnnotations = myAnnotations
         for fountain in fountains {
@@ -268,7 +265,7 @@ private class PanelLayout: FloatingPanelLayout {
     let position: FloatingPanelPosition = .bottom
     let initialState: FloatingPanelState = .tip
     let anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] = [
-        .full: FloatingPanelLayoutAnchor(absoluteInset: 100.0, edge: .top, referenceGuide: .safeArea),
+        .full: FloatingPanelLayoutAnchor(absoluteInset: 70.0, edge: .top, referenceGuide: .safeArea),
         .half: FloatingPanelLayoutAnchor(absoluteInset: 200.0, edge: .bottom, referenceGuide: .safeArea),
         .tip: FloatingPanelLayoutAnchor(absoluteInset: 44.0, edge: .bottom, referenceGuide: .safeArea),
     ]
