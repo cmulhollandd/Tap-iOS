@@ -29,7 +29,6 @@ class UserProfileViewController: UIViewController {
     var userAction: UserAction!
     var posts = [TapFeedPost]()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,6 +56,8 @@ class UserProfileViewController: UIViewController {
         self.postsTable.dataSource = self
 
         reloadPosts()
+        
+        loadFollowersAndFollowing()
     }
 
 
@@ -80,12 +81,38 @@ class UserProfileViewController: UIViewController {
         self.postsTable.reloadData()
     }
     
+    func loadFollowersAndFollowing() {
+        guard let user = user else {
+            return
+        }
+        SocialAPI.getFollowers(of: user) { resp in
+            if let _ = resp["error"] as? Bool {
+                // present error to user
+                self.followersButton.titleLabel?.text = "?"
+                return
+            }
+            let numFollowers = resp.count
+            print(numFollowers, #line)
+            self.followersButton.titleLabel?.text = "\(numFollowers)"
+        }
+        SocialAPI.getFollowing(of: user) { resp in
+            if let _ = resp["error"] as? Bool {
+                // present error to user
+                self.followingButton.titleLabel?.text = "?"
+                return
+            }
+            let numFollowing = resp.count
+            print(numFollowing, #line)
+            self.followingButton.titleLabel?.text = "\(numFollowing)"
+        }
+    }
+    
     private func followUser() {
         let selfUser = (UIApplication.shared.delegate as! AppDelegate).user!
         if let user = user {
             SocialAPI.followUser(followee: selfUser.username, follower: user.username) { resp in
                 if let _ = resp["error"] as? Bool {
-                    var alert = UIAlertController(title: "Unable to follow \(user.username)", message: "Please try again later", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Unable to follow \(user.username)", message: "Please try again later", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default))
                     self.present(alert, animated: true)
                 } else {
@@ -101,7 +128,7 @@ class UserProfileViewController: UIViewController {
         if let user = user {
             SocialAPI.unFollowUser(user.username) { resp in
                 if let _ = resp["error"] as? Bool {
-                    var alert = UIAlertController(title: "Unable to unfollow \(user.username)", message: "Please try again later", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Unable to unfollow \(user.username)", message: "Please try again later", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default))
                     self.present(alert, animated: true)
                 } else {
