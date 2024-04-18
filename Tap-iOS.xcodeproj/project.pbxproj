@@ -40,6 +40,7 @@
 		08E7A5452B90F1AB00695946 /* APIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5442B90F1AB00695946 /* APIHelpers.swift */; };
 		08E9C8502BD0A65E00F36AD5 /* TapListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */; };
 		08E9C8522BD0A76100F36AD5 /* SingleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */; };
+		08E9C8542BD0B6D500F36AD5 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */; };
 		08EB419B2BBF1A8500876EA1 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41962BBF1A8500876EA1 /* AccountSettingsViewController.swift */; };
 		08EB419C2BBF1A8500876EA1 /* ChangeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41972BBF1A8500876EA1 /* ChangeUsernameViewController.swift */; };
 		08EB419D2BBF1A8500876EA1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */; };
@@ -111,6 +112,7 @@
 		08E7A5442B90F1AB00695946 /* APIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelpers.swift; sourceTree = "<group>"; };
 		08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapListViewController.swift; sourceTree = "<group>"; };
 		08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelCell.swift; sourceTree = "<group>"; };
+		08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		08EB41962BBF1A8500876EA1 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		08EB41972BBF1A8500876EA1 /* ChangeUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUsernameViewController.swift; sourceTree = "<group>"; };
 		08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				089F90562BBC91A20057CDDA /* NewPostViewController.swift */,
 				08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */,
 				08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */,
+				08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				08EB419C2BBF1A8500876EA1 /* ChangeUsernameViewController.swift in Sources */,
 				08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */,
 				08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */,
+				08E9C8542BD0B6D500F36AD5 /* SpinnerViewController.swift in Sources */,
 				08B967AF2BBE23B400560E11 /* LaunchScreenViewController.swift in Sources */,
 				0851EA872B9CF0180055CAED /* SettingsTableStore.swift in Sources */,
 				089F0B7E2B7EE06100BFDC71 /* NewFountainViewController.swift in Sources */,
