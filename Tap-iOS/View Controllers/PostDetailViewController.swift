@@ -10,15 +10,11 @@ import UIKit
 
 class PostDetailViewController: UIViewController {
     @IBOutlet var contentTextView: UITextView!
-    @IBOutlet var contentImageView: UIImageView!
     @IBOutlet var commentsTable: UITableView!
-    @IBOutlet var toolBar: UIToolbar!
-    
+    @IBOutlet var likeButton: UIButton!
+    @IBOutlet var dislikeButton: UIButton!
+    @IBOutlet var commentButton: UIButton!
     var barButtonItem: UIBarButtonItem!
-    
-    var likeButton: UIBarButtonItem!
-    var dislikeButton: UIBarButtonItem!
-    var commentButton: UIBarButtonItem!
     
     var post: TapFeedPost!
     var user: TapUser!
@@ -37,25 +33,8 @@ class PostDetailViewController: UIViewController {
         self.navigationItem.title = "Post From \(user.username)"
         
         self.contentTextView.text = post.textContent
-        if let image = post.imageContent {
-            self.contentImageView.image = image
-        }
         
         commentsTable.dataSource = self
-        
-        self.likeButton = UIBarButtonItem(image: UIImage(systemName: "hand.thumbsup"), style: .plain, target: self, action: #selector(likeButtonPressed))
-        self.likeButton.tintColor = UIColor(named: "PrimaryBlue")
-        self.likeButton.width = self.toolBar.frame.width / 4
-        self.dislikeButton  = UIBarButtonItem(image: UIImage(systemName: "hand.thumbsdown"), style: .plain, target: self, action: #selector(dislikeButtonPressed))
-        self.dislikeButton.tintColor = UIColor(named: "PrimaryBlue")
-        self.dislikeButton.width = self.toolBar.frame.width / 4
-        self.commentButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(commentButtonPressed))
-        self.commentButton.title = "Comment"
-        self.commentButton.tintColor = UIColor(named: "PrimaryBlue")
-        self.commentButton.width = self.toolBar.frame.width / 2
-        
-        self.setToolbarItems([self.likeButton, self.dislikeButton, UIBarButtonItem(systemItem: .flexibleSpace), self.commentButton], animated: false)
-        self.toolBar.tintColor = UIColor(named: "PrimaryBlue")
     }
     
     @objc func presentUserVC() {
@@ -64,25 +43,26 @@ class PostDetailViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func likeButtonPressed() {
-        if (self.likeButton.image == UIImage(systemName: "hand.thumbsup")) {
-            self.dislikeButton.image = UIImage(systemName: "hand.thumbsdown")
-            self.likeButton.image = UIImage(systemName: "hand.thumbsup.fill")
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        if (self.likeButton.currentImage == UIImage(systemName: "hand.thumbsup")) {
+            self.dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
+            self.likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
         } else {
-            self.likeButton.image = UIImage(systemName: "hand.thumbsup")
+            self.likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
         }
     }
     
-    @objc func dislikeButtonPressed() {
-        if (self.dislikeButton.image == UIImage(systemName: "hand.thumbsdown")) {
-            self.likeButton.image = UIImage(systemName: "hand.thumbsup")
-            self.dislikeButton.image = UIImage(systemName: "hand.thumbsdown.fill")
+    @IBAction func dislikeButtonPressed(_ sender: UIButton) {
+        if (self.dislikeButton.currentImage == UIImage(systemName: "hand.thumbsdown")) {
+            self.likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+            self.dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: .normal)
         } else {
-            self.dislikeButton.image = UIImage(systemName: "hand.thumbsdown")
+            self.dislikeButton.imageView!.image = UIImage(systemName: "hand.thumbsdown")
+            self.dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
         }
     }
     
-    @objc func commentButtonPressed() {
+    @IBAction func commentButtonPressed(_ sender: UIButton) {
         let commentController = UIAlertController(title: "New Comment", message: nil, preferredStyle: .alert)
         commentController.addTextField { textField in
             textField.placeholder = "What Would You Like To Say?"
