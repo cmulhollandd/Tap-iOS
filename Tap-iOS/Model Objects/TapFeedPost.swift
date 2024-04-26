@@ -47,4 +47,11 @@ class TapFeedPost {
         self.postDate = postDate
         self.comments = [TapComment]()
     }
+    
+    func getDateString() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        
+        return df.string(from: self.postDate)
+    }
 }

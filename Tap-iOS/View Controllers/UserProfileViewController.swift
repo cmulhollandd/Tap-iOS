@@ -88,6 +88,11 @@ class UserProfileViewController: UIViewController {
             return
         }
         SocialAPI.getFollowers(of: user) { resp in
+            if resp.count == 0 {
+                print("No response in ", #function, #line)
+                return
+            }
+            
             if let _ = resp[0]["error"] as? Bool {
                 // present error to user
                 self.followersButton.titleLabel?.text = "?"
@@ -98,6 +103,11 @@ class UserProfileViewController: UIViewController {
             self.followersButton.titleLabel?.text = "\(numFollowers)"
         }
         SocialAPI.getFollowing(of: user) { resp in
+            if resp.count == 0 {
+                print("No response in ", #function, #line)
+                return
+            }
+            
             if let _ = resp[0]["error"] as? Bool {
                 // present error to user
                 self.followingButton.titleLabel?.text = "?"

@@ -30,20 +30,17 @@ class FountainStore: NSObject {
         super.init()
         
         // Dummy Data until API call is available
-        var fountains = [Fountain]()
-        
-        let user = (UIApplication.shared.delegate as! AppDelegate).user!
-        
-        for i in 0 ... 1 {
+//        var fountains = [Fountain]()
+//        
+//        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+//        
+//        for i in 0 ... 10 {
 //            let lon = Double.random(in: -89.99113 ... -89.98687)
 //            let lat = Double.random(in: 35.15170 ... 35.15968)
-            
-            let lon = Double.random(in: -90.0 ... -89.97)
-            let lat = Double.random(in: 35.14 ... 35.17)
-            let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            fountains.append(Fountain(id: i, author: user, location: coord, coolness: Double.random(in: 0...10), pressure: Double.random(in: 0...10), taste: Double.random(in: 0...10), type: Fountain.FountainType(rawValue: Int.random(in: 0...2))!))
-        }
-        self.addNewFountains(fountains)
+//            let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+//            fountains.append(Fountain(id: i, author: user, location: coord, coolness: Double.random(in: 0...10), pressure: Double.random(in: 0...10), taste: Double.random(in: 0...10), type: Fountain.FountainType(rawValue: Int.random(in: 0...2))!))
+//        }
+//        self.addNewFountains(fountains)
     }
     
     /// Updates fountains with new data from API
@@ -54,10 +51,15 @@ class FountainStore: NSObject {
         // Call API to get new fountains around region
         
         let divisor = 1.7 // Can be adjusted to load more fountains outside of immediate map area, for efficiency
-        let minLat = region.center.latitude - (region.span.latitudeDelta / divisor)
-        let minLon = region.center.longitude - (region.span.longitudeDelta / divisor)
-        let maxLat = region.center.latitude + (region.span.latitudeDelta / divisor)
-        let maxLon = region.center.longitude + (region.span.longitudeDelta / divisor)
+//        let minLat = region.center.latitude - (region.span.latitudeDelta / divisor)
+//        let minLon = region.center.longitude - (region.span.longitudeDelta / divisor)
+//        let maxLat = region.center.latitude + (region.span.latitudeDelta / divisor)
+//        let maxLon = region.center.longitude + (region.span.longitudeDelta / divisor)
+        
+        let minLon = region.center.latitude - (region.span.latitudeDelta / divisor)
+        let minLat = region.center.longitude - (region.span.longitudeDelta / divisor)
+        let maxLon = region.center.latitude + (region.span.latitudeDelta / divisor)
+        let maxLat = region.center.longitude + (region.span.longitudeDelta / divisor)
         FountainAPI.getFountains(in: FountainAPI.Region(minLat: minLat, minLon: minLon, maxLat: maxLat, maxLon: maxLon)) { resp in
             
             if let _ = resp["error"] as? Bool {
@@ -73,7 +75,7 @@ class FountainStore: NSObject {
             
             var newFountains = [Fountain]()
             for _fountain in fountainsDict {
-                guard let id = _fountain["ID"] as? Int else {
+                guard let id = _fountain["fountainId"] as? Int else {
                     completion(true, "Invalid fountainID found in response")
                     return
                 }
@@ -81,11 +83,13 @@ class FountainStore: NSObject {
                     continue
                 }
                 
+                print(_fountain)
+                
                 guard
-                    let id = _fountain["ID"] as? Int,
+                    let id = _fountain["fountainId"] as? Int,
                     let author = _fountain["author"] as? String,
-                    let latitude = _fountain["x_coord"] as? Double,
-                    let longitude = _fountain["x_coord"] as? Double,
+                    let latitude = _fountain["xCoord"] as? Double,
+                    let longitude = _fountain["yCoord"] as? Double,
                     let rating = _fountain["rating"] as? Double,
                     let type = _fountain["description"] as? String
                 else {

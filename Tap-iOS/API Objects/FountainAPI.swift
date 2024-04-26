@@ -254,7 +254,7 @@ struct FountainAPI {
         
         let request: URLRequest = {
             var req = URLRequest(url: components.url!)
-            req.httpMethod = "GET"
+            req.httpMethod = "POST"
             req.httpBody = data
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
             req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
@@ -277,13 +277,29 @@ struct FountainAPI {
                 }
             }
             
-            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
-                print("error: NO response data downloaded")
+            guard let data = data else {
+                print("error: No response data downloaded")
                 APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
                 return
             }
             
-            print(resp)
+            var resp: [[String: Any]] = []
+            
+            do {
+                resp = try JSONSerialization.jsonObject(with: data) as! [[String:Any]]
+            } catch {
+                print("error: could not parse data")
+                APIHelpers.completeWithError("Error: could not parse data", completion: completion)
+                return
+            }
+            
+//            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
+//                print("error: NO response data downloaded")
+//                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+//                return
+//            }
+            
+            
             let ret: [String: Any] = ["fountains": resp]
             APIHelpers.complete(ret, completion: completion)
         }

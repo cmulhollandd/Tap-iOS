@@ -61,6 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+        mapView.tintColor = UIColor(named: "PrimaryBlue")
         
         fountainStore.delegate = self
         
@@ -79,7 +80,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             (error: Bool, message: String?) -> Void in
             
             if (error) {
-                self.presentToast(saying: "Failed to load new fountains")
+                self.presentToast(saying: message!)
+//                self.presentToast(saying: "Failed to load new fountains")
             }
         }
         fountainStore.filterFountains(by: .all)
@@ -164,7 +166,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 (error: Bool, message: String?) -> Void in
                 
                 if (error) {
-                    self.presentToast(saying: "Failed to load new fountains")
+                    self.presentToast(saying: message!)
+//                    self.presentToast(saying: "Failed to load new fountains")
                 }
             }
         }
@@ -212,6 +215,7 @@ extension MapViewController: FountainStoreDelegate {
             for fountain in fountains {
                 let annot = MKPointAnnotation()
                 annot.coordinate = fountain.getLocationCoordinate()
+                print(fountain.getLocationCoordinate())
                 myAnnotations.append(annot)
                 mapView.addAnnotation(annot)
             }

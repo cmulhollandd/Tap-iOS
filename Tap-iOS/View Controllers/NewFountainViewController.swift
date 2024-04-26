@@ -171,11 +171,9 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         
         let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
         if (annotation.title == "New Fountain") {
-            marker.markerTintColor = UIColor.red
             marker.glyphImage = UIImage(systemName: "waterbottle")
-        } else {
-            marker.markerTintColor = UIColor(named: "PrimaryBlue")
         }
+        marker.markerTintColor = UIColor(named: "PrimaryBlue")
         return marker
     }
     
