@@ -61,6 +61,7 @@
 		DB2CF7062BD1900F004135D6 /* LeaderboardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */; };
 		DB2CF7082BD193A2004135D6 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */; };
 		DB2CF70A2BD195FA004135D6 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */; };
+		DBB108092BDB083B00EE3679 /* WaterLoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardStore.swift; sourceTree = "<group>"; };
 		DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLoggingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 				08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */,
 				08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */,
 				08E9C8552BD169FF00F36AD5 /* PostDetailViewController.swift */,
+				DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				DB2CF70A2BD195FA004135D6 /* LeaderboardViewController.swift in Sources */,
 				08EB419E2BBF1A8500876EA1 /* TapSettingsViewController.swift in Sources */,
 				08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */,
+				DBB108092BDB083B00EE3679 /* WaterLoggingViewController.swift in Sources */,
 				08B967B32BBEFD5D00560E11 /* DeleteAccountViewController.swift in Sources */,
 				082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */,
 				089F90572BBC91A20057CDDA /* NewPostViewController.swift in Sources */,
