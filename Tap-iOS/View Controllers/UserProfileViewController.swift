@@ -88,12 +88,7 @@ class UserProfileViewController: UIViewController {
             return
         }
         SocialAPI.getFollowers(of: user) { resp in
-            if resp.count == 0 {
-                print("No response in ", #function, #line)
-                return
-            }
-            
-            if let _ = resp[0]["error"] as? Bool {
+            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
                 // present error to user
                 self.followersButton.titleLabel?.text = "?"
                 return
@@ -103,12 +98,7 @@ class UserProfileViewController: UIViewController {
             self.followersButton.titleLabel?.text = "\(numFollowers)"
         }
         SocialAPI.getFollowing(of: user) { resp in
-            if resp.count == 0 {
-                print("No response in ", #function, #line)
-                return
-            }
-            
-            if let _ = resp[0]["error"] as? Bool {
+            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
                 // present error to user
                 self.followingButton.titleLabel?.text = "?"
                 return
@@ -158,11 +148,12 @@ class UserProfileViewController: UIViewController {
             return
         }
         SocialAPI.getFollowers(of: user) { resp in
-            if let _ = resp[0]["error"] as? Bool {
+            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
                 return
             }
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
+            vc.navigationItem.title = "Followers"
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
@@ -173,11 +164,12 @@ class UserProfileViewController: UIViewController {
             return
         }
         SocialAPI.getFollowing(of: user) { resp in
-            if let _ = resp[0]["error"] as? Bool {
+            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
                 return
             }
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
+            vc.navigationItem.title = "Following"
             self.navigationController?.pushViewController(vc, animated: true)
             
         }

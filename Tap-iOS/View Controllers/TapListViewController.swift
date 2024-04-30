@@ -11,12 +11,10 @@ import UIKit
 class TapListViewController: UIViewController, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     var items = [String]()
-    var navTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = navTitle
         self.tableView.dataSource = self
     }
     
@@ -34,5 +32,12 @@ class TapListViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleLabelCell", for: indexPath) as! SingleLabelCell
         cell.label.text = items[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if (items.count == 0) {
+            return "Thats weird, nothing here"
+        }
+        return ""
     }
 }

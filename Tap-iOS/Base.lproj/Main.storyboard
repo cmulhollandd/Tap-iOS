@@ -465,14 +465,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleLabelCell" id="nVE-Wq-gFX" customClass="SingleLabelCell" customModule="Tap_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="51"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="50.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nVE-Wq-gFX" id="e4O-MK-Gih">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="50.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkD-zn-bde">
-                                                    <rect key="frame" x="24" y="15" width="42" height="21"/>
+                                                    <rect key="frame" x="24" y="15.000000000000002" width="42" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -490,20 +490,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7d-XN-nFX">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="67"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DLl-8e-AHv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DLl-8e-AHv" firstAttribute="trailing" secondItem="aIa-S4-v1z" secondAttribute="trailing" id="2L5-gw-8xu"/>
                             <constraint firstItem="aIa-S4-v1z" firstAttribute="top" secondItem="DLl-8e-AHv" secondAttribute="top" id="3aM-PJ-pkX"/>
+                            <constraint firstItem="l7d-XN-nFX" firstAttribute="top" secondItem="wix-aI-9rO" secondAttribute="top" id="61o-2A-4dV"/>
+                            <constraint firstItem="l7d-XN-nFX" firstAttribute="bottom" secondItem="DLl-8e-AHv" secondAttribute="top" constant="8" id="EUB-Ik-tP5"/>
                             <constraint firstItem="aIa-S4-v1z" firstAttribute="leading" secondItem="DLl-8e-AHv" secondAttribute="leading" id="HtD-sL-qi7"/>
+                            <constraint firstAttribute="trailing" secondItem="l7d-XN-nFX" secondAttribute="trailing" id="MNR-2I-ga2"/>
                             <constraint firstItem="DLl-8e-AHv" firstAttribute="bottom" secondItem="aIa-S4-v1z" secondAttribute="bottom" id="g4i-aP-l8y"/>
+                            <constraint firstItem="l7d-XN-nFX" firstAttribute="leading" secondItem="wix-aI-9rO" secondAttribute="leading" id="mII-FI-IqQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="aIa-S4-v1z" id="tfd-BM-eqp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y22-ab-vSX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4523" y="750"/>
+            <point key="canvasLocation" x="4522.900763358778" y="750"/>
         </scene>
         <!--Log Decision View Controller-->
         <scene sceneID="9Dx-ES-aAR">
@@ -2418,10 +2429,6 @@
             <point key="canvasLocation" x="5398" y="1811"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="BOl-az-cci"/>
-        <designable name="v2Q-ck-HDl"/>
-    </designables>
     <resources>
         <image name="DrinkingFountainIcon" width="808.6099853515625" height="808.6099853515625"/>
         <image name="TapTitleLogo" width="1024" height="1024"/>
