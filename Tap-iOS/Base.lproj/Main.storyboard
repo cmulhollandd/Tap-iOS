@@ -1138,36 +1138,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nX-7H-fMg">
+                            <view contentMode="scaleToFill" id="5nX-7H-fMg">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpZ-Nc-TkY">
-                                <rect key="frame" x="166" y="713" width="186" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="186" id="js8-N3-Mp8"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Submit">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                    <color key="baseForegroundColor" name="SecondaryBlue"/>
-                                    <color key="baseBackgroundColor" name="PrimaryBlue"/>
-                                </buttonConfiguration>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yc-ZT-0Qs">
-                                <rect key="frame" x="40" y="713" width="100" height="34"/>
-                                <color key="tintColor" name="PrimaryBlue"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                            </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOl-az-cci" customClass="LottieAnimationView" customModule="Lottie">
-                                <rect key="frame" x="109" y="155" width="175" height="500"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BOl-az-cci" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="95" y="155" width="204" height="594"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rh8-ed-zwp">
-                                        <rect key="frame" x="0.0" y="170" width="175" height="322"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="322" id="Ee1-2s-Nq4"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rh8-ed-zwp">
+                                        <rect key="frame" x="0.0" y="119" width="204" height="475"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
@@ -1176,17 +1158,62 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="rh8-ed-zwp" secondAttribute="trailing" id="DA7-yI-bi1"/>
-                                    <constraint firstItem="rh8-ed-zwp" firstAttribute="leading" secondItem="BOl-az-cci" secondAttribute="leading" id="fUt-T9-jne"/>
-                                    <constraint firstItem="rh8-ed-zwp" firstAttribute="bottom" secondItem="BOl-az-cci" secondAttribute="bottomMargin" id="sX6-mL-17g"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="water-bottle-filling"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How much water did you drink?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kea-JR-5Br">
-                                <rect key="frame" x="28" y="676" width="336" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpZ-Nc-TkY">
+                                <rect key="frame" x="234" y="198" width="120" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                    <color key="baseForegroundColor" name="SecondaryBlue"/>
+                                    <color key="baseBackgroundColor" name="PrimaryBlue"/>
+                                </buttonConfiguration>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tll-48-dmv">
+                                <rect key="frame" x="108" y="200" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much water did you drink?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="scU-Al-bQd">
+                                <rect key="frame" x="40" y="163" width="313" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" name="PrimaryBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yc-ZT-0Qs">
+                                <rect key="frame" x="72" y="198" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgD-Yg-SNo">
+                                <rect key="frame" x="106" y="198" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="plusButton:" destination="wRc-DO-0Pd" eventType="touchUpInside" id="oHE-XA-syX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfM-Yq-hLe">
+                                <rect key="frame" x="38" y="198" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="minusButton:" destination="wRc-DO-0Pd" eventType="touchUpInside" id="fgu-Vn-fSo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much water did you drink?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tZz-Xb-tUJ">
+                                <rect key="frame" x="40" y="163" width="313" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" name="PrimaryBlue"/>
                                 <nil key="highlightedColor"/>
@@ -1194,28 +1221,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bBm-O7-NFm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="8Yc-ZT-0Qs" firstAttribute="top" secondItem="QpZ-Nc-TkY" secondAttribute="top" id="4Ur-jV-PYW"/>
-                            <constraint firstItem="BOl-az-cci" firstAttribute="top" secondItem="5nX-7H-fMg" secondAttribute="bottom" id="741-cw-mun"/>
-                            <constraint firstItem="8Yc-ZT-0Qs" firstAttribute="leading" secondItem="bBm-O7-NFm" secondAttribute="leading" constant="40" id="GZk-tr-Bfx"/>
-                            <constraint firstItem="BOl-az-cci" firstAttribute="centerX" secondItem="5nX-7H-fMg" secondAttribute="centerX" id="H4R-vC-ivB"/>
-                            <constraint firstItem="kea-JR-5Br" firstAttribute="leading" secondItem="bBm-O7-NFm" secondAttribute="leading" constant="28" id="Orx-rY-lyl"/>
-                            <constraint firstItem="bBm-O7-NFm" firstAttribute="trailing" secondItem="QpZ-Nc-TkY" secondAttribute="trailing" constant="41" id="Vcz-p7-ihH"/>
-                            <constraint firstItem="BOl-az-cci" firstAttribute="centerX" secondItem="98A-Gj-6Xe" secondAttribute="centerX" id="WqP-xg-Set"/>
-                            <constraint firstItem="BOl-az-cci" firstAttribute="leading" secondItem="bBm-O7-NFm" secondAttribute="leading" constant="109" id="XMp-t4-oeV"/>
-                            <constraint firstItem="BOl-az-cci" firstAttribute="top" secondItem="bBm-O7-NFm" secondAttribute="top" id="ZDf-ne-3CL"/>
-                            <constraint firstAttribute="bottom" secondItem="BOl-az-cci" secondAttribute="bottom" constant="114" id="eWj-N5-HWc"/>
-                            <constraint firstItem="kea-JR-5Br" firstAttribute="centerX" secondItem="BOl-az-cci" secondAttribute="centerX" id="f7b-Og-Bvp"/>
-                            <constraint firstItem="5nX-7H-fMg" firstAttribute="leading" secondItem="98A-Gj-6Xe" secondAttribute="leading" id="fb0-Bx-2aC"/>
-                            <constraint firstItem="5nX-7H-fMg" firstAttribute="top" secondItem="98A-Gj-6Xe" secondAttribute="top" id="mEs-xF-uCR"/>
-                            <constraint firstItem="QpZ-Nc-TkY" firstAttribute="top" secondItem="kea-JR-5Br" secondAttribute="bottom" constant="11" id="pep-Wt-1qB"/>
-                            <constraint firstItem="QpZ-Nc-TkY" firstAttribute="leading" secondItem="8Yc-ZT-0Qs" secondAttribute="trailing" constant="26" id="zHS-5i-RgS"/>
-                            <constraint firstItem="kea-JR-5Br" firstAttribute="top" secondItem="BOl-az-cci" secondAttribute="bottom" constant="21" id="zoE-kM-yYh"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log a Drink" id="ENB-gN-ipd"/>
                     <connections>
                         <outlet property="animationView" destination="BOl-az-cci" id="6AH-Kd-RId"/>
+                        <outlet property="headerText" destination="scU-Al-bQd" id="pJh-IY-eeX"/>
+                        <outlet property="ozField" destination="8Yc-ZT-0Qs" id="INJ-aJ-Rc6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73t-rW-7fN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2434,6 +2445,7 @@
         <image name="TapTitleLogo" width="1024" height="1024"/>
         <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="104"/>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="crown" catalog="system" width="128" height="92"/>
         <image name="drop.fill" catalog="system" width="96" height="128"/>
         <image name="gear" catalog="system" width="128" height="122"/>
@@ -2442,10 +2454,12 @@
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
+        <image name="minus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="photo.badge.plus" catalog="system" width="128" height="97"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.and.pencil" catalog="system" width="128" height="121"/>
         <namedColor name="PrimaryBlue">
             <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2463,16 +2477,16 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tableBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
