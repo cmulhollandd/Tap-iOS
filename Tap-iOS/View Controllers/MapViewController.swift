@@ -81,7 +81,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             if (error) {
                 self.presentToast(saying: message!)
-//                self.presentToast(saying: "Failed to load new fountains")
             }
         }
         fountainStore.filterFountains(by: .all)
@@ -167,7 +166,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
                 if (error) {
                     self.presentToast(saying: message!)
-//                    self.presentToast(saying: "Failed to load new fountains")
                 }
             }
         }
@@ -215,7 +213,6 @@ extension MapViewController: FountainStoreDelegate {
             for fountain in fountains {
                 let annot = MKPointAnnotation()
                 annot.coordinate = fountain.getLocationCoordinate()
-                print(fountain.getLocationCoordinate())
                 myAnnotations.append(annot)
                 mapView.addAnnotation(annot)
             }

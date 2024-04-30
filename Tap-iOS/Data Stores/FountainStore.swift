@@ -208,6 +208,13 @@ class FountainStore: NSObject {
         return false
     }
     
+    static func getFountainsBy(user username: String) -> [Fountain] {
+        
+        // Call API to get fountains
+        
+        return []
+    }
+    
 }
 
 /// Delegate protocols for FountainStore

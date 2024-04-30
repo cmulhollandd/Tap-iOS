@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0803AEB92BA9F48A0014D4F8 /* AccountSettingsIndex.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */; };
+		08069AE72BE0888500AFC24F /* UserFountainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08069AE62BE0888500AFC24F /* UserFountainViewCell.swift */; };
+		08069AE92BE0892100AFC24F /* UserFountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08069AE82BE0892100AFC24F /* UserFountainsViewController.swift */; };
+		08069AEB2BE08BF800AFC24F /* FountainAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08069AEA2BE08BF800AFC24F /* FountainAnnotation.swift */; };
 		081CEDBA2BBA42C600564FF1 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */; };
 		0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082271292B8819A4007CD0F7 /* FountainStore.swift */; };
 		082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */; };
@@ -83,6 +86,9 @@
 
 /* Begin PBXFileReference section */
 		0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AccountSettingsIndex.plist; sourceTree = "<group>"; };
+		08069AE62BE0888500AFC24F /* UserFountainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFountainViewCell.swift; sourceTree = "<group>"; };
+		08069AE82BE0892100AFC24F /* UserFountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFountainsViewController.swift; sourceTree = "<group>"; };
+		08069AEA2BE08BF800AFC24F /* FountainAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainAnnotation.swift; sourceTree = "<group>"; };
 		081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		082271292B8819A4007CD0F7 /* FountainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainStore.swift; sourceTree = "<group>"; };
 		082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNavigationController.swift; sourceTree = "<group>"; };
@@ -259,6 +265,7 @@
 				089F0B7B2B7EDE2500BFDC71 /* Fountain.swift */,
 				08CC11292BCF09DD00BFD82B /* FountainReview.swift */,
 				DB2CF7032BD18FF4004135D6 /* LeaderboardEntry.swift */,
+				08069AEA2BE08BF800AFC24F /* FountainAnnotation.swift */,
 			);
 			path = "Model Objects";
 			sourceTree = "<group>";
@@ -297,6 +304,7 @@
 				08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */,
 				08E9C8572BD1782A00F36AD5 /* CommentCell.swift */,
 				DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */,
+				08069AE62BE0888500AFC24F /* UserFountainViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 				08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */,
 				08E9C8552BD169FF00F36AD5 /* PostDetailViewController.swift */,
 				DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */,
+				08069AE82BE0892100AFC24F /* UserFountainsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -522,6 +531,7 @@
 				08E7A5452B90F1AB00695946 /* APIHelpers.swift in Sources */,
 				08F779E72B6839CA0033ED63 /* TapUser.swift in Sources */,
 				088653732B602D4800355D6D /* AppDelegate.swift in Sources */,
+				08069AE92BE0892100AFC24F /* UserFountainsViewController.swift in Sources */,
 				DB2CF70A2BD195FA004135D6 /* LeaderboardViewController.swift in Sources */,
 				08EB419E2BBF1A8500876EA1 /* TapSettingsViewController.swift in Sources */,
 				08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */,
@@ -535,6 +545,7 @@
 				08EB419D2BBF1A8500876EA1 /* ChangePasswordViewController.swift in Sources */,
 				08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */,
 				08EB419C2BBF1A8500876EA1 /* ChangeUsernameViewController.swift in Sources */,
+				08069AE72BE0888500AFC24F /* UserFountainViewCell.swift in Sources */,
 				08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */,
 				08E9C8582BD1782A00F36AD5 /* CommentCell.swift in Sources */,
 				08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */,
@@ -558,6 +569,7 @@
 				08EB41A12BBF1B7400876EA1 /* SocialAPI.swift in Sources */,
 				08CC112A2BCF09DD00BFD82B /* FountainReview.swift in Sources */,
 				0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */,
+				08069AEB2BE08BF800AFC24F /* FountainAnnotation.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */,
 				DB2CF7062BD1900F004135D6 /* LeaderboardStore.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,

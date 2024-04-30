@@ -76,6 +76,12 @@ class UserProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func userFountainsButtonPressed(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserFountainsViewController") as! UserFountainsViewController
+        vc.user = self.user
+        self.present(vc, animated: true)
+    }
+    
     /// Reloads teh posts in the postsTable
     func reloadPosts() {
         // Call to API to download posts
