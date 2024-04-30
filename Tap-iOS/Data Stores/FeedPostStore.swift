@@ -22,22 +22,46 @@ class FeedPostStore: NSObject {
     override init() {
         super.init()
         
-        let post1 = TapFeedPost(postingUserUsername: "charlie", postingUserProfileImage: nil, hasImage: false, textContent: "Filled their bucket for the day!", imageContent: nil, postDate: Date(timeInterval: -45, since: Date()))
-        
-        let post2 = TapFeedPost(postingUserUsername: "kcarson45", postingUserProfileImage: nil, hasImage: false, textContent: "Look at all that water!", imageContent: nil, postDate: Date(timeInterval: -120, since: Date()))
-        
-        let post3 = TapFeedPost(postingUserUsername: "dorgil21", postingUserProfileImage: nil, hasImage: false, textContent: "I could really go for a nice water right now", imageContent: nil, postDate: Date(timeInterval: -500, since: Date()))
-        
-        let post4 = TapFeedPost(postingUserUsername: "jbeuerlein38", postingUserProfileImage: nil, hasImage: false, textContent: "Have you guys tried sparkling water?", imageContent: nil, postDate: Date(timeInterval: -1200, since: Date()))
-        
-        self.posts = [post1, post2, post3, post4]
-        
-        post1.comments.append(TapFeedPost.TapComment(author: "kcarson45", content: "Nice!"))
+        self.posts = []
+        refreshData()
     }
 
     /// Updates posts stored in this FeedPostStore
     func refreshData() {
-        // Interact with API
+        var newPosts = [TapFeedPost]()
+        SocialAPI.getNewPosts { posts in
+            if posts.count != 0, let _ = posts[0]["error"] as? Bool {
+                // Error occurred
+                print(posts[0]["message"])
+                return
+            }
+            
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd"
+            
+            for postDict in posts {
+                guard
+                    let postId = postDict["postId"] as? Int,
+                    let author = postDict["poster"] as? String,
+                    let message = postDict["message"] as? String,
+                    let dateString = postDict["date"] as? String
+                else {
+                    print("failed to parse \(postDict) in \(#function)")
+                    continue
+                }
+                guard let date = df.date(from: dateString) else {
+                    print("Failed to get date from string: \(dateString) in \(#function)")
+                    continue
+                }
+                let post = TapFeedPost(postId: postId, postingUserUsername: author, textContent: message, postDate: date)
+                newPosts.append(post)
+            }
+            
+            self.posts = newPosts.sorted(by: { lhs, rhs in
+                return lhs.postDate.distance(to: rhs.postDate) < 0
+            })
+        }
+        
     }
     
     /// Gets the username at indexPath
@@ -58,11 +82,22 @@ class FeedPostStore: NSObject {
     /// **NOTE**: The post is not added to this local version of the store if the API fails to except the new post for any reason
     /// - Parameter post: TapFeedPost to be added
     func newPost(_ post: TapFeedPost) {
-        self.posts.append(post)
-        self.posts = posts.sorted { p1, p2 in
-            return p1.postDate.distance(to: p2.postDate) < 0
-        }
         // Make API call
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        SocialAPI.newPost(post, user: user) { resp in
+            if let _ = resp["error"] as? Bool {
+                // error occurred
+                return
+            }
+            guard let id = resp["postId"] as? Int else {
+                return
+            }
+            post.postId = id
+            self.posts.append(post)
+            self.posts = self.posts.sorted(by: { lhs, rhs in
+                return lhs.postDate.distance(to: rhs.postDate) < 0
+            })
+        }
     }
 }
 

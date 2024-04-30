@@ -10,6 +10,7 @@ import UIKit
 
 class TapFeedPost {
     
+    var postId: Int
     let postingUserUsername: String
     let postingUserProfileImage: UIImage?
     let hasImage: Bool
@@ -29,6 +30,7 @@ class TapFeedPost {
     }
     
     init() {
+        self.postId = -1
         self.postingUserUsername = ""
         self.postingUserProfileImage = nil
         self.hasImage = false
@@ -39,12 +41,25 @@ class TapFeedPost {
     }
     
     init(postingUserUsername: String, postingUserProfileImage: UIImage?, hasImage: Bool, textContent: String, imageContent: UIImage?, postDate: Date) {
+        self.postId = -1
         self.postingUserUsername = postingUserUsername
         self.postingUserProfileImage = postingUserProfileImage
         self.hasImage = hasImage
         self.textContent = textContent
         self.imageContent = imageContent
         self.postDate = postDate
+        self.comments = [TapComment]()
+    }
+    
+    init(postId: Int, postingUserUsername: String, textContent: String, postDate: Date) {
+        self.postId = postId
+        self.postingUserUsername = postingUserUsername
+        self.textContent = textContent
+        self.postDate = postDate
+        
+        self.postingUserProfileImage = nil
+        self.hasImage = false
+        self.imageContent = nil
         self.comments = [TapComment]()
     }
     

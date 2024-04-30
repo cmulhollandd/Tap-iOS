@@ -327,4 +327,52 @@ class SocialAPI: NSObject {
         
         task.resume()
     }
+    
+    public static func getNewPosts(completion: @escaping([[String: Any]]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/view-posts")!
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "GET"
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            return req
+        }()
+        
+        let task = APIHelpers.session.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            if let error = error {
+                print(#function, error.localizedDescription)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    APIHelpers.completeWithError(response.description, completion: completion)
+                }
+            }
+            
+            guard let data = data else {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+            
+            do {
+                if let resp = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
+                    APIHelpers.complete(resp, completion: completion)
+                } else {
+                    print("No response data downloaded")
+                    APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                    return
+                }
+            } catch {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+        }
+        task.resume()
+    }
 }
