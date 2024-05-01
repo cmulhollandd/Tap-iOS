@@ -64,6 +64,8 @@
 		DB2CF7062BD1900F004135D6 /* LeaderboardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */; };
 		DB2CF7082BD193A2004135D6 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */; };
 		DB2CF70A2BD195FA004135D6 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */; };
+		DB78CD6B2BE1AC00001A9384 /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB78CD6A2BE1AC00001A9384 /* Water.swift */; };
+		DB78CD6D2BE1B3C3001A9384 /* WaterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB78CD6C2BE1B3C3001A9384 /* WaterAPI.swift */; };
 		DBB108092BDB083B00EE3679 /* WaterLoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +150,8 @@
 		DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardStore.swift; sourceTree = "<group>"; };
 		DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		DB78CD6A2BE1AC00001A9384 /* Water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
+		DB78CD6C2BE1B3C3001A9384 /* WaterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterAPI.swift; sourceTree = "<group>"; };
 		DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLoggingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				08E7A5422B8F797200695946 /* FountainAPI.swift */,
+				DB78CD6C2BE1B3C3001A9384 /* WaterAPI.swift */,
 				08F779E02B631E5F0033ED63 /* AccountsAPI.swift */,
 				08E7A5442B90F1AB00695946 /* APIHelpers.swift */,
 				08EB41A02BBF1B7400876EA1 /* SocialAPI.swift */,
@@ -265,6 +270,7 @@
 				089F0B7B2B7EDE2500BFDC71 /* Fountain.swift */,
 				08CC11292BCF09DD00BFD82B /* FountainReview.swift */,
 				DB2CF7032BD18FF4004135D6 /* LeaderboardEntry.swift */,
+				DB78CD6A2BE1AC00001A9384 /* Water.swift */,
 				08069AEA2BE08BF800AFC24F /* FountainAnnotation.swift */,
 			);
 			path = "Model Objects";
@@ -569,6 +575,7 @@
 				08EB41A12BBF1B7400876EA1 /* SocialAPI.swift in Sources */,
 				08CC112A2BCF09DD00BFD82B /* FountainReview.swift in Sources */,
 				0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */,
+				DB78CD6D2BE1B3C3001A9384 /* WaterAPI.swift in Sources */,
 				08069AEB2BE08BF800AFC24F /* FountainAnnotation.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */,
 				DB2CF7062BD1900F004135D6 /* LeaderboardStore.swift in Sources */,
@@ -576,6 +583,7 @@
 				08E9C8502BD0A65E00F36AD5 /* TapListViewController.swift in Sources */,
 				0851EA7F2B9CE1D40055CAED /* PersonalProfileViewController.swift in Sources */,
 				08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */,
+				DB78CD6B2BE1AC00001A9384 /* Water.swift in Sources */,
 				08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
