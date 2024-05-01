@@ -121,7 +121,7 @@ class UserProfileViewController: UIViewController {
                 }
                 if let timeString = postDict["time"] as? String {
                     let df = DateFormatter()
-                    df.dateFormat = "yyyy-MM-dd HH:mm aa"
+                    df.dateFormat = "yyyy-MM-dd hh:mm aa"
                     guard let date = df.date(from: "\(dateString) \(timeString)") else {
                         print("Failed to get date from string: \(dateString) \(timeString) in \(#function)")
                         continue
