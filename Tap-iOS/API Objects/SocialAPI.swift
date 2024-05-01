@@ -278,7 +278,7 @@ class SocialAPI: NSObject {
     ///   - completion: completion handler
     public static func newPost(_ post: TapFeedPost, user: TapUser, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/create-post")!
-        let payload = ["poster": user.username, "message": post.textContent, "date": post.getDateString()]
+        let payload = ["poster": user.username, "message": post.textContent, "date": post.getDateString(), "hour": post.getHour(), "minute": post.getMinute()]
         
         var data: Data
         
@@ -374,5 +374,65 @@ class SocialAPI: NSObject {
             }
         }
         task.resume()
+    }
+    
+    public static func getPostsBy(user: String, completion: @escaping([[String: Any]]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/view-posts-by-user")!
+        
+        var data: Data
+        
+        do {
+            try data = JSONSerialization.data(withJSONObject: ["username": user])
+        } catch {
+            print("failed to encode request data in \(#function) in \(#file)")
+            APIHelpers.completeWithError("Failed to encode request data in \(#function)", completion: completion)
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "POST"
+            req.httpBody = data
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            return req
+        }()
+        
+        let task = APIHelpers.session.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            if let error = error {
+                print(#function, error.localizedDescription)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    APIHelpers.completeWithError(response.description, completion: completion)
+                }
+            }
+            
+            guard let data = data else {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+            
+            do {
+                if let resp = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
+                    APIHelpers.complete(resp, completion: completion)
+                } else {
+                    print("No response data downloaded")
+                    APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                    return
+                }
+            } catch {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+        }
+        task.resume()
+        
     }
 }

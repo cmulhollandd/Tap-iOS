@@ -32,12 +32,9 @@ class FeedPostStore: NSObject {
         SocialAPI.getNewPosts { posts in
             if posts.count != 0, let _ = posts[0]["error"] as? Bool {
                 // Error occurred
-                print(posts[0]["message"])
+                print(posts[0]["message"] as! String)
                 return
             }
-            
-            let df = DateFormatter()
-            df.dateFormat = "yyyy-MM-dd"
             
             for postDict in posts {
                 guard
@@ -49,12 +46,25 @@ class FeedPostStore: NSObject {
                     print("failed to parse \(postDict) in \(#function)")
                     continue
                 }
-                guard let date = df.date(from: dateString) else {
-                    print("Failed to get date from string: \(dateString) in \(#function)")
-                    continue
+                if let timeString = postDict["time"] as? String {
+                    let df = DateFormatter()
+                    df.dateFormat = "yyyy-MM-dd HH:mm aa"
+                    guard let date = df.date(from: "\(dateString) \(timeString)") else {
+                        print("Failed to get date from string: \(dateString) \(timeString) in \(#function)")
+                        continue
+                    }
+                    let post = TapFeedPost(postId: postId, postingUserUsername: author, textContent: message, postDate: date)
+                    newPosts.append(post)
+                } else {
+                    let df = DateFormatter()
+                    df.dateFormat = "yyyy-MM-dd"
+                    guard let date = df.date(from: "\(dateString)") else {
+                        print("Failed to get date from string: \(dateString) in \(#function)")
+                        continue
+                    }
+                    let post = TapFeedPost(postId: postId, postingUserUsername: author, textContent: message, postDate: date)
+                    newPosts.append(post)
                 }
-                let post = TapFeedPost(postId: postId, postingUserUsername: author, textContent: message, postDate: date)
-                newPosts.append(post)
             }
             
             self.posts = newPosts.sorted(by: { lhs, rhs in

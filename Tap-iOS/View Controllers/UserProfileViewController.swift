@@ -28,11 +28,26 @@ class UserProfileViewController: UIViewController {
     var user: TapUser?
     var userAction: UserAction!
     var posts = [TapFeedPost]()
+    
+    let df: DateFormatter = {
+        var df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm aa"
+        return df
+    }()
+    
+    let nf: NumberFormatter = {
+        var nf = NumberFormatter()
+        nf.maximumFractionDigits = 0
+        return nf
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let user = user {
+        
+        guard let user = user else {
+            return
+        }
+        
             self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
             self.navigationItem.title = user.username
             
@@ -49,15 +64,15 @@ class UserProfileViewController: UIViewController {
                 userActionButton.setTitle("Follow", for: .normal)
                 userAction = .follow
             }
-        }
-
-        self.postsTable.register(FeedTableViewCell.self, forCellReuseIdentifier: "NonImageCell")
-        self.postsTable.register(FeedTableViewCellWithImage.self, forCellReuseIdentifier: "ImageCell")
         self.postsTable.dataSource = self
 
-        reloadPosts()
-        
         loadFollowersAndFollowing()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reloadPosts()
     }
 
 
@@ -85,7 +100,49 @@ class UserProfileViewController: UIViewController {
     /// Reloads teh posts in the postsTable
     func reloadPosts() {
         // Call to API to download posts
-        self.postsTable.reloadData()
+        guard let user = user else {
+            return
+        }
+        SocialAPI.getPostsBy(user: user.username) { resp in
+            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
+                // error occurred
+                print(resp[0]["message"] as! String)
+                return
+            }
+            for postDict in resp {
+                guard
+                    let postId = postDict["postId"] as? Int,
+                    let author = postDict["poster"] as? String,
+                    let message = postDict["message"] as? String,
+                    let dateString = postDict["date"] as? String
+                else {
+                    print("failed to parse \(postDict) in \(#function)")
+                    continue
+                }
+                if let timeString = postDict["time"] as? String {
+                    let df = DateFormatter()
+                    df.dateFormat = "yyyy-MM-dd HH:mm aa"
+                    guard let date = df.date(from: "\(dateString) \(timeString)") else {
+                        print("Failed to get date from string: \(dateString) \(timeString) in \(#function)")
+                        continue
+                    }
+                    let post = TapFeedPost(postId: postId, postingUserUsername: author, textContent: message, postDate: date)
+                    self.posts.append(post)
+                } else {
+                    let df = DateFormatter()
+                    df.dateFormat = "yyyy-MM-dd"
+                    guard let date = df.date(from: "\(dateString)") else {
+                        print("Failed to get date from string: \(dateString) in \(#function)")
+                        continue
+                    }
+                    let post = TapFeedPost(postId: postId, postingUserUsername: author, textContent: message, postDate: date)
+                    self.posts.append(post)
+                }
+            }
+            self.postsTable.reloadData()
+        }
+        
+        
     }
     
     /// Asks the API for the following and follower lists for this user and updates the interface to show their counts
@@ -187,10 +244,36 @@ class UserProfileViewController: UIViewController {
 extension UserProfileViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return posts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "NonImageCell", for: indexPath)
+        let post = posts[indexPath.row]
+        
+        let intv = Date().timeIntervalSince(post.postDate)
+        let hours = intv / 3600
+        let minutes = intv / 60
+        
+        var timeString = ""
+        if hours >= 1 {
+            timeString = "\(nf.string(from: hours as NSNumber) ?? "na") hours ago"
+        } else if minutes >= 1{
+            timeString = "\(nf.string(from: minutes as NSNumber) ?? "na") minutes ago"
+        } else {
+            timeString = "Just Now"
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NonImageCell", for: indexPath) as! FeedTableViewCell
+        
+        cell.post = post
+        cell.presentingVC = self
+        cell.usernameLabel.text = post.postingUserUsername
+        cell.timeSincePostLabel.text = timeString
+        cell.contentLabel.text = post.textContent
+        guard let image = post.postingUserProfileImage else {
+            return cell
+        }
+        cell.profileImageView.image = image
+        return cell
     }
 }

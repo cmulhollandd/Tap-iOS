@@ -69,4 +69,16 @@ class TapFeedPost {
         
         return df.string(from: self.postDate)
     }
+    
+    func getHour() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "HH"
+        return df.string(from: self.postDate)
+    }
+    
+    func getMinute() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "mm"
+        return df.string(from: self.postDate)
+    }
 }
