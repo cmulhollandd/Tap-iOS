@@ -110,10 +110,12 @@ class FountainDetailViewController: UIViewController {
         let user = (UIApplication.shared.delegate as! AppDelegate).user!
         let alert = UIAlertController(title: "Delete Fountain", message: "Deleting this fountain will remove it from the map for everybody", preferredStyle: .actionSheet)
         let delete = UIAlertAction(title: "Delete", style: .destructive) { action in
-            // Delete fountain
-            FountainAPI.deleteFountain(self.fountain!, by: user) { resp in
-                if let _ = resp["error"] {
-                    let alert = UIAlertController(title: "Error", message: resp["description"] as? String, preferredStyle: .alert)
+            guard let fountain = self.fountain else {
+                return
+            }
+            self.fountainStore.deleteFountain(fountain) { err, message in
+                if err {
+                    let alert = UIAlertController(title: "Error", message: message!, preferredStyle: .alert)
                     let ok = UIAlertAction(title: "Ok", style: .default)
                     alert.addAction(ok)
                     self.present(alert, animated: true)

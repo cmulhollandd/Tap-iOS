@@ -121,7 +121,7 @@ struct FountainAPI {
     ///   - completion: completion handler
     public static func deleteFountain(_ fountain: Fountain, by author: TapUser, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/delete")!
-        let payload = ["fountainID": fountain.id]
+        let payload = ["fountainId": "\(fountain.id)"]
         
         var data: Data
         
@@ -157,14 +157,7 @@ struct FountainAPI {
                 }
             }
             
-            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
-                print("error: NO response data downloaded")
-                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
-                return
-            }
-            
-            print(resp)
-            APIHelpers.complete(resp, completion: completion)
+            APIHelpers.complete([:], completion: completion)
                         
         }
         task.resume()

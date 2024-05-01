@@ -230,6 +230,23 @@ class FountainStore: NSObject {
         }
     }
     
+    func deleteFountain(_ fountain: Fountain, completion: @escaping(Bool, String?) -> Void) {
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        FountainAPI.deleteFountain(fountain, by: user) { resp in
+            if let _ = resp["error"] as? Bool {
+                // Error occured
+                completion(true, resp["message"] as? String)
+                return
+            }
+            
+            self.allFountains.removeAll { _fountain in
+                fountain.id == _fountain.id
+            }
+            self.filterFountains(by: self.currentFilter)
+            completion(false, nil)
+        }
+    }
+    
 }
 
 /// Delegate protocols for FountainStore
