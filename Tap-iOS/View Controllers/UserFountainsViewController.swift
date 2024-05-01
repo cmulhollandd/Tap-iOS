@@ -31,25 +31,24 @@ class UserFountainsViewController: UIViewController {
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "fountainPin")
         
         // Call API for user's fountains
-//        fountains = FountainStore.getFountainsBy(user: user.username)
-        for i in 0 ... 10 {
-            let lon = Double.random(in: -89.99113 ... -89.98687)
-            let lat = Double.random(in: 35.15170 ... 35.15968)
-            let fountain = Fountain(id: i, author: "charlie", latitude: lat, longitude: lon, rating: Double.random(in: 0...10), type: "Fountain and Bottle Filler")
-            fountains.append(fountain)
+        FountainStore.getFountainsBy(user: user.username) { fountains in
+            self.fountains = fountains
+            self.addFountainsToMap()
+            self.centerMapView()
+            // sort fountains by rating
+            self.fountains.sort { lhs, rhs in
+                return lhs.getAvgRating() > rhs.getAvgRating()
+            }
+            // Add fountains to tableView
+            self.tableView.reloadData()
         }
-        // put ALL fountains on map
-        addFountainsToMap()
-        centerMapView()
-        // sort fountains by rating
-        fountains.sort { lhs, rhs in
-            return lhs.getAvgRating() > rhs.getAvgRating()
-        }
-        // Add fountains to tableView
-        self.tableView.reloadData()
+
     }
     
     private func centerMapView() {
+        if fountains.count == 0 {
+            return
+        }
         let first = fountains[0].getLocationCoordinate()
         var minLat = first.latitude
         var minLon = first.longitude

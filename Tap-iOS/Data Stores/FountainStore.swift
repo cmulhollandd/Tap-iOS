@@ -26,23 +26,6 @@ class FountainStore: NSObject {
     var delegate: FountainStoreDelegate? = nil
     var currentFilter: FilterCriteria = .all
     
-    override init() {
-        super.init()
-        
-        // Dummy Data until API call is available
-//        var fountains = [Fountain]()
-//        
-//        let user = (UIApplication.shared.delegate as! AppDelegate).user!
-//        
-//        for i in 0 ... 10 {
-//            let lon = Double.random(in: -89.99113 ... -89.98687)
-//            let lat = Double.random(in: 35.15170 ... 35.15968)
-//            let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-//            fountains.append(Fountain(id: i, author: user, location: coord, coolness: Double.random(in: 0...10), pressure: Double.random(in: 0...10), taste: Double.random(in: 0...10), type: Fountain.FountainType(rawValue: Int.random(in: 0...2))!))
-//        }
-//        self.addNewFountains(fountains)
-    }
-    
     /// Updates fountains with new data from API
     ///
     /// - Parameters:
@@ -51,11 +34,6 @@ class FountainStore: NSObject {
         // Call API to get new fountains around region
         
         let divisor = 1.7 // Can be adjusted to load more fountains outside of immediate map area, for efficiency
-//        let minLat = region.center.latitude - (region.span.latitudeDelta / divisor)
-//        let minLon = region.center.longitude - (region.span.longitudeDelta / divisor)
-//        let maxLat = region.center.latitude + (region.span.latitudeDelta / divisor)
-//        let maxLon = region.center.longitude + (region.span.longitudeDelta / divisor)
-        
         let minLon = region.center.latitude - (region.span.latitudeDelta / divisor)
         let minLat = region.center.longitude - (region.span.longitudeDelta / divisor)
         let maxLon = region.center.latitude + (region.span.latitudeDelta / divisor)
@@ -208,11 +186,48 @@ class FountainStore: NSObject {
         return false
     }
     
-    static func getFountainsBy(user username: String) -> [Fountain] {
-        
+    static func getFountainsBy(user username: String, completion: @escaping([Fountain]) -> Void) {
         // Call API to get fountains
+        var fountains = [Fountain]()
         
-        return []
+        FountainAPI.getFountains(by: username) { resp in
+            if let _ = resp["error"] as? Bool {
+                print(resp["message"] as! String)
+                completion(fountains)
+                return
+            }
+            
+            guard let fountainsDict = (resp["fountains"] as? [Dictionary<String, Any>]) else {
+                print("Could not get a fountains dict from ", #function)
+                completion(fountains)
+                return
+            }
+            for _fountain in fountainsDict {
+                
+                guard let _ = _fountain["fountainId"] as? Int else {
+                    print("Could not find fountain id in ", #function)
+                    completion(fountains)
+                    return
+                }
+                
+                guard
+                    let id = _fountain["fountainId"] as? Int,
+                    let author = _fountain["author"] as? String,
+                    let latitude = _fountain["xCoord"] as? Double,
+                    let longitude = _fountain["yCoord"] as? Double,
+                    let rating = _fountain["rating"] as? Double,
+                    let type = _fountain["description"] as? String
+                else {
+                    print("Failed to create fountain objects from response in \(#function)")
+                    completion(fountains)
+                    return
+                }
+                
+                let fountain = Fountain(id: id, author: author, latitude: latitude, longitude: longitude, rating: rating, type: type)
+                fountains.append(fountain)
+            }
+            completion(fountains)
+        }
     }
     
 }

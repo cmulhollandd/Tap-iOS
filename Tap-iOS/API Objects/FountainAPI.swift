@@ -306,5 +306,66 @@ struct FountainAPI {
         task.resume()
     }
     
+    public static func getFountains(by user: String, completion: @escaping([String: Any]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/get-by-user")!
+        
+        let payload = ["username": user]
+        
+        var data: Data
+        
+        do {
+            try data = JSONSerialization.data(withJSONObject: payload)
+        } catch {
+            print("Failed to encode json data in \(#function)")
+            APIHelpers.completeWithError("Failed to encode request payload in \(#function)", completion: completion)
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "POST"
+            req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
+            return req
+        }()
+        
+        let task = APIHelpers.session.dataTask(with: request) {
+        (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if let error = error {
+                print(error.localizedDescription, #line)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    print(response.description, #line)
+                    APIHelpers.completeWithError(response.description, completion: completion)
+                }
+            }
+            
+            guard let data = data else {
+                print("error: No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+            
+            var resp: [[String: Any]] = []
+            
+            do {
+                resp = try JSONSerialization.jsonObject(with: data) as! [[String:Any]]
+            } catch {
+                print("error: could not parse data")
+                APIHelpers.completeWithError("Error: could not parse data", completion: completion)
+                return
+            }
+            
+            let ret: [String: Any] = ["fountains": resp]
+            APIHelpers.complete(ret, completion: completion)
+        }
+        task.resume()
+    }
     
 }
