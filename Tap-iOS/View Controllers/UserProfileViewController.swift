@@ -65,6 +65,7 @@ class UserProfileViewController: UIViewController {
             userAction = .follow
         }
         self.postsTable.dataSource = self
+        self.postsTable.delegate = self
         
         loadFollowersAndFollowing()
         reloadPosts()
@@ -78,7 +79,11 @@ class UserProfileViewController: UIViewController {
             unfollowUser()
         case .showSettings:
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainSettingsViewController")
-            self.navigationController?.pushViewController(vc, animated: true)
+            if let nav = self.navigationController {
+                nav.pushViewController(vc, animated: true)
+            } else {
+                self.present(vc, animated: true)
+            }
 
         default:
             print("Nothing to do")
@@ -218,8 +223,11 @@ class UserProfileViewController: UIViewController {
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
             vc.navigationItem.title = "Followers"
-            self.navigationController?.pushViewController(vc, animated: true)
-            
+            if let nav = self.navigationController {
+                nav.pushViewController(vc, animated: true)
+            } else {
+                self.present(vc, animated: true)
+            }
         }
     }
     
@@ -234,15 +242,18 @@ class UserProfileViewController: UIViewController {
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
             vc.navigationItem.title = "Following"
-            self.navigationController?.pushViewController(vc, animated: true)
-            
+            if let nav = self.navigationController {
+                nav.pushViewController(vc, animated: true)
+            } else {
+                self.present(vc, animated: true)
+            }
         }
     }
 }
 
 
 // Since we are hopefully not doing too much work here, we can be our own data source
-extension UserProfileViewController: UITableViewDataSource {
+extension UserProfileViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -276,5 +287,22 @@ extension UserProfileViewController: UITableViewDataSource {
         }
         cell.profileImageView.image = image
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        let username = post.postingUserUsername
+        
+        // Call API to get details of the user
+        let user = TapUser(first: username, last: username, username: username, email: username, loginToken: nil, profilePhoto: nil)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostDetailViewController") as! PostDetailViewController
+        vc.user = user
+        vc.post = post
+        
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        } else {
+            self.present(vc, animated: true)
+        }
     }
 }

@@ -34,6 +34,7 @@ class FountainDetailViewController: UIViewController {
     var referringVC: MapViewController! = nil
     private var sortMenu: UIMenu! = nil
     private var isLeavingReview = false
+    var userOwnsFountain = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,34 +108,43 @@ class FountainDetailViewController: UIViewController {
     }
     
     @IBAction func deleteFountainButtonPressed(_ sender: UIButton) {
-        let user = (UIApplication.shared.delegate as! AppDelegate).user!
-        let alert = UIAlertController(title: "Delete Fountain", message: "Deleting this fountain will remove it from the map for everybody", preferredStyle: .actionSheet)
-        let delete = UIAlertAction(title: "Delete", style: .destructive) { action in
-            guard let fountain = self.fountain else {
-                return
-            }
-            self.fountainStore.deleteFountain(fountain) { err, message in
-                if err {
-                    let alert = UIAlertController(title: "Error", message: message!, preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "Ok", style: .default)
-                    alert.addAction(ok)
-                    self.present(alert, animated: true)
+        if userOwnsFountain {
+            let user = (UIApplication.shared.delegate as! AppDelegate).user!
+            let alert = UIAlertController(title: "Delete Fountain", message: "Deleting this fountain will remove it from the map for everybody", preferredStyle: .actionSheet)
+            let delete = UIAlertAction(title: "Delete", style: .destructive) { action in
+                guard let fountain = self.fountain else {
                     return
                 }
-                self.setFountain(to: nil)
-                self.referringVC.panelController.move(to: .tip, animated: true)
+                self.fountainStore.deleteFountain(fountain) { err, message in
+                    if err {
+                        let alert = UIAlertController(title: "Error", message: message!, preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "Ok", style: .default)
+                        alert.addAction(ok)
+                        self.present(alert, animated: true)
+                        return
+                    }
+                    self.setFountain(to: nil)
+                    self.referringVC.panelController.move(to: .tip, animated: true)
+                }
             }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(delete)
+            alert.addAction(cancel)
+            
+            self.present(alert, animated: true)
+        } else {
+            guard let fountain = fountain else {
+                return
+            }
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+            let user = TapUser(first: fountain.authorUsername, last: fountain.authorUsername, username: fountain.authorUsername, email: fountain.authorUsername, loginToken: nil, profilePhoto: nil)
+            vc.user = user
+            self.present(vc, animated: true)
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(delete)
-        alert.addAction(cancel)
-        
-        self.present(alert, animated: true)
     }
     
     @IBAction func tapRecognized(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
-//        self.reviewTextView.endEditing(true)
     }
     
     /// Updates the ViewController's views to show information about the selected fountain
@@ -150,9 +160,20 @@ class FountainDetailViewController: UIViewController {
             let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
             if (localUser.username == fountain.authorUsername) {
                 deleteFountainButton.isEnabled = true
+                deleteFountainButton.tintColor = UIColor.red
+                deleteFountainButton.setTitle("Delete Fountain", for: .normal)
+                userOwnsFountain = true
             } else {
-                deleteFountainButton.isEnabled = false
+                // REconfigure delete button to show user profile
+                deleteFountainButton.isEnabled = true
+                deleteFountainButton.tintColor = UIColor(named: "PrimaryBlue")
+                deleteFountainButton.setTitle("View Creator Profile", for: .normal)
+                userOwnsFountain = false
             }
+            deleteFountainButton.isEnabled = true
+            deleteFountainButton.tintColor = UIColor(named: "PrimaryBlue")
+            deleteFountainButton.setTitle("View Creator Profile", for: .normal)
+            userOwnsFountain = false
         } else {
             self.fountain = nil
             self.reviewLabel.text = "N/A"
@@ -162,6 +183,7 @@ class FountainDetailViewController: UIViewController {
             self.typeLabel.isEnabled = false
             self.leaveReviewButton.isEnabled = false
             self.reviewStackView.isHidden = true
+            userOwnsFountain = false
         }
     }
 }
