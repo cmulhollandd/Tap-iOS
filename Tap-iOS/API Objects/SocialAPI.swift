@@ -53,15 +53,7 @@ class SocialAPI: NSObject {
                 }
                 
             }
-            
-            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
-                print("No response data downloaded")
-                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
-                return
-            }
-            
-            print(resp)
-            APIHelpers.complete(resp, completion: completion)
+            APIHelpers.complete([:], completion: completion)
         }
         
         task.resume()
@@ -108,15 +100,7 @@ class SocialAPI: NSObject {
                 }
                 
             }
-            
-            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
-                print("No response data downloaded")
-                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
-                return
-            }
-            
-            print(resp)
-            APIHelpers.complete(resp, completion: completion)
+            APIHelpers.complete([:], completion: completion)
         }
         
         task.resume()
@@ -126,7 +110,7 @@ class SocialAPI: NSObject {
     /// - Parameters:
     ///   - user: user to get followers of
     ///   - completion: completion handler
-    public static func getFollowers(of user: TapUser, completion: @escaping([[String: Any]]) -> Void) {
+    public static func getFollowers(of user: TapUser, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/view-followers")!
         let payload = ["username": user.username]
         var data: Data
@@ -171,9 +155,9 @@ class SocialAPI: NSObject {
             }
             
             do {
-                var resp = try JSONSerialization.jsonObject(with: data) as? [[String: Any]]
-                if let resp = resp {
-                    APIHelpers.complete(resp, completion: completion)
+                if let resp = try JSONSerialization.jsonObject(with: data) as? [String] {
+                    let ret = ["followers": resp]
+                    APIHelpers.complete(ret, completion: completion)
                 } else {
                     print("No response data downloaded")
                     APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
@@ -193,7 +177,7 @@ class SocialAPI: NSObject {
     /// - Parameters:
     ///   - user: user to get followees of
     ///   - completion: completion handler
-    public static func getFollowing(of user: TapUser, completion: @escaping([[String: Any]]) -> Void) {
+    public static func getFollowing(of user: TapUser, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/view-following")!
         let payload = ["username": user.username]
         var data: Data
@@ -232,21 +216,22 @@ class SocialAPI: NSObject {
             }
             
             guard let data = data else {
-                print("No response data downloaded")
+                print(#line, "No response data downloaded")
                 APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
                 return
             }
             
             do {
-                if let resp = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
-                    APIHelpers.complete(resp, completion: completion)
+                if let resp = try JSONSerialization.jsonObject(with: data) as? [String] {
+                    let ret = ["following": resp]
+                    APIHelpers.complete(ret, completion: completion)
                 } else {
-                    print("No response data downloaded")
+                    print(#line, "No response data downloaded")
                     APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
                     return
                 }
             } catch {
-                print("No response data downloaded")
+                print(#line, "No response data downloaded")
                 APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
                 return
             }
@@ -259,8 +244,71 @@ class SocialAPI: NSObject {
     /// - Parameters:
     ///   - username: username of user
     ///   - completion: completion handler
-    public static func getUserDetails(of username: String, completion: @escaping([String: Any]) -> Void) {
+    public static func getUserDetails(of username: String, completion: @escaping([String:Any]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/get-user")!
+        let payload = ["username": username]
         
+        var data: Data
+        
+        do {
+            try data = JSONSerialization.data(withJSONObject: payload)
+        } catch {
+            APIHelpers.completeWithError("Failed to encode payload in \(#function)", completion: completion)
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "POST"
+            req.addValue("application/json", forHTTPHeaderField: "content-type")
+            req.addValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
+            req.httpBody = data
+            return req
+        }()
+        
+        let task = APIHelpers.session.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    APIHelpers.completeWithError(response.description, completion: completion)
+                    return
+                }
+                
+            }
+            
+            guard let data = data else {
+                print(#line, "No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+            do {
+                if let resp = try JSONSerialization.jsonObject(with: data) as? [String] {
+                    let details = resp[0]
+                    let comp = details.split(separator: /\,/)
+                    print(comp)
+                    let ret = ["username": String(comp[0]), "firstName": String(comp[1]), "lastName": String(comp[2]), "email": String(comp[3])]
+                    print(ret)
+                    APIHelpers.complete(ret, completion: completion)
+                } else {
+                    print(#line, "No response data downloaded")
+                    APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                    return
+                }
+            } catch {
+                print(#line, "No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+            
+        }
+        task.resume()
     }
     
     /// Send a new post to the feed

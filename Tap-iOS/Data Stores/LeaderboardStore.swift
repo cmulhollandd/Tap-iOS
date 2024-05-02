@@ -35,7 +35,7 @@ class LeaderboardStore: NSObject {
                 guard
                     let username = entryDict["username"] as? String,
                     let points = entryDict["points"] as? Double,
-                    let ozOfWater = entryDict["ozOfWater"] as? Double
+                    let _ = entryDict["ozOfWater"] as? Double
                 else {
                     continue
                 }

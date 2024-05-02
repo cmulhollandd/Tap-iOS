@@ -44,31 +44,13 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let user = user else {
-            return
-        }
+        loadUserDetails()
         
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
-        self.navigationItem.title = user.username
         
-        nameLabel.text = "\(user.firstName) \(user.lastName)"
-        followersButton.titleLabel?.text = "\(user.followers.count)"
-        followingButton.titleLabel?.text = "\(user.following.count)"
-        postsButton.titleLabel?.text = "\(posts.count)"
-        
-        let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
-        if (localUser.username == user.username) {
-            userActionButton.setTitle("Settings", for: .normal)
-            userAction = .showSettings
-        } else {
-            userActionButton.setTitle("Follow", for: .normal)
-            userAction = .follow
-        }
         self.postsTable.dataSource = self
         self.postsTable.delegate = self
-        
-        loadFollowersAndFollowing()
-        reloadPosts()
+
     }
 
     @IBAction func userActionButtonPressed(_ sender: UIButton) {
@@ -94,6 +76,36 @@ class UserProfileViewController: UIViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserFountainsViewController") as! UserFountainsViewController
         vc.user = self.user
         self.present(vc, animated: true)
+    }
+    
+    func loadUserDetails() {
+        print("getting user details")
+        guard let user = user else {
+            return
+        }
+        SocialAPI.getUserDetails(of: user.username.lowercased()) { resp in
+            print("Got user details")
+            if let _ = resp["error"] as? Bool {
+                print(resp["message"] as! String)
+                return
+            }
+            guard
+                let first = resp["firstName"] as? String,
+                let last = resp["lastName"] as? String,
+                let username = resp["username"] as? String,
+                let email = resp["email"] as? String
+            else {
+                print("Could not find user details in response")
+                return
+            }
+            let _user = TapUser(first: first, last: last, username: username, email: email, loginToken: nil, profilePhoto: nil)
+            self.user = _user
+            self.navigationItem.title = _user.username
+            
+            self.nameLabel.text = "\(user.firstName) \(user.lastName)"
+            self.loadFollowersAndFollowing()
+            self.reloadPosts()
+        }
     }
     
     /// Reloads teh posts in the postsTable
@@ -155,25 +167,47 @@ class UserProfileViewController: UIViewController {
             return
         }
         SocialAPI.getFollowers(of: user) { resp in
-            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
+            if let _ = resp["error"] as? Bool {
                 // present error to user
                 self.followersButton.titleLabel?.text = "??"
                 return
             }
-            let numFollowers = resp.count
+            guard let followers = resp["followers"] as? [String] else {
+                return
+            }
+            self.user?.followers = followers
+            let numFollowers = followers.count
             print(numFollowers, #line)
-//            self.followersButton.titleLabel?.text = "\(numFollowers)"
             self.followersButton.setTitle("\(numFollowers)", for: .normal)
+            let localUsername = (UIApplication.shared.delegate as! AppDelegate).user!.username
+            var followsUser = false
+            for follower in followers {
+                if follower == localUsername {
+                    followsUser = true
+                }
+            }
+            if (followsUser) {
+                self.userActionButton.setTitle("Unfollow", for: .normal)
+                self.userAction = .unfollow
+            } else if (localUsername == user.username) {
+                self.userActionButton.setTitle("Settings", for: .normal)
+                self.userAction = .showSettings
+            } else {
+                self.userActionButton.setTitle("Follow", for: .normal)
+                self.userAction = .follow
+            }
         }
         SocialAPI.getFollowing(of: user) { resp in
-            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
+            if let _ = resp["error"] as? Bool {
                 // present error to user
                 self.followingButton.titleLabel?.text = "??"
                 return
             }
-            let numFollowing = resp.count
-            print(numFollowing, #line)
-//            self.followingButton.titleLabel?.text = "\(numFollowing)"
+            guard let following = resp["following"] as? [String] else {
+                return
+            }
+            self.user?.following = following
+            let numFollowing = following.count
             self.followingButton.setTitle("\(numFollowing)", for: .normal)
         }
     }
@@ -217,12 +251,12 @@ class UserProfileViewController: UIViewController {
             return
         }
         SocialAPI.getFollowers(of: user) { resp in
-            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
+            if let _ = resp["error"] as? Bool {
                 return
             }
-            
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
             vc.navigationItem.title = "Followers"
+            vc.items = user.followers
             if let nav = self.navigationController {
                 nav.pushViewController(vc, animated: true)
             } else {
@@ -236,12 +270,13 @@ class UserProfileViewController: UIViewController {
             return
         }
         SocialAPI.getFollowing(of: user) { resp in
-            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
+            if let _ = resp["error"] as? Bool {
                 return
             }
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
             vc.navigationItem.title = "Following"
+            vc.items = user.following
             if let nav = self.navigationController {
                 nav.pushViewController(vc, animated: true)
             } else {

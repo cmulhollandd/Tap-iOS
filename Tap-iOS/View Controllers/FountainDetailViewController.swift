@@ -109,7 +109,6 @@ class FountainDetailViewController: UIViewController {
     
     @IBAction func deleteFountainButtonPressed(_ sender: UIButton) {
         if userOwnsFountain {
-            let user = (UIApplication.shared.delegate as! AppDelegate).user!
             let alert = UIAlertController(title: "Delete Fountain", message: "Deleting this fountain will remove it from the map for everybody", preferredStyle: .actionSheet)
             let delete = UIAlertAction(title: "Delete", style: .destructive) { action in
                 guard let fountain = self.fountain else {
