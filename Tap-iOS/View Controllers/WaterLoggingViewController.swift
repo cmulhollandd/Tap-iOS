@@ -16,13 +16,13 @@ class WaterLoggingViewController: UIViewController {
     @IBOutlet var headerText: UILabel!
     @IBOutlet var totalLabel: UILabel!
     
-    var total: Int = 0
+    var total: Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = (UIApplication.shared.delegate as! AppDelegate).user!
         // Retrieve total from storage
-        total = UserDefaults.standard.integer(forKey: "total")
+        total = UserDefaults.standard.float(forKey: "total")
         updateUI()
         
         // Check if date has changed to reset total daily
@@ -47,7 +47,7 @@ class WaterLoggingViewController: UIViewController {
     }
     func updateUI() {
         let user = (UIApplication.shared.delegate as! AppDelegate).user!
-        total = UserDefaults.standard.integer(forKey: "WaterIntake_\(user.username)")
+        total = UserDefaults.standard.float(forKey: "WaterIntake_\(user.username)")
         if total > 100 {
             totalLabel.text = "Water Limit Reached!"
         }
@@ -75,7 +75,7 @@ class WaterLoggingViewController: UIViewController {
         // can only press button once
         sender.isEnabled = false
         // adds arbitrary value to text field
-        let bottleValue = 10
+        let bottleValue = Int(10)
         if let currentOz = ozField.text {
             if var currentNumber = Int(currentOz) {
                 currentNumber += bottleValue
@@ -100,7 +100,7 @@ class WaterLoggingViewController: UIViewController {
     @IBAction func minusButton(_ sender: UIButton) {
         if let currentOz = ozField.text {
             if var currentNumber = Int(currentOz),
-            currentNumber != 0 {
+               currentNumber != 0 {
                 currentNumber -= 1
                 ozField.text = String(currentNumber)
             }
@@ -111,17 +111,43 @@ class WaterLoggingViewController: UIViewController {
     }
     @IBAction func submitButton(_ sender: UIButton) {
         if let currentOz = ozField.text {
-            if var currentNumber = Int(currentOz), currentNumber != 0 {
-                // submit and close screen
+            if let currentOz = ozField.text,
+               let currentNumber = Float(currentOz), currentNumber != 0,
+               let delegate = UIApplication.shared.delegate as? AppDelegate,
+               let currentUser = delegate.user {
+                // submit locally
                 total += currentNumber
-                let user = (UIApplication.shared.delegate as! AppDelegate).user!
-                UserDefaults.standard.set(total, forKey: "WaterIntake_\(user.username)")
+                let user = currentUser.username
+                UserDefaults.standard.set(total, forKey: "WaterIntake_\(user)")
                 updateUI()
+                let userwater = Water(username: user, ozOfWater: currentNumber)
+                postNewWater(water: userwater, user: currentUser) { (error, description) -> Void in
+                    if error {
+                        let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "OK", style: .default)
+                        alert.addAction(ok)
+                        self.present(alert, animated: true)
+                    } else {
+                        let alert = UIAlertController(title: "Water Added", message: nil, preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "OK", style: .default)
+                        alert.addAction(ok)
+                        self.present(alert, animated: true)
+                    }
+                }
                 // Dismiss the view controller
                 navigationController?.popViewController(animated: true)
-            }
-            else {
+                } else {
+                    print("User not available")
+                    // Handle the case where user is nil
+                }
+            } else {
                 print("Nothing to submit")
+            }
+        }
+    func postNewWater(water: Water, user: TapUser, completion: @escaping(Bool, String?) -> Void)  {
+        WaterAPI.submitWater(water, by: user) { (resp) in
+            if let _ = resp["error"] {
+                completion(true, resp["message"] as? String)
             }
         }
     }

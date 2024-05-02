@@ -30,7 +30,7 @@ struct WaterAPI {
     public static func submitWater(_ ozOfWater: Water, by author: TapUser, completion: @escaping([String:Any]) -> Void) {
         
         let components = URLComponents(string: "\(baseAPIURL)/submit-water")!
-        let payload = AddWaterPayload(author: author.username, ozOfWater: ozOfWater.ozOfWater)
+        let payload = AddWaterPayload(author: author.username, ozOfWater: ozOfWater.getOzOfWater())
         
         var data: Data
         
