@@ -170,10 +170,6 @@ class FountainDetailViewController: UIViewController {
                 deleteFountainButton.setTitle("View Creator Profile", for: .normal)
                 userOwnsFountain = false
             }
-            deleteFountainButton.isEnabled = true
-            deleteFountainButton.tintColor = UIColor(named: "PrimaryBlue")
-            deleteFountainButton.setTitle("View Creator Profile", for: .normal)
-            userOwnsFountain = false
         } else {
             self.fountain = nil
             self.reviewLabel.text = "N/A"
