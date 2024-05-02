@@ -279,6 +279,7 @@
 		089F90542BBC87660057CDDA /* SettingsViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */,
 				08EB41962BBF1A8500876EA1 /* AccountSettingsViewController.swift */,
 				08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */,
 				08EB41972BBF1A8500876EA1 /* ChangeUsernameViewController.swift */,
@@ -298,6 +299,37 @@
 				DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */,
 			);
 			path = "Data Stores";
+			sourceTree = "<group>";
+		};
+		08A843A22BE42F6D00B0CE20 /* FountainVCs */ = {
+			isa = PBXGroup;
+			children = (
+				08D2194C2B7C0DD300CBC733 /* MapViewController.swift */,
+				089F0B7D2B7EE06100BFDC71 /* NewFountainViewController.swift */,
+				0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */,
+			);
+			path = FountainVCs;
+			sourceTree = "<group>";
+		};
+		08A843A32BE42FA500B0CE20 /* SocialVCs */ = {
+			isa = PBXGroup;
+			children = (
+				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
+				089F90562BBC91A20057CDDA /* NewPostViewController.swift */,
+				08E9C8552BD169FF00F36AD5 /* PostDetailViewController.swift */,
+			);
+			path = SocialVCs;
+			sourceTree = "<group>";
+		};
+		08A843A42BE42FD700B0CE20 /* ProfileVCs */ = {
+			isa = PBXGroup;
+			children = (
+				0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */,
+				089F90522BBC7F790057CDDA /* UserProfileViewController.swift */,
+				08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */,
+				08069AE82BE0892100AFC24F /* UserFountainsViewController.swift */,
+			);
+			path = ProfileVCs;
 			sourceTree = "<group>";
 		};
 		08D2194B2B7C0DA500CBC733 /* Cells */ = {
@@ -321,21 +353,13 @@
 				089F90542BBC87660057CDDA /* SettingsViewControllers */,
 				087ECE372B6AB06400F27DB7 /* OnboardingVCs */,
 				08D2194B2B7C0DA500CBC733 /* Cells */,
-				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
+				08A843A22BE42F6D00B0CE20 /* FountainVCs */,
+				08A843A32BE42FA500B0CE20 /* SocialVCs */,
+				08A843A42BE42FD700B0CE20 /* ProfileVCs */,
 				DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */,
 				082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */,
-				08D2194C2B7C0DD300CBC733 /* MapViewController.swift */,
-				089F0B7D2B7EE06100BFDC71 /* NewFountainViewController.swift */,
-				0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */,
-				0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */,
-				089F90522BBC7F790057CDDA /* UserProfileViewController.swift */,
-				089F90562BBC91A20057CDDA /* NewPostViewController.swift */,
-				08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */,
-				08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */,
 				08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */,
-				08E9C8552BD169FF00F36AD5 /* PostDetailViewController.swift */,
 				DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */,
-				08069AE82BE0892100AFC24F /* UserFountainsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
