@@ -48,33 +48,27 @@ class UserProfileViewController: UIViewController {
             return
         }
         
-            self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
-            self.navigationItem.title = user.username
-            
-            nameLabel.text = "\(user.firstName) \(user.lastName)"
-            followersButton.titleLabel?.text = "\(user.followers.count)"
-            followingButton.titleLabel?.text = "\(user.following.count)"
-            postsButton.titleLabel?.text = "\(posts.count)"
-
-            let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
-            if (localUser.username == user.username) {
-                userActionButton.setTitle("Settings", for: .normal)
-                userAction = .showSettings
-            } else {
-                userActionButton.setTitle("Follow", for: .normal)
-                userAction = .follow
-            }
-        self.postsTable.dataSource = self
-
-        loadFollowersAndFollowing()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
+        self.navigationItem.title = user.username
         
+        nameLabel.text = "\(user.firstName) \(user.lastName)"
+        followersButton.titleLabel?.text = "\(user.followers.count)"
+        followingButton.titleLabel?.text = "\(user.following.count)"
+        postsButton.titleLabel?.text = "\(posts.count)"
+        
+        let localUser = (UIApplication.shared.delegate as! AppDelegate).user!
+        if (localUser.username == user.username) {
+            userActionButton.setTitle("Settings", for: .normal)
+            userAction = .showSettings
+        } else {
+            userActionButton.setTitle("Follow", for: .normal)
+            userAction = .follow
+        }
+        self.postsTable.dataSource = self
+        
+        loadFollowersAndFollowing()
         reloadPosts()
     }
-
 
     @IBAction func userActionButtonPressed(_ sender: UIButton) {
         switch userAction {
@@ -139,6 +133,11 @@ class UserProfileViewController: UIViewController {
                     self.posts.append(post)
                 }
             }
+//            self.postsButton.titleLabel?.text = "\(self.posts.count)"
+            self.postsButton.setTitle("\(self.posts.count)", for: .normal)
+            self.posts.sort { lhs, rhs in
+                return lhs.postDate.timeIntervalSince(rhs.postDate) > 0
+            }
             self.postsTable.reloadData()
         }
         
@@ -153,22 +152,24 @@ class UserProfileViewController: UIViewController {
         SocialAPI.getFollowers(of: user) { resp in
             if resp.count != 0, let _ = resp[0]["error"] as? Bool {
                 // present error to user
-                self.followersButton.titleLabel?.text = "?"
+                self.followersButton.titleLabel?.text = "??"
                 return
             }
             let numFollowers = resp.count
             print(numFollowers, #line)
-            self.followersButton.titleLabel?.text = "\(numFollowers)"
+//            self.followersButton.titleLabel?.text = "\(numFollowers)"
+            self.followersButton.setTitle("\(numFollowers)", for: .normal)
         }
         SocialAPI.getFollowing(of: user) { resp in
             if resp.count != 0, let _ = resp[0]["error"] as? Bool {
                 // present error to user
-                self.followingButton.titleLabel?.text = "?"
+                self.followingButton.titleLabel?.text = "??"
                 return
             }
             let numFollowing = resp.count
             print(numFollowing, #line)
-            self.followingButton.titleLabel?.text = "\(numFollowing)"
+//            self.followingButton.titleLabel?.text = "\(numFollowing)"
+            self.followingButton.setTitle("\(numFollowing)", for: .normal)
         }
     }
     

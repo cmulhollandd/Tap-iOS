@@ -651,14 +651,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleLabelCell" id="nVE-Wq-gFX" customClass="SingleLabelCell" customModule="Tap_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="50.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nVE-Wq-gFX" id="e4O-MK-Gih">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="50.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkD-zn-bde">
-                                                    <rect key="frame" x="24" y="15.000000000000002" width="42" height="20.666666666666671"/>
+                                                    <rect key="frame" x="24" y="15.000000000000002" width="42" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -677,7 +677,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7d-XN-nFX">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="67"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="59"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                             </view>
                         </subviews>
@@ -687,7 +687,7 @@
                             <constraint firstItem="DLl-8e-AHv" firstAttribute="trailing" secondItem="aIa-S4-v1z" secondAttribute="trailing" id="2L5-gw-8xu"/>
                             <constraint firstItem="aIa-S4-v1z" firstAttribute="top" secondItem="DLl-8e-AHv" secondAttribute="top" id="3aM-PJ-pkX"/>
                             <constraint firstItem="l7d-XN-nFX" firstAttribute="top" secondItem="wix-aI-9rO" secondAttribute="top" id="61o-2A-4dV"/>
-                            <constraint firstItem="l7d-XN-nFX" firstAttribute="bottom" secondItem="DLl-8e-AHv" secondAttribute="top" constant="8" id="EUB-Ik-tP5"/>
+                            <constraint firstItem="l7d-XN-nFX" firstAttribute="bottom" secondItem="DLl-8e-AHv" secondAttribute="top" id="EUB-Ik-tP5"/>
                             <constraint firstItem="aIa-S4-v1z" firstAttribute="leading" secondItem="DLl-8e-AHv" secondAttribute="leading" id="HtD-sL-qi7"/>
                             <constraint firstAttribute="trailing" secondItem="l7d-XN-nFX" secondAttribute="trailing" id="MNR-2I-ga2"/>
                             <constraint firstItem="DLl-8e-AHv" firstAttribute="bottom" secondItem="aIa-S4-v1z" secondAttribute="bottom" id="g4i-aP-l8y"/>
@@ -2707,31 +2707,27 @@
             <point key="canvasLocation" x="5398" y="1811"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="BOl-az-cci"/>
-        <designable name="v2Q-ck-HDl"/>
-    </designables>
     <resources>
         <image name="DrinkingFountainIcon" width="808.6099853515625" height="808.6099853515625"/>
         <image name="TapTitleLogo" width="1024" height="1024"/>
         <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
-        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.turn.up.left" catalog="system" width="32" height="32"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="crown" catalog="system" width="32" height="32"/>
-        <image name="drop.fill" catalog="system" width="96" height="128"/>
+        <image name="drop.fill" catalog="system" width="32" height="32"/>
         <image name="gear" catalog="system" width="128" height="122"/>
-        <image name="hand.thumbsdown" catalog="system" width="123" height="128"/>
-        <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
+        <image name="hand.thumbsdown" catalog="system" width="32" height="32"/>
+        <image name="hand.thumbsup" catalog="system" width="32" height="32"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="minus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.circle" catalog="system" width="32" height="32"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="photo.badge.plus" catalog="system" width="128" height="97"/>
-        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+        <image name="photo.badge.plus" catalog="system" width="32" height="32"/>
+        <image name="plus.app.fill" catalog="system" width="32" height="32"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="121"/>
+        <image name="square.and.pencil" catalog="system" width="32" height="32"/>
         <namedColor name="PrimaryBlue">
             <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
