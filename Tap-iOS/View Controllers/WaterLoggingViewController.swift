@@ -23,6 +23,7 @@ class WaterLoggingViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ozField.delegate = self
         // Retrieve total & bottle size from storage
         updateUI()
         
@@ -203,6 +204,7 @@ class WaterLoggingViewController: UIViewController, UITextFieldDelegate {
         alertController.addTextField { textField in
             textField.placeholder = "Enter a number"
             textField.keyboardType = .numberPad // Set keyboard type to number pad
+            textField.delegate = self
         }
         
         // Add a confirm action
@@ -237,5 +239,12 @@ class WaterLoggingViewController: UIViewController, UITextFieldDelegate {
         
         // Present the alert controller
         self.present(alertController, animated: true, completion: nil)
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Define allowed characters (in this case, only numbers)
+        let allowedCharacterSet = CharacterSet(charactersIn: "0123456789")
+        // Check if the replacement string contains only allowed characters
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacterSet.isSuperset(of: characterSet)
     }
 }
