@@ -526,4 +526,48 @@ class SocialAPI: NSObject {
         }
         task.resume()
     }
+    
+    public static func deletePost(_ post: TapFeedPost, requester: String, completion: @escaping([String:Any]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/delete-post")!
+        let payload: [String: Any] = ["requester" : requester, "post_id" : post.postId]
+        print(payload)
+        var data: Data
+        
+        do {
+            data = try JSONSerialization.data(withJSONObject: payload)
+        } catch {
+            print("failed to encode request data in \(#function) in \(#file)")
+            return
+        }
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "DELETE"
+            req.httpBody = data
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
+            return req
+        }()
+        
+        let task = APIHelpers.session.dataTask(with: request) {
+        (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    APIHelpers.completeWithError(response.description, completion: completion)
+                    return
+                }
+                
+            }
+            APIHelpers.complete([:], completion: completion)
+        }
+        
+        task.resume()
+    }
 }

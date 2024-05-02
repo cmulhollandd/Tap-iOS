@@ -115,6 +115,20 @@ class FeedPostStore: NSObject {
             })
         }
     }
+    
+    func deletePost(_ post: TapFeedPost, completion: @escaping(Bool, String?) -> Void) {
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        SocialAPI.deletePost(post, requester: user.username) { resp in
+            if let _ = resp["error"] as? Bool {
+                completion(true, resp["message"] as? String)
+                return
+            }
+            self.posts.removeAll { _post in
+                _post.postId == post.postId
+            }
+            completion(false, nil)
+        }
+    }
 }
 
 

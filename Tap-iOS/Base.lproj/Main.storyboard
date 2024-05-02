@@ -659,14 +659,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleLabelCell" id="nVE-Wq-gFX" customClass="SingleLabelCell" customModule="Tap_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="51"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nVE-Wq-gFX" id="e4O-MK-Gih">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkD-zn-bde">
-                                                    <rect key="frame" x="24" y="15" width="42" height="21"/>
+                                                    <rect key="frame" x="24" y="15.000000000000002" width="42" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -980,11 +980,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfb-lO-X4n">
                                         <rect key="frame" x="232.66666666666671" y="0.0" width="112.33333333333334" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.left" catalog="system">
-                                            <color key="baseForegroundColor" name="PrimaryBlue"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system">
+                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="commentButtonPressed:" destination="ZnK-Dk-Rua" eventType="touchUpInside" id="0Rp-Q5-T01"/>
+                                            <action selector="deleteButtonPressed:" destination="ZnK-Dk-Rua" eventType="touchUpInside" id="gkL-xg-B4W"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1012,9 +1012,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="commentButton" destination="Dfb-lO-X4n" id="bXB-VK-4fB"/>
                         <outlet property="commentsTable" destination="13O-uB-Khu" id="6Q9-aj-nFq"/>
                         <outlet property="contentTextView" destination="dch-oO-agz" id="Euf-2i-cs0"/>
+                        <outlet property="deleteButton" destination="Dfb-lO-X4n" id="O01-7R-qXN"/>
                         <outlet property="dislikeButton" destination="A5q-d6-jy9" id="ZIK-T0-n9L"/>
                         <outlet property="likeButton" destination="Snu-Ka-01N" id="RmQ-kv-5zi"/>
                     </connections>
@@ -2732,7 +2732,6 @@
         <image name="DrinkingFountainIcon" width="808.6099853515625" height="808.6099853515625"/>
         <image name="TapTitleLogo" width="1024" height="1024"/>
         <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
-        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="104"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="crown" catalog="system" width="32" height="32"/>
         <image name="drop.fill" catalog="system" width="32" height="32"/>
@@ -2749,6 +2748,7 @@
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.and.pencil" catalog="system" width="32" height="32"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <image name="waterbottle" catalog="system" width="79" height="128"/>
         <namedColor name="PrimaryBlue">
             <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

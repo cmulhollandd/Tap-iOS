@@ -13,9 +13,9 @@ class PostDetailViewController: UIViewController {
     @IBOutlet var commentsTable: UITableView!
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var dislikeButton: UIButton!
-    @IBOutlet var commentButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
     var barButtonItem: UIBarButtonItem!
-    
+
     var post: TapFeedPost!
     var user: TapUser!
     
@@ -25,6 +25,16 @@ class PostDetailViewController: UIViewController {
         guard let post = post else {
             self.navigationController?.popViewController(animated: true)
             return
+        }
+        
+        guard let user = (UIApplication.shared.delegate as! AppDelegate).user else {
+            return
+        }
+        
+        if post.postingUserUsername == user.username {
+            deleteButton.isEnabled = true
+        } else {
+            deleteButton.isEnabled = false
         }
         
         barButtonItem = UIBarButtonItem(title: "View Profile", style: .plain, target: self, action: #selector(presentUserVC))
@@ -62,30 +72,54 @@ class PostDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func commentButtonPressed(_ sender: UIButton) {
-        let commentController = UIAlertController(title: "New Comment", message: nil, preferredStyle: .alert)
-        commentController.addTextField { textField in
-            textField.placeholder = "What Would You Like To Say?"
-        }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        let submit = UIAlertAction(title: "Done", style: .default) {
-            action -> Void in
-            
-            guard let textField = commentController.textFields?[0] else {
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+//        let commentController = UIAlertController(title: "New Comment", message: nil, preferredStyle: .alert)
+//        commentController.addTextField { textField in
+//            textField.placeholder = "What Would You Like To Say?"
+//        }
+//        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+//        let submit = UIAlertAction(title: "Done", style: .default) {
+//            action -> Void in
+//            
+//            guard let textField = commentController.textFields?[0] else {
+//                return
+//            }
+//            let text = textField.text!
+//            if (text.isEmpty) {
+//                return
+//            }
+//            let user = (UIApplication.shared.delegate as! AppDelegate).user!
+//            let newComment = TapFeedPost.TapComment(author: user.username, content: text)
+//            self.post.comments.append(newComment)
+//            self.commentsTable.reloadData()
+//        }
+//        commentController.addAction(submit)
+//        commentController.addAction(cancel)
+//        self.present(commentController, animated: true)
+        let alert = UIAlertController(title: "Delete Post?", message: "This action cannot be undone", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            guard 
+                let post = self.post,
+                let user = (UIApplication.shared.delegate as! AppDelegate).user
+            else {
                 return
             }
-            let text = textField.text!
-            if (text.isEmpty) {
-                return
+            SocialAPI.deletePost(post, requester: user.username) { resp in
+                if let _ = resp["error"] as? Bool {
+                    // error occured
+                    print(resp["message"])
+                    return
+                }
+                // Worked
+                if let nav = self.navigationController {
+                    nav.popViewController(animated: true)
+                } else {
+                    self.dismiss(animated: true)
+                }
             }
-            let user = (UIApplication.shared.delegate as! AppDelegate).user!
-            let newComment = TapFeedPost.TapComment(author: user.username, content: text)
-            self.post.comments.append(newComment)
-            self.commentsTable.reloadData()
-        }
-        commentController.addAction(submit)
-        commentController.addAction(cancel)
-        self.present(commentController, animated: true)
+        }))
+        present(alert, animated: true)
     }
 }
 
