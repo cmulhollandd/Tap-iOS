@@ -87,7 +87,7 @@ class FeedPostStore: NSObject {
         return posts[indexPath.row].postingUserUsername
     }
     
-    /// Gets the username at indexPath
+    /// Gets the post at indexPath
     /// - Parameter indexPath: indexPath into the array posts
     /// - Returns: post at index path
     func getPost(for indexPath: IndexPath) -> TapFeedPost {

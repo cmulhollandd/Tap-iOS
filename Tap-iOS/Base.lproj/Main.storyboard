@@ -481,10 +481,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTJ-Q9-T7l">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="59"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eN2-mU-gGr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="DTJ-Q9-T7l" firstAttribute="bottom" secondItem="eN2-mU-gGr" secondAttribute="top" id="06A-AQ-dhT"/>
                             <constraint firstItem="AWM-qq-naY" firstAttribute="leading" secondItem="eN2-mU-gGr" secondAttribute="leading" constant="16" id="CpX-YV-Nh4"/>
                             <constraint firstItem="lzg-XD-CuS" firstAttribute="leading" secondItem="eN2-mU-gGr" secondAttribute="leading" constant="24" id="CqP-WJ-axt"/>
                             <constraint firstItem="eN2-mU-gGr" firstAttribute="trailing" secondItem="lzg-XD-CuS" secondAttribute="trailing" constant="24" id="DFp-Ua-Tv6"/>
@@ -492,11 +497,14 @@
                             <constraint firstItem="eN2-mU-gGr" firstAttribute="bottom" secondItem="McL-mu-T5F" secondAttribute="bottom" id="KyR-ln-OL7"/>
                             <constraint firstItem="AWM-qq-naY" firstAttribute="top" secondItem="eN2-mU-gGr" secondAttribute="top" constant="16" id="Mnd-Vv-uG2"/>
                             <constraint firstItem="Ytx-S2-W1F" firstAttribute="leading" secondItem="eN2-mU-gGr" secondAttribute="leading" constant="16" id="NIu-7V-f5G"/>
+                            <constraint firstAttribute="trailing" secondItem="DTJ-Q9-T7l" secondAttribute="trailing" id="SJ7-sT-EWU"/>
                             <constraint firstItem="Ytx-S2-W1F" firstAttribute="top" secondItem="AWM-qq-naY" secondAttribute="bottom" constant="18" id="bRQ-7u-Fb4"/>
                             <constraint firstItem="lzg-XD-CuS" firstAttribute="top" secondItem="Ytx-S2-W1F" secondAttribute="bottom" constant="12" id="fTQ-Zp-5sW"/>
+                            <constraint firstItem="DTJ-Q9-T7l" firstAttribute="top" secondItem="SV0-d5-xNJ" secondAttribute="top" id="fi9-Fu-RMu"/>
                             <constraint firstItem="eN2-mU-gGr" firstAttribute="trailing" secondItem="igI-aO-RQl" secondAttribute="trailing" constant="24" id="g2I-I5-6fF"/>
                             <constraint firstItem="McL-mu-T5F" firstAttribute="trailing" secondItem="eN2-mU-gGr" secondAttribute="trailing" id="muP-2i-zIn"/>
                             <constraint firstItem="AWM-qq-naY" firstAttribute="centerY" secondItem="igI-aO-RQl" secondAttribute="centerY" id="paM-9g-KnB"/>
+                            <constraint firstItem="DTJ-Q9-T7l" firstAttribute="leading" secondItem="SV0-d5-xNJ" secondAttribute="leading" id="qS2-uu-bSx"/>
                             <constraint firstItem="igI-aO-RQl" firstAttribute="leading" secondItem="AWM-qq-naY" secondAttribute="trailing" constant="24" id="rgw-Qk-mHi"/>
                             <constraint firstItem="McL-mu-T5F" firstAttribute="leading" secondItem="eN2-mU-gGr" secondAttribute="leading" id="zlK-yn-suy"/>
                         </constraints>
@@ -513,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eai-2O-PFp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4522.900763358778" y="81.690140845070431"/>
+            <point key="canvasLocation" x="4521.3740458015263" y="81.690140845070431"/>
         </scene>
         <!--User Fountains View Controller-->
         <scene sceneID="6Yg-AJ-d7s">
@@ -651,14 +659,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleLabelCell" id="nVE-Wq-gFX" customClass="SingleLabelCell" customModule="Tap_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nVE-Wq-gFX" id="e4O-MK-Gih">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkD-zn-bde">
-                                                    <rect key="frame" x="24" y="15.000000000000002" width="42" height="21.666666666666671"/>
+                                                    <rect key="frame" x="24" y="15" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2740,7 +2748,7 @@
         <image name="photo.badge.plus" catalog="system" width="128" height="97"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="121"/>
+        <image name="square.and.pencil" catalog="system" width="32" height="32"/>
         <image name="waterbottle" catalog="system" width="79" height="128"/>
         <namedColor name="PrimaryBlue">
             <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

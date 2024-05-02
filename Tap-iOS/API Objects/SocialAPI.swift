@@ -77,7 +77,7 @@ class SocialAPI: NSObject {
         
         let request: URLRequest = {
             var req = URLRequest(url: components.url!)
-            req.httpMethod = "POST"
+            req.httpMethod = "DELETE"
             req.httpBody = data
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
             req.setValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")

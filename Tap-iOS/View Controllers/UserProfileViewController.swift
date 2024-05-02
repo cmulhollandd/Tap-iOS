@@ -52,6 +52,12 @@ class UserProfileViewController: UIViewController {
         self.postsTable.delegate = self
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        loadUserDetails()
+    }
 
     @IBAction func userActionButtonPressed(_ sender: UIButton) {
         switch userAction {
@@ -70,6 +76,7 @@ class UserProfileViewController: UIViewController {
         default:
             print("Nothing to do")
         }
+        loadFollowersAndFollowing()
     }
     
     @IBAction func userFountainsButtonPressed(_ sender: UIButton) {
@@ -108,7 +115,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    /// Reloads teh posts in the postsTable
+    /// Reloads the posts in the postsTable
     func reloadPosts() {
         // Call to API to download posts
         guard let user = user else {
@@ -120,6 +127,7 @@ class UserProfileViewController: UIViewController {
                 print(resp[0]["message"] as! String)
                 return
             }
+            self.posts = []
             for postDict in resp {
                 guard
                     let postId = postDict["postId"] as? Int,
@@ -253,6 +261,10 @@ class UserProfileViewController: UIViewController {
             if let _ = resp["error"] as? Bool {
                 return
             }
+            guard let followers = resp["followers"] as? [String] else {
+                return
+            }
+            self.user?.followers = followers
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
             vc.navigationItem.title = "Followers"
             vc.items = user.followers
@@ -274,6 +286,10 @@ class UserProfileViewController: UIViewController {
                 return
             }
             
+            guard let following = resp["following"] as? [String] else {
+                return
+            }
+            self.user?.following = following
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
             vc.navigationItem.title = "Following"
             vc.isShowingUsers = true
