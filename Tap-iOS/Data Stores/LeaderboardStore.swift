@@ -10,7 +10,7 @@ import UIKit
 
 class LeaderboardStore: NSObject {
     
-    var entries: [LeaderboardEntry]!
+    var entries = [LeaderboardEntry]()
     
     private var nf: NumberFormatter = {
         let nf = NumberFormatter()
@@ -18,22 +18,36 @@ class LeaderboardStore: NSObject {
         return nf
     }()
     
-    override init() {
-        super.init()
-        
-        let entry1 = LeaderboardEntry(entrantPlace: 1, entrantUsername: "charlie", entrantProfileImage: nil, entrantPoints: 1000)
-        
-        let entry2 = LeaderboardEntry(entrantPlace: 2, entrantUsername: "kcarson45", entrantProfileImage: nil, entrantPoints: 750)
-        
-        let entry3 = LeaderboardEntry(entrantPlace: 3, entrantUsername: "dorgil21", entrantProfileImage: nil, entrantPoints: 500)
-        
-        let entry4 = LeaderboardEntry(entrantPlace: 4, entrantUsername: "jbeuerlein38", entrantProfileImage: nil, entrantPoints: 250)
-        
-        self.entries = [entry1, entry2, entry3, entry4]
-    }
-    
     func getUsername(for indexPath: IndexPath) -> String {
         return entries[indexPath.row].entrantUsername
+    }
+    
+    func reloadLeaderboard(completion: @escaping(Bool, String?) -> Void) {
+        self.entries = []
+        SocialAPI.getLeaderboard { resp in
+            if resp.count != 0, let _ = resp[0]["error"] as? Bool {
+                // error occured
+                completion(true, resp[0]["message"] as? String)
+                return
+            }
+            
+            for entryDict in resp {
+                guard
+                    let username = entryDict["username"] as? String,
+                    let points = entryDict["points"] as? Double,
+                    let ozOfWater = entryDict["ozOfWater"] as? Double
+                else {
+                    continue
+                }
+                
+                let entry = LeaderboardEntry(entrantPlace: -1, entrantUsername: username, entrantProfileImage: nil, entrantPoints: Int(points))
+                self.entries.append(entry)
+            }
+            self.entries.sort { lhs, rhs in
+                return lhs.entrantPoints > rhs.entrantPoints
+            }
+            completion(false, nil)
+        }
     }
 }
     
@@ -48,13 +62,13 @@ extension LeaderboardStore: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath) as! LeaderboardTableViewCell
         cell.usernameLabel.text = entry.entrantUsername
-        cell.placeLabel.text = String (entry.entrantPlace)
-        cell.pointsLabel.text = String (entry.entrantPoints)
+        cell.placeLabel.text = "\(indexPath.row+1)"
+        cell.pointsLabel.text = "\(entry.entrantPoints)"
         guard let image = entry.entrantProfileImage else {
             return cell
         }
         cell.profileImageView.image = image
         return cell
-        }
+    }
     
 }

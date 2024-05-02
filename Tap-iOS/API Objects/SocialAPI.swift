@@ -263,14 +263,6 @@ class SocialAPI: NSObject {
         
     }
     
-    /// Get posts made by a user
-    /// - Parameters:
-    ///   - user: user authoring the posts
-    ///   - completion: completion handler
-    public static func getUserPosts(by user: TapUser, completion: @escaping([String: Any]) -> Void) {
-        
-    }
-    
     /// Send a new post to the feed
     /// - Parameters:
     ///   - post: new post
@@ -434,5 +426,56 @@ class SocialAPI: NSObject {
         }
         task.resume()
         
+    }
+    
+    public static func getLeaderboard(completion: @escaping([[String: Any]]) -> Void) {
+        let components = URLComponents(string: "\(baseAPIURL)/user/view-leaderboard")!
+        
+        let request: URLRequest = {
+            var req = URLRequest(url: components.url!)
+            req.httpMethod = "GET"
+            req.addValue("application/json", forHTTPHeaderField: "content-type")
+            req.addValue("Bearer \(APIHelpers.authToken)", forHTTPHeaderField: "Authorization")
+            return req
+        }()
+        
+        let task = APIHelpers.session.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                APIHelpers.completeWithError(error.localizedDescription, completion: completion)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    APIHelpers.completeWithError(response.description, completion: completion)
+                    return
+                }
+                
+            }
+            
+            guard let data = data else {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+            
+            do {
+                if let resp = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
+                    APIHelpers.complete(resp, completion: completion)
+                } else {
+                    print("No response data downloaded")
+                    APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                    return
+                }
+            } catch {
+                print("No response data downloaded")
+                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
+                return
+            }
+        }
+        task.resume()
     }
 }

@@ -34,14 +34,33 @@ class LeaderboardViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.tableView.reloadData()
+        dataSource.reloadLeaderboard { error, message in
+            if (error) {
+                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { alert in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                self.present(alert, animated: true)
+            }
+            self.tableView.reloadData()
+        }
     }
     
     /// Refreshes the posts in the table view
     @objc func refreshData() {
-        self.tableView.reloadData()
         
-        self.refreshControl.endRefreshing()
+        dataSource.reloadLeaderboard { error, message in
+            if (error) {
+                // Alert User of error
+                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
+                self.refreshControl.endRefreshing()
+                return
+            }
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
