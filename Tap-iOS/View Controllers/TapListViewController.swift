@@ -8,14 +8,16 @@
 import Foundation
 import UIKit
 
-class TapListViewController: UIViewController, UITableViewDataSource {
+class TapListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     var items = [String]()
+    var isShowingUsers = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,5 +41,29 @@ class TapListViewController: UIViewController, UITableViewDataSource {
             return "Thats weird, nothing here"
         }
         return ""
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let nav = self.navigationController {
+            return nil
+        }
+        return "Users"
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (!isShowingUsers) {
+            return
+        }
+        let cell = tableView.cellForRow(at: indexPath) as! SingleLabelCell
+        let username = cell.label.text!
+        
+        let user = TapUser(first: "", last: "", username: username, email: "", loginToken: nil, profilePhoto: nil)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        vc.user = user
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        } else {
+            self.present(vc, animated: true)
+        }
     }
 }

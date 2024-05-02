@@ -102,7 +102,7 @@ class UserProfileViewController: UIViewController {
             self.user = _user
             self.navigationItem.title = _user.username
             
-            self.nameLabel.text = "\(user.firstName) \(user.lastName)"
+            self.nameLabel.text = "\(_user.firstName) \(_user.lastName)"
             self.loadFollowersAndFollowing()
             self.reloadPosts()
         }
@@ -150,7 +150,6 @@ class UserProfileViewController: UIViewController {
                     self.posts.append(post)
                 }
             }
-//            self.postsButton.titleLabel?.text = "\(self.posts.count)"
             self.postsButton.setTitle("\(self.posts.count)", for: .normal)
             self.posts.sort { lhs, rhs in
                 return lhs.postDate.timeIntervalSince(rhs.postDate) > 0
@@ -257,6 +256,7 @@ class UserProfileViewController: UIViewController {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
             vc.navigationItem.title = "Followers"
             vc.items = user.followers
+            vc.isShowingUsers = true
             if let nav = self.navigationController {
                 nav.pushViewController(vc, animated: true)
             } else {
@@ -276,6 +276,7 @@ class UserProfileViewController: UIViewController {
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TapListViewController") as! TapListViewController
             vc.navigationItem.title = "Following"
+            vc.isShowingUsers = true
             vc.items = user.following
             if let nav = self.navigationController {
                 nav.pushViewController(vc, animated: true)

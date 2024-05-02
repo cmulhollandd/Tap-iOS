@@ -56,12 +56,6 @@ class FeedViewController: UIViewController {
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let spinner = SpinnerViewController()
-//        self.addChild(spinner)
-//        spinner.view.frame = self.view.frame
-//        view.addSubview(spinner.view)
-//        spinner.didMove(toParent: self)
-        
         let post = dataSource.getPost(for: indexPath)
         let username = post.postingUserUsername
         
@@ -70,10 +64,6 @@ extension FeedViewController: UITableViewDelegate {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostDetailViewController") as! PostDetailViewController
         vc.user = user
         vc.post = post
-        
-//        spinner.willMove(toParent: nil)
-//        spinner.view.removeFromSuperview()
-//        spinner.removeFromParent()
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
