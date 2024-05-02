@@ -1361,11 +1361,6 @@
                                     <action selector="submitButton:" destination="wRc-DO-0Pd" eventType="touchUpInside" id="9Dp-4f-oIf"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tll-48-dmv">
-                                <rect key="frame" x="108" y="200" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemBackgroundColor"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much water did you drink?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="scU-Al-bQd">
                                 <rect key="frame" x="40" y="163" width="313" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1373,33 +1368,6 @@
                                 <color key="textColor" name="PrimaryBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yc-ZT-0Qs">
-                                <rect key="frame" x="72" y="198" width="34" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="PrimaryBlue"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgD-Yg-SNo">
-                                <rect key="frame" x="106" y="198" width="34" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="PrimaryBlue"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="plusButton:" destination="wRc-DO-0Pd" eventType="touchUpInside" id="oHE-XA-syX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfM-Yq-hLe">
-                                <rect key="frame" x="38" y="198" width="34" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="PrimaryBlue"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="minusButton:" destination="wRc-DO-0Pd" eventType="touchUpInside" id="fgu-Vn-fSo"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much water did you drink?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tZz-Xb-tUJ">
                                 <rect key="frame" x="40" y="163" width="313" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1421,13 +1389,54 @@
                                 <color key="textColor" name="PrimaryBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tll-48-dmv">
+                                <rect key="frame" x="109" y="200" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yc-ZT-0Qs">
+                                <rect key="frame" x="69" y="198" width="38" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgD-Yg-SNo">
+                                <rect key="frame" x="107" y="198" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="plusButton:" destination="wRc-DO-0Pd" eventType="touchUpInside" id="oHE-XA-syX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfM-Yq-hLe">
+                                <rect key="frame" x="35" y="198" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="minusButton:" destination="wRc-DO-0Pd" eventType="touchUpInside" id="fgu-Vn-fSo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bBm-O7-NFm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Log a Drink" id="ENB-gN-ipd"/>
+                    <navigationItem key="navigationItem" title="Log a Drink" id="ENB-gN-ipd">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="fs3-JL-ZrG">
+                            <imageReference key="image" image="waterbottle" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            <connections>
+                                <action selector="editBarButtonTapped:" destination="wRc-DO-0Pd" id="3HE-qt-nxC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="animationView" destination="BOl-az-cci" id="6AH-Kd-RId"/>
+                        <outlet property="editBottleButton" destination="fs3-JL-ZrG" id="YkV-Vw-cqb"/>
                         <outlet property="headerText" destination="scU-Al-bQd" id="pJh-IY-eeX"/>
                         <outlet property="ozField" destination="8Yc-ZT-0Qs" id="INJ-aJ-Rc6"/>
                         <outlet property="totalLabel" destination="Msb-8W-REF" id="Mv5-U1-IQC"/>
@@ -2731,7 +2740,8 @@
         <image name="photo.badge.plus" catalog="system" width="128" height="97"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="square.and.pencil" catalog="system" width="32" height="32"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="121"/>
+        <image name="waterbottle" catalog="system" width="79" height="128"/>
         <namedColor name="PrimaryBlue">
             <color red="0.40000000000000002" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
