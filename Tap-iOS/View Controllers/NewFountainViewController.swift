@@ -59,6 +59,10 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     
     // MARK: - @IBActions
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        resetInputViews()
+    }
+    
+    private func resetInputViews() {
         if let annotation = fountainPin {
             mapView.removeAnnotation(annotation)
         }
@@ -100,8 +104,14 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
                 self.present(alert, animated: true)
             } else {
                 let alert = UIAlertController(title: "Fountain Added", message: nil, preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default)
+                let ok = UIAlertAction(title: "Done", style: .default) { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                let another = UIAlertAction(title: "Add Another", style: .default) { _ in
+                    self.resetInputViews()
+                }
                 alert.addAction(ok)
+                alert.addAction(another)
                 self.present(alert, animated: true)
             }
         }
