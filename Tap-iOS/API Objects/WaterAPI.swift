@@ -30,12 +30,14 @@ struct WaterAPI {
     public static func submitWater(_ ozOfWater: Water, by author: TapUser, completion: @escaping([String:Any]) -> Void) {
         
         let components = URLComponents(string: "\(baseAPIURL)/submit-water")!
-        let payload = AddWaterPayload(author: author.username, ozOfWater: ozOfWater.getOzOfWater())
+//        let payload = AddWaterPayload(author: author.username, ozOfWater: ozOfWater.getOzOfWater())
+        let payload: [String : Any] = ["username": author.username, "ozOfWater": ozOfWater.getOzOfWater()]
         
         var data: Data
         
         do {
-            data = try APIHelpers.encoder.encode(payload)
+//            data = try APIHelpers.encoder.encode(payload)
+            data = try JSONSerialization.data(withJSONObject: payload)
         } catch {
             print("Failed to encode water data")
             return
@@ -64,16 +66,7 @@ struct WaterAPI {
                     APIHelpers.completeWithError(response.description, completion: completion)
                 }
             }
-            
-            
-            guard let resp = APIHelpers.convertDataToJSON(from: data) else {
-                print("error: NO response data downloaded")
-                APIHelpers.completeWithError("Error: no response data downloaded", completion: completion)
-                return
-            }
-            
-            print(#file, #line, resp)
-            APIHelpers.complete(resp, completion: completion)
+            APIHelpers.complete([:], completion: completion)
         }
         task.resume()
     }

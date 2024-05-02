@@ -129,13 +129,13 @@ class WaterLoggingViewController: UIViewController {
                         self.present(alert, animated: true)
                     } else {
                         let alert = UIAlertController(title: "Water Added", message: nil, preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "OK", style: .default)
+                        let ok = UIAlertAction(title: "OK", style: .default) {_ in
+                            self.navigationController?.popViewController(animated: true)
+                        }
                         alert.addAction(ok)
                         self.present(alert, animated: true)
                     }
                 }
-                // Dismiss the view controller
-                navigationController?.popViewController(animated: true)
                 } else {
                     print("User not available")
                     // Handle the case where user is nil
@@ -146,9 +146,11 @@ class WaterLoggingViewController: UIViewController {
         }
     func postNewWater(water: Water, user: TapUser, completion: @escaping(Bool, String?) -> Void)  {
         WaterAPI.submitWater(water, by: user) { (resp) in
-            if let _ = resp["error"] {
+            if let _ = resp["error"] as? Bool {
                 completion(true, resp["message"] as? String)
+                return
             }
+            completion(false, nil)
         }
     }
 }
