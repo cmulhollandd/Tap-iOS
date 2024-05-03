@@ -67,7 +67,18 @@ class LoginViewController: UIViewController {
     ///      - username: String username
     ///      - password: String password
     private func loginUser(username: String, password: String) {
+        let spinner = SpinnerViewController()
+        self.addChild(spinner)
+        spinner.view.frame = self.view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
+        
         AccountsAPI.loginUser(username: username, password: password) { response in
+            
+            spinner.willMove(toParent: nil)
+            spinner.view.removeFromSuperview()
+            spinner.removeFromParent()
+            
             if (response["error"] != nil) {
                 // Could not login, alert user
                 let alert = UIAlertController(title: "Login Failed", message: response["message"] as? String, preferredStyle: .alert)
@@ -147,6 +158,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    /// Removes the saved login info from the keychain
     func removeLoginInfo() {
         let myValet = Valet.valet(with: Identifier(nonEmpty: "Tap-iOS")!, accessibility: .whenUnlocked)
         

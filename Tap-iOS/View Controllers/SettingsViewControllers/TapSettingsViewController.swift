@@ -31,6 +31,11 @@ class TapSettingsViewController: UITableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: row.VCID!)
         vc.navigationItem.title = row.title
         self.tableView.deselectRow(at: indexPath, animated: true)
-        self.navigationController?.pushViewController(vc, animated: true)
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        } else {
+            self.present(vc, animated: true)
+        }
+        
     }
 }

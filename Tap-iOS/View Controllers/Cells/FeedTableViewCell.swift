@@ -15,4 +15,6 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var timeSincePostLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
     
+    var presentingVC: UIViewController!
+    var post: TapFeedPost!
 }

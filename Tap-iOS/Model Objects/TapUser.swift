@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CoreGraphics
+import UIKit
 
 enum TapUserError: Error {
     case JSONError(String)
@@ -19,7 +19,9 @@ class TapUser {
     var username: String
     var email: String
     var authToken: String?
-    var profilePhoto: CGImage?
+    var profilePhoto: UIImage?
+    var followers: [String]
+    var following: [String]
     
     
     init() {
@@ -28,15 +30,19 @@ class TapUser {
         self.username = ""
         self.email = ""
         self.authToken = ""
+        self.followers = [String]()
+        self.following = [String]()
     }
     
-    init(first: String, last: String, username: String, email: String, loginToken: String?, profilePhoto: CGImage?) {
+    init(first: String, last: String, username: String, email: String, loginToken: String?, profilePhoto: UIImage?) {
         self.firstName = first
         self.lastName = last
-        self.username = username
+        self.username = username.lowercased()
         self.email = email
         self.authToken = loginToken
         self.profilePhoto = profilePhoto
+        self.followers = [String]()
+        self.following = [String]()
     }
     
     
@@ -48,7 +54,7 @@ class TapUser {
         }
         self.init(first: userDict["firstName"] as? String ?? "",
                   last: userDict["lastName"] as? String ?? "",
-                  username: userDict["username"] as? String ?? "",
+                  username: (userDict["username"] as? String)?.lowercased() ?? "",
                   email: userDict["email"] as? String ?? "",
                   loginToken: dict["jwt"] as? String,
                   profilePhoto: nil)

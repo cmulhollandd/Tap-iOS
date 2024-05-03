@@ -54,6 +54,8 @@ class ChangeUsernameViewController: UIViewController {
         }
     }
     
+    /// Updates the saved username after a change
+    /// - Parameter newUsername: new username string 
     private func updateUserDetails(for newUsername: String) {
         guard UserDefaults.standard.bool(forKey: "TapKeepUserLoggedIn") else {
             return

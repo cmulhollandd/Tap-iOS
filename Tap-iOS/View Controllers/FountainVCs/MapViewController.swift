@@ -15,12 +15,20 @@ import FloatingPanel
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var toastView: UIVisualEffectView!
+    @IBOutlet var toastLabel: UILabel!
     
     var panelController: FloatingPanelController!
     var supportingVC: FountainDetailViewController!
     
+    // These track the overall area we have already fetched fountains for
+    var minLat: Double = 1000.0
+    var maxLat: Double = -1000.0
+    var minLon: Double = 1000.0
+    var maxLon: Double = -1000.0
+    
     private var locationManager: CLLocationManager!
-    var fountainStore: FountainStore = FountainStore()
+    var fountainStore: FountainStore = (UIApplication.shared.delegate as! AppDelegate).fountainStore
     private var focusedFountain: Fountain? = nil
     private var myAnnotations =  [MKPointAnnotation]()
     private let nf: NumberFormatter = {
@@ -32,6 +40,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup toast View
+        self.toastView.layer.cornerRadius = 15.0
+        self.toastView.clipsToBounds = true
+        self.toastView.layer.opacity = 0
+        
         panelController = FloatingPanelController()
         panelController.layout = PanelLayout()
         let appearance = SurfaceAppearance()
@@ -40,6 +53,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         panelController.surfaceView.appearance = appearance
         supportingVC = storyboard?.instantiateViewController(withIdentifier: "FountainDetailViewController") as? FountainDetailViewController
         supportingVC.referringVC = self
+        supportingVC.fountainStore = self.fountainStore
         panelController.set(contentViewController: supportingVC)
         panelController.addPanel(toParent: self)
         panelController.move(to: .tip, animated: false)
@@ -47,6 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+        mapView.tintColor = UIColor(named: "PrimaryBlue")
         
         fountainStore.delegate = self
         
@@ -61,9 +76,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fountainStore.updateFountains(around: mapView.region)
+        fountainStore.updateFountains(around: mapView.region) {
+            (error: Bool, message: String?) -> Void in
+            
+            if (error) {
+                self.presentToast(saying: message!)
+            }
+        }
+        fountainStore.filterFountains(by: .all)
     }
     
+    /// Finds the distance between the selected fountain and user if available
+    /// Rounds this distance to reasonable units and sets the value to the label distanceLabel
     func setFountainDistance() {
         guard let fountain = self.focusedFountain else {
             self.supportingVC.distanceLabel.text = ""
@@ -80,6 +104,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 nf.maximumFractionDigits = 0
                 self.supportingVC.distanceLabel.text = "\(nf.string(from: dist as NSNumber)!) feet away"
             }
+        }
+    }
+    
+    /// Presents a toast message to the user displaying the string phrase
+    /// - Parameter phrase: string to be put on the toast
+    func presentToast(saying phrase: String) {
+        self.toastLabel.text = phrase
+        
+        UIView.animate(withDuration: 0.2) {
+            self.toastView.layer.opacity = 100.0
+        } completion: { done in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: DispatchWorkItem(block: {
+                UIView.animate(withDuration: 0.2) {
+                    self.toastView.layer.opacity = 0.0
+                }
+            }))
         }
     }
     
@@ -105,9 +145,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return marker
     }
     
+    func mapView(_ mapView: MKMapView, clusterAnnotationForMemberAnnotations memberAnnotations: [any MKAnnotation]) -> MKClusterAnnotation {
+        let cluster = MKClusterAnnotation(memberAnnotations: memberAnnotations)
+        return cluster
+    }
+    
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        // Tell fountainStore to update
-        fountainStore.updateFountains(around: mapView.region)
+        
+        let region = mapView.region
+        
+        let currentMinLon = region.center.longitude - (region.span.longitudeDelta / 2.0)
+        let currentMinLat = region.center.latitude + (region.span.latitudeDelta / 2.0)
+        let currentMaxLon = region.center.longitude - (region.span.longitudeDelta / 2.0)
+        let currentMaxLat = region.center.latitude + (region.span.latitudeDelta / 2.0)
+        
+        if (currentMinLon < minLon || currentMinLat < minLat || currentMaxLon > maxLon || currentMaxLat > maxLat) {
+            // new data needed
+            fountainStore.updateFountains(around: mapView.region) {
+                (error: Bool, message: String?) -> Void in
+                
+                if (error) {
+                    self.presentToast(saying: message!)
+                }
+            }
+        }
+        
+        minLon = min(minLon, currentMinLon)
+        minLat = min(minLat, currentMinLat)
+        maxLon = max(maxLon, currentMaxLon)
+        maxLat = max(maxLat, currentMaxLat)
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -138,6 +204,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.setFountainDistance()
         self.panelController.move(to: .tip, animated: true)
     }
+    
 }
 
 extension MapViewController: FountainStoreDelegate {
@@ -151,7 +218,6 @@ extension MapViewController: FountainStoreDelegate {
             }
             return
         }
-        
         
         var newAnnotations = [MKPointAnnotation]()
         var updatedAnnotations = myAnnotations
@@ -205,8 +271,8 @@ private class PanelLayout: FloatingPanelLayout {
     let position: FloatingPanelPosition = .bottom
     let initialState: FloatingPanelState = .tip
     let anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] = [
-        .full: FloatingPanelLayoutAnchor(absoluteInset: 100.0, edge: .top, referenceGuide: .safeArea),
-        .half: FloatingPanelLayoutAnchor(absoluteInset: 260.0, edge: .bottom, referenceGuide: .safeArea),
+        .full: FloatingPanelLayoutAnchor(absoluteInset: 70.0, edge: .top, referenceGuide: .safeArea),
+        .half: FloatingPanelLayoutAnchor(absoluteInset: 200.0, edge: .bottom, referenceGuide: .safeArea),
         .tip: FloatingPanelLayoutAnchor(absoluteInset: 44.0, edge: .bottom, referenceGuide: .safeArea),
     ]
 }

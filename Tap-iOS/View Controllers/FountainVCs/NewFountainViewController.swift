@@ -31,10 +31,15 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     private var fountainPin: MKAnnotation?
     private var mapIsFullScreen = false
     private var locationManager: CLLocationManager!
+    private var store: FountainStore!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let delegate = (UIApplication.shared.delegate as! AppDelegate)
+        
+        self.store = delegate.fountainStore
         
         mapView.delegate = self
         mapView.layer.cornerRadius = 10.0
@@ -54,6 +59,10 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     
     // MARK: - @IBActions
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        resetInputViews()
+    }
+    
+    private func resetInputViews() {
         if let annotation = fountainPin {
             mapView.removeAnnotation(annotation)
         }
@@ -82,21 +91,30 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         let pressure = Double(pressureSlider.value.rounded())
         let taste = Double(tasteSlider.value.rounded())
         let type = Fountain.FountainType(rawValue: typePicker.selectedSegmentIndex)!
-        
-        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let user = delegate.user!
         
         let fountain = Fountain(id: -1, author: user, location: location, coolness: temp, pressure: pressure, taste: taste, type: type)
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        FountainAPI.addFountain(fountain, by: delegate.user) { dict in
-            if (dict["error"] as? Bool != false) {
-                let alert = UIAlertController(title: "Fountain Added", message: nil, preferredStyle: .alert)
+        
+        store.postNewFountain(fountain: fountain) { (error, description) -> Void in
+            if error {
+                let alert = UIAlertController(title: "Error", message: description!, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(ok)
                 self.present(alert, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Fountain Added", message: nil, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Done", style: .default) { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                let another = UIAlertAction(title: "Add Another", style: .default) { _ in
+                    self.resetInputViews()
+                }
+                alert.addAction(ok)
+                alert.addAction(another)
+                self.present(alert, animated: true)
             }
         }
-                
-        print("New Fountain: \(fountain)")
     }
     
     @IBAction func longPressRecognized(_ sender: UILongPressGestureRecognizer) {
@@ -139,6 +157,7 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
     
     
     // MARK: - Instance Methods
+    /// Attempts to setup the location services for Tap
     private func setupLocationServices() {
         switch locationManager.authorizationStatus {
         case .denied:
@@ -162,11 +181,9 @@ class NewFountainViewController: UIViewController, CLLocationManagerDelegate, MK
         
         let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
         if (annotation.title == "New Fountain") {
-            marker.markerTintColor = UIColor.red
             marker.glyphImage = UIImage(systemName: "waterbottle")
-        } else {
-            marker.markerTintColor = UIColor(named: "PrimaryBlue")
         }
+        marker.markerTintColor = UIColor(named: "PrimaryBlue")
         return marker
     }
     

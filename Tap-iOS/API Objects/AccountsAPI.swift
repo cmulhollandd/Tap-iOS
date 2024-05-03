@@ -17,6 +17,7 @@ class AccountsAPI: NSObject {
     
     private static let baseAPIURL = "https://rhodestap.com"
     
+    /// Data request object for the method loginUser(...)
     private class LoginData: Codable {
         let username: String
         let password: String
@@ -27,6 +28,7 @@ class AccountsAPI: NSObject {
         }
     }
     
+    /// Data request object for the method signupUser(...)
     private class SignUpData: Codable {
         let firstName: String
         let lastName: String
@@ -265,6 +267,11 @@ class AccountsAPI: NSObject {
         dataTask.resume()
     }
     
+    /// Calls the backend to change the email of user to newEmail
+    /// - Parameters:
+    ///   - user: TapUser whose email is being changed
+    ///   - newEmail: New email string for user
+    ///   - completion: completion handler
     static func changeEmail(for user: TapUser, to newEmail: String, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/change-email")!
         let payload: [String: String] = ["username": user.username, "newEmail": newEmail]
@@ -310,6 +317,11 @@ class AccountsAPI: NSObject {
         dataTask.resume()
     }
     
+    // Calls the backend to change the password of user to newEmail
+    /// - Parameters:
+    ///   - user: TapUser whose email is being changed
+    ///   - newPassword: New password string for user
+    ///   - completion: completion handler
     static func changePassword(for user: TapUser, to newPassword: String, completion: @escaping([String: Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/change-email")!
         let payload: [String: String] = ["username": user.username, "newPassword": newPassword]
@@ -355,6 +367,10 @@ class AccountsAPI: NSObject {
         dataTask.resume()
     }
     
+    /// Calls the backend to delete the specified TapUser user
+    /// - Parameters:
+    ///   - user: TapUser to be deleted
+    ///   - completion: completion handler
     static func deleteAccount(for user: TapUser, completion: @escaping([String:Any]) -> Void) {
         let components = URLComponents(string: "\(baseAPIURL)/user/delete-account")!
         let payload: [String: String] = ["username": user.username]

@@ -11,10 +11,9 @@ import UIKit
 class NewPostViewController: UIViewController {
     
     @IBOutlet var textView: UITextView!
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var imageViewHelper: UILabel!
     
     private var image: UIImage?
+    var feedStore: FeedPostStore!
     
     private let textPrompts = [
         "Share your most embarrassing moment... if you dare!",
@@ -82,20 +81,15 @@ class NewPostViewController: UIViewController {
         textView.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if let image = image {
-            self.imageView.image = image
-            self.imageViewHelper.text = "Tap image to remove"
-        } else {
-            self.imageView.image = UIImage(systemName: "photo.badge.plus")
-            self.imageViewHelper.text = "Tap photo icon to add an image"
-        }
-    }
-    
     @IBAction func postButtonPressed(_ sender: UIButton) {
-        // send API request
+     
+        let user = (UIApplication.shared.delegate as! AppDelegate).user!
+        
+        let text = textView.text!
+        
+        let newPost = TapFeedPost(postingUserUsername: user.username, postingUserProfileImage: user.profilePhoto, hasImage: false, textContent: text, imageContent: nil, postDate: Date())
+        
+        feedStore.newPost(newPost)
         
         self.dismiss(animated: true)
     }
@@ -107,22 +101,6 @@ class NewPostViewController: UIViewController {
     
     @IBAction func backgroundTapRecognized(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
-    }
-    
-    @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
-        self.textView.endEditing(true)
-        
-        if let _ = image {
-            self.image = nil
-            self.imageView.image = UIImage(systemName: "photo.badge.plus")
-            return
-        }
-        print("Picking or Taking photo")
-        
-        let controller = UIImagePickerController()
-        controller.delegate = self
-        controller.sourceType = .camera
-        self.present(controller, animated: true)
     }
 }
 

@@ -21,10 +21,11 @@ class DeleteAccountViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    /// Sends a request to the API to delete the logged in account
     private func deleteAccount() {
         let user = (UIApplication.shared.delegate as! AppDelegate).user!
         AccountsAPI.deleteAccount(for: user) { resp in
-            if let error = resp["error"] {
+            if let _ = resp["error"] {
                 let alert = UIAlertController(title: resp["description"] as? String, message: nil, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(ok)

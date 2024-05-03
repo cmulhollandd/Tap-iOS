@@ -28,6 +28,7 @@ class PersonalProfileViewController: UserProfileViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let username = delegate.user.username
         

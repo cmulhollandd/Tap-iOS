@@ -54,10 +54,18 @@ class ChangePasswordViewController: UIViewController {
         }
     }
     
+    /// Checks that the new password fulfills the criteria set forth for a password
+    /// - Parameter pw: Proposed new password string
+    /// - Returns: true if criteria is met, false otherwise
     private func checkPassword(_ pw: String) -> Bool {
         return pw.contains(/[0-9]/) && pw.contains(/[a-z]/) && pw.contains(/[A-Z]/) && pw.count >= 8
     }
     
+    /// Updates the password stored in the keychain after a password change
+    ///
+    /// Should the password be immedieatly written to the keychain, or should we log the user out and save it
+    /// once they successfully login again?
+    /// - Parameter newPassword: new password string to be stored
     private func updateUserDetails(for newPassword: String) {
         guard UserDefaults.standard.bool(forKey: "TapKeepUserLoggedIn") else {
             return

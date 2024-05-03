@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0803AEB92BA9F48A0014D4F8 /* AccountSettingsIndex.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */; };
+		08069AE72BE0888500AFC24F /* UserFountainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08069AE62BE0888500AFC24F /* UserFountainViewCell.swift */; };
+		08069AE92BE0892100AFC24F /* UserFountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08069AE82BE0892100AFC24F /* UserFountainsViewController.swift */; };
+		08069AEB2BE08BF800AFC24F /* FountainAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08069AEA2BE08BF800AFC24F /* FountainAnnotation.swift */; };
 		081CEDBA2BBA42C600564FF1 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */; };
 		0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082271292B8819A4007CD0F7 /* FountainStore.swift */; };
 		082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */; };
@@ -34,14 +37,21 @@
 		089F90572BBC91A20057CDDA /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089F90562BBC91A20057CDDA /* NewPostViewController.swift */; };
 		08B967AF2BBE23B400560E11 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B967AE2BBE23B400560E11 /* LaunchScreenViewController.swift */; };
 		08B967B32BBEFD5D00560E11 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */; };
+		08CC112A2BCF09DD00BFD82B /* FountainReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CC11292BCF09DD00BFD82B /* FountainReview.swift */; };
 		08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D2194C2B7C0DD300CBC733 /* MapViewController.swift */; };
 		08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5422B8F797200695946 /* FountainAPI.swift */; };
 		08E7A5452B90F1AB00695946 /* APIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7A5442B90F1AB00695946 /* APIHelpers.swift */; };
+		08E9C8502BD0A65E00F36AD5 /* TapListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */; };
+		08E9C8522BD0A76100F36AD5 /* SingleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */; };
+		08E9C8542BD0B6D500F36AD5 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */; };
+		08E9C8562BD169FF00F36AD5 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C8552BD169FF00F36AD5 /* PostDetailViewController.swift */; };
+		08E9C8582BD1782A00F36AD5 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9C8572BD1782A00F36AD5 /* CommentCell.swift */; };
 		08EB419B2BBF1A8500876EA1 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41962BBF1A8500876EA1 /* AccountSettingsViewController.swift */; };
 		08EB419C2BBF1A8500876EA1 /* ChangeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41972BBF1A8500876EA1 /* ChangeUsernameViewController.swift */; };
 		08EB419D2BBF1A8500876EA1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */; };
 		08EB419E2BBF1A8500876EA1 /* TapSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41992BBF1A8500876EA1 /* TapSettingsViewController.swift */; };
 		08EB419F2BBF1A8500876EA1 /* MainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB419A2BBF1A8500876EA1 /* MainSettingsViewController.swift */; };
+		08EB41A12BBF1B7400876EA1 /* SocialAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB41A02BBF1B7400876EA1 /* SocialAPI.swift */; };
 		08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E02B631E5F0033ED63 /* AccountsAPI.swift */; };
 		08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E22B6838970033ED63 /* FeedTableViewCell.swift */; };
 		08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779E42B6839740033ED63 /* TapFeedPost.swift */; };
@@ -50,6 +60,13 @@
 		08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EA2B6844BF0033ED63 /* FeedViewController.swift */; };
 		08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F779EC2B6882090033ED63 /* FeedPostStore.swift */; };
 		2214335428D8F575E1D92912 /* Pods_Tap_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */; };
+		DB2CF7042BD18FF4004135D6 /* LeaderboardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7032BD18FF4004135D6 /* LeaderboardEntry.swift */; };
+		DB2CF7062BD1900F004135D6 /* LeaderboardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */; };
+		DB2CF7082BD193A2004135D6 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */; };
+		DB2CF70A2BD195FA004135D6 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */; };
+		DB78CD6B2BE1AC00001A9384 /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB78CD6A2BE1AC00001A9384 /* Water.swift */; };
+		DB78CD6D2BE1B3C3001A9384 /* WaterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB78CD6C2BE1B3C3001A9384 /* WaterAPI.swift */; };
+		DBB108092BDB083B00EE3679 /* WaterLoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +88,9 @@
 
 /* Begin PBXFileReference section */
 		0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AccountSettingsIndex.plist; sourceTree = "<group>"; };
+		08069AE62BE0888500AFC24F /* UserFountainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFountainViewCell.swift; sourceTree = "<group>"; };
+		08069AE82BE0892100AFC24F /* UserFountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFountainsViewController.swift; sourceTree = "<group>"; };
+		08069AEA2BE08BF800AFC24F /* FountainAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainAnnotation.swift; sourceTree = "<group>"; };
 		081CEDB92BBA42C600564FF1 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		082271292B8819A4007CD0F7 /* FountainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainStore.swift; sourceTree = "<group>"; };
 		082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapNavigationController.swift; sourceTree = "<group>"; };
@@ -101,14 +121,21 @@
 		089F90562BBC91A20057CDDA /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		08B967AE2BBE23B400560E11 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
+		08CC11292BCF09DD00BFD82B /* FountainReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainReview.swift; sourceTree = "<group>"; };
 		08D2194C2B7C0DD300CBC733 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		08E7A5422B8F797200695946 /* FountainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainAPI.swift; sourceTree = "<group>"; };
 		08E7A5442B90F1AB00695946 /* APIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelpers.swift; sourceTree = "<group>"; };
+		08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapListViewController.swift; sourceTree = "<group>"; };
+		08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelCell.swift; sourceTree = "<group>"; };
+		08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		08E9C8552BD169FF00F36AD5 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		08E9C8572BD1782A00F36AD5 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		08EB41962BBF1A8500876EA1 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		08EB41972BBF1A8500876EA1 /* ChangeUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUsernameViewController.swift; sourceTree = "<group>"; };
 		08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		08EB41992BBF1A8500876EA1 /* TapSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapSettingsViewController.swift; sourceTree = "<group>"; };
 		08EB419A2BBF1A8500876EA1 /* MainSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSettingsViewController.swift; sourceTree = "<group>"; };
+		08EB41A02BBF1B7400876EA1 /* SocialAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAPI.swift; sourceTree = "<group>"; };
 		08F779E02B631E5F0033ED63 /* AccountsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsAPI.swift; sourceTree = "<group>"; };
 		08F779E22B6838970033ED63 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		08F779E42B6839740033ED63 /* TapFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapFeedPost.swift; sourceTree = "<group>"; };
@@ -119,6 +146,13 @@
 		09759F9C86A4D42829E42E17 /* Pods_Tap_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tap_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12DE62DFC314FED4CF2A156D /* Pods-Tap-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tap-iOS.release.xcconfig"; path = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B696BDE726B50EFA6E4B45D4 /* Pods-Tap-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tap-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Tap-iOS/Pods-Tap-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2CF7032BD18FF4004135D6 /* LeaderboardEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardEntry.swift; sourceTree = "<group>"; };
+		DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardStore.swift; sourceTree = "<group>"; };
+		DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
+		DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		DB78CD6A2BE1AC00001A9384 /* Water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
+		DB78CD6C2BE1B3C3001A9384 /* WaterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterAPI.swift; sourceTree = "<group>"; };
+		DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLoggingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +185,10 @@
 			isa = PBXGroup;
 			children = (
 				08E7A5422B8F797200695946 /* FountainAPI.swift */,
+				DB78CD6C2BE1B3C3001A9384 /* WaterAPI.swift */,
 				08F779E02B631E5F0033ED63 /* AccountsAPI.swift */,
 				08E7A5442B90F1AB00695946 /* APIHelpers.swift */,
+				08EB41A02BBF1B7400876EA1 /* SocialAPI.swift */,
 			);
 			path = "API Objects";
 			sourceTree = "<group>";
@@ -199,12 +235,12 @@
 				081CEDB22BACC5BA00564FF1 /* API Objects */,
 				089F0B7A2B7EDE0D00BFDC71 /* Model Objects */,
 				089F90552BBC880A0057CDDA /* Data Stores */,
+				08F779DF2B631E2F0033ED63 /* View Controllers */,
 				0886537B2B602D4B00355D6D /* Assets.xcassets */,
 				0886537D2B602D4B00355D6D /* LaunchScreen.storyboard */,
 				088653802B602D4B00355D6D /* Info.plist */,
 				0851EA842B9CE95B0055CAED /* MainSettingsIndex.plist */,
 				0803AEB82BA9F48A0014D4F8 /* AccountSettingsIndex.plist */,
-				08F779DF2B631E2F0033ED63 /* View Controllers */,
 			);
 			path = "Tap-iOS";
 			sourceTree = "<group>";
@@ -232,6 +268,10 @@
 				08F779E42B6839740033ED63 /* TapFeedPost.swift */,
 				08F779E62B6839CA0033ED63 /* TapUser.swift */,
 				089F0B7B2B7EDE2500BFDC71 /* Fountain.swift */,
+				08CC11292BCF09DD00BFD82B /* FountainReview.swift */,
+				DB2CF7032BD18FF4004135D6 /* LeaderboardEntry.swift */,
+				DB78CD6A2BE1AC00001A9384 /* Water.swift */,
+				08069AEA2BE08BF800AFC24F /* FountainAnnotation.swift */,
 			);
 			path = "Model Objects";
 			sourceTree = "<group>";
@@ -239,6 +279,7 @@
 		089F90542BBC87660057CDDA /* SettingsViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */,
 				08EB41962BBF1A8500876EA1 /* AccountSettingsViewController.swift */,
 				08EB41982BBF1A8500876EA1 /* ChangePasswordViewController.swift */,
 				08EB41972BBF1A8500876EA1 /* ChangeUsernameViewController.swift */,
@@ -255,8 +296,40 @@
 				08F779EC2B6882090033ED63 /* FeedPostStore.swift */,
 				082271292B8819A4007CD0F7 /* FountainStore.swift */,
 				0851EA862B9CF0180055CAED /* SettingsTableStore.swift */,
+				DB2CF7052BD1900F004135D6 /* LeaderboardStore.swift */,
 			);
 			path = "Data Stores";
+			sourceTree = "<group>";
+		};
+		08A843A22BE42F6D00B0CE20 /* FountainVCs */ = {
+			isa = PBXGroup;
+			children = (
+				08D2194C2B7C0DD300CBC733 /* MapViewController.swift */,
+				089F0B7D2B7EE06100BFDC71 /* NewFountainViewController.swift */,
+				0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */,
+			);
+			path = FountainVCs;
+			sourceTree = "<group>";
+		};
+		08A843A32BE42FA500B0CE20 /* SocialVCs */ = {
+			isa = PBXGroup;
+			children = (
+				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
+				089F90562BBC91A20057CDDA /* NewPostViewController.swift */,
+				08E9C8552BD169FF00F36AD5 /* PostDetailViewController.swift */,
+			);
+			path = SocialVCs;
+			sourceTree = "<group>";
+		};
+		08A843A42BE42FD700B0CE20 /* ProfileVCs */ = {
+			isa = PBXGroup;
+			children = (
+				0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */,
+				089F90522BBC7F790057CDDA /* UserProfileViewController.swift */,
+				08E9C84F2BD0A65E00F36AD5 /* TapListViewController.swift */,
+				08069AE82BE0892100AFC24F /* UserFountainsViewController.swift */,
+			);
+			path = ProfileVCs;
 			sourceTree = "<group>";
 		};
 		08D2194B2B7C0DA500CBC733 /* Cells */ = {
@@ -266,6 +339,10 @@
 				08F779E82B6841630033ED63 /* FeedTableViewCellWithImage.swift */,
 				0851EA802B9CE6740055CAED /* BasicSettingsTableCell.swift */,
 				0851EA822B9CE7CA0055CAED /* ToggleSettingsTableCell.swift */,
+				08E9C8512BD0A76100F36AD5 /* SingleLabelCell.swift */,
+				08E9C8572BD1782A00F36AD5 /* CommentCell.swift */,
+				DB2CF7072BD193A2004135D6 /* LeaderboardTableViewCell.swift */,
+				08069AE62BE0888500AFC24F /* UserFountainViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -286,15 +363,13 @@
 				089F90542BBC87660057CDDA /* SettingsViewControllers */,
 				087ECE372B6AB06400F27DB7 /* OnboardingVCs */,
 				08D2194B2B7C0DA500CBC733 /* Cells */,
-				08F779EA2B6844BF0033ED63 /* FeedViewController.swift */,
+				08A843A22BE42F6D00B0CE20 /* FountainVCs */,
+				08A843A32BE42FA500B0CE20 /* SocialVCs */,
+				08A843A42BE42FD700B0CE20 /* ProfileVCs */,
+				DB2CF7092BD195FA004135D6 /* LeaderboardViewController.swift */,
 				082DE5BE2B6B1C74008CF33A /* TapNavigationController.swift */,
-				08D2194C2B7C0DD300CBC733 /* MapViewController.swift */,
-				089F0B7D2B7EE06100BFDC71 /* NewFountainViewController.swift */,
-				0846809A2B8EBBAD00FF9EBE /* FountainDetailViewController.swift */,
-				0851EA7E2B9CE1D40055CAED /* PersonalProfileViewController.swift */,
-				089F90522BBC7F790057CDDA /* UserProfileViewController.swift */,
-				089F90562BBC91A20057CDDA /* NewPostViewController.swift */,
-				08B967B22BBEFD5D00560E11 /* DeleteAccountViewController.swift */,
+				08E9C8532BD0B6D500F36AD5 /* SpinnerViewController.swift */,
+				DBB108082BDB083B00EE3679 /* WaterLoggingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -496,8 +571,11 @@
 				08E7A5452B90F1AB00695946 /* APIHelpers.swift in Sources */,
 				08F779E72B6839CA0033ED63 /* TapUser.swift in Sources */,
 				088653732B602D4800355D6D /* AppDelegate.swift in Sources */,
+				08069AE92BE0892100AFC24F /* UserFountainsViewController.swift in Sources */,
+				DB2CF70A2BD195FA004135D6 /* LeaderboardViewController.swift in Sources */,
 				08EB419E2BBF1A8500876EA1 /* TapSettingsViewController.swift in Sources */,
 				08F779E92B6841630033ED63 /* FeedTableViewCellWithImage.swift in Sources */,
+				DBB108092BDB083B00EE3679 /* WaterLoggingViewController.swift in Sources */,
 				08B967B32BBEFD5D00560E11 /* DeleteAccountViewController.swift in Sources */,
 				082DE5BF2B6B1C74008CF33A /* TapNavigationController.swift in Sources */,
 				089F90572BBC91A20057CDDA /* NewPostViewController.swift in Sources */,
@@ -507,25 +585,39 @@
 				08EB419D2BBF1A8500876EA1 /* ChangePasswordViewController.swift in Sources */,
 				08F779E32B6838970033ED63 /* FeedTableViewCell.swift in Sources */,
 				08EB419C2BBF1A8500876EA1 /* ChangeUsernameViewController.swift in Sources */,
+				08069AE72BE0888500AFC24F /* UserFountainViewCell.swift in Sources */,
 				08F779ED2B6882090033ED63 /* FeedPostStore.swift in Sources */,
+				08E9C8582BD1782A00F36AD5 /* CommentCell.swift in Sources */,
 				08E7A5432B8F797200695946 /* FountainAPI.swift in Sources */,
+				DB2CF7042BD18FF4004135D6 /* LeaderboardEntry.swift in Sources */,
+				08E9C8542BD0B6D500F36AD5 /* SpinnerViewController.swift in Sources */,
+				08E9C8562BD169FF00F36AD5 /* PostDetailViewController.swift in Sources */,
 				08B967AF2BBE23B400560E11 /* LaunchScreenViewController.swift in Sources */,
 				0851EA872B9CF0180055CAED /* SettingsTableStore.swift in Sources */,
 				089F0B7E2B7EE06100BFDC71 /* NewFountainViewController.swift in Sources */,
 				08F779E52B6839740033ED63 /* TapFeedPost.swift in Sources */,
 				088653A72B606FEA00355D6D /* ResetPasswordViewController.swift in Sources */,
 				08EB419B2BBF1A8500876EA1 /* AccountSettingsViewController.swift in Sources */,
+				08E9C8522BD0A76100F36AD5 /* SingleLabelCell.swift in Sources */,
 				089F0B7C2B7EDE2500BFDC71 /* Fountain.swift in Sources */,
 				0822712A2B8819A4007CD0F7 /* FountainStore.swift in Sources */,
+				DB2CF7082BD193A2004135D6 /* LeaderboardTableViewCell.swift in Sources */,
 				088653A52B606FDA00355D6D /* LoginViewController.swift in Sources */,
 				0851EA832B9CE7CA0055CAED /* ToggleSettingsTableCell.swift in Sources */,
 				089F90532BBC7F790057CDDA /* UserProfileViewController.swift in Sources */,
 				0846809B2B8EBBAD00FF9EBE /* FountainDetailViewController.swift in Sources */,
+				08EB41A12BBF1B7400876EA1 /* SocialAPI.swift in Sources */,
+				08CC112A2BCF09DD00BFD82B /* FountainReview.swift in Sources */,
 				0851EA812B9CE6740055CAED /* BasicSettingsTableCell.swift in Sources */,
+				DB78CD6D2BE1B3C3001A9384 /* WaterAPI.swift in Sources */,
+				08069AEB2BE08BF800AFC24F /* FountainAnnotation.swift in Sources */,
 				08F779E12B631E5F0033ED63 /* AccountsAPI.swift in Sources */,
+				DB2CF7062BD1900F004135D6 /* LeaderboardStore.swift in Sources */,
 				088653752B602D4800355D6D /* SceneDelegate.swift in Sources */,
+				08E9C8502BD0A65E00F36AD5 /* TapListViewController.swift in Sources */,
 				0851EA7F2B9CE1D40055CAED /* PersonalProfileViewController.swift in Sources */,
 				08F779EB2B6844BF0033ED63 /* FeedViewController.swift in Sources */,
+				DB78CD6B2BE1AC00001A9384 /* Water.swift in Sources */,
 				08D2194D2B7C0DD300CBC733 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,12 +805,14 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Tap-iOS/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "to take and share photos with your friends on Tap";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to find and post about fountains near you.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "to share photos with your friends on Tap";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -745,12 +839,14 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Tap-iOS/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "to take and share photos with your friends on Tap";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "to find and post about fountains near you.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "to share photos with your friends on Tap";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
