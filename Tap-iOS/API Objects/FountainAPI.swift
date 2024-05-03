@@ -174,11 +174,12 @@ struct FountainAPI {
         
         let components = URLComponents(string: "\(baseAPIURL)/add-review")!
         let payload: [String: Any] = [
-            "fountainId": "\(fountain.id)",
+            "fountainId": fountain.id,
             "reviewer": user.username,
             "description": review.getDescription(),
-            "rating": review.getRatingString()
+            "rating": Double(review.getRatingString())!
         ]
+        print(payload)
         
         var data: Data
         
